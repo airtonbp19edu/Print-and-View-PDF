@@ -1,66 +1,94 @@
-# Print-and-View-PDF
-Print&View PDF é a continuação do Winux PDF para Linux, com interface GTK 3,
-renderização Poppler e impressão pelo CUPS. O código atual e o pacote
-**3.3.7~test2** partem da **3.3.5**. O usuário forneceu depois o histórico
-completo até a **Winux 3.3.11**, agora analisado, mas ainda não incorporado
-integralmente à aplicação. A próxima versão deverá usar essa referência e
-numeração sem sufixo de teste. Consulte a [revisão do histórico](docs/REVISAO-HISTORICO-WINUX.md)
-para os recursos a recuperar e os defeitos encontrados.
+# Print&View PDF
 
-## Executar em Debian/Ubuntu
+Print&View PDF é a continuação do Winux PDF: um leitor com busca progressiva,
+apresentação e preparação de impressão em livreto, pôster e várias páginas
+por folha. A versão **3.4.0** consolida os recursos da Winux **3.3.11** com as
+melhorias do Print&View, sem sufixo de teste.
+
+## Downloads
+
+| Sistema | Pacote |
+|---|---|
+| Debian/Ubuntu | [print-view-pdf_3.4.0_all.deb](packages/print-view-pdf_3.4.0_all.deb) |
+| Linux com Flatpak, x86_64 | [PrintViewPDF-3.4.0-x86_64.flatpak](packages/PrintViewPDF-3.4.0-x86_64.flatpak) |
+| Windows 10/11, x64 | [PrintViewPDF-3.4.0-Setup-x64.exe](packages/PrintViewPDF-3.4.0-Setup-x64.exe) |
+
+Confira a integridade em [SHA256SUMS](packages/SHA256SUMS). Os pacotes antigos
+com `~test` permanecem como histórico; use os arquivos **3.4.0** acima.
+
+## Recursos
+
+- Busca com painel de resultados, trechos de contexto, navegação e rolagem até
+  a ocorrência; opções de caso, palavra inteira, acentos e hifenização.
+- Temas claro, escuro e automático, com preferência persistida e migração da
+  escolha antiga do Winux. O ciclo de notificações do tema automático foi corrigido.
+- Apresentação com página inteira, preenchimento centralizado acima dos controles
+  e opção de leitura a 250% começando no topo; zoom, pan e laser.
+- Renderização JPEG para a tela, cache de vizinhos e cancelamento ativo de pedidos
+  obsoletos. Pedidos idênticos em andamento não são reiniciados por notificações
+  repetidas de tamanho. A apresentação mantém a imagem anterior e mostra falhas.
+- Seleção e cópia por palavras, miniaturas, marcadores, comentários e consulta
+  de camadas; exportação de PNG e salvamento de PDF preparado.
+- Impressão em tamanho, N-up, livreto e pôster. A prévia do livreto permite
+  navegar por todas as faces, respeitando frente/verso e encadernação.
+
+No Linux, a impressão usa CUPS. No Windows, o documento preparado é enviado
+pelo diálogo nativo de impressão; propriedades avançadas dependem do driver.
+O tema escuro afeta a interface, sem inverter as cores das páginas.
+
+## Instalar
+
+Debian/Ubuntu:
 
 ```bash
-sudo apt-get install python3 python3-gi python3-gi-cairo gir1.2-gtk-3.0 \
-  python3-cairo python3-cryptography python3-pil poppler-utils cups-client
-bash scripts/run.sh /caminho/documento.pdf
+sudo apt install ./packages/print-view-pdf_3.4.0_all.deb
 ```
 
-Use o Python do sistema (`/usr/bin/python3`) para carregar os bindings GTK.
-É necessária uma sessão gráfica para a aplicação. O pypdf 6.10.0 original
-está preservado em `app/vendor`, com sua licença em `docs/pypdf-LICENSE.txt`.
+O pacote substitui `winux-pdf` e instala as dependências do leitor. A associação
+padrão de arquivos PDF não é alterada automaticamente.
 
-## Testar e empacotar
+Flatpak:
 
 ```bash
+flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install --user flathub org.freedesktop.Platform//25.08
+flatpak install --user ./packages/PrintViewPDF-3.4.0-x86_64.flatpak
+flatpak run io.github.airtonbp19edu.PrintViewPDF
+```
+
+O bundle inclui Python, GTK e ferramentas PDF; o runtime base do Freedesktop
+é instalado pelo Flatpak. Ele acessa a pasta pessoal para abrir/salvar PDFs,
+o display e o CUPS/rede para impressão. Isso não é publicação no Flathub.
+
+No Windows, execute o instalador `.exe`. Python, GTK e Poppler estão incluídos;
+a instalação é por usuário, sem exigir privilégios de administrador. O
+instalador não possui assinatura Authenticode.
+
+## Desenvolvimento
+
+No Debian/Ubuntu, instale Python do sistema, GTK 3, GI/Cairo, Pillow,
+cryptography, Poppler e CUPS client, então execute:
+
+```bash
+bash scripts/run.sh /caminho/documento.pdf
 /usr/bin/python3 -m unittest discover -s tests -v
 /usr/bin/python3 scripts/build_deb.py
 ```
 
-Os testes GTK exigem `DISPLAY`; sem sessão gráfica, são explicitamente
-ignorados. Os demais exercitam geração de PDFs e renderização real com Poppler.
-O pacote é gerado em `dist/print-view-pdf_3.3.7~test2_all.deb`.
-Uma cópia para download acompanha o código em `packages/`. Para instalar:
+Os testes gráficos exigem `DISPLAY`. O pypdf **6.20.1** está fixado em
+`app/vendor` com sua licença preservada. Outros formatos são gerados por
+[scripts/build_flatpak.py](scripts/build_flatpak.py) e
+[scripts/build_windows.py](scripts/build_windows.py); consulte
+[empacotamento e validação](docs/ENTREGA-3.4.0.md).
 
-```bash
-sudo apt install ./packages/print-view-pdf_3.3.7~test2_all.deb
-```
+As verificações automatizadas não substituem impressão física nem validação
+com documentos grandes. O conteúdo do Flatpak foi exercitado fora do sandbox;
+a instalação no sandbox requer validação na distribuição de destino. O
+runtime Windows foi exercitado no Wine, sem certificar comportamento em todo
+Windows/driver. Veja os resultados e limites em [ENTREGA-3.4.0](docs/ENTREGA-3.4.0.md).
 
-O novo pacote substitui `winux-pdf` (não deve coexistir com ele). A associação
-de PDFs como aplicativo padrão não é alterada automaticamente. Os logs novos
-usam `~/.cache/print-view-pdf`, preservando os antigos do Winux.
-
-## Mudanças desta etapa
-
-- Identidade Print&View PDF no aplicativo, launcher, pacote e menu do sistema.
-- Seletor de tema claro/escuro/automático, com escolha persistida.
-- Apresentação centralizada acima dos controles, com Página inteira e Preencher tela.
-- Renderização principal separada de busca/miniaturas, cache de imagens decodificadas
-  e pré-carregamento de páginas vizinhas. Falhas na apresentação agora são visíveis.
-- Cache de imagens distingue caminho e metadados do arquivo de origem.
-- Busca retorna coordenadas por ocorrência, com realces e navegação individual.
-- Busca por página com resultados progressivos, descarte de pesquisas substituídas
-  e cache limitado a 64 mapas de página por documento.
-- Controles de maiúsculas/minúsculas, palavra inteira, ignorar acentos e unir
-  palavras hifenizadas entre linhas do mesmo bloco.
-- Seleção concluída realça as palavras e respeita linhas/blocos do Poppler ao copiar.
-- CropBox e rotação interna do PDF são considerados nas dimensões de leitura.
-- Livreto compartilha seleção de frente/verso e encadernação entre motor e prévia.
-- Impressão de apenas frente ou verso usa passagem manual sem duplex automático.
-- A entrada N-up fracionária é rejeitada também pela API de preparação.
-
-Consulte [o roteiro da test2](docs/TESTAR-TEST2.md), [os testes de busca](docs/TESTAR-3.3.7.md),
-[a análise e as limitações](docs/ANALISE.md) e
-[a proveniência da base](docs/PROVENIENCIA.md). Não há alegação de equivalência
-com Foxit ou UPDF: a análise estática dos aplicativos completos está registrada
-em [engenharia reversa](docs/ENGENHARIA-REVERSA-FOXIT-UPDF.md), mas a comparação
-dinâmica no Windows ainda está pendente.
+A referência é o desenvolvimento próprio do Winux. A
+[análise estática do Foxit e UPDF](docs/ENGENHARIA-REVERSA-FOXIT-UPDF.md) é parcial;
+não há alegação de equivalência completa nem código ou recursos desses leitores
+incorporados à aplicação. A [revisão histórica](docs/REVISAO-HISTORICO-WINUX.md)
+registra a evolução dos 18 pacotes e a origem dos recursos.

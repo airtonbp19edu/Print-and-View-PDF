@@ -1,0 +1,37 @@
+[
+  {
+    "file": "GTK3_Gvsbuild_2026.8.0_x64.zip",
+    "url": "https://github.com/wingtk/gvsbuild/releases/download/2026.8.0/GTK3_Gvsbuild_2026.8.0_x64.zip",
+    "sha256": "9be43d9029749062d2637070c856e73f8a1327a72259d08326b38155c139ecdc"
+  },
+  {
+    "file": "Release-26.09.0-0.zip",
+    "url": "https://github.com/oschwartz10612/poppler-windows/releases/download/v26.09.0-0/Release-26.09.0-0.zip",
+    "sha256": "7a6f256a0ddf7536182246a5733331bf4677cbcc34f4663774947ad34556c8d0"
+  },
+  {
+    "file": "python.3.14.0.nupkg",
+    "url": "https://api.nuget.org/v3-flatcontainer/python/3.14.0/python.3.14.0.nupkg",
+    "sha256": "620fb3527428fb354f093b0b8b634dfb8e3023115df68608fba7e91db69b4f4d"
+  },
+  {
+    "file": "cffi-2.1.1-cp314-cp314-win_amd64.whl",
+    "url": "https://files.pythonhosted.org/packages/a7/06/1c3e01e3ba14c39f6d10bfbac52753b7e22259e38088e5cfe1d704918690/cffi-2.1.1-cp314-cp314-win_amd64.whl",
+    "sha256": "3222ba5d678f80a030e6afbcc33dc1ae5cb45facabb61cee2c7016b8432fde48"
+  },
+  {
+    "file": "cryptography-50.0.2-cp311-abi3-win_amd64.whl",
+    "url": "https://files.pythonhosted.org/packages/9a/4f/adfc442765721292fff86d314ce385d3249d22db42295c0dd057727b60f3/cryptography-50.0.2-cp311-abi3-win_amd64.whl",
+    "sha256": "7afa5a6602a9f29af1f3a2965f831bae7c9d5d597b7cbb716d41ab3b7d89879c"
+  },
+  {
+    "file": "pillow-12.3.0-cp314-cp314-win_amd64.whl",
+    "url": "https://files.pythonhosted.org/packages/f1/e0/492879f69d94f91f60fc8cd05ba03650e9520afebb2fb7aa12777d7c7f38/pillow-12.3.0-cp314-cp314-win_amd64.whl",
+    "sha256": "fdafc9cce40277e0f7a0feabce0ee50dd2fa1800f3b38015e51296b5e814048d"
+  },
+  {
+    "file": "pycparser-3.11-py3-none-any.whl",
+    "url": "https://files.pythonhosted.org/packages/90/11/0e6f11117525ff0eec40ebac3d313376f102df93ca44ad9e893ee85e4f89/pycparser-3.11-py3-none-any.whl",
+    "sha256": "51d5a8ba2be0bbe440b99d2112604c95bbbc3c2748a64260186c541e1729cd80"
+  }
+]

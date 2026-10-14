@@ -16,6 +16,8 @@ def _run(args, timeout=15, check=True):
 
 
 def available():
+    if os.name == 'nt':
+        return True
     return bool(shutil.which('lpstat') and shutil.which('lp'))
 
 
@@ -73,6 +75,9 @@ def _uri_identity(uri):
 
 
 def list_printers(include_discovered=False):
+    if os.name == 'nt':
+        from windows_print import list_printers as native_printers
+        return native_printers()
     """List installed CUPS queues, deduplicated by physical device when possible.
 
     Historically lpstat -e was used first, but that includes temporary/discovered
@@ -327,7 +332,7 @@ def get_maintenance_commands(printer_name):
                 for line in f:
                     if line.startswith('*cupsCommands:'):
                         value = line.split(':', 1)[1].strip().strip('"')
-                        commands.extend(value.split())
+                        commands.extend(token for token in value.split() if re.fullmatch(r'[A-Za-z][A-Za-z0-9_-]{0,63}', token))
                         break
         except Exception:
             pass
@@ -339,7 +344,9 @@ def get_maintenance_commands(printer_name):
 def send_maintenance_command(printer_name, command):
     if not shutil.which('lp'):
         raise RuntimeError('O comando lp não está instalado.')
-    fd, path = tempfile.mkstemp(prefix='print-view-cups-command-', suffix='.txt')
+    if command not in get_maintenance_commands(printer_name):
+        raise ValueError('Comando de manutenção não anunciado pelo driver.')
+    fd, path = tempfile.mkstemp(prefix='winux-cups-command-', suffix='.txt')
     try:
         with os.fdopen(fd, 'w', encoding='ascii', errors='ignore') as f:
             f.write('#CUPS-COMMAND\n')
@@ -401,11 +408,14 @@ def print_file(printer_name, filepath, job):
 
     if job.get('collate'):
         options.setdefault('multiple-document-handling', 'separate-documents-collated-copies')
-    if job.get('print_mode') == 'booklet':
-        # A filtered stack of fronts or backs is a manual pass, not duplex.
-        options['sides'] = ('two-sided-short-edge'
-                            if job.get('booklet_auto_duplex') and job.get('booklet_sides', 'both') == 'both'
-                            else 'one-sided')
+    if job.get('print_mode') == 'booklet' and job.get('booklet_sides') in ('front', 'back'):
+        # These PDFs contain only one physical side of each sheet: never
+        # duplex them with a saved printer setting or printer default.
+        options.pop('Duplex', None)
+        options['sides'] = 'one-sided'
+    elif job.get('print_mode') == 'booklet' and job.get('booklet_auto_duplex'):
+        options.pop('Duplex', None)
+        options['sides'] = 'two-sided-short-edge'
 
     if job.get('grayscale'):
         ppd = get_ppd_options(printer_name)
@@ -424,9 +434,14 @@ def print_file(printer_name, filepath, job):
         else:
             options['print-color-mode'] = 'monochrome'
 
+    safe_option = re.compile(r'[A-Za-z][A-Za-z0-9_.-]{0,79}\Z')
     for key, value in options.items():
         if value is None or value == '':
             continue
+        key, value = str(key), str(value)
+        if (not safe_option.fullmatch(key) or len(value) > 160 or
+                any(ch in value for ch in '\r\n\x00') or '=' in value):
+            raise ValueError('Opção de impressora inválida.')
         cmd += ['-o', f'{key}={value}']
     cmd.append(filepath)
     proc = _run(cmd, timeout=60, check=False)

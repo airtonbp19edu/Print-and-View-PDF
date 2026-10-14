@@ -1,5 +1,8 @@
 # Revisão do histórico Winux e da migração Print&View
 
+**Nota posterior:** a consolidação e os pacotes 3.4.0 são descritos em
+[ENTREGA-3.4.0](ENTREGA-3.4.0.md). Esta revisão registra o estado anterior.
+
 ## Resultado e referência correta
 
 A última versão fornecida pelo usuário é **Winux 3.3.11**. Foram examinados

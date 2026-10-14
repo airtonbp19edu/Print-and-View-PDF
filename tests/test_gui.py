@@ -72,6 +72,28 @@ class GUIRegressionTests(unittest.TestCase):
         w.find_entry.set_text('')
         self.assertEqual(w.search_hits, [])
 
+    def test_search_sidebar_scroll_and_all_booklet_faces(self):
+        w = self.window
+        w.find_entry.set_text('PAGE')
+        wait_for(lambda: not w.search_running and len(w.search_hits) == 7)
+        self.assertEqual(len(w.find_results_list.get_children()), 7)
+        w._select_search_hit(6)
+        wait_for(lambda: w.displayed_page == 7 and not w._search_scroll_pending)
+        p = PrintWindow(w, w.runner, str(self.pdf), 8, w.page_sizes, 0, w.cache_dir, lambda job: None)
+        try:
+            p.mode_stack.set_visible_child_name('booklet')
+            for sides, count in [('both', 4), ('front', 2), ('back', 2)]:
+                p.book_sides.set_active_id(sides)
+                faces = p._booklet_faces()
+                self.assertEqual(len(faces), count)
+                p.booklet_preview_index = 0
+                for index, face in enumerate(faces):
+                    self.assertEqual(p._current_booklet_face(), face)
+                    self.assertEqual(p.booklet_preview_index, index)
+                    p._booklet_step(None, 1)
+        finally:
+            p.destroy()
+
     def test_booklet_preview_sides_binding_and_submit(self):
         w = self.window
         jobs = []

@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "pages": 4,
+  "hits": 4,
+  "sidebar_rows": 4,
+  "booklet_pages": 1,
+  "pixbuf": [
+    884,
+    1253
+  ],
+  "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "win32",
+  "environment": "Wine 10.0 on Debian 13, GTK native Win32 backend, synthetic PDF",
+  "limitations": [
+    "No native Windows machine tested",
+    "No physical printing",
+    "No installer execution under Wine32"
+  ]
+}

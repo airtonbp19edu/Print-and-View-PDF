@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 import json
+try:
+    import resource
+except ImportError:  # Windows has no POSIX resource module.
+    resource = None
 import os
 import subprocess
 import sys
@@ -15,12 +19,16 @@ def _rasterize_pdf_in_place(path, dpi):
         from PIL import Image
     except Exception as exc:  # noqa: BLE001
         raise RuntimeError('Imprimir como imagem requer o pacote python3-pil.') from exc
-    dpi = max(72, min(1200, int(dpi)))
-    with tempfile.TemporaryDirectory(prefix='print-view-raster-') as td:
+    dpi = max(72, min(600, int(dpi)))
+    with tempfile.TemporaryDirectory(prefix='winux-raster-') as td:
         # Render and encode one page at a time. The former all-pages list could
         # retain multiple gigabytes of decoded pixels for large print jobs.
         from rendering import document_info
-        page_count = int(document_info(path)['pages'])
+        info = document_info(path)
+        page_count = int(info['pages'])
+        for w, h in info['sizes']:
+            if w * h * (dpi / 72) ** 2 > 45_000_000:
+                raise RuntimeError('Imprimir como imagem excede o limite de 45 MP por página.')
         page_pdfs = []
         for page_no in range(1, page_count + 1):
             prefix = os.path.join(td, f'page-{page_no:06d}')
@@ -59,12 +67,25 @@ def _rasterize_pdf_in_place(path, dpi):
 
 
 def main(argv):
+    # Bound untrusted PDF parsing/imposition CPU and memory in the worker.
+    for limit, amount in (() if resource is None else
+                          ((resource.RLIMIT_AS, 2 * 1024**3), (resource.RLIMIT_CPU, 540))):
+        try:
+            soft, hard = resource.getrlimit(limit)
+            resource.setrlimit(limit, (min(soft, amount) if soft != resource.RLIM_INFINITY else amount,
+                                       min(hard, amount) if hard != resource.RLIM_INFINITY else amount))
+        except (OSError, ValueError):
+            pass
     if len(argv) < 3:
         raise SystemExit(2)
     cmd = argv[1]
     if cmd == 'info':
         info = document_info(argv[2])
         print(json.dumps(info, ensure_ascii=False))
+        return
+    if cmd == 'panels':
+        from pdf_panels import inspect_document_panels
+        print(json.dumps(inspect_document_panels(argv[2]), ensure_ascii=False))
         return
     if cmd == 'prepare':
         if len(argv) < 4:

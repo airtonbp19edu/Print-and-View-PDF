@@ -46,6 +46,41 @@ class ViewerTests(unittest.TestCase):
         self.assertLess((color.red + color.green + color.blue) / 3, .5)
         self.assertEqual(read_theme(), 'light')
 
+    def test_repeated_requests_do_not_cancel_same_running_render(self):
+        from cancel_state import get_event
+        started = threading.Event(); release = threading.Event(); events = []
+        real_load = self.w._reader_pixbuf
+        def slow(*args):
+            events.append(get_event()); started.set(); release.wait(5)
+            return real_load(*args)
+        self.w.page_cache.clear()
+        try:
+            with patch.object(self.w, '_reader_pixbuf', side_effect=slow):
+                self.w.goto_page(5)
+                wait_for(started.is_set)
+                for _ in range(20):
+                    self.w.request_render()
+                self.assertFalse(events[0].is_set())
+                release.set()
+                wait_for(lambda: self.w.displayed_page == 5)
+        finally:
+            release.set()
+
+    def test_historical_reading_mode_keeps_top_at_250_percent(self):
+        p = PresentationWindow(self.w, self.w.runner, str(self.pdf), self.w.page_sizes, 0, self.w.cache_dir)
+        try:
+            wait_for(lambda: p.pixbuf is not None and not p._loading)
+            p.fit_combo.set_active_id('reading')
+            wait_for(lambda: p.rendered_zoom == 250 and not p._loading)
+            self.assertTrue(p._top_anchor)
+            self.assertEqual(p.pan_y, p._pan_bounds()[3])
+            p._goto(1)
+            wait_for(lambda: p.page == 1 and not p._loading)
+            self.assertEqual(p.zoom, 250)
+            self.assertEqual(p.pan_y, p._pan_bounds()[3])
+        finally:
+            p.destroy()
+
     def test_prefetched_reader_page_is_immediate(self):
         wait_for(lambda: any(key[1] == 1 for key in self.w.page_cache.images))
         before = time.monotonic(); self.w.goto_page(1)

@@ -1,0 +1,57 @@
+/* Loaded over the existing stylesheet only when effective appearance is dark.
+   GTK also uses gtk-application-prefer-dark-theme for native controls/dialogs. */
+window, dialog { background: #1d2026; color: #e9edf4; }
+window label, dialog label { color: #e8ebf0; }
+window entry, window spinbutton, window textview, window textview text,
+window combobox button, dialog entry, dialog textview,
+window button:not(.suggested-action), dialog button:not(.suggested-action) {
+    background-color: #2c3039; color: #f1f3f6;
+    border-color: #505765;
+}
+window entry selection, window textview selection { background: #6c4e9c; color: white; }
+.ribbon-shell, .ribbon-tabbar, .ribbon-stack, .ribbon-page-scroll,
+.ribbon-page-scroll viewport, .ribbon-group { background: #24272f; }
+.quick-access { background: #20232a; border-color: #393d47; }
+.quick-title { color: #e2dfea; }
+.ribbon-tab { background: transparent; color: #e4e5e9; }
+.ribbon-tab:hover { background: #353141; }
+.ribbon-tab.active-ribbon-tab { color: #c6a4ff; border-bottom-color: #b08aeb; }
+.ribbon-group-title, .muted { color: #b1b8c4; }
+.ribbon-separator, .ribbon-collapse { background: #393d47; }
+.ribbon-command, .ribbon-command-small, .ribbon-collapse {
+    background: transparent; color: #e9eaf1; border-color: transparent;
+}
+.ribbon-command label, .ribbon-command-small label,
+.ribbon-tab label { color: #e9eaf1; }
+.ribbon-command:hover, .ribbon-command-small:hover,
+.ribbon-collapse:hover { background: #3c344d; border-color: #5b4b77; }
+togglebutton.ribbon-command:checked, togglebutton.ribbon-command-small:checked {
+    background: #4b3b61; border-color: #8a6bb4; color: #ffffff;
+}
+.document-tabbar, .document-tab-filler { background: #24272e; border-color: #414550; }
+.document-tab { background: #30343d; border-color: #4c515e; border-top-color: #bd91fc; }
+.document-tab-close { background: transparent; }
+.findbar { background: #353025; border-color: #6c5734; }
+.sidebar-container, notebook.side-panels { background: #252931; border-color: #454953; }
+.sidebar-rail { background: #20232a; border-color: #424651; }
+.sidebar-rail-button, .side-panel-close { background: transparent; }
+.sidebar-rail-button:hover, .side-panel-close:hover { background: #41394f; }
+.sidebar-rail-button:checked { background: #443452; border-left-color: #b38ae8; }
+.side-panel-header { background: #2b2e36; border-color: #454953; }
+.side-panel-title, .panel-row-title { color: #eef0f6; }
+.sidebar-container list, .sidebar-container list row { background: #252931; color: #eef0f6; }
+.sidebar-container list row:selected { background: #50416b; }
+.viewer-scroll, .viewer-scroll viewport { background: #17191e; }
+/* PDF canvas intentionally stays white: its pixels must never be recolored. */
+.page-frame { background: #ffffff; border-color: #535965; }
+.statusbar { background: #22252c; color: #e7e9ee; border-color: #414651; }
+.statusbar button { background: transparent; color: #e7e9ee; }
+.statusbar entry { background: #30343e; color: #f1f3f6; }
+frame > border { border-color: #4c5360; }
+expander > title, .maintenance-key { color: #ececf1; }
+textview, textview text { background: #292d36; color: #eef0f4; }
+.presentation-toolbar { background: rgba(25,25,25,.94); }
+.presentation-toolbar label, .presentation-toolbar checkbutton label { color: #ffffff; }
+.presentation-toolbar button, .presentation-toolbar combobox button {
+    background: #373737; color: #ffffff; border-color: #606060;
+}

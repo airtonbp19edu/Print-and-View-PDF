@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.airtonbp19edu.PrintViewPDF</id>
+  <name>Print&amp;View PDF</name>
+  <summary>Read PDFs and prepare booklet, poster and multiple-page printing</summary>
+  <summary xml:lang="pt_BR">Leia PDFs e prepare impressão em livreto, pôster e várias páginas por folha</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <developer id="io.github.airtonbp19edu"><name>Print&amp;View PDF contributors</name></developer>
+  <description>
+    <p>Print&amp;View PDF continues Winux PDF with progressive text search, light and dark themes, presentation, selection and advanced PDF print layouts.</p>
+    <p xml:lang="pt_BR">Print&amp;View PDF continua o Winux PDF com busca progressiva, temas claro e escuro, apresentação, seleção e preparação avançada de impressão.</p>
+  </description>
+  <launchable type="desktop-id">io.github.airtonbp19edu.PrintViewPDF.desktop</launchable>
+  <url type="homepage">https://github.com/airtonbp19edu/Print-and-View-PDF</url>
+  <url type="bugtracker">https://github.com/airtonbp19edu/Print-and-View-PDF/issues</url>
+  <provides><mediatype>application/pdf</mediatype></provides>
+  <categories><category>Office</category><category>Viewer</category></categories>
+  <content_rating type="oars-1.1"/>
+  <releases><release version="3.4.0" date="2026-10-14"/></releases>
+</component>

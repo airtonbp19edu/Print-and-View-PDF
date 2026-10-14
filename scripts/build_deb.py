@@ -6,7 +6,9 @@ import subprocess
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '3.3.7~test2'
+import sys
+sys.path.insert(0, str(ROOT / 'app'))
+from version import VERSION
 
 
 def build():
@@ -29,7 +31,8 @@ def build():
         for src in (ROOT / 'LICENSE', ROOT / 'README.md', ROOT / 'docs/pypdf-LICENSE.txt',
                     ROOT / 'docs/ANALISE.md', ROOT / 'docs/PROVENIENCIA.md',
                     ROOT / 'docs/TESTAR-3.3.7.md', ROOT / 'docs/TESTAR-TEST2.md',
-                    ROOT / 'docs/ENGENHARIA-REVERSA-FOXIT-UPDF.md'):
+                    ROOT / 'docs/ENGENHARIA-REVERSA-FOXIT-UPDF.md',
+                    ROOT / 'docs/ENTREGA-3.4.0.md'):
             shutil.copy2(src, doc)
         control = stage / 'DEBIAN'; control.mkdir()
         (control / 'control').write_text(
@@ -40,10 +43,15 @@ def build():
             'Conflicts: winux-pdf\nReplaces: winux-pdf\n'
             f'Installed-Size: {sum(p.stat().st_size for p in stage.rglob("*") if p.is_file()) // 1024 + 1}\n'
             'Description: Print&View PDF reader and advanced printer for Linux\n'
-            ' Based on Winux PDF 3.3.5, with incremental word search and advanced printing.\n')
+            ' Continues Winux PDF 3.3.11 with progressive search, themes, presentation,\n'
+            ' booklet, poster and N-up printing through CUPS.\n')
+        (control / 'postinst').write_text('#!/bin/sh\nset -e\nif [ "$1" = configure ]; then\n  if command -v py3compile >/dev/null 2>&1; then py3compile /usr/share/print-view-pdf; fi\n  if command -v update-desktop-database >/dev/null 2>&1; then update-desktop-database -q; fi\n  if command -v gtk-update-icon-cache >/dev/null 2>&1; then gtk-update-icon-cache -q -t -f /usr/share/icons/hicolor || true; fi\nfi\n')
+        (control / 'postrm').write_text('#!/bin/sh\nset -e\nif command -v py3clean >/dev/null 2>&1; then py3clean -p print-view-pdf; fi\nif command -v update-desktop-database >/dev/null 2>&1; then update-desktop-database -q; fi\nif command -v gtk-update-icon-cache >/dev/null 2>&1; then gtk-update-icon-cache -q -t -f /usr/share/icons/hicolor || true; fi\n')
+        (doc / 'copyright').write_text('Print&View PDF: MIT, see LICENSE.\nBundled pypdf 6.20.1: BSD-3-Clause, see pypdf-LICENSE.txt.\nOriginal Winux source continued with authorization from its authors.\n')
         for p in stage.rglob('*'):
             if p.is_dir(): p.chmod(0o755)
-            elif p != launcher: p.chmod(0o644)
+            elif p == launcher or p.name in ('postinst', 'postrm'): p.chmod(0o755)
+            else: p.chmod(0o644)
         output = dist / f'print-view-pdf_{VERSION}_all.deb'
         subprocess.run(['dpkg-deb', '--root-owner-group', '--build', str(stage), str(output)], check=True)
     return output

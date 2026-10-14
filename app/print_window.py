@@ -10,7 +10,7 @@ gi.require_version('GdkPixbuf', '2.0')
 from gi.repository import Gtk, Gdk, GdkPixbuf, GLib
 
 import cups_backend as cups
-from imposition import (selected_booklet_pairs, oriented_paper, paper_size_points,
+from imposition import (booklet_print_pairs, oriented_paper, paper_size_points,
                         poster_grid_for_size, select_page_indices)
 from rendering import render_page, safe_filename_from_pdf
 
@@ -58,6 +58,9 @@ _VALUE_TRANSLATIONS = {
         'auto': 'Automático', 'automatic': 'Automático', 'manual': 'Manual',
         'rear': 'Traseira', 'reartray': 'Bandeja traseira', 'cassette': 'Gaveta',
         'tray1': 'Bandeja 1', 'tray2': 'Bandeja 2', 'none': 'Nenhum',
+        'faceup': 'Face para cima', 'facedown': 'Face para baixo',
+        'auto-fit': 'Ajuste automático', 'autofit': 'Ajuste automático',
+        'fill': 'Preencher área imprimível', 'fit': 'Ajustar à área imprimível',
         'off': 'Desativado', 'on': 'Ativado', 'true': 'Ativado', 'false': 'Desativado',
 
         # Duplex
@@ -89,6 +92,9 @@ _VALUE_TRANSLATIONS = {
         'normal': 'Normal', 'standard': 'Estándar', 'high': 'Alta', 'best': 'Óptima',
         'auto': 'Automático', 'automatic': 'Automático', 'manual': 'Manual',
         'none': 'Ninguno', 'off': 'Desactivado', 'on': 'Activado',
+        'faceup': 'Cara hacia arriba', 'facedown': 'Cara hacia abajo',
+        'autofit': 'Ajuste automático', 'auto-fit': 'Ajuste automático',
+        'fill': 'Rellenar área imprimible', 'fit': 'Ajustar al área imprimible',
         'onesided': 'Una cara', 'two-sided-long-edge': 'Doble cara — borde largo',
         'two-sided-short-edge': 'Doble cara — borde corto', 'letter': 'Carta',
         'legal': 'Legal', 'env10': 'Sobre n.º 10',
@@ -132,11 +138,14 @@ def _paper_size_display(text, lang):
     return base_label
 
 
-def _choice_display(value):
+def _choice_display(value, option_key=None):
     text = str(value or '')
     lang = _system_language()
     if lang == 'en':
         return text
+    # print-scaling option: 'none' means no resizing, not an absent setting.
+    if (option_key or '').lower().replace('_', '-') in ('print-scaling', 'printscaling') and text.lower() == 'none':
+        return 'Sem escala (tamanho original)' if lang == 'pt' else 'Sin escala (tamaño original)'
 
     # Primeiro trata formatos de papel e variantes Borderless de forma genérica.
     lower = text.lower()
@@ -203,11 +212,14 @@ FRIENDLY = {
     'Resolution': 'Resolução', 'printer-resolution': 'Resolução',
     'print-content-optimize': 'Otimização de conteúdo', 'output-bin': 'Bandeja de saída',
     'finishings': 'Acabamento', 'job-sheets': 'Folhas de separação',
+    'OutputTray': 'Bandeja de saída', 'output-tray': 'Bandeja de saída',
+    'OutputBin': 'Bandeja de saída', 'print-scaling': 'Escala de impressão',
+    'PrintScaling': 'Escala de impressão', 'printScaling': 'Escala de impressão',
 }
 
 
 class OptionPicker(Gtk.Dialog):
-    def __init__(self, parent, title, choices, current):
+    def __init__(self, parent, title, choices, current, option_key=None):
         super().__init__(title=title, transient_for=parent, modal=True)
         self.set_default_size(420, 420)
         self.add_buttons('Cancelar', Gtk.ResponseType.CANCEL, 'Selecionar', Gtk.ResponseType.OK)
@@ -218,7 +230,7 @@ class OptionPicker(Gtk.Dialog):
         sc.add(box)
         group = None
         for choice in choices:
-            radio = Gtk.RadioButton.new_with_label_from_widget(group, _choice_display(choice))
+            radio = Gtk.RadioButton.new_with_label_from_widget(group, _choice_display(choice, option_key))
             if group is None:
                 group = radio
             radio.set_active(choice == current)
@@ -528,12 +540,20 @@ class PrinterPropertiesWindow(Gtk.Dialog):
                 continue
             label = Gtk.Label(label=FRIENDLY.get(key, meta.get('label', key)), xalign=0)
             value = self.selected.get(key, meta.get('current'))
-            btn = Gtk.Button(label=_choice_display(value) if value else 'Selecionar…')
+            choices = meta.get('choices', [])
+            if len(choices) <= 1:
+                # Do not advertise a selector when the driver exposes just one
+                # possible value.  CUPS cannot switch to a nonadvertised tray.
+                btn = Gtk.Label(label=_choice_display(value, key) if value else 'Não informado', xalign=0)
+                btn.set_tooltip_text('Opção fixa: o driver CUPS da impressora não oferece alternativas.')
+                btn.get_style_context().add_class('muted')
+            else:
+                btn = Gtk.Button(label=_choice_display(value, key) if value else 'Selecionar…')
+                btn.connect('clicked', self._pick, key)
+                self.value_buttons[key] = btn
             btn.set_hexpand(True)
-            btn.connect('clicked', self._pick, key)
             grid.attach(label, 0, row, 1, 1)
             grid.attach(btn, 1, row, 1, 1)
-            self.value_buttons[key] = btn
             row += 1
         if row == 0:
             grid.attach(Gtk.Label(label='Nenhuma opção exposta pelo driver nesta seção.', xalign=0), 0, 0, 2, 1)
@@ -541,11 +561,13 @@ class PrinterPropertiesWindow(Gtk.Dialog):
 
     def _pick(self, _button, key):
         meta = self.options[key]
+        if len(meta.get('choices', [])) <= 1:
+            return
         current = self.selected.get(key, meta.get('current'))
-        dlg = OptionPicker(self, FRIENDLY.get(key, meta.get('label', key)), meta.get('choices', []), current)
+        dlg = OptionPicker(self, FRIENDLY.get(key, meta.get('label', key)), meta.get('choices', []), current, option_key=key)
         if dlg.run() == Gtk.ResponseType.OK:
             self.selected[key] = dlg.value
-            self.value_buttons[key].set_label(_choice_display(dlg.value))
+            self.value_buttons[key].set_label(_choice_display(dlg.value, key))
         dlg.destroy()
 
     def result(self):
@@ -581,6 +603,8 @@ class PrintWindow(Gtk.Window):
         # Miniaturas reais usadas dentro do preview dos modos avançados.
         self.preview_thumbs = {}
         self.preview_thumb_pending = set()
+        # Index into the actual printable booklet faces (not source pages).
+        self.booklet_preview_index = 0
 
         root = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8, margin=10)
         self.add(root)
@@ -597,6 +621,9 @@ class PrintWindow(Gtk.Window):
         self._load_printers_async()
         self._request_preview_image()
         self.show_all()
+        # show_all makes every child visible; hide booklet-only navigator
+        # again until the user selects the Livreto mode.
+        self._refresh_preview_labels()
 
     def _set_workarea_size(self):
         try:
@@ -672,6 +699,17 @@ class PrintWindow(Gtk.Window):
         self.preview.set_size_request(340, 430)
         self.preview.connect('draw', self._draw_preview)
         box.pack_start(self.preview, True, True, 0)
+        self.booklet_nav = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
+        self.booklet_previous = Gtk.Button(label='◀ Anterior')
+        self.booklet_previous.connect('clicked', self._booklet_step, -1)
+        self.booklet_nav.pack_start(self.booklet_previous, False, False, 0)
+        self.booklet_position = Gtk.Label(label='', xalign=0.5)
+        self.booklet_position.set_hexpand(True)
+        self.booklet_nav.pack_start(self.booklet_position, True, True, 0)
+        self.booklet_next = Gtk.Button(label='Próxima ▶')
+        self.booklet_next.connect('clicked', self._booklet_step, 1)
+        self.booklet_nav.pack_start(self.booklet_next, False, False, 0)
+        box.pack_start(self.booklet_nav, False, False, 0)
         self.preview_summary = Gtk.Label(label='', xalign=0)
         self.preview_summary.set_line_wrap(True)
         box.pack_start(self.preview_summary, False, False, 0)
@@ -789,8 +827,8 @@ class PrintWindow(Gtk.Window):
         self.poster_cut_marks.connect('toggled', self._controls_changed)
         grid.attach(self.poster_cut_marks, 0, 2, 1, 1)
 
-        self.poster_labels = Gtk.CheckButton(label='Etiquetas')
-        self.poster_labels.set_active(False)
+        self.poster_labels = Gtk.CheckButton(label='Identificação e encaixe')
+        self.poster_labels.set_active(True)
         self.poster_labels.connect('toggled', self._controls_changed)
         grid.attach(self.poster_labels, 1, 2, 2, 1)
 
@@ -809,7 +847,8 @@ class PrintWindow(Gtk.Window):
 
         hint = Gtk.Label(
             label='Modo pôster: Zoom da página define o tamanho final; Sobreposição repete uma faixa entre folhas. '
-                  'Marcas de corte indicam onde aparar essa faixa; Etiquetas identificam o documento e a página.',
+                  'Linhas pontilhadas indicam onde cortar. As marcas de registro devem ficar na mesma altura nas duas folhas. '
+                  'As etiquetas identificam as bordas a manter, cortar e encaixar.',
             xalign=0)
         hint.set_line_wrap(True)
         hint.get_style_context().add_class('muted')
@@ -862,6 +901,7 @@ class PrintWindow(Gtk.Window):
         self.book_sides.append('back', 'Somente verso')
         self.book_sides.set_active_id('both')
         self.book_sides.connect('changed', self._controls_changed)
+        self.book_sides.set_tooltip_text('Selecione as faces que serão impressas. A visualização mostra apenas essas faces.')
         grid.attach(self.book_sides, 1, 1, 1, 1)
         grid.attach(Gtk.Label(label='Margem de segurança:', xalign=0), 0, 2, 1, 1)
         self.book_safe = Gtk.SpinButton.new_with_range(0, 30, 1)
@@ -876,6 +916,7 @@ class PrintWindow(Gtk.Window):
         grid.attach(self.book_gutter, 1, 3, 1, 1)
         grid.attach(Gtk.Label(label='mm'), 2, 3, 1, 1)
         self.auto_duplex = Gtk.CheckButton(label='Frente e verso automático (borda curta)')
+        self.auto_duplex.set_tooltip_text('Disponível apenas em Ambos os lados, quando a impressora oferece duplex automático.')
         grid.attach(self.auto_duplex, 0, 4, 3, 1)
         return grid
 
@@ -892,7 +933,7 @@ class PrintWindow(Gtk.Window):
                     default_id = dest
             if default_id:
                 self.dest_combo.set_active_id(default_id)
-            self.dest_status.set_text('Pronto.' if printers else 'Nenhuma impressora CUPS encontrada; Salvar como PDF continua disponível.')
+            self.dest_status.set_text('Pronto.' if printers else 'Nenhuma impressora encontrada; Salvar como PDF continua disponível.')
         self.runner.submit('print-printers', cups.list_printers, ok,
                            lambda e: self._set_label_text(self.dest_status, f'Falha ao consultar CUPS: {e}') if not self._closed else None)
 
@@ -908,6 +949,15 @@ class PrintWindow(Gtk.Window):
             self.preview.queue_draw()
 
     def _open_properties(self, *_args):
+        if os.name == 'nt':
+            from windows_print import show_properties
+            destination = self.dest_combo.get_active_id() or ''
+            if destination.startswith('cups:'):
+                try:
+                    show_properties(destination[5:])
+                except Exception as exc:
+                    self.dest_status.set_text(str(exc))
+            return
         dest = self.dest_combo.get_active_id() or ''
         if not dest.startswith('cups:'):
             return
@@ -949,6 +999,24 @@ class PrintWindow(Gtk.Window):
         except Exception:
             pass
 
+    def _booklet_faces(self, indices=None):
+        """Exactly the faces that create_booklet will write to the print PDF."""
+        if indices is None:
+            indices = self._selected_indices()
+        return booklet_print_pairs(indices, self.book_sides.get_active_id() or 'both')
+
+    def _current_booklet_face(self, indices=None):
+        faces = self._booklet_faces(indices)
+        self.booklet_preview_index = min(max(0, self.booklet_preview_index), max(0, len(faces) - 1))
+        return faces[self.booklet_preview_index] if faces else None
+
+    def _booklet_step(self, _button, amount):
+        faces = self._booklet_faces()
+        self.booklet_preview_index = min(max(0, self.booklet_preview_index + amount), max(0, len(faces) - 1))
+        self._refresh_preview_labels()
+        self._request_mode_thumbnails()
+        self.preview.queue_draw()
+
     def _mode_thumbnail_indices(self):
         indices = self._selected_indices()
         if not indices:
@@ -963,17 +1031,13 @@ class PrintWindow(Gtk.Window):
                 nup = 4
             return indices[:max(1, min(16, nup))]
         if mode == 'booklet':
-            pairs = self._booklet_pairs(indices)
-            if not pairs:
+            pair = self._current_booklet_face(indices)
+            if not pair:
                 return []
-            pair = pairs[0]
-            pages = [pair[1], pair[2]]
+            pages = pair[1:]
+            if self.binding.get_active_id() == 'right': pages = pages[::-1]
             return [idx for idx in pages if idx is not None]
         return indices[:1]
-
-    def _booklet_pairs(self, indices):
-        return selected_booklet_pairs(indices, self.book_sides.get_active_id() or 'both',
-                                      self.binding.get_active_id() or 'left')
 
     def _request_mode_thumbnails(self):
         if self._closed:
@@ -1017,10 +1081,16 @@ class PrintWindow(Gtk.Window):
     def _controls_changed(self, *_args):
         if self._closed:
             return
+        if _args and _args[0] in (self.book_sides, self.mode_stack, self.r_all,
+                                  self.r_current, self.r_pages, self.range_entry,
+                                  self.subset, self.reverse):
+            self.booklet_preview_index = 0
         self.range_entry.set_sensitive(self.r_pages.get_active())
         if self.mode_stack.get_visible_child_name() == 'booklet':
             self.orientation.set_active_id('landscape')
             self.orientation.set_sensitive(False)
+            # Front-only/back-only jobs must remain single-sided, independent
+            # of any duplex selection retained from earlier booklet jobs.
             self.auto_duplex.set_sensitive(self.book_sides.get_active_id() == 'both')
         else:
             self.orientation.set_sensitive(True)
@@ -1064,7 +1134,7 @@ class PrintWindow(Gtk.Window):
                     f'Escala {self.poster_scale.get_value():.0f}% • Sobreposição {self._poster_overlap_mm():.1f} mm • '
                     f'Tamanho montado {out_w / 72 * 2.54:.1f} × {out_h / 72 * 2.54:.1f} cm • '
                     f'Marcas de corte {"sim" if self.poster_cut_marks.get_active() else "não"} • '
-                    f'Etiquetas {"sim" if self.poster_labels.get_active() else "não"}')
+                    f'Instruções de encaixe {"sim" if self.poster_labels.get_active() else "não"}')
             except ValueError as exc:
                 over_limit = True
                 self._set_label_text(self.preview_info, 'Limite de 100 folhas por página excedido')
@@ -1076,15 +1146,31 @@ class PrintWindow(Gtk.Window):
             self._set_label_text(self.preview_summary, f'{len(indices)} página(s) selecionada(s) → {sheets} folha(s).')
         elif mode == 'booklet':
             sheets = math.ceil(len(indices) / 4) if indices else 0
-            pairs = self._booklet_pairs(indices)
-            side = {'both': 'ambos os lados', 'front': 'frente', 'back': 'verso'}[self.book_sides.get_active_id() or 'both']
-            self._set_label_text(self.preview_info, f'Livreto — {sheets} folha(s) — {len(pairs)} face(s) — {side}')
+            faces = self._booklet_faces(indices)
+            current = self._current_booklet_face(indices)
+            side_label = {'both': 'Ambos os lados', 'front': 'Somente frente',
+                          'back': 'Somente verso'}.get(self.book_sides.get_active_id(), 'Ambos os lados')
+            self._set_label_text(self.preview_info, f'Livreto — {sheets} folha(s) físicas — {side_label}')
+            if hasattr(self, 'booklet_nav'):
+                self.booklet_nav.set_visible(True)
+                self.booklet_previous.set_sensitive(bool(faces) and self.booklet_preview_index > 0)
+                self.booklet_next.set_sensitive(bool(faces) and self.booklet_preview_index < len(faces) - 1)
+                kind = 'Frente' if current and current[0] == 'front' else 'Verso'
+                sheet_number = (self.booklet_preview_index // 2 + 1) if side_label == 'Ambos os lados' else self.booklet_preview_index + 1
+                if current:
+                    self._set_label_text(self.booklet_position,
+                        f'{kind} · folha {sheet_number}/{sheets} · face {self.booklet_preview_index + 1}/{len(faces)}')
+                else:
+                    self._set_label_text(self.booklet_position, 'Nenhuma face para visualizar')
             self._set_label_text(self.preview_summary,
-                f'Margem segura {self.book_safe.get_value():.0f} mm • Dobra {self.book_gutter.get_value():.0f} mm')
+                f'{len(faces)} face(s) a imprimir • Margem segura {self.book_safe.get_value():.0f} mm • '
+                f'Dobra {self.book_gutter.get_value():.0f} mm')
         else:
             self._set_label_text(self.preview_info,
                 'Tamanho real (100%)' if self.scale.get_active_id() == 'actual' else 'Ajustar à área da página')
             self._set_label_text(self.preview_summary, f'{len(indices)} página(s) selecionada(s).')
+        if mode != 'booklet' and hasattr(self, 'booklet_nav'):
+            self.booklet_nav.set_visible(False)
         if hasattr(self, 'action_btn'):
             self.action_btn.set_sensitive(not over_limit)
 
@@ -1346,9 +1432,10 @@ class PrintWindow(Gtk.Window):
             cr.rectangle(*right_rect)
             cr.stroke()
             cr.set_dash([])
-            pairs = self._booklet_pairs(indices)
-            pair = pairs[0] if pairs else ('front', None, None)
+            pair = self._current_booklet_face(indices) or ('front', None, None)
             left, right = pair[1], pair[2]
+            if self.binding.get_active_id() == 'right':
+                left, right = right, left
             for idx, rect in ((left, left_rect), (right, right_rect)):
                 if idx is None:
                     cr.set_source_rgb(.35, .35, .35)
@@ -1429,7 +1516,8 @@ class PrintWindow(Gtk.Window):
             'booklet_sides': self.book_sides.get_active_id() or 'both',
             'booklet_safety_mm': float(self.book_safe.get_value()),
             'booklet_gutter_mm': float(self.book_gutter.get_value()),
-            'booklet_auto_duplex': self.auto_duplex.get_active(),
+            'booklet_auto_duplex': (mode == 'booklet' and self.book_sides.get_active_id() == 'both'
+                                    and self.auto_duplex.get_active()),
             'print_as_image': self.print_as_image.get_active(),
             'image_dpi': int(self.image_dpi.get_active_id() or 300),
         }

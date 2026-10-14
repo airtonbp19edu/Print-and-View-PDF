@@ -1,0 +1,71 @@
+{
+  "version": "3.4.0",
+  "base_version": "Winux PDF 3.3.11",
+  "validation": {
+    "source_tests": {
+      "run": 27,
+      "passed": 27,
+      "skipped": 0
+    },
+    "deb_extracted_tests": {
+      "run": 27,
+      "passed": 27,
+      "skipped": 0
+    },
+    "windows_runtime_smoke": {
+      "environment": "Wine 10.0 / Debian 13",
+      "passed": true,
+      "native_windows_verified": false,
+      "physical_printing_verified": false
+    },
+    "flatpak_payload_tests": {
+      "run": 27,
+      "passed": 27,
+      "skipped": 0,
+      "sandbox_verified": false
+    }
+  },
+  "source_module_sha256": {
+    "appearance.py": "1f41078231d6a7ab85b817826978591724f1a0dcbe05556acfc23499d4f229ae",
+    "async_core.py": "b38ee3f425c924bc9a681a46095f99d0903079caf7d5f125887c61060a990d0f",
+    "cancel_state.py": "c56c1cca7cb33f8375bc716ab60751952067f9eb720f48bd3df4746f36d5c820",
+    "cups_backend.py": "cf6732cb028c35c9fc09abd394ed20864d71420e741a6a016f860b8f9508f282",
+    "imposition.py": "8a19f036dd11e5a6eef38d17f09777e61c9b6c4a3cd21c71b7da1b6b29a1ac37",
+    "main.py": "5d49481f09f36a7e0b6c30d75a80a587822824135657c9bce57538118fefb949",
+    "page_cache.py": "d339231d4d4dc06cc9c7c08190bdf72874294f7e0e2a609e1a772254c09ae856",
+    "pdf_dependency.py": "b97a5431551b8a1fa5a3f49e27a7791e9753309975b9247baf8d70aac6cca8e5",
+    "pdf_panels.py": "7390a26fc7015643450afbe562fbddf96a25a3d857a3faf7384ba4fd342878b2",
+    "platform_runtime.py": "7c6d03d0f6032a4d0888be248e299ea43a009ae563ed89cd18fed85cdbbbfe74",
+    "presentation.py": "9d0fec9c32ef15a43a56780c2332d6270e4c24527be57e8dd16b1e6d3ad525e5",
+    "print_window.py": "99421e880dee024a58485a93a51f38332fb7f708a7e114d02deca9669bf83a6e",
+    "rendering.py": "8d519f2129f2061b370b0b9d2eca6ee81f788b6a100c3e3f47c3552063cf08e4",
+    "search_engine.py": "3a1d4912ffba06374066a17fafe8824fdd37466365586c76cf9e7fd43a459bb8",
+    "themes.py": "c5263f1a61d5e72db45704a597f0214fb48c5e47d79b55492cc30575d2b7edc9",
+    "version.py": "36f7896ab9f499430c7386716be5f1bbde6780af116c9a49497ec13c45026455",
+    "windows_bootstrap.py": "537bf137e997dec1e61f19bb9adaa178ad1307118b793583b8c4cf3bc3e894f8",
+    "windows_print.py": "3c2905d38de3ac9d601071ebd1650c39f264bc8ec50f85cc7e135cf483d26cd4",
+    "worker_cli.py": "aa2f2fa1922e3b58c8131f1b852f246162a01990318053e8c5b03970f05e8fbb"
+  },
+  "artifacts": [
+    {
+      "file": "PrintViewPDF-3.4.0-Setup-x64.exe",
+      "bytes": 67017156,
+      "sha256": "2ee91c8828db0d246c5129bded8a47825fa681daf1b575f80bf4dd99989ab43e"
+    },
+    {
+      "file": "PrintViewPDF-3.4.0-x86_64.flatpak",
+      "bytes": 43197720,
+      "sha256": "7f5926f32a5034677d6c26e947029e8359d511f29cdfbacc9afd27d1a38b7b08"
+    },
+    {
+      "file": "print-view-pdf_3.4.0_all.deb",
+      "bytes": 389952,
+      "sha256": "229023b13486d51df93170a70623fedbb2dd2ff7fd188044e1bf7224c5c86273"
+    },
+    {
+      "file": "print-view-pdf_3.4.0_source.tar.gz",
+      "bytes": 684912,
+      "sha256": "5d1858a527d741c303617e391c055d7d224011075cf358fb172c3a5932772fb2"
+    }
+  ]
+}

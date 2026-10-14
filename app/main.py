@@ -25,6 +25,7 @@ from pdf_panels import inspect_document_panels
 from search_engine import TextSearchIndex
 from page_cache import PageCache
 from themes import load_theme, read_theme, save_theme
+from platform_runtime import worker_python, subprocess_options
 
 APP_DIR = Path(__file__).resolve().parent
 WORKER = APP_DIR / 'worker_cli.py'
@@ -66,7 +67,7 @@ class PDFWindow(Gtk.Window):
         self.prefetch_tasks = {}
         self.theme_mode = read_theme()
         load_theme(self.theme_mode)
-        self.theme_signal = Gtk.Settings.get_default().connect('notify::gtk-theme-name', self._system_theme_changed)
+        _cleanup_stale_render_caches()
         self.cache_dir = tempfile.mkdtemp(prefix='print-view-pdf-cache-')
         self.filepath = None
         self.page_count = 0
@@ -77,6 +78,9 @@ class PDFWindow(Gtk.Window):
         self.zoom_mode = 'fit-page'  # fit-page, fit-width, percent
         self.zoom_percent = 100
         self.render_serial = 0
+        self._render_request_key = None
+        self._render_pending = False
+        self._viewport_render_size = None
         self.resize_timer = None
         self.zoom_slider_timer = None
         self._zoom_scale_sync = False
@@ -87,6 +91,8 @@ class PDFWindow(Gtk.Window):
         self.search_timer = None
         self.search_hits = []
         self.search_pos = -1
+        self._search_scroll_pending = False
+        self._results_count = 0
         self.search_cancel = threading.Event()
         self.search_index = None
         self.search_scanned = 0
@@ -435,7 +441,7 @@ class PDFWindow(Gtk.Window):
         nxt = Gtk.Button(label='Próximo'); nxt.connect('clicked', lambda *_: self._find_next()); box.pack_start(nxt, False, False, 0)
         self.find_status = Gtk.Label(label=''); box.pack_start(self.find_status, False, False, 0)
         close = Gtk.Button.new_from_icon_name('window-close-symbolic', Gtk.IconSize.BUTTON)
-        close.connect('clicked', lambda *_: self.find_revealer.set_reveal_child(False)); box.pack_start(close, False, False, 0)
+        close.connect('clicked', self._hide_find); box.pack_start(close, False, False, 0)
         container = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
         container.pack_start(box, False, False, 0)
         options = Gtk.Box(spacing=12, margin_start=8, margin_end=8, margin_bottom=4)
@@ -447,6 +453,19 @@ class PDFWindow(Gtk.Window):
             options.pack_start(button, False, False, 0)
             self.find_options[key] = button
         container.pack_start(options, False, False, 0)
+        self.find_results_toggle = Gtk.ToggleButton(label='Resultados')
+        self.find_results_toggle.connect('toggled', lambda b: self.find_results_revealer.set_reveal_child(b.get_active()))
+        options.pack_start(self.find_results_toggle, False, False, 0)
+        self.find_results_revealer = Gtk.Revealer()
+        self.find_results_scroll = Gtk.ScrolledWindow()
+        self.find_results_scroll.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
+        self.find_results_scroll.set_size_request(-1, 150)
+        self.find_results_list = Gtk.ListBox()
+        self.find_results_list.set_activate_on_single_click(True)
+        self.find_results_list.connect('row-activated', self._find_result_activated)
+        self.find_results_scroll.add(self.find_results_list)
+        self.find_results_revealer.add(self.find_results_scroll)
+        container.pack_start(self.find_results_revealer, False, False, 0)
         self.find_revealer.add(container)
         return self.find_revealer
 
@@ -665,7 +684,7 @@ class PDFWindow(Gtk.Window):
         self._set_actions_enabled(False)
 
         def task():
-            proc = subprocess.run([sys.executable, str(WORKER), 'info', path], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=180)
+            proc = subprocess.run([worker_python(), str(WORKER), 'info', path], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=180, **subprocess_options())
             if proc.returncode != 0:
                 raise RuntimeError(proc.stderr.strip() or 'Falha ao ler o PDF.')
             return json.loads(proc.stdout)
@@ -691,6 +710,8 @@ class PDFWindow(Gtk.Window):
             self._clear_document_state(); self._error(str(exc))
 
     def _clear_document_state(self):
+        self._render_request_key = None
+        self._render_pending = False
         self.render_runner.invalidate('main-render')
         self.page_cache.clear()
         for key, future in self.prefetch_tasks.items():
@@ -702,6 +723,8 @@ class PDFWindow(Gtk.Window):
         self.runner.invalidate('selection-words')
         self.filepath = None; self.page_count = 0; self.page_sizes = []; self.metadata = {}; self.page = 0
         self.search_hits = []; self.search_pos = -1
+        self._search_scroll_pending = False
+        self._find_update_results()
         self.selected_words = []; self.selection_data = None; self.selection_rect = None
         self.displayed_page = None; self.displayed_rotation = None
         self.find_status.set_text('')
@@ -755,9 +778,14 @@ class PDFWindow(Gtk.Window):
         path = self.filepath
         cache_dir = self.cache_dir
         key = (path, page, rotation, target)
+        if self._render_pending and key == self._render_request_key:
+            return
+        self._render_request_key = key
+        self._render_pending = True
         self.render_runner.invalidate('main-render')
         self.status_page.set_text(f'de {self.page_count}')
         def apply(pb):
+            self._render_pending = False
             self.rendered_pixbuf = pb
             self.displayed_page = page; self.displayed_rotation = rotation
             self._display_pixbuf(pb)
@@ -778,12 +806,14 @@ class PDFWindow(Gtk.Window):
                 self.page_cache.put(key, pb)
                 apply(pb)
             except Exception as exc: self._error(str(exc))
-        self.render_runner.submit('main-render', task, ok,
-                           lambda e: self.status_file.set_text(f'Falha ao renderizar: {e}'))
+        def failed(exc):
+            self._render_pending = False
+            self.status_file.set_text(f'Falha ao renderizar: {exc}')
+        self.render_runner.submit('main-render', task, ok, failed)
 
     @staticmethod
     def _reader_pixbuf(path, page, rotation, target, cache_dir):
-        png = render_page(path, page, target, cache_dir, f'main-r{rotation}')
+        png = render_page(path, page, target, cache_dir, f'main-r{rotation}', image_format='jpeg')
         pb = GdkPixbuf.Pixbuf.new_from_file(png)
         rotations = {90: GdkPixbuf.PixbufRotation.CLOCKWISE,
                      180: GdkPixbuf.PixbufRotation.UPSIDEDOWN,
@@ -842,6 +872,8 @@ class PDFWindow(Gtk.Window):
         if hasattr(self, 'interaction_layer'):
             self.interaction_layer.queue_draw()
         self.viewer_box.queue_resize()
+        if self._search_scroll_pending:
+            GLib.idle_add(self._scroll_to_search_hit)
 
     def _apply_zoom_preview(self):
         """Give immediate visual zoom feedback while a sharp render is prepared."""
@@ -944,6 +976,12 @@ class PDFWindow(Gtk.Window):
             finally: self._zoom_scale_sync = False
 
     def _on_resize(self, *_args):
+        if hasattr(self, 'viewer_scroll'):
+            alloc = self.viewer_scroll.get_allocation()
+            size = (alloc.width, alloc.height)
+            if size == self._viewport_render_size:
+                return
+            self._viewport_render_size = size
         if not self.filepath or self.zoom_mode == 'percent': return
         if self.resize_timer:
             try: GLib.source_remove(self.resize_timer)
@@ -1268,6 +1306,79 @@ class PDFWindow(Gtk.Window):
         x0,y0,x1,y1=rect; pw,ph=self._page_dimensions_rotated(); W=self.current_pixbuf.get_width(); H=self.current_pixbuf.get_height(); sx=pw/max(1,W); sy=ph/max(1,H)
         points=math.hypot((x1-x0)*sx,(y1-y0)*sy); self.measure_result=f'{points/72.0*2.54:.2f} cm'; self.status_file.set_text(f'Distância medida: {self.measure_result}')
 
+    def _find_result_activated(self, _list, row):
+        pos = getattr(row, 'hit_index', None)
+        if pos is not None:
+            self._select_search_hit(pos)
+
+    def _find_update_results(self):
+        if self._results_count > len(self.search_hits):
+            for row in self.find_results_list.get_children():
+                self.find_results_list.remove(row)
+            self._results_count = 0
+        # Capped UI list: all hits remain accessible with Next/Previous.
+        for idx in range(self._results_count, min(350, len(self.search_hits))):
+            hit = self.search_hits[idx]
+            row = Gtk.ListBoxRow()
+            row.hit_index = idx
+            label = Gtk.Label(label=f'Pág. {hit["page"] + 1}  •  {hit["snippet"]}', xalign=0)
+            label.set_ellipsize(Pango.EllipsizeMode.END)
+            label.set_margin_start(9)
+            label.set_margin_end(9)
+            label.set_margin_top(4)
+            label.set_margin_bottom(4)
+            row.add(label)
+            self.find_results_list.add(row)
+        self._results_count = min(350, len(self.search_hits))
+        self.find_results_list.show_all()
+
+    def _hide_find(self, *_args):
+        self.find_revealer.set_reveal_child(False)
+        self.search_cancel.set()
+        self.runner.invalidate('search')
+        self.search_running = False
+        if self.search_timer:
+            GLib.source_remove(self.search_timer)
+            self.search_timer = None
+        self.search_hits = []
+        self.search_pos = -1
+        self._search_scroll_pending = False
+        self._find_update_results()
+        self.interaction_layer.queue_draw()
+
+    def _select_search_hit(self, index):
+        if not self.search_hits:
+            return
+        self.search_pos = index % len(self.search_hits)
+        self._search_scroll_pending = True
+        self._update_find_status()
+        hit = self.search_hits[self.search_pos]
+        if hit['page'] != self.page:
+            self.goto_page(hit['page'])
+        else:
+            self.interaction_layer.queue_draw()
+            GLib.idle_add(self._scroll_to_search_hit)
+        if self.search_pos < 350:
+            row = self.find_results_list.get_row_at_index(self.search_pos)
+            if row:
+                self.find_results_list.select_row(row)
+
+    def _scroll_to_search_hit(self):
+        if (not self._search_scroll_pending or not self.current_pixbuf or self.search_pos < 0
+                or self.displayed_page != self.page or self.displayed_rotation != self.rotation):
+            return False
+        hit = self.search_hits[self.search_pos]
+        if hit['page'] != self.page or not hit['rects']:
+            return False
+        coords = self._pdf_rect_to_display(hit['rects'][0], hit)
+        alloc = self.page_frame.get_allocation()
+        for adjustment, point in ((self.viewer_scroll.get_hadjustment(), alloc.x + (coords[0] + coords[2]) / 2),
+                                  (self.viewer_scroll.get_vadjustment(), alloc.y + (coords[1] + coords[3]) / 2)):
+            target = point - adjustment.get_page_size() / 2
+            adjustment.set_value(max(adjustment.get_lower(), min(target, adjustment.get_upper() - adjustment.get_page_size())))
+        self._search_scroll_pending = False
+        return False
+
     # ---------- search ----------
     def _show_find(self, *_args):
         if not self.filepath: return
@@ -1278,6 +1389,8 @@ class PDFWindow(Gtk.Window):
         self.search_running = False
         self.runner.invalidate('search')
         self.search_hits = []; self.search_pos = -1
+        self._search_scroll_pending = False
+        self._find_update_results()
         self.interaction_layer.queue_draw()
         if self.search_timer:
             try: GLib.source_remove(self.search_timer)
@@ -1304,7 +1417,7 @@ class PDFWindow(Gtk.Window):
                 first = not self.search_hits
                 self.search_scanned = scanned; self.search_hits.extend(batch)
                 if first and batch:
-                    self.search_pos = 0; self.goto_page(batch[0]['page'])
+                    self._select_search_hit(0)
                 self._update_find_status()
                 self.interaction_layer.queue_draw()
                 return False
@@ -1330,14 +1443,15 @@ class PDFWindow(Gtk.Window):
         elif len(self.search_hits) >= 5000:
             text += ' • limite de resultados'
         self.find_status.set_text(text)
+        self._find_update_results()
 
     def _find_next(self):
         if not self.search_hits: return
-        self.search_pos = (self.search_pos + 1) % len(self.search_hits); self._update_find_status(); self.goto_page(self.search_hits[self.search_pos]['page']); self.interaction_layer.queue_draw()
+        self._select_search_hit(self.search_pos + 1)
 
     def _find_prev(self):
         if not self.search_hits: return
-        self.search_pos = (self.search_pos - 1) % len(self.search_hits); self._update_find_status(); self.goto_page(self.search_hits[self.search_pos]['page']); self.interaction_layer.queue_draw()
+        self._select_search_hit(self.search_pos - 1)
 
     # ---------- tools ----------
     def _save_copy(self, *_args):
@@ -1413,14 +1527,25 @@ class PDFWindow(Gtk.Window):
         self.status_file.set_text('Preparando impressão em segundo plano…')
         job_json = json.dumps(job, ensure_ascii=False)
         def task():
-            proc = subprocess.run([sys.executable, str(WORKER), 'prepare', path, out],
+            proc = subprocess.run([worker_python(), str(WORKER), 'prepare', path, out],
                                   input=job_json, stdout=subprocess.PIPE,
-                                  stderr=subprocess.PIPE, text=True, timeout=600)
+                                  stderr=subprocess.PIPE, text=True, timeout=600, **subprocess_options())
             if proc.returncode != 0: raise RuntimeError(proc.stderr.strip() or 'Falha ao preparar o PDF para impressão.')
             if job.get('destination') == 'save-pdf':
                 shutil.copy2(out, job['save_path']); return f'PDF salvo em {job["save_path"]}'
+            if os.name == 'nt':
+                return (out, job)
             return cups.print_file(job.get('printer'), out, job)
-        self.runner.submit('print-job', task, lambda msg: self.status_file.set_text(msg), lambda e: self._error(str(e)))
+        def done(result):
+            if isinstance(result, tuple):
+                try:
+                    from windows_print import print_dialog
+                    self.status_file.set_text(print_dialog(self, result[0], result[1]))
+                except Exception as exc:
+                    self._error(str(exc))
+            else:
+                self.status_file.set_text(result)
+        self.runner.submit('print-job', task, done, lambda e: self._error(str(e)))
 
     # ---------- keyboard ----------
     def _on_key(self, _w, event):
@@ -1436,6 +1561,8 @@ class PDFWindow(Gtk.Window):
         if key == 'F5': self._present(); return True
         if key == 'F9': self._reading_mode_toggle(); return True
         if key == 'F11': self._fullscreen_toggle(); return True
+        if key == 'Escape' and self.find_revealer.get_reveal_child(): self._hide_find(); return True
+        if isinstance(self.get_focus(), (Gtk.Entry, Gtk.SpinButton, Gtk.TextView)): return False
         if key in ('Page_Down','Right','Down'): self.goto_page(self.page + 1); return True
         if key in ('Page_Up','Left','Up'): self.goto_page(self.page - 1); return True
         if key == 'Home': self.goto_page(0); return True
@@ -1450,12 +1577,27 @@ class PDFWindow(Gtk.Window):
     def _on_destroy(self, *_args):
         self.search_cancel.set()
         self.render_runner.shutdown(); self.prefetch_runner.shutdown()
-        Gtk.Settings.get_default().disconnect(self.theme_signal)
         self.runner.shutdown()
         try: shutil.rmtree(self.cache_dir, ignore_errors=True)
         except Exception: pass
         Gtk.main_quit()
 
+
+def _cleanup_stale_render_caches():
+    """Remove only old, privately owned Winux temporary render directories."""
+    import time
+    tmp = Path(tempfile.gettempdir())
+    try:
+        for candidate in tmp.glob('print-view-pdf-cache-*'):
+            try:
+                st = candidate.lstat()
+                if (candidate.is_dir() and not candidate.is_symlink() and
+                        st.st_uid == os.getuid() and time.time() - st.st_mtime > 2*86400):
+                    shutil.rmtree(candidate)
+            except OSError:
+                pass
+    except OSError:
+        pass
 
 def _install_diagnostics():
     """Write exceptions and UI-freeze stack dumps to ~/.cache/print-view-pdf/diagnostics.log."""

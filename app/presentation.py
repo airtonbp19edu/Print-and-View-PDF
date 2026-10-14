@@ -53,6 +53,7 @@ class PresentationWindow(Gtk.Window):
         self._loading = True
         self._render_error = None
         self.fit_mode = 'page'
+        self._top_anchor = False
         self.filepath = filepath
         self.page_sizes = page_sizes
         self.page_count = len(page_sizes)
@@ -151,6 +152,7 @@ class PresentationWindow(Gtk.Window):
         self.fit_combo = Gtk.ComboBoxText()
         self.fit_combo.append('page', 'Página inteira')
         self.fit_combo.append('fill', 'Preencher tela')
+        self.fit_combo.append('reading', 'Leitura a 250%')
         self.fit_combo.set_active_id('page')
         self.fit_combo.set_tooltip_text('Preencher tela amplia a página; use a roda ou arraste para ver as bordas.')
         self.fit_combo.connect('changed', self._fit_changed)
@@ -180,6 +182,7 @@ class PresentationWindow(Gtk.Window):
         if page == self.page:
             return
         self.page = page
+        self._top_anchor = self.fit_mode == 'reading'
         self.pan_x = self.pan_y = 0.0
         self.target_pan_x = self.target_pan_y = 0.0
         self._update_labels()
@@ -216,6 +219,8 @@ class PresentationWindow(Gtk.Window):
         W, H = max(300, W), max(250, H)
         pw, ph = self.page_sizes[page]
         H = max(100, H - self._controls_height())
+        if self.fit_mode == 'reading':
+            return min(W - 24, (H * .80) * pw / ph)
         fit_w = (max if self.fit_mode == 'fill' else min)(W - 24, (H - 24) * pw / ph)
         return fit_w
 
@@ -224,9 +229,11 @@ class PresentationWindow(Gtk.Window):
 
     def _fit_changed(self, combo):
         self.fit_mode = combo.get_active_id() or 'page'
+        self._top_anchor = self.fit_mode == 'reading'
         self.pan_x = self.pan_y = self.target_pan_x = self.target_pan_y = 0
-        if self.zoom == 100: self._request_render()
-        else: self._set_zoom(100)
+        zoom = 250 if self.fit_mode == 'reading' else 100
+        if self.zoom == zoom: self._request_render()
+        else: self._set_zoom(zoom)
 
     def _target_width_for(self, page):
         return max(240, int(self._base_width_for(page) * self.zoom / 100.0))
@@ -248,10 +255,12 @@ class PresentationWindow(Gtk.Window):
         bounds = self._pan_bounds()
         self.pan_x = min(max(self.pan_x, bounds[0]), bounds[1])
         self.pan_y = min(max(self.pan_y, bounds[2]), bounds[3])
+        if self._top_anchor:
+            self.pan_y = self.target_pan_y = bounds[3]
         self.canvas.queue_draw()
 
     def _load_page_pixbuf(self, page, target):
-        path = render_page(self.filepath, page, target, self.cache_dir, 'present')
+        path = render_page(self.filepath, page, target, self.cache_dir, 'present', image_format='jpeg')
         return GdkPixbuf.Pixbuf.new_from_file(path)
 
     def _request_render(self):
@@ -359,6 +368,8 @@ class PresentationWindow(Gtk.Window):
         self._ensure_animation()
 
     def _pan_by(self, dx=0.0, dy=0.0):
+        if dy:
+            self._top_anchor = False
         self._set_pan_target(self.target_pan_x + dx, self.target_pan_y + dy, animate=True)
 
     def _ensure_animation(self):

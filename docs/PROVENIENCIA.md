@@ -1,5 +1,8 @@
 # Origem e limites dos artefatos
 
+Estado atual: **Print&View PDF 3.4.0**, com pypdf embutido **6.20.1**.
+Os parágrafos abaixo registram também as etapas anteriores da recuperação.
+
 O usuário declarou que o Winux foi desenvolvido por sua equipe e autorizou
 sua continuidade com o nome Print&View PDF. O ponto de partida é o pacote
 `winux-pdf_3.3.5_all.deb` fornecido nesta conversa, extraído com `dpkg-deb -x`,
@@ -27,7 +30,8 @@ pacotes test1/test2 partiram da 3.3.5. Posteriormente foram fornecidos os três
 PDFs históricos e os pacotes até **3.3.11**, totalizando 18 versões analisadas.
 Os hashes estão em [historico-winux-manifest.json](historico-winux-manifest.json),
 e a comparação em [REVISAO-HISTORICO-WINUX.md](REVISAO-HISTORICO-WINUX.md).
-O código em `app/` ainda não foi migrado integralmente para essa última base.
+A entrega 3.4.0 consolidou os módulos e recursos dessa base, preservando
+as melhorias próprias verificadas; detalhes em [ENTREGA-3.4.0](ENTREGA-3.4.0.md).
 O vídeo citado não foi analisado e o link Claude retornou 403.
 
 Inicialmente os ZIPs do Foxit e do UPDF e o arquivo `FoxitPDFReader.exe` não

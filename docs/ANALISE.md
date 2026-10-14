@@ -1,11 +1,14 @@
 # Print&View PDF: análise da base e referências
 
+**Entrega atual:** a 3.4.0 consolida Winux 3.3.11; consulte
+[ENTREGA-3.4.0](ENTREGA-3.4.0.md). A análise da base 3.3.5 abaixo é histórica.
+
 **Atualização:** os leitores completos agora estão acessíveis e foram analisados
 estaticamente. Consulte [a análise atual de Foxit e UPDF](ENGENHARIA-REVERSA-FOXIT-UPDF.md).
 As limitações de acesso descritas abaixo registram a primeira etapa; não são
 mais o estado atual dos ZIPs do Google Drive.
 
-## Resultado desta etapa
+## Resultado da primeira etapa
 
 Foi recuperado o código real do Winux PDF **3.3.5** e criada sua continuação
 Print&View PDF **3.3.6**. A engenharia reversa dos dois leitores Windows

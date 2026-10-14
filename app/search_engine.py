@@ -52,7 +52,8 @@ def page_hits(data, query, page_index, match_case=False, whole_words=False,
                 selected = sorted({owner for owner in owners[pos:end] if owner is not None})
                 hits.append({'page': page_index, 'width': data['width'], 'height': data['height'],
                              'rects': [[words[i][key] for key in ('x0', 'y0', 'x1', 'y1')] for i in selected],
-                             'text': ' '.join(words[i]['text'] for i in selected)})
+                             'text': ' '.join(words[i]['text'] for i in selected),
+                             'snippet': ' '.join(w['text'] for w in words[max(0, min(selected)-5):max(selected)+9])[:180]})
             start = end
     return hits
 
@@ -94,6 +95,8 @@ class TextSearchIndex:
         return data
 
     def search(self, query, max_hits=5000, cancel=None, on_page=None, **options):
+        if len(query) > 256:
+            raise ValueError('A pesquisa deve ter no máximo 256 caracteres.')
         if not query.strip() or max_hits <= 0:
             return []
         hits = []

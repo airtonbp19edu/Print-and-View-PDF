@@ -6,15 +6,15 @@ import sys
 import tempfile
 from pathlib import Path
 
-VENDOR = Path(__file__).resolve().parent / 'vendor'
-if str(VENDOR) not in sys.path:
-    sys.path.insert(0, str(VENDOR))
+from pdf_dependency import configure_pdf_library
+configure_pdf_library()
 
 from pypdf import PdfReader, PdfWriter, Transformation  # type: ignore  # noqa: E402
 from pypdf._page import PageObject  # type: ignore  # noqa: E402
 
 PT_PER_MM = 72.0 / 25.4
 MAX_POSTER_TILES = 100
+MAX_POSTER_JOB_TILES = 300
 VALID_NUP_COUNTS = {1, 2, 4, 6, 9, 16}
 
 PAPER_SIZES = {
@@ -238,14 +238,18 @@ def booklet_pairs(indices):
     return pairs
 
 
-def selected_booklet_pairs(indices, sides='both', binding='left'):
+def booklet_print_pairs(indices, sides='both'):
+    """Printable booklet faces in the same order as the generated PDF.
+
+    A physical booklet sheet contains a front and a back. Selecting just one
+    side must not affect sheet pairing or reorder the source pages.
+    """
     if sides not in ('both', 'front', 'back'):
-        raise ValueError('Lados do livreto inválidos.')
-    if binding not in ('left', 'right'):
-        raise ValueError('Encadernação do livreto inválida.')
-    return [(kind, right, left) if binding == 'right' else (kind, left, right)
-            for kind, left, right in booklet_pairs(indices)
-            if sides == 'both' or kind == sides]
+        raise ValueError('Lados do livreto inválidos: ' + str(sides))
+    pairs = booklet_pairs(indices)
+    if sides == 'both':
+        return pairs
+    return [pair for pair in pairs if pair[0] == sides]
 
 
 def create_booklet(input_path, output_path, page_range=None, page_set='all', reverse=False,
@@ -261,7 +265,9 @@ def create_booklet(input_path, output_path, page_range=None, page_set='all', rev
     avail_w = max(1.0, half - 2 * safety - gutter)
     avail_h = max(1.0, ph - 2 * safety)
     writer = PdfWriter()
-    for kind, left_idx, right_idx in selected_booklet_pairs(indices, sides, binding):
+    for kind, left_idx, right_idx in booklet_print_pairs(indices, sides):
+        if binding == 'right':
+            left_idx, right_idx = right_idx, left_idx
         dst = _blank(pw, ph)
         # Left half: extra gutter is adjacent to the fold (right edge).
         lx = safety
@@ -319,7 +325,7 @@ def _merge_poster_marks(dst, pw, ph, imageable, row, col, rows, cols,
     # Cairo PDF user space is used visually from top-left here.
     left, right = l, r
     top, bottom = ph - t, ph - b
-    fd, overlay_path = tempfile.mkstemp(prefix='print-view-poster-marks-', suffix='.pdf')
+    fd, overlay_path = tempfile.mkstemp(prefix='winux-poster-marks-', suffix='.pdf')
     os.close(fd)
     try:
         surface = cairo.PDFSurface(overlay_path, pw, ph)
@@ -373,6 +379,70 @@ def _merge_poster_marks(dst, pw, ph, imageable, row, col, rows, cols,
                 dotted(trim_x, top + 2.0, trim_x, bottom - 2.0)
             if trim_y is not None and trim_y < bottom:
                 dotted(left + 2.0, trim_y, right - 2.0, trim_y)
+
+        if cut_marks and overlap_pt > 0:
+            # Matching registration ticks at identical relative distances on
+            # the two adjoining sheets.  A trimmed left/top edge meets the
+            # preceding sheet's full right/bottom printable edge.
+            def register(x, y, vertical):
+                cr.set_line_cap(cairo.LINE_CAP_ROUND)
+                for rgba, lw in (((1, 1, 1, 1), 4.2), ((0.07, 0.07, 0.07, 1), 1.3)):
+                    cr.set_source_rgba(*rgba)
+                    cr.set_line_width(lw)
+                    cr.move_to(x - (6 if vertical else 0), y - (0 if vertical else 6))
+                    cr.line_to(x + (6 if vertical else 0), y + (0 if vertical else 6))
+                    cr.stroke()
+                cr.set_line_cap(cairo.LINE_CAP_BUTT)
+
+            # Both sides use the same fractions of the *printable* span.
+            for fraction in (0.18, 0.50, 0.82):
+                y = top + fraction * (bottom - top)
+                x = left + fraction * (right - left)
+                if col < cols - 1:
+                    register(right - 3, y, True)  # outgoing right edge
+                if trim_x is not None:
+                    register(trim_x, y, True)      # incoming cut edge
+                if row < rows - 1:
+                    register(x, bottom - 3, False) # outgoing bottom edge
+                if trim_y is not None:
+                    register(x, trim_y, False)     # incoming cut edge
+
+        # Sheet coordinates are always printed when labels are enabled.
+        # The joining instructions distinguish outgoing (keep) vs incoming
+        # (trim and overlap) sides, even when no clipping margin is available.
+        if labels:
+            def note(message, x, y, limit):
+                cr.select_font_face('Sans', cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD)
+                cr.set_font_size(6.3)
+                text = message
+                while text and cr.text_extents(text).width > max(16.0, limit - 7.0):
+                    text = text[:-2]
+                if text != message:
+                    text = text.rstrip() + '…'
+                width = min(max(16.0, limit), cr.text_extents(text).width + 6)
+                cr.set_source_rgba(1, 1, 1, .94)
+                cr.rectangle(x, y - 8, width, 10)
+                cr.fill()
+                cr.set_source_rgb(.12, .12, .12)
+                cr.move_to(x + 3, y)
+                cr.show_text(text)
+
+            code = f'F{row+1}C{col+1} de {rows}x{cols}'
+            note(code, left + 3, top + 10, right - left - 6)
+            # Column/row pairs tell the operator exactly which side mates.
+            if col > 0:
+                note(f'← CORTAR • alinhar F{row+1}C{col}',
+                     min(right - 30, left + max(4, overlap_pt + 5)), top + 22,
+                     max(25, right - left - overlap_pt - 8))
+            if col < cols - 1:
+                note(f'→ ENCAIXE F{row+1}C{col+2} • manter borda',
+                     left + 3, top + 34, right - left - 6)
+            if row > 0:
+                note(f'↑ CORTAR • alinhar F{row}C{col+1}',
+                     left + 3, top + 46, right - left - 6)
+            if row < rows - 1:
+                note(f'↓ ENCAIXE F{row+2}C{col+1} • manter borda',
+                     left + 3, top + 58, right - left - 6)
 
         if labels:
             base = os.path.basename(document_name or '') or 'Documento'
@@ -455,6 +525,7 @@ def create_poster(input_path, output_path, page_range=None, page_set='all', reve
     writer = PdfWriter()
     doc_name = os.path.basename(input_path)
 
+    total_tiles = 0
     for idx in indices:
         src = _normalized_page(reader.pages[idx])
         w, h = float(src.cropbox.width), float(src.cropbox.height)
@@ -462,6 +533,12 @@ def create_poster(input_path, output_path, page_range=None, page_set='all', reve
         cols, rows, _sw, _sh = poster_grid_for_size(
             w, h, paper_size, orientation, scale_percent, overlap_mm,
             imageable_area=area, paper_width_pt=pw, paper_height_pt=ph)
+
+        required = (1 if large_pages_only and sw <= pw + 0.25 and sh <= ph + 0.25
+                    else cols * rows)
+        total_tiles += required
+        if total_tiles > MAX_POSTER_JOB_TILES:
+            raise ValueError(f'O trabalho excede {MAX_POSTER_JOB_TILES} folhas; reduza o intervalo ou a escala.')
 
         # Large-page tiling splits only pages that exceed the paper after scale. A page that still fits
         # the selected physical paper at Page Zoom is printed once, not split
@@ -529,3 +606,7 @@ def prepare_output(input_path, output_path, job):
     return create_sized(
         input_path, output_path, orientation=job.get('orientation', 'portrait'),
         scale_mode=job.get('scale_mode', 'actual'), **common)
+
+
+def selected_booklet_pairs(indices, sides="both"):
+    return booklet_print_pairs(indices, sides)
