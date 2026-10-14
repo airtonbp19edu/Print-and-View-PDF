@@ -6,7 +6,7 @@ import subprocess
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '3.3.7~test1'
+VERSION = '3.3.7~test2'
 
 
 def build():
@@ -28,7 +28,8 @@ def build():
         doc = stage / 'usr/share/doc/print-view-pdf'; doc.mkdir(parents=True)
         for src in (ROOT / 'LICENSE', ROOT / 'README.md', ROOT / 'docs/pypdf-LICENSE.txt',
                     ROOT / 'docs/ANALISE.md', ROOT / 'docs/PROVENIENCIA.md',
-                    ROOT / 'docs/TESTAR-3.3.7.md', ROOT / 'docs/ENGENHARIA-REVERSA-FOXIT-UPDF.md'):
+                    ROOT / 'docs/TESTAR-3.3.7.md', ROOT / 'docs/TESTAR-TEST2.md',
+                    ROOT / 'docs/ENGENHARIA-REVERSA-FOXIT-UPDF.md'):
             shutil.copy2(src, doc)
         control = stage / 'DEBIAN'; control.mkdir()
         (control / 'control').write_text(

@@ -23,6 +23,8 @@ from presentation import PresentationWindow, LASER_COLORS
 from rendering import render_page, render_page_to_png, extract_page_text, extract_page_words
 from pdf_panels import inspect_document_panels
 from search_engine import TextSearchIndex
+from page_cache import PageCache
+from themes import load_theme, read_theme, save_theme
 
 APP_DIR = Path(__file__).resolve().parent
 WORKER = APP_DIR / 'worker_cli.py'
@@ -37,13 +39,7 @@ Gtk.Window.set_default_icon_name('print-view-pdf')
 
 
 def load_css():
-    css = APP_DIR / 'style.css'
-    if not css.exists():
-        return
-    provider = Gtk.CssProvider()
-    provider.load_from_path(str(css))
-    Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), provider,
-                                             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+    load_theme(read_theme())
 
 
 class PDFWindow(Gtk.Window):
@@ -64,6 +60,13 @@ class PDFWindow(Gtk.Window):
         self.connect('size-allocate', self._on_resize)
 
         self.runner = BackgroundRunner(workers=4)
+        self.render_runner = BackgroundRunner(workers=1, latest_only=True)
+        self.prefetch_runner = BackgroundRunner(workers=1, latest_only=True)
+        self.page_cache = PageCache()
+        self.prefetch_tasks = {}
+        self.theme_mode = read_theme()
+        load_theme(self.theme_mode)
+        self.theme_signal = Gtk.Settings.get_default().connect('notify::gtk-theme-name', self._system_theme_changed)
         self.cache_dir = tempfile.mkdtemp(prefix='print-view-pdf-cache-')
         self.filepath = None
         self.page_count = 0
@@ -222,6 +225,12 @@ class PDFWindow(Gtk.Window):
         title = Gtk.Label(label='Print&View PDF')
         title.get_style_context().add_class('quick-title')
         quick.pack_start(title, True, True, 10)
+        self.theme_combo = Gtk.ComboBoxText()
+        for key, label in [('auto', 'Tema: automático'), ('light', 'Tema: claro'), ('dark', 'Tema: escuro')]:
+            self.theme_combo.append(key, label)
+        self.theme_combo.set_active_id(self.theme_mode)
+        self.theme_combo.connect('changed', self._theme_changed)
+        quick.pack_end(self.theme_combo, False, False, 4)
         shell.pack_start(quick, False, False, 0)
 
         # Tab strip. Only tabs with real functionality are exposed.
@@ -682,6 +691,12 @@ class PDFWindow(Gtk.Window):
             self._clear_document_state(); self._error(str(exc))
 
     def _clear_document_state(self):
+        self.render_runner.invalidate('main-render')
+        self.page_cache.clear()
+        for key, future in self.prefetch_tasks.items():
+            future.cancel()
+            self.prefetch_runner.invalidate(str(key))
+        self.prefetch_tasks.clear()
         self.search_cancel.set(); self.search_index = None; self.search_running = False
         self.runner.invalidate('main-render'); self.runner.invalidate('search'); self.runner.invalidate('panels')
         self.runner.invalidate('selection-words')
@@ -738,23 +753,78 @@ class PDFWindow(Gtk.Window):
         if not self.filepath or not self.page_sizes: return
         page = self.page; rotation = self.rotation; target_final = self._target_final_width(); target = self._render_width_for_poppler(target_final)
         path = self.filepath
+        cache_dir = self.cache_dir
+        key = (path, page, rotation, target)
+        self.render_runner.invalidate('main-render')
         self.status_page.set_text(f'de {self.page_count}')
-        def ok(png):
+        def apply(pb):
+            self.rendered_pixbuf = pb
+            self.displayed_page = page; self.displayed_rotation = rotation
+            self._display_pixbuf(pb)
+            self.status_file.set_text(Path(path).name)
+            self._update_zoom_labels()
+            self._request_nearby_thumbnails()
+            self._prefetch_reader_pages()
+        cached = self.page_cache.get(key)
+        if cached is not None:
+            apply(cached)
+            return
+        self.status_file.set_text(f'Carregando página {page + 1}…')
+        def task():
+            return self._reader_pixbuf(path, page, rotation, target, cache_dir)
+        def ok(pb):
             if page != self.page or rotation != self.rotation or path != self.filepath: return
             try:
-                pb = GdkPixbuf.Pixbuf.new_from_file(png)
-                if rotation == 90: pb = pb.rotate_simple(GdkPixbuf.PixbufRotation.CLOCKWISE)
-                elif rotation == 180: pb = pb.rotate_simple(GdkPixbuf.PixbufRotation.UPSIDEDOWN)
-                elif rotation == 270: pb = pb.rotate_simple(GdkPixbuf.PixbufRotation.COUNTERCLOCKWISE)
-                self.rendered_pixbuf = pb
-                self.displayed_page = page; self.displayed_rotation = rotation
-                self._display_pixbuf(pb)
-                self.status_page.set_text(f'de {self.page_count}')
-                self._update_zoom_labels()
-                self._request_nearby_thumbnails()
+                self.page_cache.put(key, pb)
+                apply(pb)
             except Exception as exc: self._error(str(exc))
-        self.runner.submit('main-render', lambda: render_page(path, page, target, self.cache_dir, f'main-r{rotation}'), ok,
+        self.render_runner.submit('main-render', task, ok,
                            lambda e: self.status_file.set_text(f'Falha ao renderizar: {e}'))
+
+    @staticmethod
+    def _reader_pixbuf(path, page, rotation, target, cache_dir):
+        png = render_page(path, page, target, cache_dir, f'main-r{rotation}')
+        pb = GdkPixbuf.Pixbuf.new_from_file(png)
+        rotations = {90: GdkPixbuf.PixbufRotation.CLOCKWISE,
+                     180: GdkPixbuf.PixbufRotation.UPSIDEDOWN,
+                     270: GdkPixbuf.PixbufRotation.COUNTERCLOCKWISE}
+        return pb.rotate_simple(rotations[rotation]) if rotation in rotations else pb
+
+    def _prefetch_reader_pages(self):
+        path, rotation, cache_dir = self.filepath, self.rotation, self.cache_dir
+        wanted = set()
+        for page in (self.page + 1, self.page - 1):
+            if not 0 <= page < self.page_count: continue
+            pw, ph = self.page_sizes[page]
+            w, h = (ph, pw) if rotation % 180 else (pw, ph)
+            alloc = self.viewer_scroll.get_allocation()
+            vw, vh = max(300, alloc.width - 60), max(260, alloc.height - 60)
+            if self.zoom_mode == 'fit-width': final = max(120, int(vw * .92))
+            elif self.zoom_mode == 'fit-page': final = max(120, min(vw, int(vh * w / h)))
+            else: final = max(120, int(w / 72 * 96 * self.zoom_percent / 100))
+            target = final if not rotation % 180 else max(120, int(final * pw / ph))
+            key = (path, page, rotation, target); wanted.add(key)
+            future = self.prefetch_tasks.get(key)
+            if self.page_cache.get(key) is not None or (future is not None and not future.done()): continue
+            def ok(pb, key=key):
+                if key[0] == self.filepath: self.page_cache.put(key, pb)
+                self.prefetch_tasks.pop(key, None)
+            future = self.prefetch_runner.submit(str(key),
+                lambda p=page, t=target: self._reader_pixbuf(path, p, rotation, t, cache_dir), ok)
+            self.prefetch_tasks[key] = future
+        for key in list(self.prefetch_tasks):
+            if key not in wanted:
+                self.prefetch_runner.invalidate(str(key))
+                self.prefetch_tasks.pop(key).cancel()
+
+    def _theme_changed(self, combo):
+        self.theme_mode = combo.get_active_id() or 'auto'
+        load_theme(self.theme_mode)
+        try: save_theme(self.theme_mode)
+        except OSError as exc: self.status_file.set_text(f'Tema aplicado; não foi possível salvar: {exc}')
+
+    def _system_theme_changed(self, *_args):
+        if self.theme_mode == 'auto': load_theme('auto')
 
     def _display_pixbuf(self, pb):
         """Display a pixbuf and force the page overlay to adopt its real size."""
@@ -1379,6 +1449,8 @@ class PDFWindow(Gtk.Window):
 
     def _on_destroy(self, *_args):
         self.search_cancel.set()
+        self.render_runner.shutdown(); self.prefetch_runner.shutdown()
+        Gtk.Settings.get_default().disconnect(self.theme_signal)
         self.runner.shutdown()
         try: shutil.rmtree(self.cache_dir, ignore_errors=True)
         except Exception: pass

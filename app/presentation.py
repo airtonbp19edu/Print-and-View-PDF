@@ -8,6 +8,8 @@ gi.require_version('GLib', '2.0')
 from gi.repository import Gtk, Gdk, GdkPixbuf, GLib
 
 from rendering import render_page
+from async_core import BackgroundRunner
+from page_cache import PageCache
 
 LASER_COLORS = {
     'Vermelho': (1.0, 0.08, 0.06),
@@ -37,9 +39,20 @@ class PresentationWindow(Gtk.Window):
     def __init__(self, parent, runner, filepath, page_sizes, start_page, cache_dir, laser_color='Vermelho'):
         super().__init__(title='Apresentação — Print&View PDF')
         self.set_transient_for(parent)
+        self.set_destroy_with_parent(True)
         self.set_icon_name('print-view-pdf')
         self.set_role('print-view-pdf-presentation')
-        self.runner = runner
+        display = Gdk.Display.get_default()
+        monitor = display.get_monitor_at_window(parent.get_window()) if parent.get_window() else display.get_primary_monitor()
+        if monitor is not None:
+            geometry = monitor.get_geometry()
+            self.set_default_size(geometry.width, geometry.height)
+        self.runner = BackgroundRunner(workers=1, latest_only=True)
+        self.prefetch_runner = BackgroundRunner(workers=1, latest_only=True)
+        self._closed = False
+        self._loading = True
+        self._render_error = None
+        self.fit_mode = 'page'
         self.filepath = filepath
         self.page_sizes = page_sizes
         self.page_count = len(page_sizes)
@@ -49,9 +62,10 @@ class PresentationWindow(Gtk.Window):
         self.pixbuf = None
         self.rendered_zoom = None
         # In-memory page cache + neighbour prefetch make page changes instant.
-        self._pix_cache = {}
-        self._pix_order = []
+        self._image_cache = PageCache()
+        self._pix_cache = self._image_cache.images
         self._pix_pending = set()
+        self._prefetch_tasks = {}
         self._alloc_size = None
         self._resize_source = None
 
@@ -104,10 +118,8 @@ class PresentationWindow(Gtk.Window):
         # 1x1 canvas and render a tiny page that never gets redrawn.
 
     def _destroyed(self, *_args):
-        self.runner.invalidate('presentation-render')
-        for p in range(self.page_count):
-            if f'presentation-prefetch-{p}' in getattr(self.runner, '_seq', {}):
-                self.runner.invalidate(f'presentation-prefetch-{p}')
+        self._closed = True
+        self.runner.shutdown(); self.prefetch_runner.shutdown()
         if self._resize_source:
             try:
                 GLib.source_remove(self._resize_source)
@@ -122,7 +134,7 @@ class PresentationWindow(Gtk.Window):
             self._anim_source = None
 
     def _toolbar(self):
-        bar = Gtk.Box(spacing=8, margin=10)
+        bar = Gtk.Box(spacing=6, margin=8)
         bar.get_style_context().add_class('presentation-toolbar')
         prev = Gtk.Button(label='‹'); prev.connect('clicked', lambda *_: self._goto(self.page - 1)); bar.pack_start(prev, False, False, 0)
         self.page_label = Gtk.Label(); bar.pack_start(self.page_label, False, False, 0)
@@ -132,12 +144,19 @@ class PresentationWindow(Gtk.Window):
         self.zoom_label = Gtk.Label(); bar.pack_start(self.zoom_label, False, False, 0)
         plus = Gtk.Button(label='+'); plus.connect('clicked', lambda *_: self._set_zoom(self.zoom + 25)); bar.pack_start(plus, False, False, 0)
         self.zoom_scale = Gtk.Scale.new_with_range(Gtk.Orientation.HORIZONTAL, 25, 400, 5)
-        self.zoom_scale.set_value(100); self.zoom_scale.set_size_request(170, -1); self.zoom_scale.set_draw_value(False)
+        self.zoom_scale.set_value(100); self.zoom_scale.set_size_request(110, -1); self.zoom_scale.set_draw_value(False)
         self.zoom_scale.connect('value-changed', lambda s: self._set_zoom(int(s.get_value()), update_scale=False))
         bar.pack_start(self.zoom_scale, False, False, 0)
         fit = Gtk.Button(label='Ajustar'); fit.connect('clicked', lambda *_: self._set_zoom(100)); bar.pack_start(fit, False, False, 0)
+        self.fit_combo = Gtk.ComboBoxText()
+        self.fit_combo.append('page', 'Página inteira')
+        self.fit_combo.append('fill', 'Preencher tela')
+        self.fit_combo.set_active_id('page')
+        self.fit_combo.set_tooltip_text('Preencher tela amplia a página; use a roda ou arraste para ver as bordas.')
+        self.fit_combo.connect('changed', self._fit_changed)
+        bar.pack_start(self.fit_combo, False, False, 0)
         bar.pack_start(Gtk.Separator(orientation=Gtk.Orientation.VERTICAL), False, False, 4)
-        hint = Gtk.Label(label='↑↓/roda: deslizar   ←→: páginas')
+        hint = Gtk.Label(label='↑↓: deslizar')
         hint.get_style_context().add_class('muted')
         bar.pack_start(hint, False, False, 4)
         self.laser_toggle = Gtk.CheckButton(label='Laser')
@@ -192,16 +211,22 @@ class PresentationWindow(Gtk.Window):
         return alloc.width, alloc.height
 
     def _base_width_for(self, page):
-        """Width (px) of a page at 100%: portrait pages take 80% of the screen
-        height, landscape pages are fitted whole inside the screen."""
+        """Use the available viewport above the controls, preserving aspect ratio."""
         W, H = self._canvas_size()
         W, H = max(300, W), max(250, H)
         pw, ph = self.page_sizes[page]
-        if ph >= pw:
-            fit_w = min(W * 0.95, H * 0.80 * pw / ph)
-        else:
-            fit_w = min(W - 24, (H - 24) * pw / ph)
+        H = max(100, H - self._controls_height())
+        fit_w = (max if self.fit_mode == 'fill' else min)(W - 24, (H - 24) * pw / ph)
         return fit_w
+
+    def _controls_height(self):
+        return self.revealer.get_allocated_height() if self.controls_visible else 0
+
+    def _fit_changed(self, combo):
+        self.fit_mode = combo.get_active_id() or 'page'
+        self.pan_x = self.pan_y = self.target_pan_x = self.target_pan_y = 0
+        if self.zoom == 100: self._request_render()
+        else: self._set_zoom(100)
 
     def _target_width_for(self, page):
         return max(240, int(self._base_width_for(page) * self.zoom / 100.0))
@@ -210,26 +235,13 @@ class PresentationWindow(Gtk.Window):
         return self._target_width_for(self.page)
 
     def _cache_get(self, key):
-        pb = self._pix_cache.get(key)
-        if pb is not None:
-            try:
-                self._pix_order.remove(key)
-            except ValueError:
-                pass
-            self._pix_order.append(key)
-        return pb
+        return self._image_cache.get(key)
 
     def _cache_put(self, key, pixbuf):
-        self._pix_cache[key] = pixbuf
-        try:
-            self._pix_order.remove(key)
-        except ValueError:
-            pass
-        self._pix_order.append(key)
-        while len(self._pix_order) > 8:
-            self._pix_cache.pop(self._pix_order.pop(0), None)
+        self._image_cache.put(key, pixbuf)
 
     def _apply_pixbuf(self, pixbuf, zoom):
+        self._loading = False; self._render_error = None
         self.pixbuf = pixbuf
         self.rendered_zoom = zoom
         self._clamp_target_pan()
@@ -243,12 +255,13 @@ class PresentationWindow(Gtk.Window):
         return GdkPixbuf.Pixbuf.new_from_file(path)
 
     def _request_render(self):
-        if not self._alloc_size:
+        if self._closed or not self._alloc_size:
             return  # wait for the first real size-allocate
         target = self._target_width()
         page = self.page
         zoom = self.zoom
         key = (page, target)
+        self.runner.invalidate('presentation-render')
 
         cached = self._cache_get(key)
         if cached is not None:
@@ -260,27 +273,39 @@ class PresentationWindow(Gtk.Window):
             self._cache_put(key, pixbuf)
             if page != self.page or zoom != self.zoom:
                 return
+            if target != self._target_width():
+                self._request_render()
+                return
             self._apply_pixbuf(pixbuf, zoom)
             self._prefetch_neighbours()
 
+        self._loading = True; self._render_error = None
+        self.canvas.queue_draw()
+        def error(exc):
+            self._loading = False
+            self._render_error = f'Não foi possível carregar a página {page + 1}: {exc}'
+            self.canvas.queue_draw()
         self.runner.submit(
             'presentation-render',
             lambda: self._load_page_pixbuf(page, target),
             ok,
-            lambda _e: None,
+            error,
         )
 
     def _prefetch_neighbours(self):
         """Render the next pages (and the previous one) in the background."""
         if not self._alloc_size:
             return
-        for offset in (1, 2, -1):
+        wanted = set()
+        for offset in (1, -1):
             p = self.page + offset
             if p < 0 or p >= self.page_count:
                 continue
             target = self._target_width_for(p)
             key = (p, target)
-            if key in self._pix_cache or key in self._pix_pending:
+            wanted.add(key)
+            future = self._prefetch_tasks.get(key)
+            if key in self._pix_cache or (future is not None and not future.done()):
                 continue
             self._pix_pending.add(key)
 
@@ -291,18 +316,23 @@ class PresentationWindow(Gtk.Window):
             def err(_e, key=key):
                 self._pix_pending.discard(key)
 
-            self.runner.submit(
-                f'presentation-prefetch-{p}',
+            self._prefetch_tasks[key] = self.prefetch_runner.submit(
+                str(key),
                 lambda p=p, target=target: self._load_page_pixbuf(p, target),
                 ok, err,
             )
+        for key in list(self._prefetch_tasks):
+            if key not in wanted:
+                self.prefetch_runner.invalidate(str(key))
+                self._prefetch_tasks.pop(key).cancel()
+                self._pix_pending.discard(key)
 
     def _pan_bounds(self):
         """Return min/max pan offsets that keep the whole page reachable."""
         if not self.pixbuf:
             return (0.0, 0.0, 0.0, 0.0)
         alloc = self.canvas.get_allocation()
-        W, H = max(1, alloc.width), max(1, alloc.height)
+        W, H = max(1, alloc.width), max(1, alloc.height - self._controls_height())
         pw, ph = self.pixbuf.get_width(), self.pixbuf.get_height()
         # When the page is smaller than the viewport, it stays centered on that
         # axis. When larger, allow panning until either page edge meets the view.
@@ -377,9 +407,16 @@ class PresentationWindow(Gtk.Window):
         cr.paint()
         if self.pixbuf:
             x = (W - self.pixbuf.get_width()) / 2 + self.pan_x
-            y = (H - self.pixbuf.get_height()) / 2 + self.pan_y
+            y = (H - self._controls_height() - self.pixbuf.get_height()) / 2 + self.pan_y
+            cr.set_source_rgb(1, 1, 1)
+            cr.rectangle(x, y, self.pixbuf.get_width(), self.pixbuf.get_height()); cr.fill()
             Gdk.cairo_set_source_pixbuf(cr, self.pixbuf, x, y)
             cr.paint()
+        if self._loading or self._render_error:
+            text = self._render_error or f'Carregando página {self.page + 1}…'
+            cr.set_source_rgba(.10, .10, .10, .94); cr.rectangle(8, 8, max(200, W - 16), 36); cr.fill()
+            cr.set_source_rgb(1, .75 if self._render_error else 1, .75 if self._render_error else 1)
+            cr.set_font_size(14); cr.move_to(18, 32); cr.show_text(text[:140])
         if self.laser_enabled and self.pointer:
             x, y = self.pointer
             r, g, b = LASER_COLORS[self.laser_color_name]
@@ -500,6 +537,7 @@ class PresentationWindow(Gtk.Window):
         if key == 'Tab':
             self.controls_visible = not self.controls_visible
             self.revealer.set_reveal_child(self.controls_visible)
+            GLib.timeout_add(250, lambda: (self._request_render(), False)[1] if not self._closed else False)
             return True
 
         low = key.lower()

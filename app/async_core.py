@@ -9,15 +9,20 @@ from gi.repository import GLib
 class BackgroundRunner:
     """Runs blocking work outside GTK and delivers only the newest result per channel."""
 
-    def __init__(self, workers=3):
+    def __init__(self, workers=3, latest_only=False):
+        self._latest_only = latest_only
         self._pool = ThreadPoolExecutor(max_workers=workers, thread_name_prefix='printviewpdf')
         self._lock = threading.Lock()
         self._seq = {}
         self._closed = False
+        self._futures = {}
 
     def invalidate(self, channel):
         with self._lock:
             self._seq[channel] = self._seq.get(channel, 0) + 1
+            future = self._futures.pop(channel, None)
+            if future is not None and self._latest_only:
+                future.cancel()
             return self._seq[channel]
 
     def submit(self, channel, func, on_success=None, on_error=None):
@@ -27,7 +32,17 @@ class BackgroundRunner:
             token = self._seq.get(channel, 0) + 1
             self._seq[channel] = token
 
-        future = self._pool.submit(func)
+        def current_work():
+            with self._lock:
+                if self._closed or (self._latest_only and self._seq.get(channel) != token):
+                    return None
+            return func()
+        future = self._pool.submit(current_work)
+        with self._lock:
+            previous = self._futures.get(channel)
+            if previous is not None and self._latest_only:
+                previous.cancel()
+            self._futures[channel] = future
 
         def done(fut):
             try:

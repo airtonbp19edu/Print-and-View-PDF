@@ -1,7 +1,7 @@
 # Print-and-View-PDF
 Print&View PDF é a continuação do Winux PDF para Linux, com interface GTK 3,
 renderização Poppler e impressão pelo CUPS. A base recuperada é a **3.3.5**;
-esta versão para teste é a **3.3.7~test1**, sem incorporar a 3.3.10 mencionada
+esta versão para teste é a **3.3.7~test2**, sem incorporar a 3.3.10 mencionada
 no histórico, cujo código não foi fornecido.
 
 ## Executar em Debian/Ubuntu
@@ -25,11 +25,11 @@ está preservado em `app/vendor`, com sua licença em `docs/pypdf-LICENSE.txt`.
 
 Os dois testes GTK exigem `DISPLAY`; sem sessão gráfica, são explicitamente
 ignorados. Os demais exercitam geração de PDFs e renderização real com Poppler.
-O pacote é gerado em `dist/print-view-pdf_3.3.7~test1_all.deb`.
+O pacote é gerado em `dist/print-view-pdf_3.3.7~test2_all.deb`.
 Uma cópia para download acompanha o código em `packages/`. Para instalar:
 
 ```bash
-sudo apt install ./packages/print-view-pdf_3.3.7~test1_all.deb
+sudo apt install ./packages/print-view-pdf_3.3.7~test2_all.deb
 ```
 
 O novo pacote substitui `winux-pdf` (não deve coexistir com ele). A associação
@@ -39,6 +39,10 @@ usam `~/.cache/print-view-pdf`, preservando os antigos do Winux.
 ## Mudanças desta etapa
 
 - Identidade Print&View PDF no aplicativo, launcher, pacote e menu do sistema.
+- Seletor de tema claro/escuro/automático, com escolha persistida.
+- Apresentação centralizada acima dos controles, com Página inteira e Preencher tela.
+- Renderização principal separada de busca/miniaturas, cache de imagens decodificadas
+  e pré-carregamento de páginas vizinhas. Falhas na apresentação agora são visíveis.
 - Cache de imagens distingue caminho e metadados do arquivo de origem.
 - Busca retorna coordenadas por ocorrência, com realces e navegação individual.
 - Busca por página com resultados progressivos, descarte de pesquisas substituídas
@@ -51,7 +55,7 @@ usam `~/.cache/print-view-pdf`, preservando os antigos do Winux.
 - Impressão de apenas frente ou verso usa passagem manual sem duplex automático.
 - A entrada N-up fracionária é rejeitada também pela API de preparação.
 
-Consulte [o roteiro de teste](docs/TESTAR-3.3.7.md),
+Consulte [o roteiro da test2](docs/TESTAR-TEST2.md), [os testes de busca](docs/TESTAR-3.3.7.md),
 [a análise e as limitações](docs/ANALISE.md) e
 [a proveniência da base](docs/PROVENIENCIA.md). Não há alegação de equivalência
 com Foxit ou UPDF: a análise estática dos aplicativos completos está registrada
