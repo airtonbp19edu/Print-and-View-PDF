@@ -1,8 +1,11 @@
 # Print-and-View-PDF
 Print&View PDF é a continuação do Winux PDF para Linux, com interface GTK 3,
-renderização Poppler e impressão pelo CUPS. A base recuperada é a **3.3.5**;
-esta versão para teste é a **3.3.7~test2**, sem incorporar a 3.3.10 mencionada
-no histórico, cujo código não foi fornecido.
+renderização Poppler e impressão pelo CUPS. O código atual e o pacote
+**3.3.7~test2** partem da **3.3.5**. O usuário forneceu depois o histórico
+completo até a **Winux 3.3.11**, agora analisado, mas ainda não incorporado
+integralmente à aplicação. A próxima versão deverá usar essa referência e
+numeração sem sufixo de teste. Consulte a [revisão do histórico](docs/REVISAO-HISTORICO-WINUX.md)
+para os recursos a recuperar e os defeitos encontrados.
 
 ## Executar em Debian/Ubuntu
 
@@ -23,7 +26,7 @@ está preservado em `app/vendor`, com sua licença em `docs/pypdf-LICENSE.txt`.
 /usr/bin/python3 scripts/build_deb.py
 ```
 
-Os dois testes GTK exigem `DISPLAY`; sem sessão gráfica, são explicitamente
+Os testes GTK exigem `DISPLAY`; sem sessão gráfica, são explicitamente
 ignorados. Os demais exercitam geração de PDFs e renderização real com Poppler.
 O pacote é gerado em `dist/print-view-pdf_3.3.7~test2_all.deb`.
 Uma cópia para download acompanha o código em `packages/`. Para instalar:

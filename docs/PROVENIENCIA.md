@@ -16,16 +16,22 @@ os avisos e a licença BSD do pypdf também foram preservados.
 O `.deb` antigo não incluía uma licença explícita da aplicação e seu documento
 de copyright registrava essa ausência. Não se atribui licença MIT ao Foxit,
 ao UPDF ou a seus componentes. Nenhum binário, imagem, ícone ou código desses
-produtos foi incorporado à aplicação. As únicas informações deles no
-repositório são metadados/evidências da inspeção estática do instalador UPDF.
+produtos foi incorporado à aplicação. As informações deles no repositório
+são metadados/evidências da inspeção estática, incluindo os leitores completos
+posteriormente obtidos pelo Google Drive, conforme o relatório de
+[engenharia reversa](ENGENHARIA-REVERSA-FOXIT-UPDF.md).
 
 O arquivo de contexto é um relato histórico, não uma ordem de execução nem
-evidência de que uma funcionalidade funciona. A versão 3.3.10, os três
-relatórios históricos e o vídeo citados nele não foram fornecidos. As
-correções desta etapa são baseadas apenas no código 3.3.5 e em testes atuais.
+evidência de que uma funcionalidade funciona. As primeiras correções e os
+pacotes test1/test2 partiram da 3.3.5. Posteriormente foram fornecidos os três
+PDFs históricos e os pacotes até **3.3.11**, totalizando 18 versões analisadas.
+Os hashes estão em [historico-winux-manifest.json](historico-winux-manifest.json),
+e a comparação em [REVISAO-HISTORICO-WINUX.md](REVISAO-HISTORICO-WINUX.md).
+O código em `app/` ainda não foi migrado integralmente para essa última base.
+O vídeo citado não foi analisado e o link Claude retornou 403.
 
-Os ZIPs do Foxit e do UPDF e o arquivo `FoxitPDFReader.exe` não foram
-transferidos: a ferramenta rejeitou arquivos maiores que 32 MiB. Os links
+Inicialmente os ZIPs do Foxit e do UPDF e o arquivo `FoxitPDFReader.exe` não
+foram transferidos: a ferramenta rejeitou arquivos maiores que 32 MiB. Os links
 OneDrive fornecidos retornaram inicialmente bloqueio `403` do proxy de saída.
 Após salvar domínios no rascunho, a API de compartilhamento retornou `401`
 (`unauthenticated`), e os links com `download=1` retornaram `403`. Nenhum

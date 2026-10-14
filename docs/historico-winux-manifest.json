@@ -1,0 +1,532 @@
+[
+  {
+    "version": "2.3.0",
+    "package_sha256": "1320acd4c8ec8fd44569353bdbd8b807e5e2223c03e06cb19eb541c643f064b2",
+    "files_sha256": {
+      "async_core.py": "a83f8178fdec88bbc26e637f8fc7948fb7e5ebbd4a0d0c818e2a2a90155d0997",
+      "cups_backend.py": "c4af0118949183081b788624715e43c5727d6102c62218cb05a2ce9360404eea",
+      "imposition.py": "9398feb257fea2c86cc381c7a6683bffb76a3ffbb171c75b7243237c46368aa0",
+      "main.py": "6a0e2b0e475e3fd74f78e2c088db30a03c24baa8efd7e501ab8a375fb95a6163",
+      "pdf_panels.py": "3ae1858441cabdf671a5211e33cce5d813b3a78e858853f976614b5873296c32",
+      "presentation.py": "4b20f895ad683af5ddba3d1b26dc5410a8d75bb7f1c6d59a32588f3689f48a87",
+      "print_window.py": "40b7971a214221546c4484a235dd6e2a545115666b8e24883a6f7e69a8add21d",
+      "rendering.py": "6da1b10829afe1e10d78a32f9fac8ceccb4cc624c9f26229ef05ca8fae436dd7",
+      "style.css": "05aef0a159ca23842d01716e1d58be7e02fac1e88f0ca2087b7844a762c58d01",
+      "worker_cli.py": "e87ca415d61a088c024c4f97ec7b9ac6ad33b1c69c1b5d947b32cb34d05fcb5a"
+    },
+    "control_files_sha256": {
+      "control": "689f736b273ffbc4dee201e65ee4979260c5e8264589e981ea7abce5dcd9f83b",
+      "postinst": "91085881efd6d125bff968457e266f1f9521c073e15552ff696a867ab955276d",
+      "postrm": "81b031962ef6e991af18da64af24756818b271395413d1950116c20aa8c20304"
+    },
+    "launcher": "#!/bin/sh\n# Keep Winux PDF readable and visually consistent even on dark Linux themes.\nexport GTK_THEME=\"${WINUX_PDF_GTK_THEME:-Adwaita:light}\"\nexport PYTHONUNBUFFERED=1\nexec python3 /usr/share/winux-pdf/main.py \"$@\"\n",
+    "pypdf_version": "5.9.0",
+    "changed_own_files_from_previous_supplied_version": [
+      "async_core.py",
+      "cups_backend.py",
+      "imposition.py",
+      "main.py",
+      "pdf_panels.py",
+      "presentation.py",
+      "print_window.py",
+      "rendering.py",
+      "style.css",
+      "worker_cli.py"
+    ]
+  },
+  {
+    "version": "3.0.0",
+    "package_sha256": "fbdb4f0c2a3315180145160185dbc7fb33ca5b884d59902d568febe9836c836d",
+    "files_sha256": {
+      "async_core.py": "a83f8178fdec88bbc26e637f8fc7948fb7e5ebbd4a0d0c818e2a2a90155d0997",
+      "cups_backend.py": "c4af0118949183081b788624715e43c5727d6102c62218cb05a2ce9360404eea",
+      "imposition.py": "9398feb257fea2c86cc381c7a6683bffb76a3ffbb171c75b7243237c46368aa0",
+      "main.py": "895f2588c6218c2771e2c494af8eb8e4bec185af3f5fe1538be7c683f63dad27",
+      "pdf_panels.py": "3ae1858441cabdf671a5211e33cce5d813b3a78e858853f976614b5873296c32",
+      "presentation.py": "4b20f895ad683af5ddba3d1b26dc5410a8d75bb7f1c6d59a32588f3689f48a87",
+      "print_window.py": "40b7971a214221546c4484a235dd6e2a545115666b8e24883a6f7e69a8add21d",
+      "rendering.py": "6da1b10829afe1e10d78a32f9fac8ceccb4cc624c9f26229ef05ca8fae436dd7",
+      "style.css": "a2788afaa56ca549697033ba2e53d402be0f6b1f12d367af86c08b906b431d0e",
+      "worker_cli.py": "e87ca415d61a088c024c4f97ec7b9ac6ad33b1c69c1b5d947b32cb34d05fcb5a"
+    },
+    "control_files_sha256": {
+      "control": "19c91bcf88f0cae6b3a535e9ef29c0b1aa01e1891020b5f93ab5285795e3bcc5",
+      "postinst": "91085881efd6d125bff968457e266f1f9521c073e15552ff696a867ab955276d",
+      "postrm": "81b031962ef6e991af18da64af24756818b271395413d1950116c20aa8c20304"
+    },
+    "launcher": "#!/bin/sh\n# Keep Winux PDF readable and visually consistent even on dark Linux themes.\nexport GTK_THEME=\"${WINUX_PDF_GTK_THEME:-Adwaita:light}\"\nexport PYTHONUNBUFFERED=1\nexec python3 /usr/share/winux-pdf/main.py \"$@\"\n",
+    "pypdf_version": "5.9.0",
+    "changed_own_files_from_previous_supplied_version": [
+      "main.py",
+      "style.css"
+    ]
+  },
+  {
+    "version": "3.1.0",
+    "package_sha256": "f46fd8dbbf0623dacdcec59fef8b4e4f65dfcba0dd622a7b978329bd388d359c",
+    "files_sha256": {
+      "async_core.py": "a83f8178fdec88bbc26e637f8fc7948fb7e5ebbd4a0d0c818e2a2a90155d0997",
+      "cups_backend.py": "c4af0118949183081b788624715e43c5727d6102c62218cb05a2ce9360404eea",
+      "imposition.py": "9398feb257fea2c86cc381c7a6683bffb76a3ffbb171c75b7243237c46368aa0",
+      "main.py": "bad67b6dd2dfee4a19dcd1c7ae6427595cb697ae841c823040893b9193b9b4dd",
+      "pdf_panels.py": "3ae1858441cabdf671a5211e33cce5d813b3a78e858853f976614b5873296c32",
+      "presentation.py": "4b20f895ad683af5ddba3d1b26dc5410a8d75bb7f1c6d59a32588f3689f48a87",
+      "print_window.py": "40b7971a214221546c4484a235dd6e2a545115666b8e24883a6f7e69a8add21d",
+      "rendering.py": "6da1b10829afe1e10d78a32f9fac8ceccb4cc624c9f26229ef05ca8fae436dd7",
+      "style.css": "23e3734f9bc45b10600d77df627fff45b997be1a6e7f80a2dfe7ef7262e3d4b4",
+      "worker_cli.py": "e87ca415d61a088c024c4f97ec7b9ac6ad33b1c69c1b5d947b32cb34d05fcb5a"
+    },
+    "control_files_sha256": {
+      "control": "ce63b083639ae7cb51b8a891c1eaaa3e26a6ae2cbe183a85b3ce5e125ae295c7",
+      "postinst": "91085881efd6d125bff968457e266f1f9521c073e15552ff696a867ab955276d",
+      "postrm": "81b031962ef6e991af18da64af24756818b271395413d1950116c20aa8c20304"
+    },
+    "launcher": "#!/bin/sh\n# Keep Winux PDF readable and visually consistent even on dark Linux themes.\nexport GTK_THEME=\"${WINUX_PDF_GTK_THEME:-Adwaita:light}\"\nexport PYTHONUNBUFFERED=1\nexec python3 /usr/share/winux-pdf/main.py \"$@\"\n",
+    "pypdf_version": "5.9.0",
+    "changed_own_files_from_previous_supplied_version": [
+      "main.py",
+      "style.css"
+    ]
+  },
+  {
+    "version": "3.1.1",
+    "package_sha256": "1e0854a91c41611fca11b880f05e62e31011119d57cff95cc7b55f91c65fe59e",
+    "files_sha256": {
+      "async_core.py": "a83f8178fdec88bbc26e637f8fc7948fb7e5ebbd4a0d0c818e2a2a90155d0997",
+      "cups_backend.py": "c4af0118949183081b788624715e43c5727d6102c62218cb05a2ce9360404eea",
+      "imposition.py": "9398feb257fea2c86cc381c7a6683bffb76a3ffbb171c75b7243237c46368aa0",
+      "main.py": "ddc2130da08070460130c6ccc2dac9c6892af400bdfb5d82cd12206780f6118e",
+      "pdf_panels.py": "3ae1858441cabdf671a5211e33cce5d813b3a78e858853f976614b5873296c32",
+      "presentation.py": "4b20f895ad683af5ddba3d1b26dc5410a8d75bb7f1c6d59a32588f3689f48a87",
+      "print_window.py": "61f2d539b8b29c2b0d83b6633df7a959aff003ef7d0eb46b4f3e874cb59aa114",
+      "rendering.py": "6da1b10829afe1e10d78a32f9fac8ceccb4cc624c9f26229ef05ca8fae436dd7",
+      "style.css": "23e3734f9bc45b10600d77df627fff45b997be1a6e7f80a2dfe7ef7262e3d4b4",
+      "worker_cli.py": "e87ca415d61a088c024c4f97ec7b9ac6ad33b1c69c1b5d947b32cb34d05fcb5a"
+    },
+    "control_files_sha256": {
+      "control": "ad8f238e7f41294d6c96249c7529472a62d7fd09db387ee28c1d7cb94f483709",
+      "postinst": "91085881efd6d125bff968457e266f1f9521c073e15552ff696a867ab955276d",
+      "postrm": "81b031962ef6e991af18da64af24756818b271395413d1950116c20aa8c20304"
+    },
+    "launcher": "#!/bin/sh\n# Keep Winux PDF readable and visually consistent even on dark Linux themes.\nexport GTK_THEME=\"${WINUX_PDF_GTK_THEME:-Adwaita:light}\"\nexport PYTHONUNBUFFERED=1\nexec python3 /usr/share/winux-pdf/main.py \"$@\"\n",
+    "pypdf_version": "5.9.0",
+    "changed_own_files_from_previous_supplied_version": [
+      "main.py",
+      "print_window.py"
+    ]
+  },
+  {
+    "version": "3.1.3",
+    "package_sha256": "ed20e15852a73c858a1b4be8a6458a6e68e6b58d41378579ba84bc726aec4eb9",
+    "files_sha256": {
+      "async_core.py": "a83f8178fdec88bbc26e637f8fc7948fb7e5ebbd4a0d0c818e2a2a90155d0997",
+      "cups_backend.py": "c4af0118949183081b788624715e43c5727d6102c62218cb05a2ce9360404eea",
+      "imposition.py": "58a4288f5ee132d0609b079af0f87a319674c3c4b8861084a04b299b74c92446",
+      "main.py": "ddc2130da08070460130c6ccc2dac9c6892af400bdfb5d82cd12206780f6118e",
+      "pdf_panels.py": "3ae1858441cabdf671a5211e33cce5d813b3a78e858853f976614b5873296c32",
+      "presentation.py": "4b20f895ad683af5ddba3d1b26dc5410a8d75bb7f1c6d59a32588f3689f48a87",
+      "print_window.py": "8565aa99a1105cbf0cdfb166b286a67e9a763a816a579a0c41d31f380b15b936",
+      "rendering.py": "6da1b10829afe1e10d78a32f9fac8ceccb4cc624c9f26229ef05ca8fae436dd7",
+      "style.css": "23e3734f9bc45b10600d77df627fff45b997be1a6e7f80a2dfe7ef7262e3d4b4",
+      "worker_cli.py": "e87ca415d61a088c024c4f97ec7b9ac6ad33b1c69c1b5d947b32cb34d05fcb5a"
+    },
+    "control_files_sha256": {
+      "control": "a7956fdeb22aecba37c631e4163ddb6f641013acd37163d377f5e96af2c81dc1",
+      "postinst": "91085881efd6d125bff968457e266f1f9521c073e15552ff696a867ab955276d",
+      "postrm": "81b031962ef6e991af18da64af24756818b271395413d1950116c20aa8c20304"
+    },
+    "launcher": "#!/bin/sh\n# Keep Winux PDF readable and visually consistent even on dark Linux themes.\nexport GTK_THEME=\"${WINUX_PDF_GTK_THEME:-Adwaita:light}\"\nexport PYTHONUNBUFFERED=1\nexec python3 /usr/share/winux-pdf/main.py \"$@\"\n",
+    "pypdf_version": "5.9.0",
+    "changed_own_files_from_previous_supplied_version": [
+      "imposition.py",
+      "print_window.py"
+    ]
+  },
+  {
+    "version": "3.2.0",
+    "package_sha256": "0af5adf4b30aac1ef23360e02a59e1d8f24714c1afe12d4f069bc911561eb5d7",
+    "files_sha256": {
+      "async_core.py": "a83f8178fdec88bbc26e637f8fc7948fb7e5ebbd4a0d0c818e2a2a90155d0997",
+      "cups_backend.py": "5f0abd4147a05bc7f52fc80a00e2fb0a4d8c10418f2dd4eb65dee4420d9a6bc8",
+      "imposition.py": "3e6ce08069fde4d0eeb85903e0f367a6a67421e4971bac159e5a329db8ee6485",
+      "main.py": "ddc2130da08070460130c6ccc2dac9c6892af400bdfb5d82cd12206780f6118e",
+      "pdf_panels.py": "3ae1858441cabdf671a5211e33cce5d813b3a78e858853f976614b5873296c32",
+      "presentation.py": "4b20f895ad683af5ddba3d1b26dc5410a8d75bb7f1c6d59a32588f3689f48a87",
+      "print_window.py": "a87e4c8f7fb553f9e79469a9dbf9359df734ff017d37efb9b093ba6219ece1d4",
+      "rendering.py": "6da1b10829afe1e10d78a32f9fac8ceccb4cc624c9f26229ef05ca8fae436dd7",
+      "style.css": "23e3734f9bc45b10600d77df627fff45b997be1a6e7f80a2dfe7ef7262e3d4b4",
+      "worker_cli.py": "e87ca415d61a088c024c4f97ec7b9ac6ad33b1c69c1b5d947b32cb34d05fcb5a"
+    },
+    "control_files_sha256": {
+      "control": "847da8d69168d7593e937ed17bcc5495fd4a08e6d46e9760ced66b6bd80fe32b",
+      "postinst": "91085881efd6d125bff968457e266f1f9521c073e15552ff696a867ab955276d",
+      "postrm": "81b031962ef6e991af18da64af24756818b271395413d1950116c20aa8c20304"
+    },
+    "launcher": "#!/bin/sh\n# Keep Winux PDF readable and visually consistent even on dark Linux themes.\nexport GTK_THEME=\"${WINUX_PDF_GTK_THEME:-Adwaita:light}\"\nexport PYTHONUNBUFFERED=1\nexec python3 /usr/share/winux-pdf/main.py \"$@\"\n",
+    "pypdf_version": "5.9.0",
+    "changed_own_files_from_previous_supplied_version": [
+      "cups_backend.py",
+      "imposition.py",
+      "print_window.py"
+    ]
+  },
+  {
+    "version": "3.3.0",
+    "package_sha256": "1a5d72429cafdf4e836708fdf356f665e45bf16b2b9dd88394e9d4b4c9ea336e",
+    "files_sha256": {
+      "async_core.py": "a83f8178fdec88bbc26e637f8fc7948fb7e5ebbd4a0d0c818e2a2a90155d0997",
+      "cups_backend.py": "f7be18ed77d0e87397a5868f8da9751aeb1db7646ea8b09772593b089010c8d4",
+      "imposition.py": "d68ee863fcd339be734ec9e153078d29c9c6448b067687d12d6a67fa5bc0f28a",
+      "main.py": "6631922eb7d9dac63c6afc8186bdfc2bf9fa3418fc6b302b19937839f33ab64b",
+      "pdf_panels.py": "36fc8eaf952df91c10487515732ab6018a4a7323b122a32405b15ca5a0ecb6a1",
+      "presentation.py": "4b20f895ad683af5ddba3d1b26dc5410a8d75bb7f1c6d59a32588f3689f48a87",
+      "print_window.py": "5a36530a8e7952d2d52c1388f648f63e0af3b9dcc5ccc6246d245239e27689e7",
+      "rendering.py": "9c95f070f2ca51662b03f4b90c0851608bb45493bc8cc2ff53f3db9b8bbd1de4",
+      "style.css": "6b8c2e35197b3228e6129352798a6933fbf07e4bb5ea527bcd929251c380829b",
+      "worker_cli.py": "a06ecd6acb40673eacc5b7735e623eff511e954220b0532e645fabdaea5beb6f"
+    },
+    "control_files_sha256": {
+      "control": "568ccb593604610553ae9e36d7a03a93adf7f4e5f1c4da054f607ba290522aa3",
+      "postinst": "ce894da2d4f05021456ec883824cce0cab9be54570c3d5d5b509b161400e772d",
+      "postrm": "a4e351975f8b7b10ef507b6b5075970c676493b0680aa58631947956e047e346"
+    },
+    "launcher": "#!/bin/sh\n# Keep Winux PDF readable and visually consistent even on dark Linux themes.\nexport GTK_THEME=\"${WINUX_PDF_GTK_THEME:-Adwaita:light}\"\nexport PYTHONUNBUFFERED=1\nexec python3 /usr/share/winux-pdf/main.py \"$@\"\n",
+    "pypdf_version": "6.10.0",
+    "changed_own_files_from_previous_supplied_version": [
+      "cups_backend.py",
+      "imposition.py",
+      "main.py",
+      "pdf_panels.py",
+      "print_window.py",
+      "rendering.py",
+      "style.css",
+      "worker_cli.py"
+    ]
+  },
+  {
+    "version": "3.3.1",
+    "package_sha256": "0f5f3882ec48669cf9227be138fe4d8f2da276b9a98e373da0bb1181a064f6c6",
+    "files_sha256": {
+      "async_core.py": "a83f8178fdec88bbc26e637f8fc7948fb7e5ebbd4a0d0c818e2a2a90155d0997",
+      "cups_backend.py": "f7be18ed77d0e87397a5868f8da9751aeb1db7646ea8b09772593b089010c8d4",
+      "imposition.py": "d68ee863fcd339be734ec9e153078d29c9c6448b067687d12d6a67fa5bc0f28a",
+      "main.py": "6631922eb7d9dac63c6afc8186bdfc2bf9fa3418fc6b302b19937839f33ab64b",
+      "pdf_panels.py": "36fc8eaf952df91c10487515732ab6018a4a7323b122a32405b15ca5a0ecb6a1",
+      "presentation.py": "4b20f895ad683af5ddba3d1b26dc5410a8d75bb7f1c6d59a32588f3689f48a87",
+      "print_window.py": "4a3cc3fde00dfd450b10915f5a4181345af40e652c0cef44946074c5c15a6233",
+      "rendering.py": "9c95f070f2ca51662b03f4b90c0851608bb45493bc8cc2ff53f3db9b8bbd1de4",
+      "style.css": "6b8c2e35197b3228e6129352798a6933fbf07e4bb5ea527bcd929251c380829b",
+      "worker_cli.py": "a06ecd6acb40673eacc5b7735e623eff511e954220b0532e645fabdaea5beb6f"
+    },
+    "control_files_sha256": {
+      "control": "5c08771131f5949fdff2e365a1000c33cebece73a491c6203110305224c161f9",
+      "postinst": "ce894da2d4f05021456ec883824cce0cab9be54570c3d5d5b509b161400e772d",
+      "postrm": "a4e351975f8b7b10ef507b6b5075970c676493b0680aa58631947956e047e346"
+    },
+    "launcher": "#!/bin/sh\n# Keep Winux PDF readable and visually consistent even on dark Linux themes.\nexport GTK_THEME=\"${WINUX_PDF_GTK_THEME:-Adwaita:light}\"\nexport PYTHONUNBUFFERED=1\nexec python3 /usr/share/winux-pdf/main.py \"$@\"\n",
+    "pypdf_version": "6.10.0",
+    "changed_own_files_from_previous_supplied_version": [
+      "print_window.py"
+    ]
+  },
+  {
+    "version": "3.3.2",
+    "package_sha256": "d7271c90412a64b36620b5718d31d61aa09baac8eee4b22c0714b1072a2a7654",
+    "files_sha256": {
+      "async_core.py": "a83f8178fdec88bbc26e637f8fc7948fb7e5ebbd4a0d0c818e2a2a90155d0997",
+      "cups_backend.py": "f7be18ed77d0e87397a5868f8da9751aeb1db7646ea8b09772593b089010c8d4",
+      "imposition.py": "d68ee863fcd339be734ec9e153078d29c9c6448b067687d12d6a67fa5bc0f28a",
+      "main.py": "6631922eb7d9dac63c6afc8186bdfc2bf9fa3418fc6b302b19937839f33ab64b",
+      "pdf_panels.py": "36fc8eaf952df91c10487515732ab6018a4a7323b122a32405b15ca5a0ecb6a1",
+      "presentation.py": "4b20f895ad683af5ddba3d1b26dc5410a8d75bb7f1c6d59a32588f3689f48a87",
+      "print_window.py": "c5f419a14e34e90e8f8d50b29ef379ecf3917f3700ef49ec7ddec51183dd897b",
+      "rendering.py": "9c95f070f2ca51662b03f4b90c0851608bb45493bc8cc2ff53f3db9b8bbd1de4",
+      "style.css": "6b8c2e35197b3228e6129352798a6933fbf07e4bb5ea527bcd929251c380829b",
+      "worker_cli.py": "a06ecd6acb40673eacc5b7735e623eff511e954220b0532e645fabdaea5beb6f"
+    },
+    "control_files_sha256": {
+      "control": "16f51f5b67dbd34fbad6ec33d18486dadbb91addf40fbe606608369ec36d7767",
+      "postinst": "ce894da2d4f05021456ec883824cce0cab9be54570c3d5d5b509b161400e772d",
+      "postrm": "a4e351975f8b7b10ef507b6b5075970c676493b0680aa58631947956e047e346"
+    },
+    "launcher": "#!/bin/sh\n# Keep Winux PDF readable and visually consistent even on dark Linux themes.\nexport GTK_THEME=\"${WINUX_PDF_GTK_THEME:-Adwaita:light}\"\nexport PYTHONUNBUFFERED=1\nexec python3 /usr/share/winux-pdf/main.py \"$@\"\n",
+    "pypdf_version": "6.10.0",
+    "changed_own_files_from_previous_supplied_version": [
+      "print_window.py"
+    ]
+  },
+  {
+    "version": "3.3.3",
+    "package_sha256": "b2cce021bc238fc12fcb51165a9635ad8723c9dbbdaad10b233386db3a586a77",
+    "files_sha256": {
+      "async_core.py": "a83f8178fdec88bbc26e637f8fc7948fb7e5ebbd4a0d0c818e2a2a90155d0997",
+      "cups_backend.py": "d1aef9a0f3350d4c12baba55beef38a4e79cb66e197167bdc8b9dc5eb328ae5f",
+      "imposition.py": "670a08bd479b2703ce972cad996d668058f56b5f68ce29e5780ab45466610f3b",
+      "main.py": "74e7f177234aa66dc0e250e8108927d5b2facb230985b3a8d41b535fc3bcd6eb",
+      "pdf_panels.py": "36fc8eaf952df91c10487515732ab6018a4a7323b122a32405b15ca5a0ecb6a1",
+      "presentation.py": "4b20f895ad683af5ddba3d1b26dc5410a8d75bb7f1c6d59a32588f3689f48a87",
+      "print_window.py": "3bc6d90726417395455ebfad7ee8f7708d32283669db337c1322087c8e5567bf",
+      "rendering.py": "9c95f070f2ca51662b03f4b90c0851608bb45493bc8cc2ff53f3db9b8bbd1de4",
+      "style.css": "6b8c2e35197b3228e6129352798a6933fbf07e4bb5ea527bcd929251c380829b",
+      "worker_cli.py": "a06ecd6acb40673eacc5b7735e623eff511e954220b0532e645fabdaea5beb6f"
+    },
+    "control_files_sha256": {
+      "control": "2bcf698c9a4bf035b628f5f553568a4576cc557eef64919bd506945ff9437724",
+      "postinst": "ce894da2d4f05021456ec883824cce0cab9be54570c3d5d5b509b161400e772d",
+      "postrm": "a4e351975f8b7b10ef507b6b5075970c676493b0680aa58631947956e047e346"
+    },
+    "launcher": "#!/bin/sh\n# Keep Winux PDF readable and visually consistent even on dark Linux themes.\nexport GTK_THEME=\"${WINUX_PDF_GTK_THEME:-Adwaita:light}\"\nexport PYTHONUNBUFFERED=1\nexec python3 /usr/share/winux-pdf/main.py \"$@\"\n",
+    "pypdf_version": "6.10.0",
+    "changed_own_files_from_previous_supplied_version": [
+      "cups_backend.py",
+      "imposition.py",
+      "main.py",
+      "print_window.py"
+    ]
+  },
+  {
+    "version": "3.3.4",
+    "package_sha256": "8fafdb0b2a82bf6602c04cfd77c2d8a16ef6aed652f23ccf873290146a202107",
+    "files_sha256": {
+      "async_core.py": "a83f8178fdec88bbc26e637f8fc7948fb7e5ebbd4a0d0c818e2a2a90155d0997",
+      "cups_backend.py": "d1aef9a0f3350d4c12baba55beef38a4e79cb66e197167bdc8b9dc5eb328ae5f",
+      "imposition.py": "e556a3915827a068ddea7e6fc2059f6c04bf4eb5f8ee4e4cbdd27f0d6aeb4565",
+      "main.py": "5e47d2953088ffc9888af4d5ebe48bf86c6273cf730b76f101ffd51ba135179a",
+      "pdf_panels.py": "36fc8eaf952df91c10487515732ab6018a4a7323b122a32405b15ca5a0ecb6a1",
+      "presentation.py": "4b20f895ad683af5ddba3d1b26dc5410a8d75bb7f1c6d59a32588f3689f48a87",
+      "print_window.py": "aae60a5c51fe93cff5547c63761e045419e765930a1dc36f69be0902270994a3",
+      "rendering.py": "9c95f070f2ca51662b03f4b90c0851608bb45493bc8cc2ff53f3db9b8bbd1de4",
+      "style.css": "6b8c2e35197b3228e6129352798a6933fbf07e4bb5ea527bcd929251c380829b",
+      "worker_cli.py": "a06ecd6acb40673eacc5b7735e623eff511e954220b0532e645fabdaea5beb6f"
+    },
+    "control_files_sha256": {
+      "control": "e4206b4775697a0960bb86e5b300821724fadf9ee10b5c1b410fdbcb620e1aa5",
+      "postinst": "ce894da2d4f05021456ec883824cce0cab9be54570c3d5d5b509b161400e772d",
+      "postrm": "a4e351975f8b7b10ef507b6b5075970c676493b0680aa58631947956e047e346"
+    },
+    "launcher": "#!/bin/sh\n# Keep Winux PDF readable and visually consistent even on dark Linux themes.\nexport GTK_THEME=\"${WINUX_PDF_GTK_THEME:-Adwaita:light}\"\nexport PYTHONUNBUFFERED=1\nexec python3 /usr/share/winux-pdf/main.py \"$@\"\n",
+    "pypdf_version": "6.10.0",
+    "changed_own_files_from_previous_supplied_version": [
+      "imposition.py",
+      "main.py",
+      "print_window.py"
+    ]
+  },
+  {
+    "version": "3.3.5",
+    "package_sha256": "c4f816f508f0e46dde8ecfc37b8a18c6409223540451694fb3bc51bd3b5e86ca",
+    "files_sha256": {
+      "async_core.py": "a83f8178fdec88bbc26e637f8fc7948fb7e5ebbd4a0d0c818e2a2a90155d0997",
+      "cups_backend.py": "d1aef9a0f3350d4c12baba55beef38a4e79cb66e197167bdc8b9dc5eb328ae5f",
+      "imposition.py": "dfb89b1f4a35908ec5b2c0756e42c457384595fb65e8cc988f15f7eefe5ef549",
+      "main.py": "5e47d2953088ffc9888af4d5ebe48bf86c6273cf730b76f101ffd51ba135179a",
+      "pdf_panels.py": "36fc8eaf952df91c10487515732ab6018a4a7323b122a32405b15ca5a0ecb6a1",
+      "presentation.py": "ac11ea52fbd7364ad9f6ba0f5d490212174c7081b320460843d0abfda3743b6c",
+      "print_window.py": "a9ed7cc7a705c743eab7f5613f84dfe2bd6b5f1f245262874d16a8c2b308fb72",
+      "rendering.py": "9c95f070f2ca51662b03f4b90c0851608bb45493bc8cc2ff53f3db9b8bbd1de4",
+      "style.css": "6b8c2e35197b3228e6129352798a6933fbf07e4bb5ea527bcd929251c380829b",
+      "worker_cli.py": "a06ecd6acb40673eacc5b7735e623eff511e954220b0532e645fabdaea5beb6f"
+    },
+    "control_files_sha256": {
+      "control": "c04a478bc0c513a952401472275c75eed5b9b36510429f6413666553390f785b",
+      "postinst": "ce894da2d4f05021456ec883824cce0cab9be54570c3d5d5b509b161400e772d",
+      "postrm": "a4e351975f8b7b10ef507b6b5075970c676493b0680aa58631947956e047e346"
+    },
+    "launcher": "#!/bin/sh\n# Keep Winux PDF readable and visually consistent even on dark Linux themes.\nexport GTK_THEME=\"${WINUX_PDF_GTK_THEME:-Adwaita:light}\"\nexport PYTHONUNBUFFERED=1\nexec python3 /usr/share/winux-pdf/main.py \"$@\"\n",
+    "pypdf_version": "6.10.0",
+    "changed_own_files_from_previous_supplied_version": [
+      "imposition.py",
+      "presentation.py",
+      "print_window.py"
+    ]
+  },
+  {
+    "version": "3.3.6",
+    "package_sha256": "ffce05b0c6dac2cddbcfc1c6a7bd7317d8fe48c7f8670022551eb68dccc92b58",
+    "files_sha256": {
+      "appearance.py": "483252847579c5fc0861433a956a9d9909cd69b2e309e3e1dfc115eed1e3f68f",
+      "async_core.py": "a83f8178fdec88bbc26e637f8fc7948fb7e5ebbd4a0d0c818e2a2a90155d0997",
+      "cups_backend.py": "d1aef9a0f3350d4c12baba55beef38a4e79cb66e197167bdc8b9dc5eb328ae5f",
+      "imposition.py": "dfb89b1f4a35908ec5b2c0756e42c457384595fb65e8cc988f15f7eefe5ef549",
+      "main.py": "efcae10b58dff417461e0f6b8d5dd02497817c9a4770f9fbc05ac68741d8893c",
+      "pdf_panels.py": "36fc8eaf952df91c10487515732ab6018a4a7323b122a32405b15ca5a0ecb6a1",
+      "presentation.py": "ac11ea52fbd7364ad9f6ba0f5d490212174c7081b320460843d0abfda3743b6c",
+      "print_window.py": "a9ed7cc7a705c743eab7f5613f84dfe2bd6b5f1f245262874d16a8c2b308fb72",
+      "rendering.py": "9c95f070f2ca51662b03f4b90c0851608bb45493bc8cc2ff53f3db9b8bbd1de4",
+      "style-dark.css": "953be596e18feb2adb245b981770489f3a08852285b93df59aeb686a461c50fe",
+      "style.css": "6b8c2e35197b3228e6129352798a6933fbf07e4bb5ea527bcd929251c380829b",
+      "worker_cli.py": "a06ecd6acb40673eacc5b7735e623eff511e954220b0532e645fabdaea5beb6f"
+    },
+    "control_files_sha256": {
+      "control": "6bb19748e603afa1d80d6e15c427c7505b79f987000e97c77e9adf092941512d",
+      "postinst": "ce894da2d4f05021456ec883824cce0cab9be54570c3d5d5b509b161400e772d",
+      "postrm": "a4e351975f8b7b10ef507b6b5075970c676493b0680aa58631947956e047e346"
+    },
+    "launcher": "#!/bin/sh\n# Honor the desktop's GTK theme and the user's Winux PDF appearance setting.\nexport PYTHONUNBUFFERED=1\nexec python3 /usr/share/winux-pdf/main.py \"$@\"\n",
+    "pypdf_version": "6.10.0",
+    "changed_own_files_from_previous_supplied_version": [
+      "appearance.py",
+      "main.py",
+      "style-dark.css"
+    ]
+  },
+  {
+    "version": "3.3.7",
+    "package_sha256": "a0e3baab2bb106a67da39de2426b864eb2636c10e086c93391972f3eaf59e9b9",
+    "files_sha256": {
+      "appearance.py": "483252847579c5fc0861433a956a9d9909cd69b2e309e3e1dfc115eed1e3f68f",
+      "async_core.py": "a83f8178fdec88bbc26e637f8fc7948fb7e5ebbd4a0d0c818e2a2a90155d0997",
+      "cups_backend.py": "d1aef9a0f3350d4c12baba55beef38a4e79cb66e197167bdc8b9dc5eb328ae5f",
+      "imposition.py": "a580d12fc0af0fd35b7dc164238185cdd7c9d8c7d3b41f4c5561bf6378f05f8f",
+      "main.py": "51f52c44c04bb443b9f9625b702c6e6dca02c39048019999c65b7153941bb9b3",
+      "pdf_panels.py": "36fc8eaf952df91c10487515732ab6018a4a7323b122a32405b15ca5a0ecb6a1",
+      "presentation.py": "ac11ea52fbd7364ad9f6ba0f5d490212174c7081b320460843d0abfda3743b6c",
+      "print_window.py": "bfd090d876d543be28850905679d60e184487f04a4ee7db0e646b1bd5a89d199",
+      "rendering.py": "2b9a5bdbb23905e751ea40f23d5b87367d8f080dda997a65009f9b841d607b70",
+      "style-dark.css": "953be596e18feb2adb245b981770489f3a08852285b93df59aeb686a461c50fe",
+      "style.css": "6b8c2e35197b3228e6129352798a6933fbf07e4bb5ea527bcd929251c380829b",
+      "worker_cli.py": "a06ecd6acb40673eacc5b7735e623eff511e954220b0532e645fabdaea5beb6f"
+    },
+    "control_files_sha256": {
+      "control": "ad0c19d39aed764d556f6285dbf19bb53b2b7961b45058e3c8e0bcde4ec210ce",
+      "postinst": "ce894da2d4f05021456ec883824cce0cab9be54570c3d5d5b509b161400e772d",
+      "postrm": "a4e351975f8b7b10ef507b6b5075970c676493b0680aa58631947956e047e346"
+    },
+    "launcher": "#!/bin/sh\n# Honor the desktop's GTK theme and the user's Winux PDF appearance setting.\nexport PYTHONUNBUFFERED=1\nexec python3 /usr/share/winux-pdf/main.py \"$@\"\n",
+    "pypdf_version": "6.10.0",
+    "changed_own_files_from_previous_supplied_version": [
+      "imposition.py",
+      "main.py",
+      "print_window.py",
+      "rendering.py"
+    ]
+  },
+  {
+    "version": "3.3.8",
+    "package_sha256": "c495dd35d40fca60d409f3ea359bd1272f9b587c68d3362dd0a15f86433cb8df",
+    "files_sha256": {
+      "appearance.py": "483252847579c5fc0861433a956a9d9909cd69b2e309e3e1dfc115eed1e3f68f",
+      "async_core.py": "a83f8178fdec88bbc26e637f8fc7948fb7e5ebbd4a0d0c818e2a2a90155d0997",
+      "cups_backend.py": "d1aef9a0f3350d4c12baba55beef38a4e79cb66e197167bdc8b9dc5eb328ae5f",
+      "imposition.py": "a580d12fc0af0fd35b7dc164238185cdd7c9d8c7d3b41f4c5561bf6378f05f8f",
+      "main.py": "51f52c44c04bb443b9f9625b702c6e6dca02c39048019999c65b7153941bb9b3",
+      "pdf_panels.py": "36fc8eaf952df91c10487515732ab6018a4a7323b122a32405b15ca5a0ecb6a1",
+      "presentation.py": "702d9c248a49170ffe66c42328173764c4e0d94dec63501250964a0d3f89e814",
+      "print_window.py": "bfd090d876d543be28850905679d60e184487f04a4ee7db0e646b1bd5a89d199",
+      "rendering.py": "2b9a5bdbb23905e751ea40f23d5b87367d8f080dda997a65009f9b841d607b70",
+      "style-dark.css": "953be596e18feb2adb245b981770489f3a08852285b93df59aeb686a461c50fe",
+      "style.css": "6b8c2e35197b3228e6129352798a6933fbf07e4bb5ea527bcd929251c380829b",
+      "worker_cli.py": "a06ecd6acb40673eacc5b7735e623eff511e954220b0532e645fabdaea5beb6f"
+    },
+    "control_files_sha256": {
+      "control": "f6c9c395baea824f85dafb767b2a79dc7488184d6ae3b03633c71baa985faa3e",
+      "postinst": "ce894da2d4f05021456ec883824cce0cab9be54570c3d5d5b509b161400e772d",
+      "postrm": "a4e351975f8b7b10ef507b6b5075970c676493b0680aa58631947956e047e346"
+    },
+    "launcher": "#!/bin/sh\n# Honor the desktop's GTK theme and the user's Winux PDF appearance setting.\nexport PYTHONUNBUFFERED=1\nexec python3 /usr/share/winux-pdf/main.py \"$@\"\n",
+    "pypdf_version": "6.10.0",
+    "changed_own_files_from_previous_supplied_version": [
+      "presentation.py"
+    ]
+  },
+  {
+    "version": "3.3.9",
+    "package_sha256": "ff19a3644a7a987db2371cc5b99de1c1e9b4b08ccb9e0a195ca67af791b6264f",
+    "files_sha256": {
+      "appearance.py": "483252847579c5fc0861433a956a9d9909cd69b2e309e3e1dfc115eed1e3f68f",
+      "async_core.py": "a83f8178fdec88bbc26e637f8fc7948fb7e5ebbd4a0d0c818e2a2a90155d0997",
+      "cups_backend.py": "41773e285e2cfe8e0659921efe2189bc0388de6df1605b38b17887db71427263",
+      "imposition.py": "a11fc50c64fa3c616f6b317910ad9753e743cb10e1fd623e6154995a03a39bf5",
+      "main.py": "51f52c44c04bb443b9f9625b702c6e6dca02c39048019999c65b7153941bb9b3",
+      "pdf_panels.py": "36fc8eaf952df91c10487515732ab6018a4a7323b122a32405b15ca5a0ecb6a1",
+      "presentation.py": "702d9c248a49170ffe66c42328173764c4e0d94dec63501250964a0d3f89e814",
+      "print_window.py": "b468b9c7aa37a1ded99fe22815a8e4f0929c2ffcdac7632c860019a5158ad879",
+      "rendering.py": "2b9a5bdbb23905e751ea40f23d5b87367d8f080dda997a65009f9b841d607b70",
+      "style-dark.css": "953be596e18feb2adb245b981770489f3a08852285b93df59aeb686a461c50fe",
+      "style.css": "6b8c2e35197b3228e6129352798a6933fbf07e4bb5ea527bcd929251c380829b",
+      "worker_cli.py": "a06ecd6acb40673eacc5b7735e623eff511e954220b0532e645fabdaea5beb6f"
+    },
+    "control_files_sha256": {
+      "control": "26f48086571c51ec9662b91d40103a8a0da6af079865b8fd375db0aa05900e72",
+      "postinst": "ce894da2d4f05021456ec883824cce0cab9be54570c3d5d5b509b161400e772d",
+      "postrm": "a4e351975f8b7b10ef507b6b5075970c676493b0680aa58631947956e047e346"
+    },
+    "launcher": "#!/bin/sh\n# Honor the desktop's GTK theme and the user's Winux PDF appearance setting.\nexport PYTHONUNBUFFERED=1\nexec python3 /usr/share/winux-pdf/main.py \"$@\"\n",
+    "pypdf_version": "6.10.0",
+    "changed_own_files_from_previous_supplied_version": [
+      "cups_backend.py",
+      "imposition.py",
+      "print_window.py"
+    ]
+  },
+  {
+    "version": "3.3.10",
+    "package_sha256": "9045e5d1788e8644be234745d79aa5514e776cf2c81224a7c96ae65df823f907",
+    "files_sha256": {
+      "appearance.py": "483252847579c5fc0861433a956a9d9909cd69b2e309e3e1dfc115eed1e3f68f",
+      "async_core.py": "7c191882aeb6c403621ba0b559576e851b404b04e8da16d8e919f4bcbaf016e0",
+      "cups_backend.py": "41773e285e2cfe8e0659921efe2189bc0388de6df1605b38b17887db71427263",
+      "imposition.py": "a11fc50c64fa3c616f6b317910ad9753e743cb10e1fd623e6154995a03a39bf5",
+      "main.py": "6ea4e370399bc18f878fc994ac0cba67c35f21748c032acaf5d8c46c0519db38",
+      "pdf_panels.py": "36fc8eaf952df91c10487515732ab6018a4a7323b122a32405b15ca5a0ecb6a1",
+      "presentation.py": "f20bbc25b06f37f86ba0ebbf73436d42115809d07cdd8b868249f26f28b27402",
+      "print_window.py": "b468b9c7aa37a1ded99fe22815a8e4f0929c2ffcdac7632c860019a5158ad879",
+      "rendering.py": "a3b900c468acb266991b8d1eafca6d5d327321ef06d4cf89e4c449e5f1a74e1c",
+      "style-dark.css": "953be596e18feb2adb245b981770489f3a08852285b93df59aeb686a461c50fe",
+      "style.css": "6b8c2e35197b3228e6129352798a6933fbf07e4bb5ea527bcd929251c380829b",
+      "worker_cli.py": "a06ecd6acb40673eacc5b7735e623eff511e954220b0532e645fabdaea5beb6f"
+    },
+    "control_files_sha256": {
+      "control": "1102e4b610b7871cac90a7bd29a5db210fe14e84ea0bab91fba29f330a03c408",
+      "postinst": "ce894da2d4f05021456ec883824cce0cab9be54570c3d5d5b509b161400e772d",
+      "postrm": "a4e351975f8b7b10ef507b6b5075970c676493b0680aa58631947956e047e346"
+    },
+    "launcher": "#!/bin/sh\n# Honor the desktop's GTK theme and the user's Winux PDF appearance setting.\nexport PYTHONUNBUFFERED=1\nexec python3 /usr/share/winux-pdf/main.py \"$@\"\n",
+    "pypdf_version": "6.10.0",
+    "changed_own_files_from_previous_supplied_version": [
+      "async_core.py",
+      "main.py",
+      "presentation.py",
+      "rendering.py"
+    ]
+  },
+  {
+    "version": "3.3.11",
+    "package_sha256": "0f8b75a443ed7bb70a6dc88af69561b982025863c8e2d3669b0b617092772342",
+    "files_sha256": {
+      "appearance.py": "0e5f54e5923b4395e1e6f59cda2336b92e5c8b573df34059c839cdb1d6c60d0a",
+      "async_core.py": "d961b697db614b7ca3a3179c1de64e192c1f985fb8f09460e3bfadb060f2610f",
+      "cancel_state.py": "c56c1cca7cb33f8375bc716ab60751952067f9eb720f48bd3df4746f36d5c820",
+      "cups_backend.py": "f05bd23b7b9627fcd302c45128978ed7389c563d58ab594b118f7466f1af8fdd",
+      "imposition.py": "eae81a2404496e79bfce41ad4638dea26c829e35b2d971a6fe049b3742c6dd73",
+      "main.py": "4d3f1ad78bd3e987e6e5b15eef452a92b5981c9e72e3607121526cdd692aaf1c",
+      "pdf_dependency.py": "e8879bfa0e2b4cf5722405d9608521151ba2063a09acf3400b421c019c58ee5d",
+      "pdf_panels.py": "248548f3b2142ce416dcfcc340ae4e6ca52bd6d5a96c4d437cd6d5d6f3bbf20a",
+      "presentation.py": "f20bbc25b06f37f86ba0ebbf73436d42115809d07cdd8b868249f26f28b27402",
+      "print_window.py": "b468b9c7aa37a1ded99fe22815a8e4f0929c2ffcdac7632c860019a5158ad879",
+      "rendering.py": "947f07265993eb5391390ccbe2e54581c4f89d26cd7dee96d2483d67225be257",
+      "style-dark.css": "953be596e18feb2adb245b981770489f3a08852285b93df59aeb686a461c50fe",
+      "style.css": "6b8c2e35197b3228e6129352798a6933fbf07e4bb5ea527bcd929251c380829b",
+      "worker_cli.py": "2645f8743bd6306a8f3f2fe8b98eb7ab5f942e3c90c5ddef0793ca32b9a8bc42"
+    },
+    "control_files_sha256": {
+      "control": "21a20456ed900f0ebdc02e75192d14f005a2f1e4d44239f3352313f67bd13fd3",
+      "postinst": "ce894da2d4f05021456ec883824cce0cab9be54570c3d5d5b509b161400e772d",
+      "postrm": "a4e351975f8b7b10ef507b6b5075970c676493b0680aa58631947956e047e346"
+    },
+    "launcher": "#!/bin/sh\n# Honor the desktop's GTK theme and the user's Winux PDF appearance setting.\nexport PYTHONUNBUFFERED=1\nexec python3 /usr/share/winux-pdf/main.py \"$@\"\n",
+    "pypdf_version": "6.10.0",
+    "changed_own_files_from_previous_supplied_version": [
+      "appearance.py",
+      "async_core.py",
+      "cancel_state.py",
+      "cups_backend.py",
+      "imposition.py",
+      "main.py",
+      "pdf_dependency.py",
+      "pdf_panels.py",
+      "rendering.py",
+      "worker_cli.py"
+    ]
+  }
+]
