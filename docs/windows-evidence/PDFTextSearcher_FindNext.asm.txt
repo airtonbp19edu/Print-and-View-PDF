@@ -1,0 +1,54 @@
+
+/workspace/pdf-reference-analysis/updf/UPDF/UPDFKit.dll:     file format pei-x86-64
+
+
+Disassembly of section .text:
+
+0000000180220b60 <.text+0x21fb60>:
+   180220b60:	40 53                	rex push %rbx
+   180220b62:	48 83 ec 20          	sub    $0x20,%rsp
+   180220b66:	48 8b d9             	mov    %rcx,%rbx
+   180220b69:	48 8d 0d b0 16 f7 01 	lea    0x1f716b0(%rip),%rcx        # 0x182192220
+   180220b70:	e8 bb b8 1c 01       	call   0x1813ec430
+   180220b75:	85 c0                	test   %eax,%eax
+   180220b77:	75 58                	jne    0x180220bd1
+   180220b79:	48 85 db             	test   %rbx,%rbx
+   180220b7c:	74 09                	je     0x180220b87
+   180220b7e:	48 8b 4b 38          	mov    0x38(%rbx),%rcx
+   180220b82:	48 85 c9             	test   %rcx,%rcx
+   180220b85:	75 04                	jne    0x180220b8b
+   180220b87:	32 db                	xor    %bl,%bl
+   180220b89:	eb 31                	jmp    0x180220bbc
+   180220b8b:	e8 00 21 4e 00       	call   0x180702c90
+   180220b90:	84 c0                	test   %al,%al
+   180220b92:	75 26                	jne    0x180220bba
+   180220b94:	8b 43 18             	mov    0x18(%rbx),%eax
+   180220b97:	ff c0                	inc    %eax
+   180220b99:	3b 43 0c             	cmp    0xc(%rbx),%eax
+   180220b9c:	7d e9                	jge    0x180220b87
+   180220b9e:	48 8b cb             	mov    %rbx,%rcx
+   180220ba1:	89 43 18             	mov    %eax,0x18(%rbx)
+   180220ba4:	e8 87 fb ff ff       	call   0x180220730
+   180220ba9:	84 c0                	test   %al,%al
+   180220bab:	74 da                	je     0x180220b87
+   180220bad:	48 8b 4b 38          	mov    0x38(%rbx),%rcx
+   180220bb1:	e8 da 20 4e 00       	call   0x180702c90
+   180220bb6:	84 c0                	test   %al,%al
+   180220bb8:	74 da                	je     0x180220b94
+   180220bba:	b3 01                	mov    $0x1,%bl
+   180220bbc:	48 8d 0d 5d 16 f7 01 	lea    0x1f7165d(%rip),%rcx        # 0x182192220
+   180220bc3:	e8 6e b8 1c 01       	call   0x1813ec436
+   180220bc8:	0f b6 c3             	movzbl %bl,%eax
+   180220bcb:	48 83 c4 20          	add    $0x20,%rsp
+   180220bcf:	5b                   	pop    %rbx
+   180220bd0:	c3                   	ret
+   180220bd1:	8b c8                	mov    %eax,%ecx
+   180220bd3:	e8 64 b8 1c 01       	call   0x1813ec43c
+   180220bd8:	cc                   	int3
+   180220bd9:	cc                   	int3
+   180220bda:	cc                   	int3
+   180220bdb:	cc                   	int3
+   180220bdc:	cc                   	int3
+   180220bdd:	cc                   	int3
+   180220bde:	cc                   	int3
+   180220bdf:	cc                   	int3

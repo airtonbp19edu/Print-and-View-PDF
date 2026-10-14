@@ -1,0 +1,101 @@
+
+/workspace/pdf-reference-analysis/updf/UPDF/UPDFKit.dll:     file format pei-x86-64
+
+
+Disassembly of section .text:
+
+0000000180238da0 <.text+0x237da0>:
+   180238da0:	48 89 5c 24 08       	mov    %rbx,0x8(%rsp)
+   180238da5:	57                   	push   %rdi
+   180238da6:	48 83 ec 50          	sub    $0x50,%rsp
+   180238daa:	48 8b d9             	mov    %rcx,%rbx
+   180238dad:	48 8b fa             	mov    %rdx,%rdi
+   180238db0:	48 8d 0d 69 94 f5 01 	lea    0x1f59469(%rip),%rcx        # 0x182192220
+   180238db7:	e8 74 36 1b 01       	call   0x1813ec430
+   180238dbc:	85 c0                	test   %eax,%eax
+   180238dbe:	0f 85 07 01 00 00    	jne    0x180238ecb
+   180238dc4:	48 85 db             	test   %rbx,%rbx
+   180238dc7:	0f 84 e0 00 00 00    	je     0x180238ead
+   180238dcd:	48 8b cb             	mov    %rbx,%rcx
+   180238dd0:	e8 5b c0 3f 00       	call   0x180634e30
+   180238dd5:	85 c0                	test   %eax,%eax
+   180238dd7:	0f 8e d0 00 00 00    	jle    0x180238ead
+   180238ddd:	44 8d 48 ff          	lea    -0x1(%rax),%r9d
+   180238de1:	45 33 c0             	xor    %r8d,%r8d
+   180238de4:	48 8d 54 24 20       	lea    0x20(%rsp),%rdx
+   180238de9:	48 8b cb             	mov    %rbx,%rcx
+   180238dec:	e8 2f e1 3f 00       	call   0x180636f20
+   180238df1:	48 8d 54 24 20       	lea    0x20(%rsp),%rdx
+   180238df6:	48 8d 4c 24 38       	lea    0x38(%rsp),%rcx
+   180238dfb:	e8 b0 c3 ff ff       	call   0x1802351b0
+   180238e00:	48 8b 5c 24 38       	mov    0x38(%rsp),%rbx
+   180238e05:	48 8b cf             	mov    %rdi,%rcx
+   180238e08:	4c 8b 44 24 40       	mov    0x40(%rsp),%r8
+   180238e0d:	48 8b d3             	mov    %rbx,%rdx
+   180238e10:	4c 2b c3             	sub    %rbx,%r8
+   180238e13:	49 c1 f8 05          	sar    $0x5,%r8
+   180238e17:	ff 17                	call   *(%rdi)
+   180238e19:	40 b7 01             	mov    $0x1,%dil
+   180238e1c:	48 85 db             	test   %rbx,%rbx
+   180238e1f:	74 35                	je     0x180238e56
+   180238e21:	48 8b 54 24 48       	mov    0x48(%rsp),%rdx
+   180238e26:	48 8b c3             	mov    %rbx,%rax
+   180238e29:	48 2b d3             	sub    %rbx,%rdx
+   180238e2c:	48 83 e2 e0          	and    $0xffffffffffffffe0,%rdx
+   180238e30:	48 81 fa 00 10 00 00 	cmp    $0x1000,%rdx
+   180238e37:	72 15                	jb     0x180238e4e
+   180238e39:	48 8b 5b f8          	mov    -0x8(%rbx),%rbx
+   180238e3d:	48 83 c2 27          	add    $0x27,%rdx
+   180238e41:	48 2b c3             	sub    %rbx,%rax
+   180238e44:	48 83 c0 f8          	add    $0xfffffffffffffff8,%rax
+   180238e48:	48 83 f8 1f          	cmp    $0x1f,%rax
+   180238e4c:	77 3f                	ja     0x180238e8d
+   180238e4e:	48 8b cb             	mov    %rbx,%rcx
+   180238e51:	e8 9a 36 1b 01       	call   0x1813ec4f0
+   180238e56:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
+   180238e5b:	48 85 c9             	test   %rcx,%rcx
+   180238e5e:	74 50                	je     0x180238eb0
+   180238e60:	48 8b 54 24 30       	mov    0x30(%rsp),%rdx
+   180238e65:	48 8b c1             	mov    %rcx,%rax
+   180238e68:	48 2b d1             	sub    %rcx,%rdx
+   180238e6b:	48 83 e2 f8          	and    $0xfffffffffffffff8,%rdx
+   180238e6f:	48 81 fa 00 10 00 00 	cmp    $0x1000,%rdx
+   180238e76:	72 1c                	jb     0x180238e94
+   180238e78:	48 8b 49 f8          	mov    -0x8(%rcx),%rcx
+   180238e7c:	48 83 c2 27          	add    $0x27,%rdx
+   180238e80:	48 2b c1             	sub    %rcx,%rax
+   180238e83:	48 83 c0 f8          	add    $0xfffffffffffffff8,%rax
+   180238e87:	48 83 f8 1f          	cmp    $0x1f,%rax
+   180238e8b:	76 07                	jbe    0x180238e94
+   180238e8d:	ff 15 05 03 5f 01    	call   *0x15f0305(%rip)        # 0x181829198
+   180238e93:	cc                   	int3
+   180238e94:	e8 57 36 1b 01       	call   0x1813ec4f0
+   180238e99:	0f 57 c0             	xorps  %xmm0,%xmm0
+   180238e9c:	48 c7 44 24 20 00 00 	movq   $0x0,0x20(%rsp)
+   180238ea3:	00 00 
+   180238ea5:	f3 0f 7f 44 24 28    	movdqu %xmm0,0x28(%rsp)
+   180238eab:	eb 03                	jmp    0x180238eb0
+   180238ead:	40 32 ff             	xor    %dil,%dil
+   180238eb0:	48 8d 0d 69 93 f5 01 	lea    0x1f59369(%rip),%rcx        # 0x182192220
+   180238eb7:	e8 7a 35 1b 01       	call   0x1813ec436
+   180238ebc:	48 8b 5c 24 60       	mov    0x60(%rsp),%rbx
+   180238ec1:	40 0f b6 c7          	movzbl %dil,%eax
+   180238ec5:	48 83 c4 50          	add    $0x50,%rsp
+   180238ec9:	5f                   	pop    %rdi
+   180238eca:	c3                   	ret
+   180238ecb:	8b c8                	mov    %eax,%ecx
+   180238ecd:	e8 6a 35 1b 01       	call   0x1813ec43c
+   180238ed2:	cc                   	int3
+   180238ed3:	cc                   	int3
+   180238ed4:	cc                   	int3
+   180238ed5:	cc                   	int3
+   180238ed6:	cc                   	int3
+   180238ed7:	cc                   	int3
+   180238ed8:	cc                   	int3
+   180238ed9:	cc                   	int3
+   180238eda:	cc                   	int3
+   180238edb:	cc                   	int3
+   180238edc:	cc                   	int3
+   180238edd:	cc                   	int3
+   180238ede:	cc                   	int3
+   180238edf:	cc                   	int3

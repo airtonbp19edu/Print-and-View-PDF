@@ -1,0 +1,192 @@
+
+/workspace/pdf-reference-analysis/updf/UPDF/UPDFKit.dll:     file format pei-x86-64
+
+
+Disassembly of section .text:
+
+0000000180220c60 <.text+0x21fc60>:
+   180220c60:	48 89 5c 24 08       	mov    %rbx,0x8(%rsp)
+   180220c65:	48 89 6c 24 10       	mov    %rbp,0x10(%rsp)
+   180220c6a:	48 89 74 24 18       	mov    %rsi,0x18(%rsp)
+   180220c6f:	57                   	push   %rdi
+   180220c70:	48 83 ec 40          	sub    $0x40,%rsp
+   180220c74:	48 8b d9             	mov    %rcx,%rbx
+   180220c77:	41 8b f9             	mov    %r9d,%edi
+   180220c7a:	48 8d 0d 9f 15 f7 01 	lea    0x1f7159f(%rip),%rcx        # 0x182192220
+   180220c81:	49 8b f0             	mov    %r8,%rsi
+   180220c84:	8b ea                	mov    %edx,%ebp
+   180220c86:	e8 a5 b7 1c 01       	call   0x1813ec430
+   180220c8b:	85 c0                	test   %eax,%eax
+   180220c8d:	0f 85 52 02 00 00    	jne    0x180220ee5
+   180220c93:	48 85 db             	test   %rbx,%rbx
+   180220c96:	0f 84 26 02 00 00    	je     0x180220ec2
+   180220c9c:	48 8b 4b 38          	mov    0x38(%rbx),%rcx
+   180220ca0:	48 85 c9             	test   %rcx,%rcx
+   180220ca3:	75 13                	jne    0x180220cb8
+   180220ca5:	0f 57 c0             	xorps  %xmm0,%xmm0
+   180220ca8:	45 33 c9             	xor    %r9d,%r9d
+   180220cab:	f3 0f 7f 44 24 20    	movdqu %xmm0,0x20(%rsp)
+   180220cb1:	4c 89 4c 24 30       	mov    %r9,0x30(%rsp)
+   180220cb6:	eb 12                	jmp    0x180220cca
+   180220cb8:	44 8b c5             	mov    %ebp,%r8d
+   180220cbb:	48 8d 54 24 20       	lea    0x20(%rsp),%rdx
+   180220cc0:	e8 1b 29 4e 00       	call   0x1807035e0
+   180220cc5:	4c 8b 4c 24 30       	mov    0x30(%rsp),%r9
+   180220cca:	48 8b 5c 24 28       	mov    0x28(%rsp),%rbx
+   180220ccf:	4c 8b 54 24 20       	mov    0x20(%rsp),%r10
+   180220cd4:	49 2b da             	sub    %r10,%rbx
+   180220cd7:	48 c1 fb 03          	sar    $0x3,%rbx
+   180220cdb:	c1 eb 02             	shr    $0x2,%ebx
+   180220cde:	48 85 f6             	test   %rsi,%rsi
+   180220ce1:	0f 84 8a 01 00 00    	je     0x180220e71
+   180220ce7:	3b df                	cmp    %edi,%ebx
+   180220ce9:	0f 42 fb             	cmovb  %ebx,%edi
+   180220cec:	45 33 db             	xor    %r11d,%r11d
+   180220cef:	44 8b c7             	mov    %edi,%r8d
+   180220cf2:	8b df                	mov    %edi,%ebx
+   180220cf4:	49 83 f8 04          	cmp    $0x4,%r8
+   180220cf8:	0f 82 18 01 00 00    	jb     0x180220e16
+   180220cfe:	48 83 c7 fc          	add    $0xfffffffffffffffc,%rdi
+   180220d02:	48 8d 4e 04          	lea    0x4(%rsi),%rcx
+   180220d06:	49 8b d2             	mov    %r10,%rdx
+   180220d09:	48 c1 ef 02          	shr    $0x2,%rdi
+   180220d0d:	48 2b d6             	sub    %rsi,%rdx
+   180220d10:	48 ff c7             	inc    %rdi
+   180220d13:	4c 8d 1c bd 00 00 00 	lea    0x0(,%rdi,4),%r11
+   180220d1a:	00 
+   180220d1b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   180220d20:	8b 44 0a fc          	mov    -0x4(%rdx,%rcx,1),%eax
+   180220d24:	89 41 fc             	mov    %eax,-0x4(%rcx)
+   180220d27:	8b 04 0a             	mov    (%rdx,%rcx,1),%eax
+   180220d2a:	89 01                	mov    %eax,(%rcx)
+   180220d2c:	8b 44 0a 04          	mov    0x4(%rdx,%rcx,1),%eax
+   180220d30:	89 41 04             	mov    %eax,0x4(%rcx)
+   180220d33:	8b 44 0a 08          	mov    0x8(%rdx,%rcx,1),%eax
+   180220d37:	89 41 08             	mov    %eax,0x8(%rcx)
+   180220d3a:	8b 44 0a 0c          	mov    0xc(%rdx,%rcx,1),%eax
+   180220d3e:	89 41 0c             	mov    %eax,0xc(%rcx)
+   180220d41:	8b 44 0a 10          	mov    0x10(%rdx,%rcx,1),%eax
+   180220d45:	89 41 10             	mov    %eax,0x10(%rcx)
+   180220d48:	8b 44 0a 14          	mov    0x14(%rdx,%rcx,1),%eax
+   180220d4c:	89 41 14             	mov    %eax,0x14(%rcx)
+   180220d4f:	8b 44 0a 18          	mov    0x18(%rdx,%rcx,1),%eax
+   180220d53:	89 41 18             	mov    %eax,0x18(%rcx)
+   180220d56:	8b 44 0a 1c          	mov    0x1c(%rdx,%rcx,1),%eax
+   180220d5a:	89 41 1c             	mov    %eax,0x1c(%rcx)
+   180220d5d:	8b 44 0a 20          	mov    0x20(%rdx,%rcx,1),%eax
+   180220d61:	89 41 20             	mov    %eax,0x20(%rcx)
+   180220d64:	8b 44 0a 24          	mov    0x24(%rdx,%rcx,1),%eax
+   180220d68:	89 41 24             	mov    %eax,0x24(%rcx)
+   180220d6b:	8b 44 0a 28          	mov    0x28(%rdx,%rcx,1),%eax
+   180220d6f:	89 41 28             	mov    %eax,0x28(%rcx)
+   180220d72:	8b 44 0a 2c          	mov    0x2c(%rdx,%rcx,1),%eax
+   180220d76:	89 41 2c             	mov    %eax,0x2c(%rcx)
+   180220d79:	8b 44 0a 30          	mov    0x30(%rdx,%rcx,1),%eax
+   180220d7d:	89 41 30             	mov    %eax,0x30(%rcx)
+   180220d80:	8b 44 11 34          	mov    0x34(%rcx,%rdx,1),%eax
+   180220d84:	89 41 34             	mov    %eax,0x34(%rcx)
+   180220d87:	8b 44 11 38          	mov    0x38(%rcx,%rdx,1),%eax
+   180220d8b:	89 41 38             	mov    %eax,0x38(%rcx)
+   180220d8e:	8b 44 11 3c          	mov    0x3c(%rcx,%rdx,1),%eax
+   180220d92:	89 41 3c             	mov    %eax,0x3c(%rcx)
+   180220d95:	8b 44 11 40          	mov    0x40(%rcx,%rdx,1),%eax
+   180220d99:	89 41 40             	mov    %eax,0x40(%rcx)
+   180220d9c:	8b 44 11 44          	mov    0x44(%rcx,%rdx,1),%eax
+   180220da0:	89 41 44             	mov    %eax,0x44(%rcx)
+   180220da3:	8b 44 11 48          	mov    0x48(%rcx,%rdx,1),%eax
+   180220da7:	89 41 48             	mov    %eax,0x48(%rcx)
+   180220daa:	8b 44 11 4c          	mov    0x4c(%rcx,%rdx,1),%eax
+   180220dae:	89 41 4c             	mov    %eax,0x4c(%rcx)
+   180220db1:	8b 44 11 50          	mov    0x50(%rcx,%rdx,1),%eax
+   180220db5:	89 41 50             	mov    %eax,0x50(%rcx)
+   180220db8:	8b 44 11 54          	mov    0x54(%rcx,%rdx,1),%eax
+   180220dbc:	89 41 54             	mov    %eax,0x54(%rcx)
+   180220dbf:	8b 44 11 58          	mov    0x58(%rcx,%rdx,1),%eax
+   180220dc3:	89 41 58             	mov    %eax,0x58(%rcx)
+   180220dc6:	8b 44 11 5c          	mov    0x5c(%rcx,%rdx,1),%eax
+   180220dca:	89 41 5c             	mov    %eax,0x5c(%rcx)
+   180220dcd:	8b 44 11 60          	mov    0x60(%rcx,%rdx,1),%eax
+   180220dd1:	89 41 60             	mov    %eax,0x60(%rcx)
+   180220dd4:	8b 44 11 64          	mov    0x64(%rcx,%rdx,1),%eax
+   180220dd8:	89 41 64             	mov    %eax,0x64(%rcx)
+   180220ddb:	8b 44 11 68          	mov    0x68(%rcx,%rdx,1),%eax
+   180220ddf:	89 41 68             	mov    %eax,0x68(%rcx)
+   180220de2:	8b 44 11 6c          	mov    0x6c(%rcx,%rdx,1),%eax
+   180220de6:	89 41 6c             	mov    %eax,0x6c(%rcx)
+   180220de9:	8b 44 0a 70          	mov    0x70(%rdx,%rcx,1),%eax
+   180220ded:	89 41 70             	mov    %eax,0x70(%rcx)
+   180220df0:	8b 44 0a 74          	mov    0x74(%rdx,%rcx,1),%eax
+   180220df4:	89 41 74             	mov    %eax,0x74(%rcx)
+   180220df7:	8b 44 0a 78          	mov    0x78(%rdx,%rcx,1),%eax
+   180220dfb:	89 41 78             	mov    %eax,0x78(%rcx)
+   180220dfe:	48 8d 89 80 00 00 00 	lea    0x80(%rcx),%rcx
+   180220e05:	48 83 ef 01          	sub    $0x1,%rdi
+   180220e09:	0f 85 11 ff ff ff    	jne    0x180220d20
+   180220e0f:	4d 3b d8             	cmp    %r8,%r11
+   180220e12:	72 06                	jb     0x180220e1a
+   180220e14:	eb 5b                	jmp    0x180220e71
+   180220e16:	85 ff                	test   %edi,%edi
+   180220e18:	74 57                	je     0x180220e71
+   180220e1a:	49 8b c3             	mov    %r11,%rax
+   180220e1d:	48 8d 4e 04          	lea    0x4(%rsi),%rcx
+   180220e21:	48 c1 e0 05          	shl    $0x5,%rax
+   180220e25:	49 8b d2             	mov    %r10,%rdx
+   180220e28:	48 03 c8             	add    %rax,%rcx
+   180220e2b:	48 2b d6             	sub    %rsi,%rdx
+   180220e2e:	4d 2b c3             	sub    %r11,%r8
+   180220e31:	8b 44 0a fc          	mov    -0x4(%rdx,%rcx,1),%eax
+   180220e35:	89 41 fc             	mov    %eax,-0x4(%rcx)
+   180220e38:	8b 04 0a             	mov    (%rdx,%rcx,1),%eax
+   180220e3b:	89 01                	mov    %eax,(%rcx)
+   180220e3d:	8b 44 0a 04          	mov    0x4(%rdx,%rcx,1),%eax
+   180220e41:	89 41 04             	mov    %eax,0x4(%rcx)
+   180220e44:	8b 44 0a 08          	mov    0x8(%rdx,%rcx,1),%eax
+   180220e48:	89 41 08             	mov    %eax,0x8(%rcx)
+   180220e4b:	8b 44 0a 0c          	mov    0xc(%rdx,%rcx,1),%eax
+   180220e4f:	89 41 0c             	mov    %eax,0xc(%rcx)
+   180220e52:	8b 44 0a 10          	mov    0x10(%rdx,%rcx,1),%eax
+   180220e56:	89 41 10             	mov    %eax,0x10(%rcx)
+   180220e59:	8b 44 0a 14          	mov    0x14(%rdx,%rcx,1),%eax
+   180220e5d:	89 41 14             	mov    %eax,0x14(%rcx)
+   180220e60:	8b 44 0a 18          	mov    0x18(%rdx,%rcx,1),%eax
+   180220e64:	89 41 18             	mov    %eax,0x18(%rcx)
+   180220e67:	48 8d 49 20          	lea    0x20(%rcx),%rcx
+   180220e6b:	49 83 e8 01          	sub    $0x1,%r8
+   180220e6f:	75 c0                	jne    0x180220e31
+   180220e71:	4d 85 d2             	test   %r10,%r10
+   180220e74:	74 4c                	je     0x180220ec2
+   180220e76:	4d 2b ca             	sub    %r10,%r9
+   180220e79:	49 8b c2             	mov    %r10,%rax
+   180220e7c:	49 83 e1 f8          	and    $0xfffffffffffffff8,%r9
+   180220e80:	49 81 f9 00 10 00 00 	cmp    $0x1000,%r9
+   180220e87:	72 1c                	jb     0x180220ea5
+   180220e89:	4d 8b 52 f8          	mov    -0x8(%r10),%r10
+   180220e8d:	49 83 c1 27          	add    $0x27,%r9
+   180220e91:	49 2b c2             	sub    %r10,%rax
+   180220e94:	48 83 c0 f8          	add    $0xfffffffffffffff8,%rax
+   180220e98:	48 83 f8 1f          	cmp    $0x1f,%rax
+   180220e9c:	76 07                	jbe    0x180220ea5
+   180220e9e:	ff 15 f4 82 60 01    	call   *0x16082f4(%rip)        # 0x181829198
+   180220ea4:	cc                   	int3
+   180220ea5:	49 8b d1             	mov    %r9,%rdx
+   180220ea8:	49 8b ca             	mov    %r10,%rcx
+   180220eab:	e8 40 b6 1c 01       	call   0x1813ec4f0
+   180220eb0:	0f 57 c0             	xorps  %xmm0,%xmm0
+   180220eb3:	48 c7 44 24 30 00 00 	movq   $0x0,0x30(%rsp)
+   180220eba:	00 00 
+   180220ebc:	f3 0f 7f 44 24 20    	movdqu %xmm0,0x20(%rsp)
+   180220ec2:	48 8d 0d 57 13 f7 01 	lea    0x1f71357(%rip),%rcx        # 0x182192220
+   180220ec9:	e8 68 b5 1c 01       	call   0x1813ec436
+   180220ece:	48 8b 6c 24 58       	mov    0x58(%rsp),%rbp
+   180220ed3:	8b c3                	mov    %ebx,%eax
+   180220ed5:	48 8b 5c 24 50       	mov    0x50(%rsp),%rbx
+   180220eda:	48 8b 74 24 60       	mov    0x60(%rsp),%rsi
+   180220edf:	48 83 c4 40          	add    $0x40,%rsp
+   180220ee3:	5f                   	pop    %rdi
+   180220ee4:	c3                   	ret
+   180220ee5:	8b c8                	mov    %eax,%ecx
+   180220ee7:	e8 50 b5 1c 01       	call   0x1813ec43c
+   180220eec:	cc                   	int3
+   180220eed:	cc                   	int3
+   180220eee:	cc                   	int3
+   180220eef:	cc                   	int3

@@ -1,0 +1,97 @@
+
+/workspace/pdf-reference-analysis/foxit/Foxit PDF Reader/FoxitPDFReader.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+0167ed50 <.text+0x127dd50>:
+ 167ed50:	55                   	push   %ebp
+ 167ed51:	8b ec                	mov    %esp,%ebp
+ 167ed53:	6a ff                	push   $0xffffffff
+ 167ed55:	68 3d 7c 02 05       	push   $0x5027c3d
+ 167ed5a:	64 a1 00 00 00 00    	mov    %fs:0x0,%eax
+ 167ed60:	50                   	push   %eax
+ 167ed61:	51                   	push   %ecx
+ 167ed62:	56                   	push   %esi
+ 167ed63:	57                   	push   %edi
+ 167ed64:	a1 80 bb c4 06       	mov    0x6c4bb80,%eax
+ 167ed69:	33 c5                	xor    %ebp,%eax
+ 167ed6b:	50                   	push   %eax
+ 167ed6c:	8d 45 f4             	lea    -0xc(%ebp),%eax
+ 167ed6f:	64 a3 00 00 00 00    	mov    %eax,%fs:0x0
+ 167ed75:	8b f9                	mov    %ecx,%edi
+ 167ed77:	6a 01                	push   $0x1
+ 167ed79:	e8 5a d5 27 03       	call   0x48fc2d8
+ 167ed7e:	68 b6 28 00 00       	push   $0x28b6
+ 167ed83:	8b cf                	mov    %edi,%ecx
+ 167ed85:	e8 e7 6e 27 03       	call   0x48f5c71
+ 167ed8a:	ff b7 d0 10 00 00    	push   0x10d0(%edi)
+ 167ed90:	8b c8                	mov    %eax,%ecx
+ 167ed92:	e8 27 6d 27 03       	call   0x48f5abe
+ 167ed97:	68 b7 28 00 00       	push   $0x28b7
+ 167ed9c:	8b cf                	mov    %edi,%ecx
+ 167ed9e:	e8 ce 6e 27 03       	call   0x48f5c71
+ 167eda3:	ff b7 d0 10 00 00    	push   0x10d0(%edi)
+ 167eda9:	8b c8                	mov    %eax,%ecx
+ 167edab:	e8 0e 6d 27 03       	call   0x48f5abe
+ 167edb0:	8b 87 00 02 00 00    	mov    0x200(%edi),%eax
+ 167edb6:	51                   	push   %ecx
+ 167edb7:	89 65 f0             	mov    %esp,-0x10(%ebp)
+ 167edba:	8d 8f 00 02 00 00    	lea    0x200(%edi),%ecx
+ 167edc0:	8b 50 10             	mov    0x10(%eax),%edx
+ 167edc3:	8b c4                	mov    %esp,%eax
+ 167edc5:	50                   	push   %eax
+ 167edc6:	ff d2                	call   *%edx
+ 167edc8:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+ 167edcf:	c7 45 fc ff ff ff ff 	movl   $0xffffffff,-0x4(%ebp)
+ 167edd6:	8d 8f 00 02 00 00    	lea    0x200(%edi),%ecx
+ 167eddc:	e8 6f 7b fe ff       	call   0x1666950
+ 167ede1:	83 bf d0 10 00 00 00 	cmpl   $0x0,0x10d0(%edi)
+ 167ede8:	8b f0                	mov    %eax,%esi
+ 167edea:	74 37                	je     0x167ee23
+ 167edec:	68 b7 28 00 00       	push   $0x28b7
+ 167edf1:	68 b6 28 00 00       	push   $0x28b6
+ 167edf6:	8b cf                	mov    %edi,%ecx
+ 167edf8:	e8 9d 06 28 03       	call   0x48ff49a
+ 167edfd:	85 f6                	test   %esi,%esi
+ 167edff:	74 2f                	je     0x167ee30
+ 167ee01:	33 c9                	xor    %ecx,%ecx
+ 167ee03:	3d b6 28 00 00       	cmp    $0x28b6,%eax
+ 167ee08:	0f 95 c1             	setne  %cl
+ 167ee0b:	83 c1 02             	add    $0x2,%ecx
+ 167ee0e:	66 89 4e 0e          	mov    %cx,0xe(%esi)
+ 167ee12:	8b 4d f4             	mov    -0xc(%ebp),%ecx
+ 167ee15:	64 89 0d 00 00 00 00 	mov    %ecx,%fs:0x0
+ 167ee1c:	59                   	pop    %ecx
+ 167ee1d:	5f                   	pop    %edi
+ 167ee1e:	5e                   	pop    %esi
+ 167ee1f:	8b e5                	mov    %ebp,%esp
+ 167ee21:	5d                   	pop    %ebp
+ 167ee22:	c3                   	ret
+ 167ee23:	85 f6                	test   %esi,%esi
+ 167ee25:	74 09                	je     0x167ee30
+ 167ee27:	b8 01 00 00 00       	mov    $0x1,%eax
+ 167ee2c:	66 89 46 0e          	mov    %ax,0xe(%esi)
+ 167ee30:	8b 4d f4             	mov    -0xc(%ebp),%ecx
+ 167ee33:	64 89 0d 00 00 00 00 	mov    %ecx,%fs:0x0
+ 167ee3a:	59                   	pop    %ecx
+ 167ee3b:	5f                   	pop    %edi
+ 167ee3c:	5e                   	pop    %esi
+ 167ee3d:	8b e5                	mov    %ebp,%esp
+ 167ee3f:	5d                   	pop    %ebp
+ 167ee40:	c3                   	ret
+ 167ee41:	cc                   	int3
+ 167ee42:	cc                   	int3
+ 167ee43:	cc                   	int3
+ 167ee44:	cc                   	int3
+ 167ee45:	cc                   	int3
+ 167ee46:	cc                   	int3
+ 167ee47:	cc                   	int3
+ 167ee48:	cc                   	int3
+ 167ee49:	cc                   	int3
+ 167ee4a:	cc                   	int3
+ 167ee4b:	cc                   	int3
+ 167ee4c:	cc                   	int3
+ 167ee4d:	cc                   	int3
+ 167ee4e:	cc                   	int3
+ 167ee4f:	cc                   	int3

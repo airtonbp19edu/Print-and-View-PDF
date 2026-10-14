@@ -1,0 +1,245 @@
+* {
+    font-family: "Segoe UI", "Noto Sans", sans-serif;
+    font-size: 10pt;
+}
+window {
+    background: #f3f4f6;
+    color: #202124;
+}
+
+/* -------- Compact Winux document shell -------- */
+.ribbon-shell {
+    background: #ffffff;
+    border-bottom: 1px solid #cfd2d7;
+}
+.quick-access {
+    background: #f7f7f8;
+    border-bottom: 1px solid #e1e3e6;
+    min-height: 22px;
+}
+.quick-title {
+    color: #53565c;
+    font-weight: 600;
+}
+.app-mark {
+    background: #65419a;
+    color: #ffffff;
+    font-weight: 700;
+    border-radius: 3px;
+    padding: 2px 7px;
+}
+.quick-access .ribbon-command-small {
+    padding: 1px 4px;
+    min-height: 20px;
+}
+.ribbon-tabbar {
+    background: #ffffff;
+    border-bottom: 1px solid #dedfe3;
+    min-height: 24px;
+}
+.ribbon-tab {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 2px 8px 2px 8px;
+    color: #34373c;
+    box-shadow: none;
+}
+.ribbon-tab:hover {
+    background: #f4f1f8;
+}
+.ribbon-tab.active-ribbon-tab {
+    color: #5c338a;
+    font-weight: 600;
+    border-bottom: 2px solid #6a4097;
+}
+.ribbon-stack {
+    background: #ffffff;
+    min-height: 40px;
+}
+.ribbon-page-scroll,
+.ribbon-page-scroll viewport {
+    background: #ffffff;
+}
+.ribbon-group {
+    padding: 0 2px;
+    min-height: 36px;
+}
+.ribbon-group-title {
+    color: #777b82;
+    font-size: 8pt;
+    padding: 0px 2px 1px 2px;
+}
+.ribbon-separator {
+    background: #dddfe3;
+    margin-top: 3px;
+    margin-bottom: 8px;
+}
+.ribbon-command,
+.ribbon-command-small {
+    background: transparent;
+    color: #292c31;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: none;
+}
+.ribbon-command {
+    padding: 2px 5px;
+    min-width: 44px;
+    min-height: 34px;
+}
+.ribbon-command-small {
+    padding: 1px 4px;
+    min-height: 20px;
+}
+.ribbon-command:hover,
+.ribbon-command-small:hover {
+    background: #f2eff6;
+    border-color: #d8d1e2;
+}
+.ribbon-command:active,
+.ribbon-command-small:active,
+togglebutton.ribbon-command:checked,
+togglebutton.ribbon-command-small:checked {
+    background: #e9e2f1;
+    border-color: #baa9ce;
+    color: #4c2876;
+}
+
+/* -------- document tab row -------- */
+.document-tabbar {
+    background: #e8eaed;
+    border-bottom: 1px solid #c6c9ce;
+    min-height: 24px;
+}
+.document-tab {
+    background: #ffffff;
+    border-right: 1px solid #c7cacf;
+    border-top: 2px solid #65419a;
+    padding: 2px 4px 1px 6px;
+    min-width: 170px;
+}
+.document-tab-close {
+    background: transparent;
+    border: none;
+    padding: 1px 3px;
+}
+.document-tab-filler { background: #e8eaed; }
+
+.findbar {
+    background: #fff7da;
+    border-bottom: 1px solid #e5d086;
+    padding: 2px;
+}
+
+/* -------- sidebar -------- */
+.sidebar-container {
+    background: #ffffff;
+    border-right: 1px solid #cfd2d7;
+}
+.sidebar-rail {
+    background: #f3f4f6;
+    border-right: 1px solid #d8dadd;
+    padding-top: 2px;
+    min-width: 33px;
+}
+.sidebar-rail-button {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 5px 5px;
+    box-shadow: none;
+}
+.sidebar-rail-button:hover { background: #e9e5ee; }
+.sidebar-rail-button:checked {
+    background: #e7def0;
+    border-left: 3px solid #65419a;
+}
+notebook.side-panels {
+    background: #ffffff;
+}
+.side-panel-header {
+    background: #fafafa;
+    border-bottom: 1px solid #e1e3e6;
+}
+.side-panel-title {
+    font-weight: 600;
+    color: #34373c;
+}
+.panel-row-title { font-weight: 600; color: #33373d; }
+.muted { color: #72767d; font-size: 9pt; }
+
+/* -------- page canvas -------- */
+.viewer-scroll, .viewer-scroll viewport {
+    background: #5a5d62;
+}
+.page-frame {
+    background: #ffffff;
+    border: 1px solid #bfc2c7;
+    box-shadow: 0 4px 14px rgba(0,0,0,.28);
+}
+.interaction-layer { background-color: transparent; }
+
+/* -------- bottom status/navigation bar -------- */
+.statusbar {
+    background: #fafafa;
+    border-top: 1px solid #cfd2d7;
+    color: #4e5258;
+    min-height: 24px;
+}
+.statusbar button {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 2px 4px;
+}
+.statusbar entry {
+    min-height: 22px;
+    padding: 1px 4px;
+}
+.statusbar scale trough {
+    min-height: 3px;
+}
+.statusbar scale slider {
+    min-width: 13px;
+    min-height: 13px;
+}
+
+/* -------- generic dialogs / printing -------- */
+frame > border {
+    border-color: #d7dae0;
+    border-radius: 4px;
+}
+entry, spinbutton, combobox button, button { color: #202124; }
+button.suggested-action {
+    background: #65419a;
+    color: white;
+    border-color: #54357f;
+}
+button.suggested-action:hover { background: #593986; }
+
+.presentation-toolbar {
+    background: rgba(25,25,25,.92);
+    color: #ffffff;
+    border-radius: 7px;
+    padding: 8px;
+}
+.presentation-toolbar label,
+.presentation-toolbar checkbutton label { color: #ffffff; }
+.presentation-toolbar button,
+.presentation-toolbar combobox button {
+    background: #343434;
+    color: #ffffff;
+    border-color: #555555;
+}
+
+.maintenance-key { font-weight: 600; color: #454a50; }
+expander > title { padding: 7px 2px; color: #3e4349; font-weight: 600; }
+textview { background: #fbfbfc; color: #35393e; }
+
+.ribbon-collapse {
+    background: transparent; border: none; box-shadow: none; padding: 2px 6px; min-height: 24px;
+}
+.ribbon-collapse:hover { background: #f2eff6; }
+.side-panel-close { background: transparent; border: none; box-shadow: none; padding: 1px 3px; }
+.side-panel-close:hover { background: #ececef; }

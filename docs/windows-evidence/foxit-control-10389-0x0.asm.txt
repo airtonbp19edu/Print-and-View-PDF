@@ -1,0 +1,92 @@
+
+/workspace/pdf-reference-analysis/foxit/Foxit PDF Reader/FoxitPDFReader.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+016dc650 <.text+0x12db650>:
+ 16dc650:	56                   	push   %esi
+ 16dc651:	8b f1                	mov    %ecx,%esi
+ 16dc653:	83 be c0 03 00 00 00 	cmpl   $0x0,0x3c0(%esi)
+ 16dc65a:	74 45                	je     0x16dc6a1
+ 16dc65c:	6a 01                	push   $0x1
+ 16dc65e:	e8 75 fc 21 03       	call   0x48fc2d8
+ 16dc663:	8b 8e c0 03 00 00    	mov    0x3c0(%esi),%ecx
+ 16dc669:	8b 86 b4 03 00 00    	mov    0x3b4(%esi),%eax
+ 16dc66f:	6a 00                	push   $0x0
+ 16dc671:	68 d8 0b cc 06       	push   $0x6cc0bd8
+ 16dc676:	68 84 eb d0 06       	push   $0x6d0eb84
+ 16dc67b:	89 81 88 00 00 00    	mov    %eax,0x88(%ecx)
+ 16dc681:	6a 00                	push   $0x0
+ 16dc683:	ff b6 bc 03 00 00    	push   0x3bc(%esi)
+ 16dc689:	e8 b2 ac 48 03       	call   0x4b67340
+ 16dc68e:	83 c4 14             	add    $0x14,%esp
+ 16dc691:	85 c0                	test   %eax,%eax
+ 16dc693:	74 0c                	je     0x16dc6a1
+ 16dc695:	8d 88 00 02 00 00    	lea    0x200(%eax),%ecx
+ 16dc69b:	8b 01                	mov    (%ecx),%eax
+ 16dc69d:	5e                   	pop    %esi
+ 16dc69e:	ff 60 08             	jmp    *0x8(%eax)
+ 16dc6a1:	5e                   	pop    %esi
+ 16dc6a2:	c3                   	ret
+ 16dc6a3:	cc                   	int3
+ 16dc6a4:	cc                   	int3
+ 16dc6a5:	cc                   	int3
+ 16dc6a6:	cc                   	int3
+ 16dc6a7:	cc                   	int3
+ 16dc6a8:	cc                   	int3
+ 16dc6a9:	cc                   	int3
+ 16dc6aa:	cc                   	int3
+ 16dc6ab:	cc                   	int3
+ 16dc6ac:	cc                   	int3
+ 16dc6ad:	cc                   	int3
+ 16dc6ae:	cc                   	int3
+ 16dc6af:	cc                   	int3
+ 16dc6b0:	55                   	push   %ebp
+ 16dc6b1:	8b ec                	mov    %esp,%ebp
+ 16dc6b3:	6a ff                	push   $0xffffffff
+ 16dc6b5:	68 0d 84 03 05       	push   $0x503840d
+ 16dc6ba:	64 a1 00 00 00 00    	mov    %fs:0x0,%eax
+ 16dc6c0:	50                   	push   %eax
+ 16dc6c1:	51                   	push   %ecx
+ 16dc6c2:	56                   	push   %esi
+ 16dc6c3:	57                   	push   %edi
+ 16dc6c4:	a1 80 bb c4 06       	mov    0x6c4bb80,%eax
+ 16dc6c9:	33 c5                	xor    %ebp,%eax
+ 16dc6cb:	50                   	push   %eax
+ 16dc6cc:	8d 45 f4             	lea    -0xc(%ebp),%eax
+ 16dc6cf:	64 a3 00 00 00 00    	mov    %eax,%fs:0x0
+ 16dc6d5:	8b f9                	mov    %ecx,%edi
+ 16dc6d7:	e8 20 40 21 03       	call   0x48f06fc
+ 16dc6dc:	57                   	push   %edi
+ 16dc6dd:	e8 ee fa 02 ff       	call   0x70c1d0
+ 16dc6e2:	83 c4 04             	add    $0x4,%esp
+ 16dc6e5:	68 6e 1e 00 00       	push   $0x1e6e
+ 16dc6ea:	ff 77 20             	push   0x20(%edi)
+ 16dc6ed:	51                   	push   %ecx
+ 16dc6ee:	8b cc                	mov    %esp,%ecx
+ 16dc6f0:	89 65 f0             	mov    %esp,-0x10(%ebp)
+ 16dc6f3:	6a ff                	push   $0xffffffff
+ 16dc6f5:	68 2c 76 3d 05       	push   $0x53d762c
+ 16dc6fa:	e8 c1 0f 83 00       	call   0x1f0d6c0
+ 16dc6ff:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+ 16dc706:	c7 45 fc ff ff ff ff 	movl   $0xffffffff,-0x4(%ebp)
+ 16dc70d:	e8 9e ee 02 ff       	call   0x70b5b0
+ 16dc712:	83 c4 0c             	add    $0xc,%esp
+ 16dc715:	8b cf                	mov    %edi,%ecx
+ 16dc717:	6a 00                	push   $0x0
+ 16dc719:	68 00 00 01 00       	push   $0x10000
+ 16dc71e:	6a 00                	push   $0x0
+ 16dc720:	e8 cd 9c 21 03       	call   0x48f63f2
+ 16dc725:	8b cf                	mov    %edi,%ecx
+ 16dc727:	e8 f4 fc ff ff       	call   0x16dc420
+ 16dc72c:	8b cf                	mov    %edi,%ecx
+ 16dc72e:	e8 fd fa ff ff       	call   0x16dc230
+ 16dc733:	8b 87 c0 03 00 00    	mov    0x3c0(%edi),%eax
+ 16dc739:	f2 0f 10 0d 60 38 57 	movsd  0x6573860,%xmm1
+ 16dc740:	06 
+ 16dc741:	f2 0f 10 15 48 39 57 	movsd  0x6573948,%xmm2
+ 16dc748:	06 
+ 16dc749:	83 78 24 00          	cmpl   $0x0,0x24(%eax)
+ 16dc74d:	74 0c                	je     0x16dc75b
+ 16dc74f:	f2                   	repnz

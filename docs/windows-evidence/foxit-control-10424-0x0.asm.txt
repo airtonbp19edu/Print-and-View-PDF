@@ -1,0 +1,86 @@
+
+/workspace/pdf-reference-analysis/foxit/Foxit PDF Reader/FoxitPDFReader.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+0167e5d0 <.text+0x127d5d0>:
+ 167e5d0:	56                   	push   %esi
+ 167e5d1:	6a 03                	push   $0x3
+ 167e5d3:	8b f1                	mov    %ecx,%esi
+ 167e5d5:	e8 16 84 ff ff       	call   0x16769f0
+ 167e5da:	6a 01                	push   $0x1
+ 167e5dc:	8b ce                	mov    %esi,%ecx
+ 167e5de:	e8 f5 dc 27 03       	call   0x48fc2d8
+ 167e5e3:	8b 96 20 02 00 00    	mov    0x220(%esi),%edx
+ 167e5e9:	8b ce                	mov    %esi,%ecx
+ 167e5eb:	8b 86 dc 0b 00 00    	mov    0xbdc(%esi),%eax
+ 167e5f1:	6a 00                	push   $0x0
+ 167e5f3:	6a 06                	push   $0x6
+ 167e5f5:	89 42 5c             	mov    %eax,0x5c(%edx)
+ 167e5f8:	e8 73 91 ff ff       	call   0x1677770
+ 167e5fd:	5e                   	pop    %esi
+ 167e5fe:	c3                   	ret
+ 167e5ff:	cc                   	int3
+ 167e600:	56                   	push   %esi
+ 167e601:	6a 02                	push   $0x2
+ 167e603:	8b f1                	mov    %ecx,%esi
+ 167e605:	e8 e6 83 ff ff       	call   0x16769f0
+ 167e60a:	6a 01                	push   $0x1
+ 167e60c:	8b ce                	mov    %esi,%ecx
+ 167e60e:	e8 c5 dc 27 03       	call   0x48fc2d8
+ 167e613:	8b 96 20 02 00 00    	mov    0x220(%esi),%edx
+ 167e619:	8b ce                	mov    %esi,%ecx
+ 167e61b:	8b 86 dc 0b 00 00    	mov    0xbdc(%esi),%eax
+ 167e621:	89 42 5c             	mov    %eax,0x5c(%edx)
+ 167e624:	c7 86 0c 02 00 00 01 	movl   $0x1,0x20c(%esi)
+ 167e62b:	00 00 00 
+ 167e62e:	e8 7d 2f 00 00       	call   0x16815b0
+ 167e633:	6a 00                	push   $0x0
+ 167e635:	6a 03                	push   $0x3
+ 167e637:	8b ce                	mov    %esi,%ecx
+ 167e639:	e8 32 91 ff ff       	call   0x1677770
+ 167e63e:	5e                   	pop    %esi
+ 167e63f:	c3                   	ret
+ 167e640:	56                   	push   %esi
+ 167e641:	6a 00                	push   $0x0
+ 167e643:	8b f1                	mov    %ecx,%esi
+ 167e645:	e8 a6 83 ff ff       	call   0x16769f0
+ 167e64a:	6a 01                	push   $0x1
+ 167e64c:	8b ce                	mov    %esi,%ecx
+ 167e64e:	e8 85 dc 27 03       	call   0x48fc2d8
+ 167e653:	8b 8e 20 02 00 00    	mov    0x220(%esi),%ecx
+ 167e659:	8b 86 dc 0b 00 00    	mov    0xbdc(%esi),%eax
+ 167e65f:	89 41 5c             	mov    %eax,0x5c(%ecx)
+ 167e662:	8b 86 20 02 00 00    	mov    0x220(%esi),%eax
+ 167e668:	83 b8 b0 01 00 00 01 	cmpl   $0x1,0x1b0(%eax)
+ 167e66f:	75 16                	jne    0x167e687
+ 167e671:	8b 8e 08 11 00 00    	mov    0x1108(%esi),%ecx
+ 167e677:	85 c9                	test   %ecx,%ecx
+ 167e679:	74 50                	je     0x167e6cb
+ 167e67b:	83 79 20 00          	cmpl   $0x0,0x20(%ecx)
+ 167e67f:	74 4a                	je     0x167e6cb
+ 167e681:	5e                   	pop    %esi
+ 167e682:	e9 b9 cc 05 00       	jmp    0x16db340
+ 167e687:	c7 80 e4 00 00 00 00 	movl   $0x0,0xe4(%eax)
+ 167e68e:	00 00 00 
+ 167e691:	8b 86 20 02 00 00    	mov    0x220(%esi),%eax
+ 167e697:	c7 80 dc 00 00 00 00 	movl   $0x0,0xdc(%eax)
+ 167e69e:	00 00 00 
+ 167e6a1:	8b 8e 08 11 00 00    	mov    0x1108(%esi),%ecx
+ 167e6a7:	85 c9                	test   %ecx,%ecx
+ 167e6a9:	74 0b                	je     0x167e6b6
+ 167e6ab:	83 79 20 00          	cmpl   $0x0,0x20(%ecx)
+ 167e6af:	74 05                	je     0x167e6b6
+ 167e6b1:	e8 8a cc 05 00       	call   0x16db340
+ 167e6b6:	8b 8e 20 02 00 00    	mov    0x220(%esi),%ecx
+ 167e6bc:	6a 01                	push   $0x1
+ 167e6be:	e8 ed 2e ff ff       	call   0x16715b0
+ 167e6c3:	8b ce                	mov    %esi,%ecx
+ 167e6c5:	5e                   	pop    %esi
+ 167e6c6:	e9 15 8c ff ff       	jmp    0x16772e0
+ 167e6cb:	5e                   	pop    %esi
+ 167e6cc:	c3                   	ret
+ 167e6cd:	cc                   	int3
+ 167e6ce:	cc                   	int3
+ 167e6cf:	cc                   	int3

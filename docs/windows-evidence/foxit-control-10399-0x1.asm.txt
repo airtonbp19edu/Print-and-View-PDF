@@ -1,0 +1,87 @@
+
+/workspace/pdf-reference-analysis/foxit/Foxit PDF Reader/FoxitPDFReader.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+016dfa50 <.text+0x12dea50>:
+ 16dfa50:	56                   	push   %esi
+ 16dfa51:	6a 00                	push   $0x0
+ 16dfa53:	8b f1                	mov    %ecx,%esi
+ 16dfa55:	6a 00                	push   $0x0
+ 16dfa57:	68 47 01 00 00       	push   $0x147
+ 16dfa5c:	ff b6 a0 02 00 00    	push   0x2a0(%esi)
+ 16dfa62:	ff 15 5c d2 31 05    	call   *0x531d25c
+ 16dfa68:	85 c0                	test   %eax,%eax
+ 16dfa6a:	75 12                	jne    0x16dfa7e
+ 16dfa6c:	8b 86 98 03 00 00    	mov    0x398(%esi),%eax
+ 16dfa72:	c7 80 d0 00 00 00 01 	movl   $0x1,0xd0(%eax)
+ 16dfa79:	00 00 00 
+ 16dfa7c:	eb 15                	jmp    0x16dfa93
+ 16dfa7e:	83 f8 01             	cmp    $0x1,%eax
+ 16dfa81:	75 10                	jne    0x16dfa93
+ 16dfa83:	8b 86 98 03 00 00    	mov    0x398(%esi),%eax
+ 16dfa89:	c7 80 d0 00 00 00 00 	movl   $0x0,0xd0(%eax)
+ 16dfa90:	00 00 00 
+ 16dfa93:	8b 86 98 03 00 00    	mov    0x398(%esi),%eax
+ 16dfa99:	6a 00                	push   $0x0
+ 16dfa9b:	68 d8 0b cc 06       	push   $0x6cc0bd8
+ 16dfaa0:	68 84 eb d0 06       	push   $0x6d0eb84
+ 16dfaa5:	c7 80 dc 00 00 00 00 	movl   $0x0,0xdc(%eax)
+ 16dfaac:	00 00 00 
+ 16dfaaf:	8b 86 98 03 00 00    	mov    0x398(%esi),%eax
+ 16dfab5:	6a 00                	push   $0x0
+ 16dfab7:	c7 80 e4 00 00 00 00 	movl   $0x0,0xe4(%eax)
+ 16dfabe:	00 00 00 
+ 16dfac1:	ff b6 94 03 00 00    	push   0x394(%esi)
+ 16dfac7:	e8 74 78 48 03       	call   0x4b67340
+ 16dfacc:	83 c4 14             	add    $0x14,%esp
+ 16dfacf:	85 c0                	test   %eax,%eax
+ 16dfad1:	74 08                	je     0x16dfadb
+ 16dfad3:	8b c8                	mov    %eax,%ecx
+ 16dfad5:	5e                   	pop    %esi
+ 16dfad6:	e9 05 78 f9 ff       	jmp    0x16772e0
+ 16dfadb:	6a 00                	push   $0x0
+ 16dfadd:	68 64 0c cc 06       	push   $0x6cc0c64
+ 16dfae2:	68 84 eb d0 06       	push   $0x6d0eb84
+ 16dfae7:	6a 00                	push   $0x0
+ 16dfae9:	ff b6 94 03 00 00    	push   0x394(%esi)
+ 16dfaef:	e8 4c 78 48 03       	call   0x4b67340
+ 16dfaf4:	83 c4 14             	add    $0x14,%esp
+ 16dfaf7:	85 c0                	test   %eax,%eax
+ 16dfaf9:	74 09                	je     0x16dfb04
+ 16dfafb:	6a 00                	push   $0x0
+ 16dfafd:	8b c8                	mov    %eax,%ecx
+ 16dfaff:	e8 cc 00 fb ff       	call   0x168fbd0
+ 16dfb04:	5e                   	pop    %esi
+ 16dfb05:	c3                   	ret
+ 16dfb06:	cc                   	int3
+ 16dfb07:	cc                   	int3
+ 16dfb08:	cc                   	int3
+ 16dfb09:	cc                   	int3
+ 16dfb0a:	cc                   	int3
+ 16dfb0b:	cc                   	int3
+ 16dfb0c:	cc                   	int3
+ 16dfb0d:	cc                   	int3
+ 16dfb0e:	cc                   	int3
+ 16dfb0f:	cc                   	int3
+ 16dfb10:	56                   	push   %esi
+ 16dfb11:	6a 00                	push   $0x0
+ 16dfb13:	8b f1                	mov    %ecx,%esi
+ 16dfb15:	6a 00                	push   $0x0
+ 16dfb17:	68 47 01 00 00       	push   $0x147
+ 16dfb1c:	ff b6 20 02 00 00    	push   0x220(%esi)
+ 16dfb22:	ff 15 5c d2 31 05    	call   *0x531d25c
+ 16dfb28:	85 c0                	test   %eax,%eax
+ 16dfb2a:	75 12                	jne    0x16dfb3e
+ 16dfb2c:	8b 86 98 03 00 00    	mov    0x398(%esi),%eax
+ 16dfb32:	c7 80 cc 00 00 00 00 	movl   $0x0,0xcc(%eax)
+ 16dfb39:	00 00 00 
+ 16dfb3c:	eb 2c                	jmp    0x16dfb6a
+ 16dfb3e:	83 f8 01             	cmp    $0x1,%eax
+ 16dfb41:	75 12                	jne    0x16dfb55
+ 16dfb43:	8b 86 98 03 00 00    	mov    0x398(%esi),%eax
+ 16dfb49:	c7                   	.byte 0xc7
+ 16dfb4a:	80 cc 00             	or     $0x0,%ah
+ 16dfb4d:	00 00                	add    %al,(%eax)
+ 16dfb4f:	01                   	.byte 0x1

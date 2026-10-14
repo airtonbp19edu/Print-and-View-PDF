@@ -1,0 +1,58 @@
+[
+  {
+    "control_id": 10400,
+    "label": "Booklet subset",
+    "wm_command_code": "0x1",
+    "signature_enum": 58,
+    "message_map_file_offset": "0x4fdb798",
+    "handler_va": "0x16dfb10"
+  },
+  {
+    "control_id": 10399,
+    "label": "Booklet binding",
+    "wm_command_code": "0x1",
+    "signature_enum": 58,
+    "message_map_file_offset": "0x4fdb780",
+    "handler_va": "0x16dfa50"
+  },
+  {
+    "control_id": 10388,
+    "label": "Poster cut marks",
+    "wm_command_code": "0x0",
+    "signature_enum": 58,
+    "message_map_file_offset": "0x4fdb2d0",
+    "handler_va": "0x16dc5f0"
+  },
+  {
+    "control_id": 10389,
+    "label": "Poster labels",
+    "wm_command_code": "0x0",
+    "signature_enum": 58,
+    "message_map_file_offset": "0x4fdb2e8",
+    "handler_va": "0x16dc650"
+  },
+  {
+    "control_id": 10424,
+    "label": "Booklet mode",
+    "wm_command_code": "0x0",
+    "signature_enum": 58,
+    "message_map_file_offset": "0x4fd7ca0",
+    "handler_va": "0x167e5d0"
+  },
+  {
+    "control_id": 10427,
+    "label": "Tile large pages mode",
+    "wm_command_code": "0x0",
+    "signature_enum": 58,
+    "message_map_file_offset": "0x4fd7c70",
+    "handler_va": "0x167e6d0"
+  },
+  {
+    "control_id": 10394,
+    "label": "Duplex checkbox",
+    "wm_command_code": "0x0",
+    "signature_enum": 58,
+    "message_map_file_offset": "0x4fd7d30",
+    "handler_va": "0x167ed50"
+  }
+]

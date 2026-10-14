@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=Print&View PDF
+GenericName=Leitor e Impressor de PDF
+Comment=Leitura de PDF com impressão avançada, livreto, pôster e apresentação
+Exec=print-view-pdf %f
+TryExec=print-view-pdf
+Icon=print-view-pdf
+Terminal=false
+Categories=Office;Viewer;
+MimeType=application/pdf;
+StartupWMClass=print-view-pdf
+StartupNotify=true

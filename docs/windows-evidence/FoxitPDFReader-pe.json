@@ -1,0 +1,6796 @@
+{
+  "path": "/workspace/pdf-reference-analysis/foxit/Foxit PDF Reader/FoxitPDFReader.exe",
+  "sha256": "90208c9e8da92c8e546b76c8f4a2f8fb999105d124e663bbea6744fb6bb6b3a6",
+  "size": 133250144,
+  "machine": "0x14c",
+  "image_base": "0x400000",
+  "versions": [
+    {
+      "Comments": "",
+      "CompanyName": "Foxit Software Inc.",
+      "FileDescription": "Foxit PDF Reader",
+      "InternalName": "Foxit Reader.exe",
+      "OriginalFilename": "FoxitPDFReader.EXE",
+      "ProductName": "Foxit PDF Reader",
+      "FileVersion": "2025.2.0.33046",
+      "ProductVersion": "2025.2.0.33046",
+      "LegalCopyright": "Copyright © 2004-2025 Foxit Software Inc. All Rights Reserved. ",
+      "LegalTrademarks": "",
+      "PrivateBuild": "",
+      "SpecialBuild": ""
+    },
+    {
+      "Comments": "www.wintertree-software.com",
+      "CompanyName": "Wintertree Software Inc.",
+      "FileDescription": "Sentry Spelling-Checker Engine",
+      "FileVersion": "5.17.0.0",
+      "InternalName": "SSCE",
+      "LegalCopyright": "Copyright © 1994-2010 Wintertree Software Inc.",
+      "OriginalFilename": "ssce55xx.dll",
+      "ProductName": "Sentry Spelling-Checker Engine for Windows",
+      "ProductVersion": "5.17.0.0"
+    }
+  ],
+  "imports": {
+    "ADVAPI32.dll": [
+      "RegCloseKey",
+      "RegOpenKeyExW",
+      "RegEnumKeyExW",
+      "RegEnumValueW",
+      "RegQueryValueExW",
+      "OpenProcessToken",
+      "GetTokenInformation",
+      "GetUserNameW",
+      "RegCreateKeyExW",
+      "LookupAccountSidW",
+      "ConvertSidToStringSidW",
+      "RegDeleteKeyW",
+      "RegQueryInfoKeyW",
+      "RegSetValueExW",
+      "RegDeleteValueW",
+      "RegCreateKeyW",
+      "FreeSid",
+      "CryptAcquireContextW",
+      "CryptImportKey",
+      "CryptCreateHash",
+      "CryptSetHashParam",
+      "CryptHashData",
+      "CryptGetHashParam",
+      "CryptDestroyHash",
+      "CryptDestroyKey",
+      "CryptReleaseContext",
+      "ImpersonateSelf",
+      "OpenThreadToken",
+      "AllocateAndInitializeSid",
+      "InitializeSecurityDescriptor",
+      "GetLengthSid",
+      "InitializeAcl",
+      "AddAccessAllowedAce",
+      "SetSecurityDescriptorDacl",
+      "SetSecurityDescriptorGroup",
+      "SetSecurityDescriptorOwner",
+      "IsValidSecurityDescriptor",
+      "AccessCheck",
+      "RevertToSelf",
+      "IsWellKnownSid",
+      "RegEnumKeyW",
+      "RegEnumKeyExA",
+      "RegOpenKeyExA",
+      "RegQueryValueExA",
+      "RegQueryValueW",
+      "CryptAcquireContextA",
+      "CryptGenKey",
+      "CryptSetKeyParam",
+      "CryptExportKey",
+      "RegCreateKeyExA",
+      "RegSetValueExA",
+      "RegOpenKeyW",
+      "CryptGenRandom",
+      "RegEnumValueA",
+      "GetUserNameA",
+      "CryptSetProvParam",
+      "CryptVerifySignatureA",
+      "DeregisterEventSource",
+      "RegisterEventSourceW",
+      "ReportEventW",
+      "CryptGetProvParam",
+      "CryptGetUserKey",
+      "CryptDecrypt",
+      "CryptSignHashW",
+      "CryptEnumProvidersW",
+      "EventRegister",
+      "EventUnregister",
+      "EventSetInformation",
+      "EventWriteTransfer",
+      "RegSetValueW",
+      "IsTextUnicode",
+      "GetFileSecurityW",
+      "SetFileSecurityW"
+    ],
+    "COMDLG32.dll": [
+      "GetSaveFileNameW",
+      "GetOpenFileNameA",
+      "GetSaveFileNameA",
+      "GetOpenFileNameW"
+    ],
+    "dbghelp.dll": [
+      "SymGetSearchPathW",
+      "SymGetLineFromAddr64",
+      "SymGetModuleBase64",
+      "SymSetOptions",
+      "SymSetSearchPathW",
+      "SymInitialize",
+      "SymFromAddr",
+      "StackWalk64",
+      "SymFunctionTableAccess64"
+    ],
+    "GDI32.dll": [
+      "SelectClipRgn",
+      "GetSystemPaletteEntries",
+      "GetDCOrgEx",
+      "CreateDIBitmap",
+      "EnumFontFamiliesW",
+      "GetTextCharsetInfo",
+      "GetPixel",
+      "SelectPalette",
+      "SetPixel",
+      "GetObjectType",
+      "GetMapMode",
+      "GetViewportExtEx",
+      "GetWindowExtEx",
+      "SetMapMode",
+      "ExtCreatePen",
+      "LPtoDP",
+      "SetViewportExtEx",
+      "SetWindowExtEx",
+      "SetWindowOrgEx",
+      "StartDocW",
+      "EndDoc",
+      "StartPage",
+      "EndPage",
+      "AbortDoc",
+      "GetNearestPaletteIndex",
+      "GetPaletteEntries",
+      "PtInRegion",
+      "SetPixelV",
+      "CreateEllipticRgnIndirect",
+      "CreatePolyPolygonRgn",
+      "ExtSelectClipRgn",
+      "SetDIBColorTable",
+      "DPtoLP",
+      "SetBkMode",
+      "LineTo",
+      "SetROP2",
+      "MoveToEx",
+      "GetEnhMetaFileBits",
+      "GetEnhMetaFileHeader",
+      "PlayEnhMetaFile",
+      "GetBitmapBits",
+      "TranslateCharsetInfo",
+      "SetTextJustification",
+      "StretchDIBits",
+      "CreateFontIndirectA",
+      "GetObjectA",
+      "CreateDCW",
+      "GetBitmapDimensionEx",
+      "GetWindowOrgEx",
+      "GetROP2",
+      "RestoreDC",
+      "SaveDC",
+      "GetTextCharset",
+      "EnumFontsW",
+      "GetTextFaceW",
+      "ExtEscape",
+      "ResetDCW",
+      "InvertRgn",
+      "GetCharWidthA",
+      "GetFontData",
+      "GetOutlineTextMetricsA",
+      "EnumFontFamiliesExA",
+      "CreateFontA",
+      "GetClipRgn",
+      "SetPolyFillMode",
+      "SetStretchBltMode",
+      "GetTextMetricsA",
+      "CloseFigure",
+      "FillPath",
+      "SelectClipPath",
+      "SetMiterLimit",
+      "StrokePath",
+      "WidenPath",
+      "PolyBezierTo",
+      "SetBrushOrgEx",
+      "GetTextFaceA",
+      "RemoveFontMemResourceEx",
+      "GetGlyphOutlineW",
+      "GetTextAlign",
+      "AddFontMemResourceEx",
+      "SetGraphicsMode",
+      "SetTextAlign",
+      "DeleteEnhMetaFile",
+      "SetWorldTransform",
+      "SetDIBits",
+      "GetDIBColorTable",
+      "CreateHalftonePalette",
+      "RealizePalette",
+      "GetBkMode",
+      "Polyline",
+      "Polygon",
+      "SetDIBitsToDevice",
+      "GetDIBits",
+      "ExtCreateRegion",
+      "GetRegionData",
+      "GetRgnBox",
+      "PatBlt",
+      "StrokeAndFillPath",
+      "EndPath",
+      "PolyBezier",
+      "BeginPath",
+      "CreateDIBSection",
+      "CreateEllipticRgn",
+      "SetTextColor",
+      "SetBkColor",
+      "CreateBitmap",
+      "IntersectClipRect",
+      "GetClipBox",
+      "EnumFontFamiliesExW",
+      "Rectangle",
+      "Arc",
+      "CreatePen",
+      "CreateBrushIndirect",
+      "CreateRectRgnIndirect",
+      "CreatePatternBrush",
+      "GetStockObject",
+      "GetCurrentObject",
+      "FrameRgn",
+      "FillRgn",
+      "CreatePolygonRgn",
+      "DeleteDC",
+      "RoundRect",
+      "GetTextColor",
+      "OffsetRgn",
+      "Ellipse",
+      "CombineRgn",
+      "CreateRectRgn",
+      "CreateRoundRectRgn",
+      "Escape",
+      "ExtTextOutW",
+      "TextOutW",
+      "RectVisible",
+      "PtVisible",
+      "BitBlt",
+      "StretchBlt",
+      "CreateCompatibleBitmap",
+      "CreateCompatibleDC",
+      "GetBkColor",
+      "GetTextMetricsW",
+      "GetDeviceCaps",
+      "DeleteObject",
+      "CreateSolidBrush",
+      "SelectObject",
+      "CreateFontW",
+      "CreateFontIndirectW",
+      "GetTextExtentPoint32W",
+      "GetObjectW",
+      "CopyMetaFileW",
+      "CreateDIBPatternBrushPt",
+      "ExcludeClipRect",
+      "GetCurrentPositionEx",
+      "OffsetClipRgn",
+      "PlayMetaFile",
+      "SetMapperFlags",
+      "SetLayout",
+      "GetLayout",
+      "SetTextCharacterExtra",
+      "PlayMetaFileRecord",
+      "EnumMetaFile",
+      "ModifyWorldTransform",
+      "SetColorAdjustment",
+      "ArcTo",
+      "PolyDraw",
+      "SetArcDirection",
+      "PolylineTo",
+      "SetViewportOrgEx",
+      "OffsetViewportOrgEx",
+      "OffsetWindowOrgEx",
+      "ScaleViewportExtEx",
+      "ScaleWindowExtEx",
+      "SetRectRgn",
+      "SetAbortProc",
+      "CloseMetaFile",
+      "CreateMetaFileW",
+      "DeleteMetaFile",
+      "GetViewportOrgEx",
+      "GetCharWidthW",
+      "GetNearestColor",
+      "GetPolyFillMode",
+      "GetStretchBltMode",
+      "ExtFloodFill",
+      "SetPaletteEntries",
+      "GetBoundsRect",
+      "GetTextExtentPointW",
+      "CreateHatchBrush",
+      "CreatePalette"
+    ],
+    "KERNEL32.dll": [
+      "CreateMutexW",
+      "OpenEventW",
+      "GlobalFindAtomW",
+      "GlobalAddAtomW",
+      "VirtualAlloc",
+      "VirtualFree",
+      "GetSystemDefaultLangID",
+      "GetTimeZoneInformation",
+      "TzSpecificLocalTimeToSystemTime",
+      "GetCurrentThread",
+      "GetLogicalDriveStringsW",
+      "QueryDosDeviceW",
+      "VirtualProtect",
+      "GetDiskFreeSpaceExW",
+      "DeviceIoControl",
+      "InitializeCriticalSectionAndSpinCount",
+      "LocalFileTimeToFileTime",
+      "SetFileTime",
+      "ExitProcess",
+      "GetWindowsDirectoryW",
+      "FindResourceExW",
+      "MulDiv",
+      "InitializeCriticalSectionEx",
+      "HeapSize",
+      "GetVersionExA",
+      "HeapReAlloc",
+      "DecodePointer",
+      "HeapDestroy",
+      "FlushFileBuffers",
+      "QueryPerformanceCounter",
+      "FormatMessageA",
+      "LockFileEx",
+      "UnlockFile",
+      "HeapCompact",
+      "DeleteFileA",
+      "WaitForSingleObjectEx",
+      "LoadLibraryA",
+      "CreateFileA",
+      "FlushViewOfFile",
+      "GetFileAttributesExW",
+      "GetFileAttributesA",
+      "GetDiskFreeSpaceA",
+      "GetTempPathA",
+      "HeapValidate",
+      "UnlockFileEx",
+      "SetEndOfFile",
+      "GetFullPathNameA",
+      "LockFile",
+      "OutputDebugStringA",
+      "GetDiskFreeSpaceW",
+      "HeapCreate",
+      "AreFileApisANSI",
+      "TryEnterCriticalSection",
+      "EnumSystemLocalesW",
+      "GlobalReAlloc",
+      "GlobalSize",
+      "GetCurrentDirectoryW",
+      "lstrcmpW",
+      "GlobalHandle",
+      "lstrcmpiW",
+      "QueryPerformanceFrequency",
+      "SetThreadPriority",
+      "SearchPathW",
+      "GetFileSizeEx",
+      "GetTimeZoneInformationForYear",
+      "WinExec",
+      "GetPrivateProfileSectionNamesW",
+      "DuplicateHandle",
+      "WaitNamedPipeW",
+      "GetModuleHandleExW",
+      "WaitForMultipleObjects",
+      "LocalLock",
+      "LocalUnlock",
+      "SwitchToThread",
+      "GetNativeSystemInfo",
+      "IsWow64Process",
+      "ExpandEnvironmentStringsW",
+      "FindNextFileW",
+      "GetSystemDefaultUILanguage",
+      "lstrcmpiA",
+      "_lopen",
+      "_lcreat",
+      "_lread",
+      "_lwrite",
+      "_lclose",
+      "_llseek",
+      "lstrlenA",
+      "GetModuleFileNameA",
+      "GetShortPathNameA",
+      "lstrcmpA",
+      "GetProfileStringA",
+      "GetPrivateProfileStringA",
+      "WritePrivateProfileStringA",
+      "lstrcpyA",
+      "MoveFileW",
+      "GetStringTypeExW",
+      "LCMapStringW",
+      "GetUserDefaultLCID",
+      "ProcessIdToSessionId",
+      "CompareStringW",
+      "GetThreadLocale",
+      "GetFileInformationByHandle",
+      "FindCloseChangeNotification",
+      "FindFirstChangeNotificationW",
+      "FindNextChangeNotification",
+      "GetStdHandle",
+      "GetWindowsDirectoryA",
+      "GetComputerNameA",
+      "GetConsoleScreenBufferInfo",
+      "SetConsoleTextAttribute",
+      "DebugBreak",
+      "ReleaseSemaphore",
+      "OpenSemaphoreW",
+      "CreateMutexExW",
+      "CreateSemaphoreExW",
+      "SuspendThread",
+      "CreateSemaphoreW",
+      "TerminateThread",
+      "CreateDirectoryA",
+      "RemoveDirectoryA",
+      "SetFileAttributesA",
+      "GetTempFileNameA",
+      "GetProcessTimes",
+      "CopyFileA",
+      "MoveFileExA",
+      "CreateMutexA",
+      "InitializeConditionVariable",
+      "WakeConditionVariable",
+      "SleepConditionVariableCS",
+      "GetCommandLineW",
+      "FindNextFileA",
+      "SleepEx",
+      "SetFilePointerEx",
+      "GetThreadPriority",
+      "ExitThread",
+      "CreateSemaphoreA",
+      "CreateFileMappingA",
+      "MoveFileA",
+      "GetSystemDirectoryA",
+      "GetVolumeInformationA",
+      "GetLogicalDriveStringsA",
+      "IsDBCSLeadByte",
+      "GetLogicalProcessorInformation",
+      "GetModuleHandleA",
+      "InitializeSRWLock",
+      "ReleaseSRWLockExclusive",
+      "AcquireSRWLockExclusive",
+      "SleepConditionVariableSRW",
+      "SetCurrentDirectoryW",
+      "FindFirstFileExW",
+      "CreateDirectoryExW",
+      "MoveFileExW",
+      "GetFileType",
+      "ReleaseSRWLockShared",
+      "AcquireSRWLockShared",
+      "TlsAlloc",
+      "TlsGetValue",
+      "TlsSetValue",
+      "TlsFree",
+      "VirtualLock",
+      "SwitchToFiber",
+      "DeleteFiber",
+      "CreateFiberEx",
+      "GetEnvironmentVariableW",
+      "ConvertFiberToThread",
+      "ConvertThreadToFiberEx",
+      "GetConsoleMode",
+      "SetConsoleMode",
+      "ReadConsoleA",
+      "ReadConsoleW",
+      "TryAcquireSRWLockExclusive",
+      "TryAcquireSRWLockShared",
+      "SetErrorMode",
+      "SetWaitableTimer",
+      "CreateWaitableTimerExW",
+      "GetThreadTimes",
+      "MapViewOfFileEx",
+      "K32GetProcessMemoryInfo",
+      "QueryThreadCycleTime",
+      "RtlCaptureStackBackTrace",
+      "WakeAllConditionVariable",
+      "GetThreadContext",
+      "GetDynamicTimeZoneInformation",
+      "GetGeoInfoW",
+      "GetUserGeoID",
+      "InitOnceExecuteOnce",
+      "GetTimeFormatEx",
+      "GetDateFormatEx",
+      "ResolveLocaleName",
+      "GetNumberFormatEx",
+      "GetCurrencyFormatEx",
+      "CreateEventA",
+      "GetCurrentDirectoryA",
+      "GetACP",
+      "RegisterWaitForSingleObject",
+      "SetThreadGroupAffinity",
+      "GetThreadGroupAffinity",
+      "GetNumaHighestNodeNumber",
+      "DeleteTimerQueueTimer",
+      "ChangeTimerQueueTimer",
+      "CreateTimerQueueTimer",
+      "GetLogicalProcessorInformationEx",
+      "GetCurrentProcessorNumberEx",
+      "SignalObjectAndWait",
+      "FreeLibraryAndExitThread",
+      "CloseThreadpoolWait",
+      "SetThreadpoolWait",
+      "CreateThreadpoolWait",
+      "CloseThreadpoolTimer",
+      "WaitForThreadpoolTimerCallbacks",
+      "SetThreadpoolTimer",
+      "CreateThreadpoolTimer",
+      "GetCurrentProcessorNumber",
+      "OpenMutexW",
+      "GetTempPathW",
+      "CreateDirectoryW",
+      "SizeofResource",
+      "LockResource",
+      "LoadResource",
+      "FindResourceW",
+      "GetModuleHandleW",
+      "GetExitCodeThread",
+      "WaitForSingleObject",
+      "ResumeThread",
+      "MultiByteToWideChar",
+      "DeleteFileW",
+      "GetLastError",
+      "CopyFileW",
+      "GetModuleFileNameW",
+      "GetFullPathNameW",
+      "GetTempFileNameW",
+      "WideCharToMultiByte",
+      "HeapFree",
+      "GetProcessHeap",
+      "HeapAlloc",
+      "GetSystemTimeAsFileTime",
+      "GetProcAddress",
+      "VerSetConditionMask",
+      "VerifyVersionInfoW",
+      "lstrcpyW",
+      "FlushProcessWriteBuffers",
+      "CreateEventExW",
+      "GetCPInfo",
+      "CompareStringEx",
+      "LCMapStringEx",
+      "CreateSymbolicLinkW",
+      "GetFileInformationByHandleEx",
+      "CreateHardLinkW",
+      "SetFileInformationByHandle",
+      "LoadLibraryExW",
+      "GetLocaleInfoEx",
+      "GetUserDefaultLangID",
+      "GetPrivateProfileIntW",
+      "WritePrivateProfileStringW",
+      "GetTickCount64",
+      "SystemTimeToTzSpecificLocalTime",
+      "GlobalMemoryStatusEx",
+      "GlobalUnlock",
+      "GlobalLock",
+      "GlobalAlloc",
+      "CreateProcessW",
+      "GetBinaryTypeW",
+      "GetFinalPathNameByHandleW",
+      "CloseThreadpoolWork",
+      "SubmitThreadpoolWork",
+      "CreateThreadpoolWork",
+      "FreeLibraryWhenCallbackReturns",
+      "InitOnceComplete",
+      "InitOnceBeginInitialize",
+      "GetStringTypeW",
+      "InterlockedFlushSList",
+      "QueryDepthSList",
+      "GetProcessAffinityMask",
+      "SetProcessAffinityMask",
+      "GetDateFormatW",
+      "FindFirstFileA",
+      "RtlUnwind",
+      "GetTimeFormatW",
+      "LoadLibraryExA",
+      "FlushInstructionCache",
+      "InterlockedPushEntrySList",
+      "InterlockedPopEntrySList",
+      "GetStartupInfoW",
+      "InitializeSListHead",
+      "IsProcessorFeaturePresent",
+      "UnhandledExceptionFilter",
+      "GetAtomNameW",
+      "GlobalFlags",
+      "GetProfileIntW",
+      "CompareStringA",
+      "ReplaceFileW",
+      "GlobalGetAtomNameW",
+      "GetVolumeInformationW",
+      "LocalReAlloc",
+      "GlobalDeleteAtom",
+      "EncodePointer",
+      "CompareFileTime",
+      "GetSystemTime",
+      "GlobalFree",
+      "Sleep",
+      "Process32NextW",
+      "Process32FirstW",
+      "CreateToolhelp32Snapshot",
+      "GetTickCount",
+      "ResetEvent",
+      "CreateEventW",
+      "SetEvent",
+      "lstrcpynW",
+      "GetUserDefaultUILanguage",
+      "OpenProcess",
+      "RemoveDirectoryW",
+      "SetFileAttributesW",
+      "WriteConsoleW",
+      "SetEnvironmentVariableW",
+      "FreeEnvironmentStringsW",
+      "GetEnvironmentStringsW",
+      "CreatePipe",
+      "GetOEMCP",
+      "IsValidCodePage",
+      "IsValidLocale",
+      "HeapQueryInformation",
+      "SetStdHandle",
+      "SetConsoleCtrlHandler",
+      "GetConsoleOutputCP",
+      "PeekNamedPipe",
+      "GetCommandLineA",
+      "GetLocaleInfoW",
+      "CreateFileW",
+      "GetFileSize",
+      "CloseHandle",
+      "ReadFile",
+      "GetLocalTime",
+      "OutputDebugStringW",
+      "lstrlenW",
+      "SetDllDirectoryW",
+      "SetLastError",
+      "LoadLibraryW",
+      "FreeLibrary",
+      "ReleaseMutex",
+      "FreeResource",
+      "WriteFile",
+      "GetSystemDirectoryW",
+      "RaiseException",
+      "GetCurrentThreadId",
+      "GetCurrentProcessId",
+      "GetCurrentProcess",
+      "FormatMessageW",
+      "GetFileAttributesW",
+      "FileTimeToLocalFileTime",
+      "FileTimeToDosDateTime",
+      "GetFileTime",
+      "GetSystemInfo",
+      "VirtualQuery",
+      "GlobalMemoryStatus",
+      "SetUnhandledExceptionFilter",
+      "CreateThread",
+      "TerminateProcess",
+      "lstrcatW",
+      "SetFilePointer",
+      "IsDebuggerPresent",
+      "GetVersionExW",
+      "GetVersion",
+      "LocalAlloc",
+      "LocalFree",
+      "FileTimeToSystemTime",
+      "SystemTimeToFileTime",
+      "SearchPathA",
+      "CreateProcessA",
+      "GetExitCodeProcess",
+      "GetLongPathNameW",
+      "GetShortPathNameW",
+      "InitializeCriticalSection",
+      "DeleteCriticalSection",
+      "FindFirstFileW",
+      "FindClose",
+      "CopyFileExW",
+      "GetDriveTypeW",
+      "UnmapViewOfFile",
+      "CreateFileMappingW",
+      "MapViewOfFile",
+      "EnterCriticalSection",
+      "LeaveCriticalSection",
+      "GetPrivateProfileStringW",
+      "UnregisterWait"
+    ],
+    "MSIMG32.dll": [
+      "TransparentBlt",
+      "AlphaBlend"
+    ],
+    "ODBC32.dll": [
+      "ordinal:20",
+      "ordinal:23",
+      "ordinal:59",
+      "ordinal:61",
+      "ordinal:110",
+      "ordinal:117",
+      "ordinal:119",
+      "ordinal:145",
+      "ordinal:141",
+      "ordinal:138",
+      "ordinal:49",
+      "ordinal:5",
+      "ordinal:2",
+      "ordinal:14",
+      "ordinal:48",
+      "ordinal:3",
+      "ordinal:4",
+      "ordinal:29",
+      "ordinal:13",
+      "ordinal:30",
+      "ordinal:31",
+      "ordinal:43",
+      "ordinal:44",
+      "ordinal:16",
+      "ordinal:72",
+      "ordinal:15",
+      "ordinal:18",
+      "ordinal:68",
+      "ordinal:127",
+      "ordinal:108",
+      "ordinal:111",
+      "ordinal:139",
+      "ordinal:154",
+      "ordinal:12",
+      "ordinal:9",
+      "ordinal:176",
+      "ordinal:1"
+    ],
+    "ole32.dll": [
+      "OleSetContainedObject",
+      "OleGetIconOfClass",
+      "CreateDataAdviseHolder",
+      "CreateOleAdviseHolder",
+      "CoRegisterClassObject",
+      "CoRevokeClassObject",
+      "OleSetClipboard",
+      "OleFlushClipboard",
+      "OleIsCurrentClipboard",
+      "DoDragDrop",
+      "OleQueryLinkFromData",
+      "OleQueryCreateFromData",
+      "GetClassFile",
+      "OleCreateStaticFromData",
+      "OleCreateLinkFromData",
+      "OleCreateFromData",
+      "OleCreate",
+      "CreateGenericComposite",
+      "GetHGlobalFromILockBytes",
+      "WriteClassStm",
+      "OleSetMenuDescriptor",
+      "IsAccelerator",
+      "OleTranslateAccelerator",
+      "OleDestroyMenuDescriptor",
+      "OleCreateMenuDescriptor",
+      "OleIsRunning",
+      "GetRunningObjectTable",
+      "CreateItemMoniker",
+      "CoGetMalloc",
+      "OleGetClipboard",
+      "RegisterDragDrop",
+      "CoLockObjectExternal",
+      "CoRegisterMessageFilter",
+      "CoFreeUnusedLibraries",
+      "OleRegEnumVerbs",
+      "OleRegGetMiscStatus",
+      "CreateFileMoniker",
+      "StgIsStorageFile",
+      "OleSaveToStream",
+      "PropVariantCopy",
+      "CreateILockBytesOnHGlobal",
+      "StgOpenStorageOnILockBytes",
+      "StgCreateDocfileOnILockBytes",
+      "SetConvertStg",
+      "OleRegGetUserType",
+      "OleDuplicateData",
+      "ReadFmtUserTypeStg",
+      "WriteFmtUserTypeStg",
+      "CreateBindCtx",
+      "CoTreatAsClass",
+      "OleSave",
+      "GetHGlobalFromStream",
+      "OleLockRunning",
+      "OleUninitialize",
+      "OleInitialize",
+      "CoGetClassObject",
+      "ReleaseStgMedium",
+      "StgCreateDocfile",
+      "StringFromGUID2",
+      "CreateStreamOnHGlobal",
+      "CoInitializeSecurity",
+      "RevokeDragDrop",
+      "OleDraw",
+      "CoInitialize",
+      "CoCreateFreeThreadedMarshaler",
+      "CoTaskMemAlloc",
+      "CoDisconnectObject",
+      "OleRun",
+      "CLSIDFromString",
+      "CoUninitialize",
+      "CoSetProxyBlanket",
+      "CoInitializeEx",
+      "CoCreateGuid",
+      "CLSIDFromProgID",
+      "CoTaskMemFree",
+      "StringFromCLSID",
+      "CoCreateInstance",
+      "WriteClassStg",
+      "ReadClassStg",
+      "OleLoad",
+      "OleCreateFromFile",
+      "StgOpenStorage",
+      "OleCreateLinkToFile"
+    ],
+    "OLEAUT32.dll": [
+      "SafeArrayPutElement",
+      "SafeArrayCreateVector",
+      "SysStringLen",
+      "VarBstrCat",
+      "SafeArrayGetLBound",
+      "SafeArrayGetUBound",
+      "SafeArrayUnaccessData",
+      "SafeArrayAccessData",
+      "SafeArrayCreate",
+      "SysAllocStringByteLen",
+      "SysStringByteLen",
+      "OleLoadPicture",
+      "SysAllocStringLen",
+      "SysFreeString",
+      "VariantCopy",
+      "VarDateFromStr",
+      "OleCreateFontIndirect",
+      "SystemTimeToVariantTime",
+      "VariantTimeToSystemTime",
+      "VariantChangeType",
+      "VariantInit",
+      "VariantClear",
+      "SysAllocString",
+      "VarBstrCmp",
+      "CreateErrorInfo",
+      "SetErrorInfo",
+      "GetErrorInfo",
+      "RegisterTypeLib",
+      "VarDecFromStr",
+      "VarBstrFromDec",
+      "VarBstrFromCy",
+      "VarCyFromStr",
+      "SafeArrayPtrOfIndex",
+      "SafeArrayCopy",
+      "SafeArrayDestroy",
+      "LoadTypeLib",
+      "VarUdateFromDate",
+      "LoadRegTypeLib",
+      "SafeArrayGetElement",
+      "SafeArrayUnlock",
+      "SafeArrayLock",
+      "SafeArrayGetElemsize",
+      "SafeArrayGetDim",
+      "SafeArrayRedim",
+      "SafeArrayDestroyData",
+      "SafeArrayDestroyDescriptor",
+      "SafeArrayAllocData",
+      "SafeArrayAllocDescriptor",
+      "SysReAllocStringLen",
+      "VarBstrFromDate"
+    ],
+    "PSAPI.DLL": [
+      "GetProcessImageFileNameW",
+      "GetModuleFileNameExW",
+      "GetMappedFileNameW"
+    ],
+    "SHELL32.dll": [
+      "SHAddToRecentDocs",
+      "SHGetSpecialFolderPathW",
+      "ShellExecuteExW",
+      "ShellExecuteW",
+      "SHBrowseForFolderW",
+      "SHGetPathFromIDListW",
+      "SHGetMalloc",
+      "DragAcceptFiles",
+      "DragQueryFileW",
+      "DragFinish",
+      "SHGetFolderPathW",
+      "SHChangeNotify",
+      "SHCreateDirectoryExW",
+      "SHGetSpecialFolderLocation",
+      "SHGetFileInfoW",
+      "ordinal:43",
+      "Shell_NotifyIconW",
+      "ordinal:165",
+      "ordinal:171",
+      "SHAppBarMessage",
+      "CommandLineToArgvW",
+      "SHCreateItemFromParsingName",
+      "DragQueryPoint",
+      "SHGetKnownFolderPath",
+      "SHParseDisplayName",
+      "SHBindToParent",
+      "SHGetDesktopFolder",
+      "ExtractIconW"
+    ],
+    "SHLWAPI.dll": [
+      "UrlIsW",
+      "PathIsURLW",
+      "UrlGetPartW",
+      "PathIsDirectoryW",
+      "UrlGetLocationW",
+      "PathFindExtensionW",
+      "UrlCombineW",
+      "PathIsUNCW",
+      "PathAppendW",
+      "StrCmpW",
+      "PathIsRelativeW",
+      "AssocQueryStringW",
+      "PathFileExistsW",
+      "PathCanonicalizeW",
+      "PathRemoveFileSpecW",
+      "PathFindFileNameW",
+      "PathCreateFromUrlW",
+      "PathFileExistsA",
+      "PathRelativePathToW",
+      "StrCmpLogicalW",
+      "PathMatchSpecW",
+      "StrFormatByteSizeW",
+      "StrToIntW",
+      "PathGetDriveNumberW",
+      "PathRelativePathToA",
+      "wnsprintfW",
+      "PathStripToRootW",
+      "UrlUnescapeW",
+      "PathRemoveExtensionW",
+      "StrFormatKBSizeW"
+    ],
+    "USER32.dll": [
+      "ShowWindowAsync",
+      "ShowCursor",
+      "AllowSetForegroundWindow",
+      "SendMessageA",
+      "CallWindowProcA",
+      "DialogBoxParamA",
+      "SetWindowLongA",
+      "GetClassNameA",
+      "LoadMenuA",
+      "ModifyMenuA",
+      "RemoveMenu",
+      "LoadCursorA",
+      "wsprintfA",
+      "MessageBoxA",
+      "WinHelpA",
+      "SetWindowTextA",
+      "GetWindowTextA",
+      "GetWindowTextLengthA",
+      "SetDlgItemTextA",
+      "GetDlgItemTextA",
+      "SetDlgItemTextW",
+      "CharNextW",
+      "IsCharAlphaW",
+      "IsCharAlphaNumericW",
+      "ToAsciiEx",
+      "GetProcessWindowStation",
+      "GetUserObjectInformationW",
+      "AdjustWindowRect",
+      "CreateIconFromResourceEx",
+      "GetMenuCheckMarkDimensions",
+      "TrackMouseEvent",
+      "AnyPopup",
+      "LoadCursorFromFileW",
+      "keybd_event",
+      "GetMenuInfo",
+      "SetMenuInfo",
+      "GetMenuItemRect",
+      "UnregisterClassA",
+      "DefWindowProcA",
+      "GetMessageTime",
+      "IsDialogMessageW",
+      "ScrollWindowEx",
+      "SendDlgItemMessageW",
+      "CheckRadioButton",
+      "CheckDlgButton",
+      "GetDlgItemTextW",
+      "GetDlgItemInt",
+      "SetDlgItemInt",
+      "CreateDialogIndirectParamW",
+      "EndDialog",
+      "IsDlgButtonChecked",
+      "EndPaint",
+      "BeginPaint",
+      "GetDlgItem",
+      "GetClipboardFormatNameW",
+      "EnumClipboardFormats",
+      "CountClipboardFormats",
+      "GetCursor",
+      "InsertMenuItemW",
+      "GetMessagePos",
+      "MapDialogRect",
+      "WindowFromDC",
+      "EnumDisplayMonitors",
+      "WinHelpW",
+      "MapVirtualKeyW",
+      "GetKeyboardState",
+      "ToUnicodeEx",
+      "WaitMessage",
+      "SubtractRect",
+      "InvertRect",
+      "TranslateAcceleratorW",
+      "GetComboBoxInfo",
+      "MapVirtualKeyExW",
+      "GetKeyNameTextW",
+      "IsCharLowerW",
+      "TrackPopupMenu",
+      "CreateMenu",
+      "GetNextDlgGroupItem",
+      "GetScrollInfo",
+      "GetDoubleClickTime",
+      "CallNextHookEx",
+      "UnhookWindowsHookEx",
+      "SetWindowsHookExW",
+      "CharUpperW",
+      "DeferWindowPos",
+      "RegisterClipboardFormatW",
+      "DrawEdge",
+      "GetMenuDefaultItem",
+      "IsMenu",
+      "ValidateRect",
+      "MonitorFromRect",
+      "GetClassLongW",
+      "GetMenuState",
+      "CreateAcceleratorTableW",
+      "DestroyAcceleratorTable",
+      "CopyImage",
+      "UnregisterClassW",
+      "GetWindowPlacement",
+      "SystemParametersInfoA",
+      "UnionRect",
+      "GetWindowContextHelpId",
+      "AdjustWindowRectEx",
+      "DrawIcon",
+      "GetLastActivePopup",
+      "GetCaretPos",
+      "DestroyCursor",
+      "ScrollDC",
+      "GetSysColorBrush",
+      "EnableScrollBar",
+      "NotifyWinEvent",
+      "RegisterClassW",
+      "SetClassLongW",
+      "CloseWindow",
+      "InvalidateRgn",
+      "SetScrollRange",
+      "SetScrollPos",
+      "AttachThreadInput",
+      "GetWindowThreadProcessId",
+      "ShowOwnedPopups",
+      "GetClassInfoW",
+      "GetScrollBarInfo",
+      "LoadAcceleratorsW",
+      "CallWindowProcW",
+      "FindWindowExW",
+      "GetUpdateRect",
+      "GetAsyncKeyState",
+      "GetIconInfo",
+      "CopyIcon",
+      "GetSystemMenu",
+      "BringWindowToTop",
+      "SetCursorPos",
+      "MapWindowPoints",
+      "GetClipboardData",
+      "LoadImageW",
+      "DrawFrameControl",
+      "GetScrollRange",
+      "GetScrollPos",
+      "RegisterWindowMessageW",
+      "CreateIconIndirect",
+      "IsClipboardFormatAvailable",
+      "InsertMenuW",
+      "MessageBeep",
+      "IsChild",
+      "SetMenuDefaultItem",
+      "AppendMenuW",
+      "CreatePopupMenu",
+      "HideCaret",
+      "DestroyCaret",
+      "ShowCaret",
+      "SetCaretPos",
+      "CreateCaret",
+      "CloseClipboard",
+      "SetClipboardData",
+      "EmptyClipboard",
+      "OpenClipboard",
+      "CreateWindowExW",
+      "RegisterClassExW",
+      "DefWindowProcW",
+      "GetClassInfoExW",
+      "GetActiveWindow",
+      "LoadBitmapW",
+      "ShowWindow",
+      "IsZoomed",
+      "GetNextDlgTabItem",
+      "MoveWindow",
+      "EqualRect",
+      "IntersectRect",
+      "GetTopWindow",
+      "TranslateMessage",
+      "GetMessageW",
+      "PostQuitMessage",
+      "SetLayeredWindowAttributes",
+      "SetActiveWindow",
+      "DispatchMessageW",
+      "PostThreadMessageW",
+      "PeekMessageW",
+      "MsgWaitForMultipleObjects",
+      "SetForegroundWindow",
+      "IsWindowEnabled",
+      "GetDesktopWindow",
+      "EndDeferWindowPos",
+      "GetWindowTextW",
+      "GetWindowTextLengthW",
+      "SetWindowTextW",
+      "SetMenuItemInfoW",
+      "GetMenuItemInfoW",
+      "GetClassNameW",
+      "GetWindow",
+      "VkKeyScanExW",
+      "GetKeyboardLayout",
+      "CharLowerBuffW",
+      "SendMessageTimeoutW",
+      "wsprintfW",
+      "MessageBoxW",
+      "wvsprintfW",
+      "DrawFocusRect",
+      "UpdateWindow",
+      "CopyAcceleratorTableW",
+      "GetMenuStringW",
+      "DeleteMenu",
+      "LoadCursorW",
+      "SetCursor",
+      "DrawIconEx",
+      "LoadIconW",
+      "IsIconic",
+      "ChildWindowFromPoint",
+      "LockWindowUpdate",
+      "DestroyWindow",
+      "FrameRect",
+      "FindWindowW",
+      "MonitorFromWindow",
+      "SetFocus",
+      "WindowFromPoint",
+      "GetKeyState",
+      "ModifyMenuW",
+      "GetDlgCtrlID",
+      "SetWindowPos",
+      "SetParent",
+      "UpdateLayeredWindow",
+      "CheckMenuItem",
+      "SetWindowRgn",
+      "GetWindowDC",
+      "SetRect",
+      "GrayStringW",
+      "DrawTextExW",
+      "DrawTextW",
+      "TabbedTextOutW",
+      "EnableMenuItem",
+      "EnumChildWindows",
+      "DestroyIcon",
+      "MonitorFromPoint",
+      "GetMonitorInfoW",
+      "GetCursorPos",
+      "SystemParametersInfoW",
+      "PostMessageW",
+      "SetCapture",
+      "GetCapture",
+      "InvalidateRect",
+      "ReleaseCapture",
+      "GetWindowLongW",
+      "DrawStateW",
+      "OffsetRect",
+      "FillRect",
+      "CopyRect",
+      "SetRectEmpty",
+      "GetFocus",
+      "ReleaseDC",
+      "ClientToScreen",
+      "KillTimer",
+      "SetWindowLongW",
+      "SetTimer",
+      "RedrawWindow",
+      "GetParent",
+      "IsWindow",
+      "ShowScrollBar",
+      "GetSysColor",
+      "InflateRect",
+      "EnableWindow",
+      "ScreenToClient",
+      "GetWindowRect",
+      "GetSystemMetrics",
+      "PtInRect",
+      "LoadMenuW",
+      "TrackPopupMenuEx",
+      "GetDC",
+      "IsRectEmpty",
+      "GetClientRect",
+      "IsWindowVisible",
+      "SendMessageW",
+      "GetSubMenu",
+      "GetMenuItemID",
+      "GetMenuItemCount",
+      "DestroyMenu",
+      "LoadStringW",
+      "SetWindowPlacement",
+      "GetMenu",
+      "SetMenu",
+      "ScrollWindow",
+      "SetPropW",
+      "GetPropW",
+      "RemovePropW",
+      "SetScrollInfo",
+      "SetMenuItemBitmaps",
+      "SendDlgItemMessageA",
+      "GetMenuBarInfo",
+      "UnpackDDElParam",
+      "ReuseDDElParam",
+      "MsgWaitForMultipleObjectsEx",
+      "DrawMenuBar",
+      "DefFrameProcW",
+      "DefMDIChildProcW",
+      "TranslateMDISysAccel",
+      "InSendMessage",
+      "SetWindowContextHelpId",
+      "SendNotifyMessageW",
+      "RealChildWindowFromPoint",
+      "GetDialogBaseUnits",
+      "GetTabbedTextExtentW",
+      "GetDCEx",
+      "CharUpperBuffW",
+      "GetWindowRgn",
+      "BeginDeferWindowPos",
+      "GetForegroundWindow"
+    ],
+    "VERSION.dll": [
+      "GetFileVersionInfoW",
+      "GetFileVersionInfoSizeW",
+      "VerQueryValueW"
+    ],
+    "WININET.dll": [
+      "InternetGetConnectedState",
+      "InternetCrackUrlW",
+      "InternetCheckConnectionW",
+      "InternetSetFilePointer",
+      "InternetFindNextFileW",
+      "InternetGetLastResponseInfoW",
+      "FtpFindFirstFileW",
+      "FtpGetFileW",
+      "InternetOpenW",
+      "InternetSetOptionW",
+      "InternetSetStatusCallbackW",
+      "FindFirstUrlCacheEntryW",
+      "FindCloseUrlCache",
+      "FindNextUrlCacheEntryW",
+      "HttpAddRequestHeadersW",
+      "HttpSendRequestW",
+      "HttpSendRequestExW",
+      "InternetWriteFile",
+      "HttpEndRequestW",
+      "HttpQueryInfoW",
+      "InternetReadFileExW",
+      "InternetCloseHandle",
+      "GetUrlCacheEntryInfoW",
+      "InternetErrorDlg",
+      "FtpPutFileW",
+      "FtpDeleteFileW",
+      "FtpRenameFileW",
+      "FtpOpenFileW",
+      "FtpCreateDirectoryW",
+      "FtpRemoveDirectoryW",
+      "FtpSetCurrentDirectoryW",
+      "FtpGetCurrentDirectoryW",
+      "FtpCommandW",
+      "GopherCreateLocatorW",
+      "GopherFindFirstFileW",
+      "GopherOpenFileW",
+      "GopherGetAttributeW",
+      "InternetSetCookieW",
+      "InternetGetCookieW",
+      "InternetConnectW",
+      "InternetReadFileExA",
+      "InternetQueryOptionW",
+      "InternetOpenUrlW",
+      "InternetCanonicalizeUrlW",
+      "InternetReadFile",
+      "InternetQueryDataAvailable",
+      "InternetQueryOptionA",
+      "InternetSetOptionA",
+      "HttpSendRequestA",
+      "HttpQueryInfoA",
+      "HttpOpenRequestW"
+    ],
+    "WINMM.dll": [
+      "timeGetTime",
+      "PlaySoundW"
+    ],
+    "WINSPOOL.DRV": [
+      "ordinal:203",
+      "OpenPrinterW",
+      "GetPrinterDriverDirectoryW",
+      "ClosePrinter",
+      "EnumPrinterDriversW",
+      "EnumMonitorsW",
+      "EnumPrintersW",
+      "EnumJobsW",
+      "GetPrinterW",
+      "DocumentPropertiesW",
+      "DeviceCapabilitiesW",
+      "GetJobW",
+      "StartDocPrinterW",
+      "StartPagePrinter",
+      "WritePrinter",
+      "EndPagePrinter",
+      "EndDocPrinter"
+    ],
+    "WS2_32.dll": [
+      "WSAStartup",
+      "inet_addr",
+      "htons",
+      "recv",
+      "send",
+      "shutdown",
+      "WSASetLastError",
+      "ioctlsocket",
+      "getsockname",
+      "getsockopt",
+      "ntohs",
+      "WSACleanup",
+      "htonl",
+      "inet_ntoa",
+      "gethostbyaddr",
+      "getservbyport",
+      "getservbyname",
+      "getpeername",
+      "setsockopt",
+      "accept",
+      "bind",
+      "listen",
+      "__WSAFDIsSet",
+      "WSAGetLastError",
+      "select",
+      "recvfrom",
+      "sendto",
+      "gethostbyname",
+      "closesocket",
+      "socket",
+      "connect",
+      "getprotobyname"
+    ],
+    "OLEACC.dll": [
+      "CreateStdAccessibleObject",
+      "AccessibleObjectFromWindow",
+      "LresultFromObject"
+    ],
+    "NETAPI32.dll": [
+      "Netbios"
+    ],
+    "msi.dll": [
+      "ordinal:195",
+      "ordinal:109"
+    ],
+    "WINHTTP.dll": [
+      "WinHttpReadData",
+      "WinHttpQueryHeaders",
+      "WinHttpOpen",
+      "WinHttpSendRequest",
+      "WinHttpQueryDataAvailable",
+      "WinHttpQueryOption",
+      "WinHttpOpenRequest",
+      "WinHttpCloseHandle",
+      "WinHttpConnect",
+      "WinHttpCrackUrl",
+      "WinHttpSetStatusCallback",
+      "WinHttpAddRequestHeaders",
+      "WinHttpSetOption",
+      "WinHttpReceiveResponse"
+    ],
+    "IMM32.dll": [
+      "ImmGetContext",
+      "ImmAssociateContext",
+      "ImmSetCompositionWindow",
+      "ImmSetCompositionFontW",
+      "ImmGetCompositionStringW",
+      "ImmGetCompositionStringA",
+      "ImmGetProperty",
+      "ImmNotifyIME",
+      "ImmGetVirtualKey",
+      "ImmSetOpenStatus",
+      "ImmGetOpenStatus",
+      "ImmReleaseContext"
+    ],
+    "WINTRUST.dll": [
+      "CryptCATAdminReleaseCatalogContext",
+      "CryptCATCatalogInfoFromContext",
+      "CryptCATAdminEnumCatalogFromHash",
+      "CryptCATAdminCalcHashFromFileHandle",
+      "CryptCATAdminReleaseContext",
+      "CryptCATAdminAcquireContext",
+      "WinVerifyTrust"
+    ],
+    "MPR.dll": [
+      "WNetAddConnection2W"
+    ],
+    "RPCRT4.dll": [
+      "UuidCreate",
+      "UuidToStringW",
+      "RpcStringFreeW"
+    ],
+    "IPHLPAPI.DLL": [
+      "GetAdaptersInfo",
+      "GetNetworkParams"
+    ],
+    "MSVFW32.dll": [
+      "MCIWndCreateW"
+    ],
+    "gdiplus.dll": [
+      "GdipSetPenColor",
+      "GdipSetPenMode",
+      "GdipDrawImage",
+      "GdipSetPageUnit",
+      "GdipGetDC",
+      "GdipCreateTexture",
+      "GdipFlush",
+      "GdipCreateMatrix2",
+      "GdipCreatePath2",
+      "GdipDrawImageRectRectI",
+      "GdipSetImageAttributesWrapMode",
+      "GdipCreateFontFromLogfontA",
+      "GdipCreateFontFromDC",
+      "GdipSetCompositingQuality",
+      "GdipCreateHatchBrush",
+      "GdipDrawArc",
+      "GdipCreateFromHWNDICM",
+      "GdipDrawLine",
+      "GdipDrawRectangle",
+      "GdipReleaseDC",
+      "GdipDrawEllipseI",
+      "GdipSaveImageToStream",
+      "GdipAddPathLineI",
+      "GdipTransformMatrixPoints",
+      "GdipRotateMatrix",
+      "GdipScaleMatrix",
+      "GdipTranslateMatrix",
+      "GdipMultiplyMatrix",
+      "GdipSetMatrixElements",
+      "GdipDeleteMatrix",
+      "GdipCreateMatrix",
+      "GdipGetPathWorldBounds",
+      "GdipTransformPath",
+      "GdipAddPathPath",
+      "GdipAddPathArcI",
+      "GdipAddPathRectangle",
+      "GdipAddPathBezier",
+      "GdipAddPathArc",
+      "GdipAddPathLine2",
+      "GdipFillRectangle",
+      "GdipClosePathFigure",
+      "GdipStartPathFigure",
+      "GdipSetPathFillMode",
+      "GdipDeletePath",
+      "GdipCreatePath",
+      "GdipDrawImageRectI",
+      "GdipCreateBitmapFromHBITMAP",
+      "GdiplusShutdown",
+      "GdipCloneImage",
+      "GdipDisposeImage",
+      "GdiplusStartup",
+      "GdipGetPenFillType",
+      "GdipGetPenBrushFill",
+      "GdipFillEllipseI",
+      "GdipSetSmoothingMode",
+      "GdipDrawString",
+      "GdipMeasureString",
+      "GdipSetStringFormatLineAlign",
+      "GdipSetStringFormatAlign",
+      "GdipDeleteStringFormat",
+      "GdipCreateStringFormat",
+      "GdipDeleteFont",
+      "GdipCreateFont",
+      "GdipDeleteFontFamily",
+      "GdipCreateFontFamilyFromName",
+      "GdipCreateLineBrush",
+      "GdipSetTextRenderingHint",
+      "GdipDrawLineI",
+      "GdipFillRectangleI",
+      "GdipCloneBrush",
+      "GdipDeleteBrush",
+      "GdipCreateSolidFill",
+      "GdipDeletePen",
+      "GdipCreatePen1",
+      "GdipDeleteGraphics",
+      "GdipAlloc",
+      "GdipFree",
+      "GdipCreateFromHDC",
+      "GdipGraphicsClear",
+      "GdipDrawPath",
+      "GdipAddPathEllipse",
+      "GdipDrawEllipse",
+      "GdipGetMatrixElements",
+      "GdipIsMatrixIdentity",
+      "GdipCloneRegion",
+      "GdipCombineRegionPath",
+      "GdipCreateFromHWND",
+      "GdipSetAdjustableArrowCapMiddleInset",
+      "GdipGetAdjustableArrowCapWidth",
+      "GdipCreateAdjustableArrowCap",
+      "GdipDeleteCustomLineCap",
+      "GdipSetPenCustomEndCap",
+      "GdipSetPenCustomStartCap",
+      "GdipDrawLinesI",
+      "GdipLoadImageFromStream",
+      "GdipDrawRectangleI",
+      "GdipImageGetFrameDimensionsCount",
+      "GdipLoadImageFromStreamICM",
+      "GdipCreateHBITMAPFromBitmap",
+      "GdipDrawImageI",
+      "GdipGetImagePaletteSize",
+      "GdipGetImagePalette",
+      "GdipGetImageEncoders",
+      "GdipGetImageEncodersSize",
+      "GdipCombineRegionRegion",
+      "GdipGetRegionHRgn",
+      "GdipGetBrushType",
+      "GdipGetTextureTransform",
+      "GdipSetTextureTransform",
+      "GdipTranslateTextureTransform",
+      "GdipSetLinePresetBlend",
+      "GdipSetLineWrapMode",
+      "GdipGetLineTransform",
+      "GdipSetLineTransform",
+      "GdipMultiplyLineTransform",
+      "GdipTranslateLineTransform",
+      "GdipScaleLineTransform",
+      "GdipRotateLineTransform",
+      "GdipSetPathGradientCenterColor",
+      "GdipSetPathGradientSurroundColorsWithCount",
+      "GdipSetPathGradientCenterPoint",
+      "GdipGetPathGradientPointCount",
+      "GdipSetPathGradientPresetBlend",
+      "GdipSetPathGradientWrapMode",
+      "GdipGetPathGradientTransform",
+      "GdipSetPathGradientTransform",
+      "GdipMultiplyPathGradientTransform",
+      "GdipTranslatePathGradientTransform",
+      "GdipScalePathGradientTransform",
+      "GdipSetPenStartCap",
+      "GdipSetPenEndCap",
+      "GdipSetPenDashCap197819",
+      "GdipSetPenLineJoin",
+      "GdipSetPenMiterLimit",
+      "GdipSetPenDashStyle",
+      "GdipSetPenDashOffset",
+      "GdipSetPenDashArray",
+      "GdipGetImageWidth",
+      "GdipGetImageHeight",
+      "GdipGetImagePixelFormat",
+      "GdipCreateBitmapFromStream",
+      "GdipCreateBitmapFromFile",
+      "GdipCreateBitmapFromStreamICM",
+      "GdipCreateBitmapFromFileICM",
+      "GdipCloneBitmapArea",
+      "GdipSetImageAttributesColorMatrix",
+      "GdipSetCompositingMode",
+      "GdipGetCompositingMode",
+      "GdipGetSmoothingMode",
+      "GdipSetInterpolationMode",
+      "GdipGetInterpolationMode",
+      "GdipSetWorldTransform",
+      "GdipResetWorldTransform",
+      "GdipMultiplyWorldTransform",
+      "GdipGetWorldTransform",
+      "GdipAddPathLine",
+      "GdipSaveImageToFile",
+      "GdipLoadImageFromFileICM",
+      "GdipLoadImageFromFile",
+      "GdipGetPropertyItem",
+      "GdipGetPropertyItemSize",
+      "GdipImageSelectActiveFrame",
+      "GdipImageGetFrameCount",
+      "GdipImageGetFrameDimensionsList",
+      "GdipGetGenericFontFamilySansSerif",
+      "GdipDrawImageRect",
+      "GdipDisposeImageAttributes",
+      "GdipCreateImageAttributes",
+      "GdipBitmapUnlockBits",
+      "GdipBitmapLockBits",
+      "GdipCreateBitmapFromHICON",
+      "GdipCreateBitmapFromScan0",
+      "GdipGetImageType",
+      "GdipGetImageGraphicsContext",
+      "GdipCreatePen2",
+      "GdipCreatePathGradientFromPath",
+      "GdipSetTextureWrapMode",
+      "GdipCreateTextureIAI",
+      "GdipDeleteRegion",
+      "GdipCreateRegionPath",
+      "GdipCreateRegion",
+      "GdipGetStringFormatFlags",
+      "GdipSetStringFormatFlags",
+      "GdipGetFontSize",
+      "GdipGetFontStyle",
+      "GdipGetFamily",
+      "GdipGetCellDescent",
+      "GdipGetEmHeight",
+      "GdipResetClip",
+      "GdipSetClipRegion",
+      "GdipSetClipPath",
+      "GdipDrawImageRectRect",
+      "GdipFillRegion",
+      "GdipFillPath",
+      "GdipGetDpiY",
+      "GdipFillEllipse"
+    ],
+    "CRYPT32.dll": [
+      "CryptProtectData",
+      "CertOpenSystemStoreW",
+      "CertDuplicateCertificateContext",
+      "CryptMsgControl",
+      "CryptMsgGetParam",
+      "CryptMsgUpdate",
+      "CryptMsgClose",
+      "CryptMsgOpenToDecode",
+      "CryptVerifyDetachedMessageSignature",
+      "CryptVerifyMessageSignature",
+      "CryptSignMessage",
+      "CryptImportPublicKeyInfo",
+      "CertFreeCertificateChain",
+      "CertGetCertificateChain",
+      "CertOpenSystemStoreA",
+      "CertGetNameStringA",
+      "CertNameToStrA",
+      "CryptAcquireCertificatePrivateKey",
+      "CertFindExtension",
+      "CertGetCertificateContextProperty",
+      "CertFreeCertificateContext",
+      "CertFindCertificateInStore",
+      "CryptDecodeObject",
+      "PFXExportCertStoreEx",
+      "CertCreateSelfSignCertificate",
+      "CertStrToNameW",
+      "CertDeleteCertificateFromStore",
+      "CertAddCertificateContextToStore",
+      "CertSetCertificateContextProperty",
+      "CertSaveStore",
+      "CryptEncodeObject",
+      "PFXImportCertStore",
+      "CertGetNameStringW",
+      "CertNameToStrW",
+      "CertGetIntendedKeyUsage",
+      "CertCompareCertificate",
+      "CertCreateCertificateContext",
+      "CertEnumCertificatesInStore",
+      "CertOpenStore",
+      "CertCloseStore",
+      "CryptUnprotectData"
+    ],
+    "COMCTL32.dll": [
+      "ImageList_Remove",
+      "ImageList_ReplaceIcon",
+      "ImageList_AddMasked",
+      "ImageList_GetIcon",
+      "ImageList_GetImageCount",
+      "ImageList_DragLeave",
+      "ImageList_Draw",
+      "ordinal:381",
+      "ImageList_Replace",
+      "ordinal:413",
+      "ordinal:412",
+      "ordinal:345",
+      "ordinal:410",
+      "ImageList_Copy",
+      "ImageList_DragShowNolock",
+      "ImageList_DragMove",
+      "_TrackMouseEvent",
+      "ImageList_DragEnter",
+      "ImageList_EndDrag",
+      "ImageList_BeginDrag",
+      "ordinal:17",
+      "ImageList_DrawEx",
+      "ImageList_Destroy",
+      "ImageList_Create",
+      "ImageList_GetIconSize",
+      "ImageList_GetImageInfo",
+      "ImageList_Add"
+    ],
+    "UxTheme.dll": [
+      "DrawThemeBackground",
+      "IsAppThemed",
+      "DrawThemeParentBackground",
+      "IsThemeBackgroundPartiallyTransparent",
+      "CloseThemeData",
+      "GetThemePartSize",
+      "GetCurrentThemeName",
+      "DrawThemeText",
+      "GetThemeSysColor",
+      "GetWindowTheme",
+      "OpenThemeData",
+      "GetThemeColor"
+    ],
+    "oledlg.dll": [
+      "OleUIBusyW",
+      "OleUIInsertObjectW",
+      "OleUIPasteSpecialW",
+      "OleUIEditLinksW",
+      "OleUIChangeIconW",
+      "OleUIConvertW",
+      "OleUIObjectPropertiesW",
+      "OleUIChangeSourceW",
+      "OleUIUpdateLinksW"
+    ],
+    "urlmon.dll": [
+      "UrlMkSetSessionOption",
+      "ObtainUserAgentString",
+      "HlinkSimpleNavigateToString",
+      "URLDownloadToCacheFileW",
+      "FindMimeFromData",
+      "UrlMkGetSessionOption"
+    ],
+    "dwmapi.dll": [
+      "DwmExtendFrameIntoClientArea"
+    ],
+    "WTSAPI32.dll": [
+      "WTSFreeMemory",
+      "WTSQuerySessionInformationW"
+    ],
+    "UIAutomationCore.DLL": [
+      "UiaReturnRawElementProvider",
+      "UiaGetReservedNotSupportedValue",
+      "UiaGetReservedMixedAttributeValue",
+      "UiaClientsAreListening",
+      "UiaHostProviderFromHwnd",
+      "UiaRaiseAutomationEvent",
+      "UiaLookupId",
+      "UiaRaiseStructureChangedEvent"
+    ],
+    "dxgi.dll": [
+      "CreateDXGIFactory1"
+    ],
+    "d3d11.dll": [
+      "D3D11CreateDevice"
+    ],
+    "D3DCOMPILER_47.dll": [
+      "D3DCompile",
+      "D3DReflect",
+      "D3DCreateBlob"
+    ],
+    "WebView2Loader.dll": [
+      "CreateCoreWebView2EnvironmentWithOptions",
+      "GetAvailableCoreWebView2BrowserVersionString"
+    ],
+    "bcrypt.dll": [
+      "BCryptSetProperty",
+      "BCryptGenerateSymmetricKey",
+      "BCryptEncrypt",
+      "BCryptCloseAlgorithmProvider",
+      "BCryptGetProperty",
+      "BCryptDestroyKey",
+      "BCryptOpenAlgorithmProvider"
+    ],
+    "pdfEngineLight.dll": [
+      "PTB_StringLength",
+      "PTB_PRCEngineProfileAddChildRuleSet",
+      "PTB_StringGet",
+      "PTB_StringRelease",
+      "PTB_GetErrorMessage2",
+      "PTB_ConvertUTF16ToUTF8",
+      "PTB_ConvertSysToUTF8",
+      "PTB_ConvertUTF8ToSys",
+      "PTB_PRCIsValidProfID",
+      "PTB_PRCGetObjectNameFromDictKey",
+      "PTB_PRCGetObjectCommentFromDictKey",
+      "PTB_PRCGetMetaDataLength",
+      "PTB_PRCGetMetaDataKey",
+      "PTB_PRCGetMetaDataValue",
+      "PTB_PRCMetaDataRelease",
+      "PTB_PRCEngineCreate",
+      "PTB_PRCEngineDispose",
+      "PTB_PRCEngineImportPackageFromFile2",
+      "PTB_PRCEngineExportEngineToFile",
+      "PTB_PRCGetExecProfile",
+      "PTB_PRCEnumConditions",
+      "PTB_PRCEnumRules",
+      "PTB_PRCEnumFixups",
+      "PTB_PRCEnumProfiles",
+      "PTB_PRCEnumProfGroups",
+      "PTB_PRCGetConditionData",
+      "PTB_PRCGetRuleData",
+      "PTB_PRCGetFixupData",
+      "PTB_PRCGetProfileData",
+      "PTB_PRCSetProfileEditFlag",
+      "PTB_PRCGetProfGroupData",
+      "PTB_PRCEngineAddProfile",
+      "PTB_PRCEngineAddProfGroup",
+      "PTB_PRCEngineRemoveRule",
+      "PTB_PRCEngineRemoveFixup",
+      "PTB_PRCEngineRuleEnumConditions",
+      "PTB_PRCEngineRuleSetEnumRules",
+      "PTB_PRCEngineFixupSetEnumFixups",
+      "PTB_PRCEngineProfileEnumRuleSets",
+      "PTB_PRCEngineProfileEnumFixupSets",
+      "PTB_PRCEngineGetRuleSetRuleAttributes",
+      "PTB_PRCEngineGetFixupSetFixupAttributes",
+      "PTB_PRCEngineRuleSetAddChildRule",
+      "PTB_PRCEngineFixupSetAddChildFixup",
+      "PTB_PRCEngineProfGroupAddChildProfile",
+      "PTB_PRCEngineProfileEnumDynParams",
+      "PTB_PRCGetProfileWizardCheckState",
+      "PTB_PRCGetProfileWizardCheckStateData",
+      "PTB_PRCSetProfileWizardChecks",
+      "PTB_LibInit",
+      "PTB_LibRelease",
+      "PTB_LibAPIGetVersion3",
+      "PTB_LanguageSet",
+      "PTB_OIEnum",
+      "PTB_OIGetData",
+      "PTB_OIExport",
+      "PTB_Preflight5",
+      "PTB_Preflight7",
+      "PTB_PreflightRelease",
+      "PTB_PreflightReport",
+      "PTB_ReportXML",
+      "PTB_ResultGetHitData",
+      "PTB_ConvertPDFA8",
+      "PTB_PRCIsValidRuleID",
+      "PTB_PRCIsValidFxupID",
+      "PTB_PRCEngineAddCondition",
+      "PTB_PRCEngineAddRule",
+      "PTB_PRCEngineAddRuleSet",
+      "PTB_PRCEngineAddFixup",
+      "PTB_PRCEngineAddFixupSet",
+      "PTB_PRCEngineRuleAddChildCondition",
+      "PTB_PRCEngineProfileAddChildFixupSet"
+    ]
+  },
+  "exports": [
+    {
+      "name": "??$MakeCheckOpValueString@C@google@@YAXPAV?$basic_ostream@DU?$char_traits@D@std@@@std@@ABC@Z",
+      "ordinal": 1,
+      "rva": "0x157b980",
+      "forwarder": null
+    },
+    {
+      "name": "??$MakeCheckOpValueString@D@google@@YAXPAV?$basic_ostream@DU?$char_traits@D@std@@@std@@ABD@Z",
+      "ordinal": 2,
+      "rva": "0x157b9e0",
+      "forwarder": null
+    },
+    {
+      "name": "??$MakeCheckOpValueString@E@google@@YAXPAV?$basic_ostream@DU?$char_traits@D@std@@@std@@ABE@Z",
+      "ordinal": 3,
+      "rva": "0x157ba40",
+      "forwarder": null
+    },
+    {
+      "name": "??0?$basic_ios@DU?$char_traits@D@std@@@std@@IAE@XZ",
+      "ordinal": 4,
+      "rva": "0x103840",
+      "forwarder": null
+    },
+    {
+      "name": "??0?$basic_ios@DU?$char_traits@D@std@@@std@@QAE@PAV?$basic_streambuf@DU?$char_traits@D@std@@@1@@Z",
+      "ordinal": 5,
+      "rva": "0x157c080",
+      "forwarder": null
+    },
+    {
+      "name": "??0?$basic_ostream@DU?$char_traits@D@std@@@std@@IAE@$$QAV01@@Z",
+      "ordinal": 6,
+      "rva": "0x157c140",
+      "forwarder": null
+    },
+    {
+      "name": "??0?$basic_ostream@DU?$char_traits@D@std@@@std@@QAE@PAV?$basic_streambuf@DU?$char_traits@D@std@@@1@_N@Z",
+      "ordinal": 7,
+      "rva": "0x5b40f0",
+      "forwarder": null
+    },
+    {
+      "name": "??0?$basic_ostream@DU?$char_traits@D@std@@@std@@QAE@W4_Uninitialized@1@_N@Z",
+      "ordinal": 8,
+      "rva": "0x1485f0",
+      "forwarder": null
+    },
+    {
+      "name": "??0?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAE@ABV01@@Z",
+      "ordinal": 9,
+      "rva": "0x157c2d0",
+      "forwarder": null
+    },
+    {
+      "name": "??0?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAE@W4_Uninitialized@1@@Z",
+      "ordinal": 10,
+      "rva": "0x157c3b0",
+      "forwarder": null
+    },
+    {
+      "name": "??0?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAE@XZ",
+      "ordinal": 11,
+      "rva": "0x103490",
+      "forwarder": null
+    },
+    {
+      "name": "??0CFXJSE_Config@@QAE@XZ",
+      "ordinal": 12,
+      "rva": "0x5ae880",
+      "forwarder": null
+    },
+    {
+      "name": "??0CheckOpMessageBuilder@base@google@@QAE@PBD@Z",
+      "ordinal": 13,
+      "rva": "0x157c440",
+      "forwarder": null
+    },
+    {
+      "name": "??0ErrnoLogMessage@google@@QAE@PBD0HHHP8LogMessage@1@AEXXZ@Z",
+      "ordinal": 14,
+      "rva": "0x157c510",
+      "forwarder": null
+    },
+    {
+      "name": "??0LogMessage@google@@QAE@PBD0H@Z",
+      "ordinal": 15,
+      "rva": "0x157c770",
+      "forwarder": null
+    },
+    {
+      "name": "??0LogMessage@google@@QAE@PBD0HABUCheckOpString@1@@Z",
+      "ordinal": 16,
+      "rva": "0x157c7a0",
+      "forwarder": null
+    },
+    {
+      "name": "??0LogMessage@google@@QAE@PBD0HH@Z",
+      "ordinal": 17,
+      "rva": "0x157c800",
+      "forwarder": null
+    },
+    {
+      "name": "??0LogMessage@google@@QAE@PBD0HHHP801@AEXXZ@Z",
+      "ordinal": 18,
+      "rva": "0x157c830",
+      "forwarder": null
+    },
+    {
+      "name": "??0LogMessage@google@@QAE@PBD0HHPAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z",
+      "ordinal": 19,
+      "rva": "0x157c870",
+      "forwarder": null
+    },
+    {
+      "name": "??0LogMessage@google@@QAE@PBD0HHPAV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@@Z",
+      "ordinal": 20,
+      "rva": "0x157c8b0",
+      "forwarder": null
+    },
+    {
+      "name": "??0LogMessage@google@@QAE@PBD0HHPAVLogSink@1@_N@Z",
+      "ordinal": 21,
+      "rva": "0x157c8f0",
+      "forwarder": null
+    },
+    {
+      "name": "??0LogMessageFatal@google@@QAE@PBD0H@Z",
+      "ordinal": 22,
+      "rva": "0x157c9a0",
+      "forwarder": null
+    },
+    {
+      "name": "??0LogMessageFatal@google@@QAE@PBD0HABUCheckOpString@1@@Z",
+      "ordinal": 23,
+      "rva": "0x157ca00",
+      "forwarder": null
+    },
+    {
+      "name": "??0LogMessageVoidify@google@@QAE@XZ",
+      "ordinal": 24,
+      "rva": "0x14e480",
+      "forwarder": null
+    },
+    {
+      "name": "??0LogSink@google@@QAE@ABV01@@Z",
+      "ordinal": 25,
+      "rva": "0x157ca60",
+      "forwarder": null
+    },
+    {
+      "name": "??0LogSink@google@@QAE@XZ",
+      "ordinal": 26,
+      "rva": "0x157ca70",
+      "forwarder": null
+    },
+    {
+      "name": "??0LogStream@LogMessage@google@@QAE@PADHH@Z",
+      "ordinal": 27,
+      "rva": "0x157ca80",
+      "forwarder": null
+    },
+    {
+      "name": "??0LogStreamBuf@base_logging@google@@QAE@$$QAV012@@Z",
+      "ordinal": 28,
+      "rva": "0x157cbc0",
+      "forwarder": null
+    },
+    {
+      "name": "??0LogStreamBuf@base_logging@google@@QAE@ABV012@@Z",
+      "ordinal": 29,
+      "rva": "0x157cc20",
+      "forwarder": null
+    },
+    {
+      "name": "??0LogStreamBuf@base_logging@google@@QAE@PADH@Z",
+      "ordinal": 30,
+      "rva": "0x157cc80",
+      "forwarder": null
+    },
+    {
+      "name": "??0Logger@base@google@@QAE@ABV012@@Z",
+      "ordinal": 31,
+      "rva": "0x157ccf0",
+      "forwarder": null
+    },
+    {
+      "name": "??0Logger@base@google@@QAE@XZ",
+      "ordinal": 32,
+      "rva": "0x157cd00",
+      "forwarder": null
+    },
+    {
+      "name": "??0NullStream@google@@QAE@PBDHABUCheckOpString@1@@Z",
+      "ordinal": 33,
+      "rva": "0x157cd50",
+      "forwarder": null
+    },
+    {
+      "name": "??0NullStream@google@@QAE@XZ",
+      "ordinal": 34,
+      "rva": "0x157cdf0",
+      "forwarder": null
+    },
+    {
+      "name": "??0NullStreamFatal@google@@QAE@PBDHABUCheckOpString@1@@Z",
+      "ordinal": 35,
+      "rva": "0x157ce90",
+      "forwarder": null
+    },
+    {
+      "name": "??0NullStreamFatal@google@@QAE@XZ",
+      "ordinal": 36,
+      "rva": "0x157cf50",
+      "forwarder": null
+    },
+    {
+      "name": "??0SkinManagerColor@AUILib@@QAE@K@Z",
+      "ordinal": 37,
+      "rva": "0x3f11f50",
+      "forwarder": null
+    },
+    {
+      "name": "??0SkinManagerColor@AUILib@@QAE@XZ",
+      "ordinal": 38,
+      "rva": "0x3f11f80",
+      "forwarder": null
+    },
+    {
+      "name": "??1?$basic_ios@DU?$char_traits@D@std@@@std@@UAE@XZ",
+      "ordinal": 39,
+      "rva": "0x105ad0",
+      "forwarder": null
+    },
+    {
+      "name": "??1?$basic_ostream@DU?$char_traits@D@std@@@std@@UAE@XZ",
+      "ordinal": 40,
+      "rva": "0x14a7b0",
+      "forwarder": null
+    },
+    {
+      "name": "??1?$basic_streambuf@DU?$char_traits@D@std@@@std@@UAE@XZ",
+      "ordinal": 41,
+      "rva": "0x105390",
+      "forwarder": null
+    },
+    {
+      "name": "??1CFXJSE_Config@@QAE@XZ",
+      "ordinal": 42,
+      "rva": "0x5ae890",
+      "forwarder": null
+    },
+    {
+      "name": "??1CheckOpMessageBuilder@base@google@@QAE@XZ",
+      "ordinal": 43,
+      "rva": "0x157d120",
+      "forwarder": null
+    },
+    {
+      "name": "??1ErrnoLogMessage@google@@QAE@XZ",
+      "ordinal": 44,
+      "rva": "0x157d140",
+      "forwarder": null
+    },
+    {
+      "name": "??1LogMessage@google@@QAE@XZ",
+      "ordinal": 45,
+      "rva": "0x157d390",
+      "forwarder": null
+    },
+    {
+      "name": "??1LogMessageFatal@google@@QAE@XZ",
+      "ordinal": 46,
+      "rva": "0x157d490",
+      "forwarder": null
+    },
+    {
+      "name": "??1LogSink@google@@UAE@XZ",
+      "ordinal": 47,
+      "rva": "0x157d4d0",
+      "forwarder": null
+    },
+    {
+      "name": "??1LogStream@LogMessage@google@@UAE@XZ",
+      "ordinal": 48,
+      "rva": "0x157d4e0",
+      "forwarder": null
+    },
+    {
+      "name": "??1LogStreamBuf@base_logging@google@@UAE@XZ",
+      "ordinal": 49,
+      "rva": "0x157d590",
+      "forwarder": null
+    },
+    {
+      "name": "??1Logger@base@google@@UAE@XZ",
+      "ordinal": 50,
+      "rva": "0x157d600",
+      "forwarder": null
+    },
+    {
+      "name": "??1NullStream@google@@UAE@XZ",
+      "ordinal": 51,
+      "rva": "0x157d6a0",
+      "forwarder": null
+    },
+    {
+      "name": "??1NullStreamFatal@google@@UAE@XZ",
+      "ordinal": 52,
+      "rva": "0x157d6f0",
+      "forwarder": null
+    },
+    {
+      "name": "??4?$basic_ostream@DU?$char_traits@D@std@@@std@@IAEAAV01@$$QAV01@@Z",
+      "ordinal": 53,
+      "rva": "0x157d790",
+      "forwarder": null
+    },
+    {
+      "name": "??4?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEAAV01@ABV01@@Z",
+      "ordinal": 54,
+      "rva": "0x157d7c0",
+      "forwarder": null
+    },
+    {
+      "name": "??4CFXJSE_Arguments@@QAEAAV0@$$QAV0@@Z",
+      "ordinal": 55,
+      "rva": "0x5ae8d0",
+      "forwarder": null
+    },
+    {
+      "name": "??4CFXJSE_Arguments@@QAEAAV0@ABV0@@Z",
+      "ordinal": 56,
+      "rva": "0x5ae8c0",
+      "forwarder": null
+    },
+    {
+      "name": "??4CFXJSE_Config@@QAEAAV0@ABV0@@Z",
+      "ordinal": 57,
+      "rva": "0x5ae8a0",
+      "forwarder": null
+    },
+    {
+      "name": "??4CheckOpMessageBuilder@base@google@@QAEAAV012@ABV012@@Z",
+      "ordinal": 58,
+      "rva": "0x157d8c0",
+      "forwarder": null
+    },
+    {
+      "name": "??4LogMessageVoidify@google@@QAEAAV01@$$QAV01@@Z",
+      "ordinal": 59,
+      "rva": "0x157d8d0",
+      "forwarder": null
+    },
+    {
+      "name": "??4LogMessageVoidify@google@@QAEAAV01@ABV01@@Z",
+      "ordinal": 60,
+      "rva": "0x157d8e0",
+      "forwarder": null
+    },
+    {
+      "name": "??4LogSink@google@@QAEAAV01@ABV01@@Z",
+      "ordinal": 61,
+      "rva": "0x157d8f0",
+      "forwarder": null
+    },
+    {
+      "name": "??4LogStreamBuf@base_logging@google@@QAEAAV012@$$QAV012@@Z",
+      "ordinal": 62,
+      "rva": "0x157d900",
+      "forwarder": null
+    },
+    {
+      "name": "??4LogStreamBuf@base_logging@google@@QAEAAV012@ABV012@@Z",
+      "ordinal": 63,
+      "rva": "0x157d920",
+      "forwarder": null
+    },
+    {
+      "name": "??4Logger@base@google@@QAEAAV012@ABV012@@Z",
+      "ordinal": 64,
+      "rva": "0x157d940",
+      "forwarder": null
+    },
+    {
+      "name": "??4SkinManagerColor@AUILib@@QAEAAV01@ABV01@@Z",
+      "ordinal": 65,
+      "rva": "0x3f11fa0",
+      "forwarder": null
+    },
+    {
+      "name": "??4SkinManagerColor@AUILib@@QAEAAV01@K@Z",
+      "ordinal": 66,
+      "rva": "0x3f11fe0",
+      "forwarder": null
+    },
+    {
+      "name": "??4_FXJSE_CLASS@@QAEAAU0@$$QAU0@@Z",
+      "ordinal": 67,
+      "rva": "0x5ae910",
+      "forwarder": null
+    },
+    {
+      "name": "??4_FXJSE_CLASS@@QAEAAU0@ABU0@@Z",
+      "ordinal": 68,
+      "rva": "0x5ae8e0",
+      "forwarder": null
+    },
+    {
+      "name": "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@F@Z",
+      "ordinal": 69,
+      "rva": "0x50b3d0",
+      "forwarder": null
+    },
+    {
+      "name": "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@G@Z",
+      "ordinal": 70,
+      "rva": "0xadf600",
+      "forwarder": null
+    },
+    {
+      "name": "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z",
+      "ordinal": 71,
+      "rva": "0x1efb70",
+      "forwarder": null
+    },
+    {
+      "name": "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@I@Z",
+      "ordinal": 72,
+      "rva": "0x1eee00",
+      "forwarder": null
+    },
+    {
+      "name": "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@J@Z",
+      "ordinal": 73,
+      "rva": "0x146aa0",
+      "forwarder": null
+    },
+    {
+      "name": "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@K@Z",
+      "ordinal": 74,
+      "rva": "0x1eec50",
+      "forwarder": null
+    },
+    {
+      "name": "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@M@Z",
+      "ordinal": 75,
+      "rva": "0x968920",
+      "forwarder": null
+    },
+    {
+      "name": "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@N@Z",
+      "ordinal": 76,
+      "rva": "0x507be0",
+      "forwarder": null
+    },
+    {
+      "name": "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@O@Z",
+      "ordinal": 77,
+      "rva": "0x157d950",
+      "forwarder": null
+    },
+    {
+      "name": "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAV01@AAV01@@Z@Z",
+      "ordinal": 78,
+      "rva": "0x3eb890",
+      "forwarder": null
+    },
+    {
+      "name": "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAV?$basic_ios@DU?$char_traits@D@std@@@1@AAV21@@Z@Z",
+      "ordinal": 79,
+      "rva": "0x157db30",
+      "forwarder": null
+    },
+    {
+      "name": "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAVios_base@1@AAV21@@Z@Z",
+      "ordinal": 80,
+      "rva": "0x1eefb0",
+      "forwarder": null
+    },
+    {
+      "name": "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@PAV?$basic_streambuf@DU?$char_traits@D@std@@@1@@Z",
+      "ordinal": 81,
+      "rva": "0x157db50",
+      "forwarder": null
+    },
+    {
+      "name": "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@PBX@Z",
+      "ordinal": 82,
+      "rva": "0x3eb6e0",
+      "forwarder": null
+    },
+    {
+      "name": "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@_J@Z",
+      "ordinal": 83,
+      "rva": "0x5fb840",
+      "forwarder": null
+    },
+    {
+      "name": "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@_K@Z",
+      "ordinal": 84,
+      "rva": "0x5fba20",
+      "forwarder": null
+    },
+    {
+      "name": "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@_N@Z",
+      "ordinal": 85,
+      "rva": "0xadf7e0",
+      "forwarder": null
+    },
+    {
+      "name": "??6google@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AAV12@ABW4PRIVATE_Counter@0@@Z",
+      "ordinal": 86,
+      "rva": "0x157e0b0",
+      "forwarder": null
+    },
+    {
+      "name": "??8SkinManagerColor@AUILib@@QBE_NABH@Z",
+      "ordinal": 87,
+      "rva": "0x217240",
+      "forwarder": null
+    },
+    {
+      "name": "??8SkinManagerColor@AUILib@@QBE_NABV01@@Z",
+      "ordinal": 88,
+      "rva": "0x217200",
+      "forwarder": null
+    },
+    {
+      "name": "??9SkinManagerColor@AUILib@@QBE_NABH@Z",
+      "ordinal": 89,
+      "rva": "0x217260",
+      "forwarder": null
+    },
+    {
+      "name": "??9SkinManagerColor@AUILib@@QBE_NABV01@@Z",
+      "ordinal": 90,
+      "rva": "0x217220",
+      "forwarder": null
+    },
+    {
+      "name": "??BSkinManagerColor@AUILib@@QBEKXZ",
+      "ordinal": 91,
+      "rva": "0x3f12010",
+      "forwarder": null
+    },
+    {
+      "name": "??GSkinManagerColor@AUILib@@QAE?AV01@ABV01@@Z",
+      "ordinal": 92,
+      "rva": "0x3f120b0",
+      "forwarder": null
+    },
+    {
+      "name": "??HSkinManagerColor@AUILib@@QAE?AV01@ABV01@@Z",
+      "ordinal": 93,
+      "rva": "0x3f120e0",
+      "forwarder": null
+    },
+    {
+      "name": "??ILogMessageVoidify@google@@QAEXAAV?$basic_ostream@DU?$char_traits@D@std@@@std@@@Z",
+      "ordinal": 94,
+      "rva": "0x14e490",
+      "forwarder": null
+    },
+    {
+      "name": "??ISkinManagerColor@AUILib@@QAE?AV01@ABH@Z",
+      "ordinal": 95,
+      "rva": "0x3f12110",
+      "forwarder": null
+    },
+    {
+      "name": "??ISkinManagerColor@AUILib@@QAEAAV01@ABK@Z",
+      "ordinal": 96,
+      "rva": "0x3f12140",
+      "forwarder": null
+    },
+    {
+      "name": "??_7?$basic_ios@DU?$char_traits@D@std@@@std@@6B@",
+      "ordinal": 97,
+      "rva": "0x4f1f654",
+      "forwarder": null
+    },
+    {
+      "name": "??_7?$basic_ostream@DU?$char_traits@D@std@@@std@@6B@",
+      "ordinal": 98,
+      "rva": "0x4f1f65c",
+      "forwarder": null
+    },
+    {
+      "name": "??_7?$basic_streambuf@DU?$char_traits@D@std@@@std@@6B@",
+      "ordinal": 99,
+      "rva": "0x4f1f664",
+      "forwarder": null
+    },
+    {
+      "name": "??_7LogSink@google@@6B@",
+      "ordinal": 100,
+      "rva": "0x4ffb0ec",
+      "forwarder": null
+    },
+    {
+      "name": "??_7LogStream@LogMessage@google@@6B@",
+      "ordinal": 101,
+      "rva": "0x4ffb0dc",
+      "forwarder": null
+    },
+    {
+      "name": "??_7LogStreamBuf@base_logging@google@@6B@",
+      "ordinal": 102,
+      "rva": "0x4ffb09c",
+      "forwarder": null
+    },
+    {
+      "name": "??_7Logger@base@google@@6B@",
+      "ordinal": 103,
+      "rva": "0x4ffb0fc",
+      "forwarder": null
+    },
+    {
+      "name": "??_7NullStream@google@@6B@",
+      "ordinal": 104,
+      "rva": "0x4ffb110",
+      "forwarder": null
+    },
+    {
+      "name": "??_7NullStreamFatal@google@@6B@",
+      "ordinal": 105,
+      "rva": "0x4ffb120",
+      "forwarder": null
+    },
+    {
+      "name": "??_8?$basic_ostream@DU?$char_traits@D@std@@@std@@7B@",
+      "ordinal": 106,
+      "rva": "0x6116cb4",
+      "forwarder": null
+    },
+    {
+      "name": "??_8LogStream@LogMessage@google@@7B@",
+      "ordinal": 107,
+      "rva": "0x4ffb0e0",
+      "forwarder": null
+    },
+    {
+      "name": "??_8NullStream@google@@7B@",
+      "ordinal": 108,
+      "rva": "0x4ffb114",
+      "forwarder": null
+    },
+    {
+      "name": "??_8NullStreamFatal@google@@7B@",
+      "ordinal": 109,
+      "rva": "0x4ffb124",
+      "forwarder": null
+    },
+    {
+      "name": "??_D?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEXXZ",
+      "ordinal": 110,
+      "rva": "0x14a730",
+      "forwarder": null
+    },
+    {
+      "name": "??_DLogStream@LogMessage@google@@QAEXXZ",
+      "ordinal": 111,
+      "rva": "0x157e1d0",
+      "forwarder": null
+    },
+    {
+      "name": "??_DNullStream@google@@QAEXXZ",
+      "ordinal": 112,
+      "rva": "0x157e230",
+      "forwarder": null
+    },
+    {
+      "name": "??_DNullStreamFatal@google@@QAEXXZ",
+      "ordinal": 113,
+      "rva": "0x157e2a0",
+      "forwarder": null
+    },
+    {
+      "name": "?AddLogSink@google@@YAXPAVLogSink@1@@Z",
+      "ordinal": 114,
+      "rva": "0x157eef0",
+      "forwarder": null
+    },
+    {
+      "name": "?CheckstrcasecmpfalseImpl@google@@YAPAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PBD00@Z",
+      "ordinal": 115,
+      "rva": "0x157f070",
+      "forwarder": null
+    },
+    {
+      "name": "?CheckstrcasecmptrueImpl@google@@YAPAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PBD00@Z",
+      "ordinal": 116,
+      "rva": "0x157f1a0",
+      "forwarder": null
+    },
+    {
+      "name": "?CheckstrcmpfalseImpl@google@@YAPAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PBD00@Z",
+      "ordinal": 117,
+      "rva": "0x157f2e0",
+      "forwarder": null
+    },
+    {
+      "name": "?CheckstrcmptrueImpl@google@@YAPAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PBD00@Z",
+      "ordinal": 118,
+      "rva": "0x157f430",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_alsologtoemail@fLS@@3AAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A",
+      "ordinal": 119,
+      "rva": "0x676fba0",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_alsologtostderr@fLB@@3_NA",
+      "ordinal": 120,
+      "rva": "0x692697c",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_colorlogtostderr@fLB@@3_NA",
+      "ordinal": 121,
+      "rva": "0x692697e",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_log_backtrace_at@fLS@@3AAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A",
+      "ordinal": 122,
+      "rva": "0x676fba8",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_log_dir@fLS@@3AAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A",
+      "ordinal": 123,
+      "rva": "0x676fbb8",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_log_link@fLS@@3AAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A",
+      "ordinal": 124,
+      "rva": "0x676fbbc",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_log_prefix@fLB@@3_NA",
+      "ordinal": 125,
+      "rva": "0x691f336",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_logbuflevel@fLI@@3HA",
+      "ordinal": 126,
+      "rva": "0x6926a2c",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_logbufsecs@fLI@@3HA",
+      "ordinal": 127,
+      "rva": "0x6926a30",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_logemaillevel@fLI@@3HA",
+      "ordinal": 128,
+      "rva": "0x692e094",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_logfile_mode@fLI@@3HA",
+      "ordinal": 129,
+      "rva": "0x691f328",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_logmailer@fLS@@3AAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A",
+      "ordinal": 130,
+      "rva": "0x676fba4",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_logonlytoinfo@fLB@@3_NA",
+      "ordinal": 131,
+      "rva": "0x691f335",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_logprefixfunction@fLB@@3_NA",
+      "ordinal": 132,
+      "rva": "0x6926a34",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_logtooutput@fLB@@3_NA",
+      "ordinal": 133,
+      "rva": "0x691f337",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_logtostderr@fLB@@3_NA",
+      "ordinal": 134,
+      "rva": "0x692697f",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_max_log_size@fLI@@3HA",
+      "ordinal": 135,
+      "rva": "0x691f330",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_minloglevel@fLI@@3HA",
+      "ordinal": 136,
+      "rva": "0x691f32c",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_stderrthreshold@fLI@@3HA",
+      "ordinal": 137,
+      "rva": "0x676fbb4",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_stop_logging_if_full_disk@fLB@@3_NA",
+      "ordinal": 138,
+      "rva": "0x692697d",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_v@fLI@@3HA",
+      "ordinal": 139,
+      "rva": "0x692e1e0",
+      "forwarder": null
+    },
+    {
+      "name": "?FLAGS_vmodule@fLS@@3AAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A",
+      "ordinal": 140,
+      "rva": "0x676fbf8",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Context_Create@@YAPAU_FXJSE_HCONTEXT@@PAU_FXJSE_HRUNTIME@@PBU_FXJSE_CLASS@@PAXK@Z",
+      "ordinal": 141,
+      "rva": "0x2e84900",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Context_EnableCompatibleMode@@YAXPAU_FXJSE_HCONTEXT@@K@Z",
+      "ordinal": 142,
+      "rva": "0x2e84930",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Context_GetGlobalObject@@YAPAU_FXJSE_HVALUE@@PAU_FXJSE_HCONTEXT@@@Z",
+      "ordinal": 143,
+      "rva": "0x2e84c10",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Context_GetRuntime@@YAPAU_FXJSE_HRUNTIME@@PAU_FXJSE_HCONTEXT@@@Z",
+      "ordinal": 144,
+      "rva": "0x2e84c40",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Context_Release@@YAXPAU_FXJSE_HCONTEXT@@@Z",
+      "ordinal": 145,
+      "rva": "0x2e84c60",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_DefineClass@@YAPAU_FXJSE_HCLASS@@PAU_FXJSE_HCONTEXT@@PBU_FXJSE_CLASS@@@Z",
+      "ordinal": 146,
+      "rva": "0x2e863a0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_DefineFunctions@@YAXPAU_FXJSE_HCONTEXT@@PBU_FXJSE_FUNCTION@@H@Z",
+      "ordinal": 147,
+      "rva": "0x2e863c0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_ExecuteScript@@YA_NPAU_FXJSE_HCONTEXT@@PBDPAU_FXJSE_HVALUE@@2@Z",
+      "ordinal": 148,
+      "rva": "0x2e851a0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Finalize@@YAXXZ",
+      "ordinal": 149,
+      "rva": "0x2e83130",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_GetClass@@YAPAU_FXJSE_HCLASS@@PAU_FXJSE_HCONTEXT@@ABVCFX_ByteStringC@@@Z",
+      "ordinal": 150,
+      "rva": "0x2e86580",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Initialize@@YA_NABVCFX_WideStringC@@PAPAU_FXMEM_FoxitMgr@@PAVCFXJSE_Config@@@Z",
+      "ordinal": 151,
+      "rva": "0x2e83290",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Object_Death@@YAXPAU_FXJSE_HVALUE@@@Z",
+      "ordinal": 152,
+      "rva": "0x2e7f6d0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_ReturnValue_GetLineInfo@@YA_NPAU_FXJSE_HVALUE@@AAH1@Z",
+      "ordinal": 153,
+      "rva": "0x2e85390",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_ReturnValue_GetMessage@@YA_NPAU_FXJSE_HVALUE@@AAVCFX_ByteString@@1@Z",
+      "ordinal": 154,
+      "rva": "0x2e85520",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Runtime_Create@@YAPAU_FXJSE_HRUNTIME@@XZ",
+      "ordinal": 155,
+      "rva": "0x2e834c0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Runtime_GetPrivateData@@YAPAVCFX_PrivateData@@PAU_FXJSE_HRUNTIME@@@Z",
+      "ordinal": 156,
+      "rva": "0x2e83610",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Runtime_Release@@YAXPAU_FXJSE_HRUNTIME@@@Z",
+      "ordinal": 157,
+      "rva": "0x2e83630",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_SetFatalErrorCallback@@YAXPAU_FXJSE_HRUNTIME@@P6AXABVCFX_ByteStringC@@1@Z@Z",
+      "ordinal": 158,
+      "rva": "0x2e856f0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_SetOOMErrorCallback@@YAXPAU_FXJSE_HRUNTIME@@P6AXABVCFX_ByteStringC@@_N@Z@Z",
+      "ordinal": 159,
+      "rva": "0x2e85720",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_ThrowMessage@@YAXABVCFX_ByteStringC@@0@Z",
+      "ordinal": 160,
+      "rva": "0x2e7f830",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_CallFunction@@YA_NPAU_FXJSE_HVALUE@@00KPAPAU1@@Z",
+      "ordinal": 161,
+      "rva": "0x2e7fae0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_Create@@YAPAU_FXJSE_HVALUE@@PAU_FXJSE_HRUNTIME@@@Z",
+      "ordinal": 162,
+      "rva": "0x2e7fb00",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_CreateDataProp@@YA_NPAU_FXJSE_HVALUE@@ABVCFX_ByteStringC@@0@Z",
+      "ordinal": 163,
+      "rva": "0x2e7fb30",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_DeleteObjectProp@@YA_NPAU_FXJSE_HVALUE@@ABVCFX_ByteStringC@@@Z",
+      "ordinal": 164,
+      "rva": "0x2e7fc90",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_GetObjectProp@@YA_NPAU_FXJSE_HVALUE@@ABVCFX_ByteStringC@@0@Z",
+      "ordinal": 165,
+      "rva": "0x2e7fdb0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_GetObjectPropByIdx@@YA_NPAU_FXJSE_HVALUE@@K0@Z",
+      "ordinal": 166,
+      "rva": "0x2e7fdd0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_GetRuntime@@YAPAU_FXJSE_HRUNTIME@@PAU_FXJSE_HVALUE@@@Z",
+      "ordinal": 167,
+      "rva": "0x2e7ff50",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_IsArray@@YA_NPAU_FXJSE_HVALUE@@@Z",
+      "ordinal": 168,
+      "rva": "0x2e7ff60",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_IsBoolean@@YA_NPAU_FXJSE_HVALUE@@@Z",
+      "ordinal": 169,
+      "rva": "0x2e80040",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_IsDate@@YA_NPAU_FXJSE_HVALUE@@@Z",
+      "ordinal": 170,
+      "rva": "0x2e80120",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_IsFunction@@YA_NPAU_FXJSE_HVALUE@@@Z",
+      "ordinal": 171,
+      "rva": "0x2e80200",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_IsInteger@@YA_NPAU_FXJSE_HVALUE@@@Z",
+      "ordinal": 172,
+      "rva": "0x2e802e0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_IsNull@@YA_NPAU_FXJSE_HVALUE@@@Z",
+      "ordinal": 173,
+      "rva": "0x2e803c0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_IsNumber@@YA_NPAU_FXJSE_HVALUE@@@Z",
+      "ordinal": 174,
+      "rva": "0x2e804c0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_IsObject@@YA_NPAU_FXJSE_HVALUE@@@Z",
+      "ordinal": 175,
+      "rva": "0x2e805a0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_IsUTF8String@@YA_NPAU_FXJSE_HVALUE@@@Z",
+      "ordinal": 176,
+      "rva": "0x2e80680",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_IsUndefined@@YA_NPAU_FXJSE_HVALUE@@@Z",
+      "ordinal": 177,
+      "rva": "0x2e80770",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_ObjectHasOwnProp@@YA_NPAU_FXJSE_HVALUE@@ABVCFX_ByteStringC@@_N@Z",
+      "ordinal": 178,
+      "rva": "0x2e80870",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_Release@@YAXPAU_FXJSE_HVALUE@@@Z",
+      "ordinal": 179,
+      "rva": "0x2e80890",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_SameV8Value@@YA_NPAU_FXJSE_HVALUE@@0@Z",
+      "ordinal": 180,
+      "rva": "0x2e80900",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_Set@@YAXPAU_FXJSE_HVALUE@@0@Z",
+      "ordinal": 181,
+      "rva": "0x2e80980",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_SetArray@@YAXPAU_FXJSE_HVALUE@@KPAPAU1@@Z",
+      "ordinal": 182,
+      "rva": "0x2e80a50",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_SetBoolean@@YAXPAU_FXJSE_HVALUE@@_N@Z",
+      "ordinal": 183,
+      "rva": "0x2e80b80",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_SetDate@@YAXPAU_FXJSE_HVALUE@@N@Z",
+      "ordinal": 184,
+      "rva": "0x2e80c50",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_SetDouble@@YAXPAU_FXJSE_HVALUE@@N@Z",
+      "ordinal": 185,
+      "rva": "0x2e80d30",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_SetFloat@@YAXPAU_FXJSE_HVALUE@@M@Z",
+      "ordinal": 186,
+      "rva": "0x2e80e20",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_SetFunctionBind@@YA_NPAU_FXJSE_HVALUE@@00@Z",
+      "ordinal": 187,
+      "rva": "0x2e810f0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_SetInteger@@YAXPAU_FXJSE_HVALUE@@H@Z",
+      "ordinal": 188,
+      "rva": "0x2e81110",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_SetNull@@YAXPAU_FXJSE_HVALUE@@@Z",
+      "ordinal": 189,
+      "rva": "0x2e811e0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_SetObject@@YAXPAU_FXJSE_HVALUE@@PAXPAU_FXJSE_HCLASS@@@Z",
+      "ordinal": 190,
+      "rva": "0x2e812a0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_SetObjectOwnProp@@YA_NPAU_FXJSE_HVALUE@@ABVCFX_ByteStringC@@0@Z",
+      "ordinal": 191,
+      "rva": "0x2e81450",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_SetObjectProp@@YA_NPAU_FXJSE_HVALUE@@ABVCFX_ByteStringC@@0@Z",
+      "ordinal": 192,
+      "rva": "0x2e815c0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_SetObjectPropByIdx@@YA_NPAU_FXJSE_HVALUE@@K0@Z",
+      "ordinal": 193,
+      "rva": "0x2e81720",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_SetUTF8String@@YAXPAU_FXJSE_HVALUE@@ABVCFX_ByteStringC@@@Z",
+      "ordinal": 194,
+      "rva": "0x2e81850",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_SetUndefined@@YAXPAU_FXJSE_HVALUE@@@Z",
+      "ordinal": 195,
+      "rva": "0x2e81930",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_ToBoolean@@YA_NPAU_FXJSE_HVALUE@@AA_N@Z",
+      "ordinal": 196,
+      "rva": "0x2e819f0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_ToDouble@@YA_NPAU_FXJSE_HVALUE@@AAN@Z",
+      "ordinal": 197,
+      "rva": "0x2e81ab0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_ToFloat@@YA_NPAU_FXJSE_HVALUE@@AAM@Z",
+      "ordinal": 198,
+      "rva": "0x2e81bb0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_ToInteger@@YA_NPAU_FXJSE_HVALUE@@AAH@Z",
+      "ordinal": 199,
+      "rva": "0x2e81cb0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_ToObject@@YAPAXPAU_FXJSE_HVALUE@@PAU_FXJSE_HCLASS@@@Z",
+      "ordinal": 200,
+      "rva": "0x2e81de0",
+      "forwarder": null
+    },
+    {
+      "name": "?FXJSE_Value_ToUTF8String@@YA_NPAU_FXJSE_HVALUE@@AAVCFX_ByteString@@@Z",
+      "ordinal": 201,
+      "rva": "0x2e81e00",
+      "forwarder": null
+    },
+    {
+      "name": "?Fail@LogMessage@google@@SAXXZ",
+      "ordinal": 202,
+      "rva": "0x157fa90",
+      "forwarder": null
+    },
+    {
+      "name": "?Flush@LogMessage@google@@QAEXXZ",
+      "ordinal": 203,
+      "rva": "0x157fb20",
+      "forwarder": null
+    },
+    {
+      "name": "?FlushLogFiles@google@@YAXH@Z",
+      "ordinal": 204,
+      "rva": "0x157fd50",
+      "forwarder": null
+    },
+    {
+      "name": "?FlushLogFilesUnsafe@google@@YAXH@Z",
+      "ordinal": 205,
+      "rva": "0x157fe50",
+      "forwarder": null
+    },
+    {
+      "name": "?ForVar1@CheckOpMessageBuilder@base@google@@QAEPAV?$basic_ostream@DU?$char_traits@D@std@@@std@@XZ",
+      "ordinal": 206,
+      "rva": "0x157fed0",
+      "forwarder": null
+    },
+    {
+      "name": "?ForVar2@CheckOpMessageBuilder@base@google@@QAEPAV?$basic_ostream@DU?$char_traits@D@std@@@std@@XZ",
+      "ordinal": 207,
+      "rva": "0x157fee0",
+      "forwarder": null
+    },
+    {
+      "name": "?GetBoolean@CFXJSE_Arguments@@QBE_NHAA_N@Z",
+      "ordinal": 208,
+      "rva": "0x2e86ca0",
+      "forwarder": null
+    },
+    {
+      "name": "?GetExistingTempDirectories@google@@YAXPAV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@@Z",
+      "ordinal": 209,
+      "rva": "0x157ff30",
+      "forwarder": null
+    },
+    {
+      "name": "?GetFloat@CFXJSE_Arguments@@QBE_NHAAM@Z",
+      "ordinal": 210,
+      "rva": "0x2e86d30",
+      "forwarder": null
+    },
+    {
+      "name": "?GetInt32@CFXJSE_Arguments@@QBE_NHAAH@Z",
+      "ordinal": 211,
+      "rva": "0x2e86db0",
+      "forwarder": null
+    },
+    {
+      "name": "?GetLength@CFXJSE_Arguments@@QBEHXZ",
+      "ordinal": 212,
+      "rva": "0x2e86e40",
+      "forwarder": null
+    },
+    {
+      "name": "?GetLogSeverityName@google@@YAPBDH@Z",
+      "ordinal": 213,
+      "rva": "0x15800e0",
+      "forwarder": null
+    },
+    {
+      "name": "?GetLogger@base@google@@YAPAVLogger@12@H@Z",
+      "ordinal": 214,
+      "rva": "0x15800f0",
+      "forwarder": null
+    },
+    {
+      "name": "?GetLoggingDirectories@google@@YAABV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@XZ",
+      "ordinal": 215,
+      "rva": "0x15801b0",
+      "forwarder": null
+    },
+    {
+      "name": "?GetObjectF@CFXJSE_Arguments@@QBEPAXHPAU_FXJSE_HCLASS@@@Z",
+      "ordinal": 216,
+      "rva": "0x2e86e50",
+      "forwarder": null
+    },
+    {
+      "name": "?GetReturnValue@CFXJSE_Arguments@@QAEPAU_FXJSE_HVALUE@@XZ",
+      "ordinal": 217,
+      "rva": "0x2e86f30",
+      "forwarder": null
+    },
+    {
+      "name": "?GetRuntime@CFXJSE_Arguments@@QBEPAU_FXJSE_HRUNTIME@@XZ",
+      "ordinal": 218,
+      "rva": "0x2e86f40",
+      "forwarder": null
+    },
+    {
+      "name": "?GetUTF8String@CFXJSE_Arguments@@QBE_NHAAVCFX_ByteString@@@Z",
+      "ordinal": 219,
+      "rva": "0x2e86f50",
+      "forwarder": null
+    },
+    {
+      "name": "?GetValue@CFXJSE_Arguments@@QBEPAU_FXJSE_HVALUE@@H@Z",
+      "ordinal": 220,
+      "rva": "0x2e87030",
+      "forwarder": null
+    },
+    {
+      "name": "?Init@LogMessage@google@@AAEXPBD0HHP812@AEXXZ@Z",
+      "ordinal": 221,
+      "rva": "0x1580850",
+      "forwarder": null
+    },
+    {
+      "name": "?InitGoogleLogging@google@@YAXPBD@Z",
+      "ordinal": 222,
+      "rva": "0x1580d80",
+      "forwarder": null
+    },
+    {
+      "name": "?InitUserLogging@google@@YAXH@Z",
+      "ordinal": 223,
+      "rva": "0x1580d90",
+      "forwarder": null
+    },
+    {
+      "name": "?InitVLOG3__@google@@YA_NPAPAHPAHPBDH@Z",
+      "ordinal": 224,
+      "rva": "0x1585ba0",
+      "forwarder": null
+    },
+    {
+      "name": "?InstallFailureFunction@google@@YAXP6AXXZ@Z",
+      "ordinal": 225,
+      "rva": "0x1580da0",
+      "forwarder": null
+    },
+    {
+      "name": "?IsChanged@SkinManagerColor@AUILib@@QAE_NXZ",
+      "ordinal": 226,
+      "rva": "0x3f12170",
+      "forwarder": null
+    },
+    {
+      "name": "?LogSeverityNames@google@@3QBQBDB",
+      "ordinal": 227,
+      "rva": "0x4ffb084",
+      "forwarder": null
+    },
+    {
+      "name": "?LogToStderr@google@@YAXXZ",
+      "ordinal": 228,
+      "rva": "0x1581120",
+      "forwarder": null
+    },
+    {
+      "name": "?NewString@CheckOpMessageBuilder@base@google@@QAEPAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ",
+      "ordinal": 229,
+      "rva": "0x15816f0",
+      "forwarder": null
+    },
+    {
+      "name": "?RawLog__@google@@YAXHPBDH0ZZ",
+      "ordinal": 230,
+      "rva": "0x1587160",
+      "forwarder": null
+    },
+    {
+      "name": "?RawLog__SetLastTime@google@@YAXABUtm@@H@Z",
+      "ordinal": 231,
+      "rva": "0x1587320",
+      "forwarder": null
+    },
+    {
+      "name": "?RecordCrashReason@LogMessage@google@@AAEXPAUCrashReason@glog_internal_namespace_@2@@Z",
+      "ordinal": 232,
+      "rva": "0x15817a0",
+      "forwarder": null
+    },
+    {
+      "name": "?RemoveLogSink@google@@YAXPAVLogSink@1@@Z",
+      "ordinal": 233,
+      "rva": "0x15818a0",
+      "forwarder": null
+    },
+    {
+      "name": "?ReprintFatalMessage@google@@YAXXZ",
+      "ordinal": 234,
+      "rva": "0x1581960",
+      "forwarder": null
+    },
+    {
+      "name": "?SafeFNMatch_@glog_internal_namespace_@google@@YA_NPBDI0I@Z",
+      "ordinal": 235,
+      "rva": "0x1585ce0",
+      "forwarder": null
+    },
+    {
+      "name": "?SaveOrSendToLog@LogMessage@google@@AAEXXZ",
+      "ordinal": 236,
+      "rva": "0x15819b0",
+      "forwarder": null
+    },
+    {
+      "name": "?SendEmail@google@@YA_NPBD00@Z",
+      "ordinal": 237,
+      "rva": "0x1581ab0",
+      "forwarder": null
+    },
+    {
+      "name": "?SendToLog@LogMessage@google@@QAEXXZ",
+      "ordinal": 238,
+      "rva": "0x1581f70",
+      "forwarder": null
+    },
+    {
+      "name": "?SendToSink@LogMessage@google@@AAEXXZ",
+      "ordinal": 239,
+      "rva": "0x15822b0",
+      "forwarder": null
+    },
+    {
+      "name": "?SendToSinkAndLog@LogMessage@google@@AAEXXZ",
+      "ordinal": 240,
+      "rva": "0x1582300",
+      "forwarder": null
+    },
+    {
+      "name": "?SendToSyslogAndLog@LogMessage@google@@QAEXXZ",
+      "ordinal": 241,
+      "rva": "0x1582310",
+      "forwarder": null
+    },
+    {
+      "name": "?SetDefaultColor@SkinManagerColor@AUILib@@QAEXKPBV12@_NPAVSkinManager@2@@Z",
+      "ordinal": 242,
+      "rva": "0x3f12190",
+      "forwarder": null
+    },
+    {
+      "name": "?SetEmailLogging@google@@YAXHPBD@Z",
+      "ordinal": 243,
+      "rva": "0x1582520",
+      "forwarder": null
+    },
+    {
+      "name": "?SetLogDestination@google@@YAXHPBD@Z",
+      "ordinal": 244,
+      "rva": "0x15827d0",
+      "forwarder": null
+    },
+    {
+      "name": "?SetLogFilenameExtension@google@@YAXPBD@Z",
+      "ordinal": 245,
+      "rva": "0x15828b0",
+      "forwarder": null
+    },
+    {
+      "name": "?SetLogHeader@google@@YAXHPBD@Z",
+      "ordinal": 246,
+      "rva": "0x1582a80",
+      "forwarder": null
+    },
+    {
+      "name": "?SetLogSymlink@google@@YAXHPBD@Z",
+      "ordinal": 247,
+      "rva": "0x1582cf0",
+      "forwarder": null
+    },
+    {
+      "name": "?SetLogger@base@google@@YAXHPAVLogger@12@@Z",
+      "ordinal": 248,
+      "rva": "0x1582e60",
+      "forwarder": null
+    },
+    {
+      "name": "?SetStderrLogging@google@@YAXH@Z",
+      "ordinal": 249,
+      "rva": "0x1582fb0",
+      "forwarder": null
+    },
+    {
+      "name": "?SetUserLogfileCountLogging@google@@YAXH@Z",
+      "ordinal": 250,
+      "rva": "0x15830c0",
+      "forwarder": null
+    },
+    {
+      "name": "?SetVLOGLevel@google@@YAHPBDH@Z",
+      "ordinal": 251,
+      "rva": "0x1585d80",
+      "forwarder": null
+    },
+    {
+      "name": "?ShutdownGoogleLogging@google@@YAXXZ",
+      "ordinal": 252,
+      "rva": "0x1583110",
+      "forwarder": null
+    },
+    {
+      "name": "?ShutdownUserLogging@google@@YAXXZ",
+      "ordinal": 253,
+      "rva": "0x1583150",
+      "forwarder": null
+    },
+    {
+      "name": "?StrError@google@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z",
+      "ordinal": 254,
+      "rva": "0x1583160",
+      "forwarder": null
+    },
+    {
+      "name": "?ToString@LogSink@google@@SA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HPBD0HPBUtm@@0I@Z",
+      "ordinal": 255,
+      "rva": "0x1583280",
+      "forwarder": null
+    },
+    {
+      "name": "?TruncateLogFile@google@@YAXPBD_J1@Z",
+      "ordinal": 256,
+      "rva": "0x1583710",
+      "forwarder": null
+    },
+    {
+      "name": "?TruncateStdoutStderr@google@@YAXXZ",
+      "ordinal": 257,
+      "rva": "0x15837b0",
+      "forwarder": null
+    },
+    {
+      "name": "?WaitTillSent@LogSink@google@@UAEXXZ",
+      "ordinal": 258,
+      "rva": "0x1583930",
+      "forwarder": null
+    },
+    {
+      "name": "?WriteToStringAndLog@LogMessage@google@@AAEXXZ",
+      "ordinal": 259,
+      "rva": "0x15844f0",
+      "forwarder": null
+    },
+    {
+      "name": "?_Gnavail@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IBE_JXZ",
+      "ordinal": 260,
+      "rva": "0x105430",
+      "forwarder": null
+    },
+    {
+      "name": "?_Gndec@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEPADXZ",
+      "ordinal": 261,
+      "rva": "0xff250",
+      "forwarder": null
+    },
+    {
+      "name": "?_Gninc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEPADXZ",
+      "ordinal": 262,
+      "rva": "0x105480",
+      "forwarder": null
+    },
+    {
+      "name": "?_Gnpreinc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEPADXZ",
+      "ordinal": 263,
+      "rva": "0x101980",
+      "forwarder": null
+    },
+    {
+      "name": "?_Init@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEXPAPAD0PAH001@Z",
+      "ordinal": 264,
+      "rva": "0xff7c0",
+      "forwarder": null
+    },
+    {
+      "name": "?_Init@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEXXZ",
+      "ordinal": 265,
+      "rva": "0x103550",
+      "forwarder": null
+    },
+    {
+      "name": "?_Lock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@UAEXXZ",
+      "ordinal": 266,
+      "rva": "0x105200",
+      "forwarder": null
+    },
+    {
+      "name": "?_Osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEXXZ",
+      "ordinal": 267,
+      "rva": "0x101f90",
+      "forwarder": null
+    },
+    {
+      "name": "?_Pnavail@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IBE_JXZ",
+      "ordinal": 268,
+      "rva": "0x1055b0",
+      "forwarder": null
+    },
+    {
+      "name": "?_Pninc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEPADXZ",
+      "ordinal": 269,
+      "rva": "0x1053d0",
+      "forwarder": null
+    },
+    {
+      "name": "?_Unlock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@UAEXXZ",
+      "ordinal": 270,
+      "rva": "0x105210",
+      "forwarder": null
+    },
+    {
+      "name": "?__autoclassinit2@SkinManagerColor@AUILib@@QAEXI@Z",
+      "ordinal": 271,
+      "rva": "0x3edb850",
+      "forwarder": null
+    },
+    {
+      "name": "?_write@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV12@PBD_J@Z",
+      "ordinal": 272,
+      "rva": "0x1584880",
+      "forwarder": null
+    },
+    {
+      "name": "?clear@?$basic_ios@DU?$char_traits@D@std@@@std@@QAEXH_N@Z",
+      "ordinal": 273,
+      "rva": "0x105160",
+      "forwarder": null
+    },
+    {
+      "name": "?copyfmt@?$basic_ios@DU?$char_traits@D@std@@@std@@QAEAAV12@ABV12@@Z",
+      "ordinal": 274,
+      "rva": "0x1584a40",
+      "forwarder": null
+    },
+    {
+      "name": "?ctr@LogStream@LogMessage@google@@QBEHXZ",
+      "ordinal": 275,
+      "rva": "0x1584d70",
+      "forwarder": null
+    },
+    {
+      "name": "?eback@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IBEPADXZ",
+      "ordinal": 276,
+      "rva": "0x105400",
+      "forwarder": null
+    },
+    {
+      "name": "?egptr@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IBEPADXZ",
+      "ordinal": 277,
+      "rva": "0x105420",
+      "forwarder": null
+    },
+    {
+      "name": "?epptr@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IBEPADXZ",
+      "ordinal": 278,
+      "rva": "0x1053e0",
+      "forwarder": null
+    },
+    {
+      "name": "?fill@?$basic_ios@DU?$char_traits@D@std@@@std@@QAEDD@Z",
+      "ordinal": 279,
+      "rva": "0x600eb0",
+      "forwarder": null
+    },
+    {
+      "name": "?fill@?$basic_ios@DU?$char_traits@D@std@@@std@@QBEDXZ",
+      "ordinal": 280,
+      "rva": "0x14b510",
+      "forwarder": null
+    },
+    {
+      "name": "?flush@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV12@XZ",
+      "ordinal": 281,
+      "rva": "0x1020b0",
+      "forwarder": null
+    },
+    {
+      "name": "?g_logging_fail_func@google@@3P6AXXZA",
+      "ordinal": 282,
+      "rva": "0x676fbb0",
+      "forwarder": null
+    },
+    {
+      "name": "?gbump@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEXH@Z",
+      "ordinal": 283,
+      "rva": "0x105450",
+      "forwarder": null
+    },
+    {
+      "name": "?getloc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QBE?AVlocale@2@XZ",
+      "ordinal": 284,
+      "rva": "0xff7f0",
+      "forwarder": null
+    },
+    {
+      "name": "?gptr@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IBEPADXZ",
+      "ordinal": 285,
+      "rva": "0x105720",
+      "forwarder": null
+    },
+    {
+      "name": "?imbue@?$basic_ios@DU?$char_traits@D@std@@@std@@QAE?AVlocale@2@ABV32@@Z",
+      "ordinal": 286,
+      "rva": "0x1449590",
+      "forwarder": null
+    },
+    {
+      "name": "?imbue@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAEXABVlocale@2@@Z",
+      "ordinal": 287,
+      "rva": "0x1052c0",
+      "forwarder": null
+    },
+    {
+      "name": "?in_avail@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAE_JXZ",
+      "ordinal": 288,
+      "rva": "0x1584f00",
+      "forwarder": null
+    },
+    {
+      "name": "?init@?$basic_ios@DU?$char_traits@D@std@@@std@@IAEXPAV?$basic_streambuf@DU?$char_traits@D@std@@@2@_N@Z",
+      "ordinal": 289,
+      "rva": "0x1033f0",
+      "forwarder": null
+    },
+    {
+      "name": "?kMaxLogMessageLen@LogMessage@google@@2IB",
+      "ordinal": 290,
+      "rva": "0x4ffb094",
+      "forwarder": null
+    },
+    {
+      "name": "?move@?$basic_ios@DU?$char_traits@D@std@@@std@@QAEX$$QAV12@@Z",
+      "ordinal": 291,
+      "rva": "0x1585010",
+      "forwarder": null
+    },
+    {
+      "name": "?move@?$basic_ios@DU?$char_traits@D@std@@@std@@QAEXAAV12@@Z",
+      "ordinal": 292,
+      "rva": "0x1585040",
+      "forwarder": null
+    },
+    {
+      "name": "?narrow@?$basic_ios@DU?$char_traits@D@std@@@std@@QBEDDD@Z",
+      "ordinal": 293,
+      "rva": "0x1585070",
+      "forwarder": null
+    },
+    {
+      "name": "?num_messages@LogMessage@google@@SA_JH@Z",
+      "ordinal": 294,
+      "rva": "0x1585130",
+      "forwarder": null
+    },
+    {
+      "name": "?num_messages_@LogMessage@google@@0PA_JA",
+      "ordinal": 295,
+      "rva": "0x691f2a8",
+      "forwarder": null
+    },
+    {
+      "name": "?opfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAE_NXZ",
+      "ordinal": 296,
+      "rva": "0x15851c0",
+      "forwarder": null
+    },
+    {
+      "name": "?osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEXXZ",
+      "ordinal": 297,
+      "rva": "0x1585200",
+      "forwarder": null
+    },
+    {
+      "name": "?overflow@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAEHH@Z",
+      "ordinal": 298,
+      "rva": "0x105620",
+      "forwarder": null
+    },
+    {
+      "name": "?overflow@LogStreamBuf@base_logging@google@@UAEHH@Z",
+      "ordinal": 299,
+      "rva": "0x1585210",
+      "forwarder": null
+    },
+    {
+      "name": "?pbackfail@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAEHH@Z",
+      "ordinal": 300,
+      "rva": "0x105220",
+      "forwarder": null
+    },
+    {
+      "name": "?pbase@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IBEPADXZ",
+      "ordinal": 301,
+      "rva": "0x14a690",
+      "forwarder": null
+    },
+    {
+      "name": "?pbase@LogStream@LogMessage@google@@QBEPADXZ",
+      "ordinal": 302,
+      "rva": "0x1585220",
+      "forwarder": null
+    },
+    {
+      "name": "?pbase@LogStreamBuf@base_logging@google@@QBEPADXZ",
+      "ordinal": 303,
+      "rva": "0x1585230",
+      "forwarder": null
+    },
+    {
+      "name": "?pbump@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEXH@Z",
+      "ordinal": 304,
+      "rva": "0x105600",
+      "forwarder": null
+    },
+    {
+      "name": "?pcount@LogStream@LogMessage@google@@QBEIXZ",
+      "ordinal": 305,
+      "rva": "0x1585240",
+      "forwarder": null
+    },
+    {
+      "name": "?pcount@LogStreamBuf@base_logging@google@@QBEIXZ",
+      "ordinal": 306,
+      "rva": "0x1585250",
+      "forwarder": null
+    },
+    {
+      "name": "?posix_strerror_r@google@@YAHHPADI@Z",
+      "ordinal": 307,
+      "rva": "0x1585270",
+      "forwarder": null
+    },
+    {
+      "name": "?pptr@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IBEPADXZ",
+      "ordinal": 308,
+      "rva": "0x1055f0",
+      "forwarder": null
+    },
+    {
+      "name": "?preserved_errno@LogMessage@google@@QBEHXZ",
+      "ordinal": 309,
+      "rva": "0x15852e0",
+      "forwarder": null
+    },
+    {
+      "name": "?pubimbue@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAE?AVlocale@2@ABV32@@Z",
+      "ordinal": 310,
+      "rva": "0x14497b0",
+      "forwarder": null
+    },
+    {
+      "name": "?pubseekoff@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAE?AV?$fpos@U_Mbstatet@@@2@_JHH@Z",
+      "ordinal": 311,
+      "rva": "0x15852f0",
+      "forwarder": null
+    },
+    {
+      "name": "?pubseekpos@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAE?AV?$fpos@U_Mbstatet@@@2@V32@H@Z",
+      "ordinal": 312,
+      "rva": "0xad2ca0",
+      "forwarder": null
+    },
+    {
+      "name": "?pubsetbuf@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAEPAV12@PAD_J@Z",
+      "ordinal": 313,
+      "rva": "0x1585310",
+      "forwarder": null
+    },
+    {
+      "name": "?pubsync@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAEHXZ",
+      "ordinal": 314,
+      "rva": "0x1020a0",
+      "forwarder": null
+    },
+    {
+      "name": "?put@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV12@D@Z",
+      "ordinal": 315,
+      "rva": "0x3efb90",
+      "forwarder": null
+    },
+    {
+      "name": "?rdbuf@?$basic_ios@DU?$char_traits@D@std@@@std@@QAEPAV?$basic_streambuf@DU?$char_traits@D@std@@@2@PAV32@@Z",
+      "ordinal": 316,
+      "rva": "0x15853b0",
+      "forwarder": null
+    },
+    {
+      "name": "?rdbuf@?$basic_ios@DU?$char_traits@D@std@@@std@@QBEPAV?$basic_streambuf@DU?$char_traits@D@std@@@2@XZ",
+      "ordinal": 317,
+      "rva": "0x102210",
+      "forwarder": null
+    },
+    {
+      "name": "?safe_vsnprintf@@YAHPADIPBD0@Z",
+      "ordinal": 318,
+      "rva": "0x1587390",
+      "forwarder": null
+    },
+    {
+      "name": "?sbumpc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAEHXZ",
+      "ordinal": 319,
+      "rva": "0x1016b0",
+      "forwarder": null
+    },
+    {
+      "name": "?seekoff@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAE?AV?$fpos@U_Mbstatet@@@2@_JHH@Z",
+      "ordinal": 320,
+      "rva": "0x105240",
+      "forwarder": null
+    },
+    {
+      "name": "?seekp@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV12@V?$fpos@U_Mbstatet@@@2@@Z",
+      "ordinal": 321,
+      "rva": "0xad2d10",
+      "forwarder": null
+    },
+    {
+      "name": "?seekp@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV12@_JH@Z",
+      "ordinal": 322,
+      "rva": "0x1585490",
+      "forwarder": null
+    },
+    {
+      "name": "?seekpos@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAE?AV?$fpos@U_Mbstatet@@@2@V32@H@Z",
+      "ordinal": 323,
+      "rva": "0x105270",
+      "forwarder": null
+    },
+    {
+      "name": "?self@LogStream@LogMessage@google@@QBEPAV123@XZ",
+      "ordinal": 324,
+      "rva": "0x1585610",
+      "forwarder": null
+    },
+    {
+      "name": "?set_ctr@LogStream@LogMessage@google@@QAEXH@Z",
+      "ordinal": 325,
+      "rva": "0x1585620",
+      "forwarder": null
+    },
+    {
+      "name": "?set_rdbuf@?$basic_ios@DU?$char_traits@D@std@@@std@@QAEXPAV?$basic_streambuf@DU?$char_traits@D@std@@@2@@Z",
+      "ordinal": 326,
+      "rva": "0x1585630",
+      "forwarder": null
+    },
+    {
+      "name": "?setbuf@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAEPAV12@PAD_J@Z",
+      "ordinal": 327,
+      "rva": "0x1052a0",
+      "forwarder": null
+    },
+    {
+      "name": "?setg@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEXPAD00@Z",
+      "ordinal": 328,
+      "rva": "0x1035c0",
+      "forwarder": null
+    },
+    {
+      "name": "?setp@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEXPAD00@Z",
+      "ordinal": 329,
+      "rva": "0x14aca0",
+      "forwarder": null
+    },
+    {
+      "name": "?setp@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEXPAD0@Z",
+      "ordinal": 330,
+      "rva": "0x103530",
+      "forwarder": null
+    },
+    {
+      "name": "?setstate@?$basic_ios@DU?$char_traits@D@std@@@std@@QAEXH_N@Z",
+      "ordinal": 331,
+      "rva": "0x105180",
+      "forwarder": null
+    },
+    {
+      "name": "?sgetc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAEHXZ",
+      "ordinal": 332,
+      "rva": "0x101690",
+      "forwarder": null
+    },
+    {
+      "name": "?sgetn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAE_JPAD_J@Z",
+      "ordinal": 333,
+      "rva": "0x1585640",
+      "forwarder": null
+    },
+    {
+      "name": "?showmanyc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAE_JXZ",
+      "ordinal": 334,
+      "rva": "0x105230",
+      "forwarder": null
+    },
+    {
+      "name": "?snextc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAEHXZ",
+      "ordinal": 335,
+      "rva": "0x101620",
+      "forwarder": null
+    },
+    {
+      "name": "?sputbackc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAEHD@Z",
+      "ordinal": 336,
+      "rva": "0x1585670",
+      "forwarder": null
+    },
+    {
+      "name": "?sputc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAEHD@Z",
+      "ordinal": 337,
+      "rva": "0x14ddb0",
+      "forwarder": null
+    },
+    {
+      "name": "?sputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAE_JPBD_J@Z",
+      "ordinal": 338,
+      "rva": "0x14b4d0",
+      "forwarder": null
+    },
+    {
+      "name": "?str@LogStream@LogMessage@google@@QBEPADXZ",
+      "ordinal": 339,
+      "rva": "0x15856b0",
+      "forwarder": null
+    },
+    {
+      "name": "?stream@LogMessage@google@@QAEAAV?$basic_ostream@DU?$char_traits@D@std@@@std@@XZ",
+      "ordinal": 340,
+      "rva": "0x15856c0",
+      "forwarder": null
+    },
+    {
+      "name": "?stream@NullStream@google@@QAEAAV12@XZ",
+      "ordinal": 341,
+      "rva": "0x15856d0",
+      "forwarder": null
+    },
+    {
+      "name": "?sungetc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAEHXZ",
+      "ordinal": 342,
+      "rva": "0x1585700",
+      "forwarder": null
+    },
+    {
+      "name": "?swap@?$basic_ios@DU?$char_traits@D@std@@@std@@QAEXAAV12@@Z",
+      "ordinal": 343,
+      "rva": "0x1585730",
+      "forwarder": null
+    },
+    {
+      "name": "?swap@?$basic_ostream@DU?$char_traits@D@std@@@std@@IAEXAAV12@@Z",
+      "ordinal": 344,
+      "rva": "0x15857e0",
+      "forwarder": null
+    },
+    {
+      "name": "?swap@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEXAAV12@@Z",
+      "ordinal": 345,
+      "rva": "0x1585810",
+      "forwarder": null
+    },
+    {
+      "name": "?sync@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAEHXZ",
+      "ordinal": 346,
+      "rva": "0x1052b0",
+      "forwarder": null
+    },
+    {
+      "name": "?tellp@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAE?AV?$fpos@U_Mbstatet@@@2@XZ",
+      "ordinal": 347,
+      "rva": "0x1585970",
+      "forwarder": null
+    },
+    {
+      "name": "?tie@?$basic_ios@DU?$char_traits@D@std@@@std@@QAEPAV?$basic_ostream@DU?$char_traits@D@std@@@2@PAV32@@Z",
+      "ordinal": 348,
+      "rva": "0x1585a90",
+      "forwarder": null
+    },
+    {
+      "name": "?tie@?$basic_ios@DU?$char_traits@D@std@@@std@@QBEPAV?$basic_ostream@DU?$char_traits@D@std@@@2@XZ",
+      "ordinal": 349,
+      "rva": "0x1021c0",
+      "forwarder": null
+    },
+    {
+      "name": "?uflow@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAEHXZ",
+      "ordinal": 350,
+      "rva": "0x105490",
+      "forwarder": null
+    },
+    {
+      "name": "?underflow@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAEHXZ",
+      "ordinal": 351,
+      "rva": "0x105470",
+      "forwarder": null
+    },
+    {
+      "name": "?widen@?$basic_ios@DU?$char_traits@D@std@@@std@@QBEDD@Z",
+      "ordinal": 352,
+      "rva": "0x103340",
+      "forwarder": null
+    },
+    {
+      "name": "?xsgetn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAE_JPAD_J@Z",
+      "ordinal": 353,
+      "rva": "0x1054d0",
+      "forwarder": null
+    },
+    {
+      "name": "?xsputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAE_JPBD_J@Z",
+      "ordinal": 354,
+      "rva": "0x105640",
+      "forwarder": null
+    },
+    {
+      "name": "_CertGetIssuerCertificateFromStore@16",
+      "ordinal": 355,
+      "rva": "0xb01e90",
+      "forwarder": null
+    },
+    {
+      "name": "_CertSelectCertificateChains@32",
+      "ordinal": 356,
+      "rva": "0xb01f30",
+      "forwarder": null
+    },
+    {
+      "name": "_CryptDecodeObjectEx@32",
+      "ordinal": 357,
+      "rva": "0xb01fd0",
+      "forwarder": null
+    },
+    {
+      "name": "_CryptGetMessageCertificates@20",
+      "ordinal": 358,
+      "rva": "0xb02070",
+      "forwarder": null
+    },
+    {
+      "name": "_CryptMsgCalculateEncodedLength@24",
+      "ordinal": 359,
+      "rva": "0xb020f0",
+      "forwarder": null
+    },
+    {
+      "name": "_CryptMsgOpenToEncode@24",
+      "ordinal": 360,
+      "rva": "0xb02190",
+      "forwarder": null
+    },
+    {
+      "name": "_CryptSignAndEncodeCertificate@36",
+      "ordinal": 361,
+      "rva": "0xb02230",
+      "forwarder": null
+    },
+    {
+      "name": "_CryptUIDlgCertMgr@4",
+      "ordinal": 362,
+      "rva": "0xb022d0",
+      "forwarder": null
+    },
+    {
+      "name": "_CryptUIDlgViewContext@24",
+      "ordinal": 363,
+      "rva": "0xb02370",
+      "forwarder": null
+    },
+    {
+      "name": "_CryptUIWizExport@20",
+      "ordinal": 364,
+      "rva": "0xb02410",
+      "forwarder": null
+    }
+  ],
+  "feature_strings": [
+    {
+      "file_offset": "0x4f86104",
+      "rva": "0x4f87504",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "ActualSize"
+    },
+    {
+      "file_offset": "0x4fd6254",
+      "rva": "0x4fd7654",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "PrintPageRange"
+    },
+    {
+      "file_offset": "0x53d1c78",
+      "rva": "0x53d3078",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "-Poster"
+    },
+    {
+      "file_offset": "0x5daadf8",
+      "rva": "0x5dac1f8",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "booklet"
+    },
+    {
+      "file_offset": "0x5daaebc",
+      "rva": "0x5dac2bc",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "printRange"
+    },
+    {
+      "file_offset": "0x5daaefc",
+      "rva": "0x5dac2fc",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "tileOverlap"
+    },
+    {
+      "file_offset": "0x5daaf08",
+      "rva": "0x5dac308",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "tileScale"
+    },
+    {
+      "file_offset": "0x5dafca4",
+      "rva": "0x5db10a4",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "PrintParams.booklet"
+    },
+    {
+      "file_offset": "0x5dafcd0",
+      "rva": "0x5db10d0",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "PrintParams.DuplexType"
+    },
+    {
+      "file_offset": "0x5dafe6c",
+      "rva": "0x5db126c",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "PrintParams.printRange"
+    },
+    {
+      "file_offset": "0x5dafee8",
+      "rva": "0x5db12e8",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "PrintParams.tileOverlap"
+    },
+    {
+      "file_offset": "0x5daff00",
+      "rva": "0x5db1300",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "PrintParams.tileScale"
+    },
+    {
+      "file_offset": "0x5daff18",
+      "rva": "0x5db1318",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "Booklet"
+    },
+    {
+      "file_offset": "0x5daff20",
+      "rva": "0x5db1320",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "Booklet.binding"
+    },
+    {
+      "file_offset": "0x5daff30",
+      "rva": "0x5db1330",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "Booklet.duplexMode"
+    },
+    {
+      "file_offset": "0x5daff88",
+      "rva": "0x5db1388",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "bookletBindings"
+    },
+    {
+      "file_offset": "0x5daffc4",
+      "rva": "0x5db13c4",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "bookletDuplexModes"
+    },
+    {
+      "file_offset": "0x601316d",
+      "rva": "0x601456d",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "Texture2D     g_SearchTexture;"
+    },
+    {
+      "file_offset": "0x601318c",
+      "rva": "0x601458c",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "SamplerState g_SearchTexture_sampler;"
+    },
+    {
+      "file_offset": "0x60133ef",
+      "rva": "0x60147ef",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "       g_SearchTexture,g_SearchTexture_sampler,subsampleIndices);"
+    },
+    {
+      "file_offset": "0x6014270",
+      "rva": "0x6015670",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "g_SearchTexture"
+    },
+    {
+      "file_offset": "0x606e9fc",
+      "rva": "0x606fdfc",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": ") specified in the header does not match the actual size ("
+    },
+    {
+      "file_offset": "0x6122698",
+      "rva": "0x6123a98",
+      "section": ".rdata",
+      "encoding": "ascii",
+      "text": "Home_Zoom_ActualSize"
+    },
+    {
+      "file_offset": "0x689cee0",
+      "rva": "0x689eee0",
+      "section": ".data",
+      "encoding": "ascii",
+      "text": ".?AVBooklet@javascript@@"
+    },
+    {
+      "file_offset": "0x68b4c3c",
+      "rva": "0x68b6c3c",
+      "section": ".data",
+      "encoding": "ascii",
+      "text": ".?AVCMA_ChangePosterDlg@@"
+    },
+    {
+      "file_offset": "0x68bfc8c",
+      "rva": "0x68c1c8c",
+      "section": ".data",
+      "encoding": "ascii",
+      "text": ".?AVCDlgBooklet@@"
+    },
+    {
+      "file_offset": "0x68e5480",
+      "rva": "0x68e7480",
+      "section": ".data",
+      "encoding": "ascii",
+      "text": ".?AVCFXJS_Booklet@javascript@@"
+    },
+    {
+      "file_offset": "0x77b02dd",
+      "rva": "0x7849edd",
+      "section": ".rsrc",
+      "encoding": "ascii",
+      "text": "                <SubItem Name=\"Home_Zoom_ActualSize\" Title=\"Actual Size\" Key=\"A\" ImageLg=\"Ribbon_home_ActualSize_32\" Image=\"Ribbon_home_ActualSize_16\"/>"
+    },
+    {
+      "file_offset": "0x77d57fc",
+      "rva": "0x786f3fc",
+      "section": ".rsrc",
+      "encoding": "ascii",
+      "text": "                <SubItem Name=\"Home_Zoom_ActualSize\" Title=\"Actual Size\" Key=\"A\" Image=\"Ribbon_home_ActualSize_16\" ImageLg=\"Ribbon_home_ActualSize_32\"/>"
+    },
+    {
+      "file_offset": "0x4fd5964",
+      "rva": "0x4fd6d64",
+      "section": ".rdata",
+      "encoding": "utf-16-le",
+      "text": "BookletMargins"
+    },
+    {
+      "file_offset": "0x4fd8264",
+      "rva": "0x4fd9664",
+      "section": ".rdata",
+      "encoding": "utf-16-le",
+      "text": "PrintRange"
+    },
+    {
+      "file_offset": "0x60efe0c",
+      "rva": "0x60f120c",
+      "section": ".rdata",
+      "encoding": "utf-16-le",
+      "text": "BodoniMTPosterCompressed"
+    },
+    {
+      "file_offset": "0x6123d70",
+      "rva": "0x6125170",
+      "section": ".rdata",
+      "encoding": "utf-16-le",
+      "text": "Actual Size"
+    },
+    {
+      "file_offset": "0x61499a4",
+      "rva": "0x614ada4",
+      "section": ".rdata",
+      "encoding": "utf-16-le",
+      "text": "BookletSubset"
+    },
+    {
+      "file_offset": "0x69398f6",
+      "rva": "0x69d34f6",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "&Actual Size"
+    },
+    {
+      "file_offset": "0x694cbd0",
+      "rva": "0x69e67d0",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "A numeric zoom factor can be set to scale the page between 0.01 and 64 times the actual size."
+    },
+    {
+      "file_offset": "0x792bdb8",
+      "rva": "0x79c59b8",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Change &Poster..."
+    },
+    {
+      "file_offset": "0x792c0fc",
+      "rva": "0x79c5cfc",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Poster Settings"
+    },
+    {
+      "file_offset": "0x792c2d0",
+      "rva": "0x79c5ed0",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Do not &use a poster"
+    },
+    {
+      "file_offset": "0x792c318",
+      "rva": "0x79c5f18",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Crea&te poster from file"
+    },
+    {
+      "file_offset": "0x792df4e",
+      "rva": "0x79c7b4e",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Change Poster"
+    },
+    {
+      "file_offset": "0x792dff0",
+      "rva": "0x79c7bf0",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Poster Setting"
+    },
+    {
+      "file_offset": "0x792e02c",
+      "rva": "0x79c7c2c",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Do not &use a poster"
+    },
+    {
+      "file_offset": "0x792e074",
+      "rva": "0x79c7c74",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "&Retrieve poster from movie"
+    },
+    {
+      "file_offset": "0x792e0cc",
+      "rva": "0x79c7ccc",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "&Create poster from file"
+    },
+    {
+      "file_offset": "0x7a01874",
+      "rva": "0x7a9b474",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Print Range"
+    },
+    {
+      "file_offset": "0x7a028a4",
+      "rva": "0x7a9c4a4",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Booklet subset:"
+    },
+    {
+      "file_offset": "0x7a03270",
+      "rva": "0x7a9ce70",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Set current pa&ge as print range for all opened files"
+    },
+    {
+      "file_offset": "0x7a03ad4",
+      "rva": "0x7a9d6d4",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Print Range"
+    },
+    {
+      "file_offset": "0x7acfc14",
+      "rva": "0x7b69814",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": " Poster Image "
+    },
+    {
+      "file_offset": "0x7acfc50",
+      "rva": "0x7b69850",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "&Keep current poster"
+    },
+    {
+      "file_offset": "0x7acfc98",
+      "rva": "0x7b69898",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Retrie&ve poster from default view"
+    },
+    {
+      "file_offset": "0x7acfcfc",
+      "rva": "0x7b698fc",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "&Create poster from file"
+    },
+    {
+      "file_offset": "0x7acfd4c",
+      "rva": "0x7b6994c",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Poster File:"
+    },
+    {
+      "file_offset": "0x7b484b4",
+      "rva": "0x7be20b4",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "The file may be read-only, or opened by another user. Please save the document with a different name or in a different folder.|The value of the magnification must be 'Actual Size','Fit Page','Fit Width',or it must be a value between %s%[1] and %s%[2]./Please enter a value between %s%[1] and %s%[2]."
+    },
+    {
+      "file_offset": "0x7b48b70",
+      "rva": "0x7be2770",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Actual Size"
+    },
+    {
+      "file_offset": "0x7b4f2a2",
+      "rva": "0x7be8ea2",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Skins8Set the zoom level to the page's actual size"
+    },
+    {
+      "file_offset": "0x7b4f308",
+      "rva": "0x7be8f08",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Actual Size)Auto-hide Status Bar"
+    },
+    {
+      "file_offset": "0x7b68fda",
+      "rva": "0x7c02bda",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Change Poster"
+    },
+    {
+      "file_offset": "0x7b7485c",
+      "rva": "0x7c0e45c",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Actual Size"
+    },
+    {
+      "file_offset": "0x7b75d52",
+      "rva": "0x7c0f952",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "The printer name is invalid.0Margins must be between %d%[1] and %s%[2] %s%[3]0Margins must be between %d%[1] and %s%[2] %s%[3]0Margins must be between %d%[1] and %s%[2] %s%[3]0Overlap must be between %d%[1] and %s%[2] %s%[3]0Overlap must be between %d%[1] and %s%[2] %s%[3]0Overlap must be between %d%[1] and %s%[2] %s%[3]0Page zoom must be between %s%[1]%% and %d%[2]%% ,The scale that you inputted is out of range.+The value must be between %d%[1] and %d%[2]"
+    },
+    {
+      "file_offset": "0x7b76cce",
+      "rva": "0x7c108ce",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Actual Size"
+    },
+    {
+      "file_offset": "0x7b76eea",
+      "rva": "0x7c10aea",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Please enter a valid range.'Do you really want to print %ld copies?9The 'copies' value cannot be empty. Please enter a value.%Please enter a different scale value.cThe current default printer is not available. %s will automatically choose other available printer.aSome files will not be added to the list, this may be because the files' format is not supported."
+    },
+    {
+      "file_offset": "0x7b8b544",
+      "rva": "0x7c25144",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Actual Size"
+    },
+    {
+      "file_offset": "0x7b8cbbe",
+      "rva": "0x7c267be",
+      "section": ".rsrc",
+      "encoding": "utf-16-le",
+      "text": "Select poster art"
+    }
+  ],
+  "selected_dialogs": [
+    {
+      "resource_id": 2338,
+      "language_id": 1033,
+      "rva": "0x7b6a160",
+      "title": "Place on Multiple Pages",
+      "dialog_units": [
+        0,
+        0,
+        171,
+        96
+      ],
+      "controls": [
+        {
+          "id": 1785,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Page Range",
+          "dialog_units": [
+            7,
+            2,
+            162,
+            66
+          ]
+        },
+        {
+          "id": 1707,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "&All pages",
+          "dialog_units": [
+            13,
+            15,
+            140,
+            10
+          ]
+        },
+        {
+          "id": 1708,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "&From:",
+          "dialog_units": [
+            13,
+            33,
+            31,
+            10
+          ]
+        },
+        {
+          "id": 1729,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "zhanwei1",
+          "dialog_units": [
+            49,
+            33,
+            31,
+            8
+          ]
+        },
+        {
+          "id": 1690,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "&To:",
+          "dialog_units": [
+            86,
+            34,
+            12,
+            8
+          ]
+        },
+        {
+          "id": 1730,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "zhanwei2",
+          "dialog_units": [
+            103,
+            33,
+            30,
+            8
+          ]
+        },
+        {
+          "id": 1705,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "",
+          "dialog_units": [
+            138,
+            34,
+            25,
+            8
+          ]
+        },
+        {
+          "id": 1697,
+          "class": {
+            "ordinal": 133
+          },
+          "text": "",
+          "dialog_units": [
+            36,
+            51,
+            98,
+            35
+          ]
+        },
+        {
+          "id": 1,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "&OK",
+          "dialog_units": [
+            21,
+            75,
+            50,
+            14
+          ]
+        },
+        {
+          "id": 2,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "&Cancel",
+          "dialog_units": [
+            101,
+            75,
+            50,
+            14
+          ]
+        }
+      ]
+    },
+    {
+      "resource_id": 7786,
+      "language_id": 1033,
+      "rva": "0x7a9c400",
+      "title": "",
+      "dialog_units": [
+        0,
+        0,
+        208,
+        88
+      ],
+      "controls": [
+        {
+          "id": 10439,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "Binding:",
+          "dialog_units": [
+            2,
+            9,
+            66,
+            8
+          ]
+        },
+        {
+          "id": 10399,
+          "class": {
+            "ordinal": 133
+          },
+          "text": "",
+          "dialog_units": [
+            71,
+            9,
+            82,
+            89
+          ]
+        },
+        {
+          "id": 10440,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "Booklet subset:",
+          "dialog_units": [
+            2,
+            28,
+            66,
+            8
+          ]
+        },
+        {
+          "id": 10400,
+          "class": {
+            "ordinal": 133
+          },
+          "text": "",
+          "dialog_units": [
+            71,
+            27,
+            65,
+            86
+          ]
+        },
+        {
+          "id": 10450,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "Margins:",
+          "dialog_units": [
+            2,
+            47,
+            66,
+            8
+          ]
+        },
+        {
+          "id": 10413,
+          "class": {
+            "ordinal": 129
+          },
+          "text": "",
+          "dialog_units": [
+            71,
+            45,
+            24,
+            12
+          ]
+        },
+        {
+          "id": 10452,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "inch",
+          "dialog_units": [
+            99,
+            46,
+            50,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "resource_id": 7790,
+      "language_id": 1033,
+      "rva": "0x7a9bf50",
+      "title": "",
+      "dialog_units": [
+        0,
+        0,
+        208,
+        88
+      ],
+      "controls": [
+        {
+          "id": 10443,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "Page &Zoom:",
+          "dialog_units": [
+            2,
+            6,
+            66,
+            8
+          ]
+        },
+        {
+          "id": 10416,
+          "class": {
+            "ordinal": 129
+          },
+          "text": "",
+          "dialog_units": [
+            71,
+            5,
+            68,
+            14
+          ]
+        },
+        {
+          "id": 10594,
+          "class": "msctls_updown32",
+          "text": "",
+          "dialog_units": [
+            190,
+            6,
+            10,
+            14
+          ]
+        },
+        {
+          "id": 10478,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "%",
+          "dialog_units": [
+            135,
+            9,
+            50,
+            8
+          ]
+        },
+        {
+          "id": 10458,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "Overlap:",
+          "dialog_units": [
+            2,
+            25,
+            66,
+            8
+          ]
+        },
+        {
+          "id": 10414,
+          "class": {
+            "ordinal": 129
+          },
+          "text": "",
+          "dialog_units": [
+            71,
+            23,
+            68,
+            14
+          ]
+        },
+        {
+          "id": 10595,
+          "class": "msctls_updown32",
+          "text": "",
+          "dialog_units": [
+            190,
+            21,
+            10,
+            14
+          ]
+        },
+        {
+          "id": 10477,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "Inch",
+          "dialog_units": [
+            135,
+            26,
+            50,
+            8
+          ]
+        },
+        {
+          "id": 10388,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Cut Marks",
+          "dialog_units": [
+            2,
+            44,
+            201,
+            10
+          ]
+        },
+        {
+          "id": 10389,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Labels",
+          "dialog_units": [
+            2,
+            63,
+            201,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "resource_id": 7792,
+      "language_id": 1033,
+      "rva": "0x7a9aeb8",
+      "title": "Print",
+      "dialog_units": [
+        0,
+        0,
+        611,
+        334
+      ],
+      "controls": [
+        {
+          "id": 10467,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "",
+          "dialog_units": [
+            7,
+            0,
+            391,
+            46
+          ]
+        },
+        {
+          "id": 10453,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "&Name:",
+          "dialog_units": [
+            13,
+            10,
+            28,
+            9
+          ]
+        },
+        {
+          "id": 10404,
+          "class": {
+            "ordinal": 133
+          },
+          "text": "",
+          "dialog_units": [
+            44,
+            9,
+            147,
+            139
+          ]
+        },
+        {
+          "id": 10380,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "&Properties",
+          "dialog_units": [
+            201,
+            9,
+            50,
+            12
+          ]
+        },
+        {
+          "id": 10375,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Advanced",
+          "dialog_units": [
+            261,
+            9,
+            50,
+            12
+          ]
+        },
+        {
+          "id": 10401,
+          "class": {
+            "ordinal": 133
+          },
+          "text": "",
+          "dialog_units": [
+            321,
+            9,
+            50,
+            30
+          ]
+        },
+        {
+          "id": 10442,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "&Copies:",
+          "dialog_units": [
+            13,
+            27,
+            28,
+            9
+          ]
+        },
+        {
+          "id": 10407,
+          "class": {
+            "ordinal": 129
+          },
+          "text": "",
+          "dialog_units": [
+            44,
+            27,
+            53,
+            14
+          ]
+        },
+        {
+          "id": 10590,
+          "class": "msctls_updown32",
+          "text": "",
+          "dialog_units": [
+            88,
+            27,
+            10,
+            14
+          ]
+        },
+        {
+          "id": 10387,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "C&ollate",
+          "dialog_units": [
+            100,
+            29,
+            37,
+            10
+          ]
+        },
+        {
+          "id": 10395,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Pr&int as grayscale",
+          "dialog_units": [
+            147,
+            29,
+            66,
+            10
+          ]
+        },
+        {
+          "id": 10393,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Prin&t as image",
+          "dialog_units": [
+            223,
+            29,
+            56,
+            10
+          ]
+        },
+        {
+          "id": 10386,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Bleed Marks",
+          "dialog_units": [
+            289,
+            29,
+            50,
+            10
+          ]
+        },
+        {
+          "id": 10392,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Print to file",
+          "dialog_units": [
+            349,
+            29,
+            47,
+            10
+          ]
+        },
+        {
+          "id": 10479,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "                 ",
+          "dialog_units": [
+            403,
+            1,
+            199,
+            311
+          ]
+        },
+        {
+          "id": 10480,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "Zoom:",
+          "dialog_units": [
+            407,
+            14,
+            47,
+            8
+          ]
+        },
+        {
+          "id": 10411,
+          "class": {
+            "ordinal": 129
+          },
+          "text": "",
+          "dialog_units": [
+            444,
+            14,
+            85,
+            8
+          ]
+        },
+        {
+          "id": 10445,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "Document:",
+          "dialog_units": [
+            407,
+            25,
+            47,
+            8
+          ]
+        },
+        {
+          "id": 10446,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "0.0 x 0.0 in",
+          "dialog_units": [
+            444,
+            25,
+            50,
+            8
+          ]
+        },
+        {
+          "id": 10461,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "Paper:",
+          "dialog_units": [
+            499,
+            25,
+            27,
+            8
+          ]
+        },
+        {
+          "id": 10462,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "0.0 x 0.0 in",
+          "dialog_units": [
+            529,
+            25,
+            68,
+            8
+          ]
+        },
+        {
+          "id": 10474,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "",
+          "dialog_units": [
+            407,
+            35,
+            187,
+            247
+          ]
+        },
+        {
+          "id": 10475,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "",
+          "dialog_units": [
+            403,
+            286,
+            199,
+            1
+          ]
+        },
+        {
+          "id": 10378,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "<",
+          "dialog_units": [
+            406,
+            293,
+            19,
+            13
+          ]
+        },
+        {
+          "id": 10470,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "",
+          "dialog_units": [
+            446,
+            186,
+            83,
+            11
+          ]
+        },
+        {
+          "id": 10377,
+          "class": {
+            "ordinal": 128
+          },
+          "text": ">",
+          "dialog_units": [
+            519,
+            293,
+            19,
+            13
+          ]
+        },
+        {
+          "id": 10379,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "<",
+          "dialog_units": [
+            427,
+            293,
+            19,
+            13
+          ]
+        },
+        {
+          "id": 10438,
+          "class": "msctls_trackbar32",
+          "text": "",
+          "dialog_units": [
+            453,
+            294,
+            32,
+            11
+          ]
+        },
+        {
+          "id": 10376,
+          "class": {
+            "ordinal": 128
+          },
+          "text": ">",
+          "dialog_units": [
+            497,
+            293,
+            19,
+            13
+          ]
+        },
+        {
+          "id": 10409,
+          "class": {
+            "ordinal": 129
+          },
+          "text": "",
+          "dialog_units": [
+            539,
+            294,
+            60,
+            12
+          ]
+        },
+        {
+          "id": 10471,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Print Range",
+          "dialog_units": [
+            7,
+            49,
+            225,
+            122
+          ]
+        },
+        {
+          "id": 10432,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Current &view",
+          "dialog_units": [
+            13,
+            59,
+            194,
+            10
+          ]
+        },
+        {
+          "id": 10431,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "C&urrent page",
+          "dialog_units": [
+            13,
+            72,
+            194,
+            10
+          ]
+        },
+        {
+          "id": 10430,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "&All pages",
+          "dialog_units": [
+            13,
+            85,
+            194,
+            10
+          ]
+        },
+        {
+          "id": 10433,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Pa&ges:",
+          "dialog_units": [
+            13,
+            97,
+            44,
+            10
+          ]
+        },
+        {
+          "id": 10415,
+          "class": {
+            "ordinal": 129
+          },
+          "text": "",
+          "dialog_units": [
+            58,
+            97,
+            112,
+            14
+          ]
+        },
+        {
+          "id": 10544,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "/ 20",
+          "dialog_units": [
+            173,
+            99,
+            31,
+            8
+          ]
+        },
+        {
+          "id": 10499,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "Sample: 1,5-9,12",
+          "dialog_units": [
+            58,
+            115,
+            56,
+            9
+          ]
+        },
+        {
+          "id": 10466,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "",
+          "dialog_units": [
+            115,
+            115,
+            7,
+            7
+          ]
+        },
+        {
+          "id": 10476,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "Su&bset:",
+          "dialog_units": [
+            13,
+            130,
+            38,
+            8
+          ]
+        },
+        {
+          "id": 10406,
+          "class": {
+            "ordinal": 133
+          },
+          "text": "",
+          "dialog_units": [
+            58,
+            128,
+            86,
+            46
+          ]
+        },
+        {
+          "id": 10397,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "R&everse pages",
+          "dialog_units": [
+            13,
+            143,
+            54,
+            10
+          ]
+        },
+        {
+          "id": 10469,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Print Handling",
+          "dialog_units": [
+            7,
+            176,
+            225,
+            134
+          ]
+        },
+        {
+          "id": 10426,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "&Scale",
+          "dialog_units": [
+            9,
+            189,
+            50,
+            21
+          ]
+        },
+        {
+          "id": 10427,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Tile &Large\nPages",
+          "dialog_units": [
+            65,
+            189,
+            50,
+            21
+          ]
+        },
+        {
+          "id": 10425,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "&Multiple Pages\nPer Sheet",
+          "dialog_units": [
+            121,
+            189,
+            50,
+            21
+          ]
+        },
+        {
+          "id": 10424,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Boo&klet",
+          "dialog_units": [
+            177,
+            189,
+            50,
+            21
+          ]
+        },
+        {
+          "id": 10448,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "",
+          "dialog_units": [
+            11,
+            215,
+            216,
+            91
+          ]
+        },
+        {
+          "id": 10472,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "",
+          "dialog_units": [
+            239,
+            49,
+            158,
+            123
+          ]
+        },
+        {
+          "id": 10394,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Print on bot&h sides of paper",
+          "dialog_units": [
+            245,
+            59,
+            128,
+            10
+          ]
+        },
+        {
+          "id": 10422,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Flip on long edge",
+          "dialog_units": [
+            255,
+            74,
+            90,
+            10
+          ]
+        },
+        {
+          "id": 10423,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Flip on short edge",
+          "dialog_units": [
+            255,
+            88,
+            90,
+            10
+          ]
+        },
+        {
+          "id": 10385,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Auto-&Rotate ",
+          "dialog_units": [
+            245,
+            103,
+            128,
+            10
+          ]
+        },
+        {
+          "id": 10384,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Auto-Center",
+          "dialog_units": [
+            245,
+            119,
+            128,
+            10
+          ]
+        },
+        {
+          "id": 10455,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Orientation",
+          "dialog_units": [
+            238,
+            176,
+            158,
+            37
+          ]
+        },
+        {
+          "id": 10481,
+          "class": {
+            "ordinal": 133
+          },
+          "text": "",
+          "dialog_units": [
+            245,
+            189,
+            147,
+            49
+          ]
+        },
+        {
+          "id": 10468,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Print &What",
+          "dialog_units": [
+            238,
+            219,
+            158,
+            54
+          ]
+        },
+        {
+          "id": 10405,
+          "class": {
+            "ordinal": 133
+          },
+          "text": "",
+          "dialog_units": [
+            245,
+            233,
+            147,
+            49
+          ]
+        },
+        {
+          "id": 10383,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Summarize Comments",
+          "dialog_units": [
+            245,
+            253,
+            84,
+            14
+          ]
+        },
+        {
+          "id": 10457,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Output",
+          "dialog_units": [
+            238,
+            277,
+            158,
+            34
+          ]
+        },
+        {
+          "id": 10390,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Simulate Overprinting",
+          "dialog_units": [
+            245,
+            293,
+            128,
+            10
+          ]
+        },
+        {
+          "id": 10557,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Page Setting",
+          "dialog_units": [
+            7,
+            316,
+            50,
+            14
+          ]
+        },
+        {
+          "id": 10381,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Printing Tips",
+          "dialog_units": [
+            63,
+            316,
+            50,
+            14
+          ]
+        },
+        {
+          "id": 1,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "OK",
+          "dialog_units": [
+            495,
+            315,
+            49,
+            15
+          ]
+        },
+        {
+          "id": 2,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Cancel",
+          "dialog_units": [
+            553,
+            315,
+            49,
+            15
+          ]
+        }
+      ]
+    },
+    {
+      "resource_id": 7794,
+      "language_id": 1033,
+      "rva": "0x7a9ca68",
+      "title": "Batch Print",
+      "dialog_units": [
+        0,
+        0,
+        563,
+        345
+      ],
+      "controls": [
+        {
+          "id": 10511,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "",
+          "dialog_units": [
+            7,
+            0,
+            551,
+            44
+          ]
+        },
+        {
+          "id": 10482,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "&Name:",
+          "dialog_units": [
+            13,
+            12,
+            33,
+            9
+          ]
+        },
+        {
+          "id": 10483,
+          "class": {
+            "ordinal": 133
+          },
+          "text": "",
+          "dialog_units": [
+            49,
+            9,
+            171,
+            139
+          ]
+        },
+        {
+          "id": 10484,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "&Properties",
+          "dialog_units": [
+            231,
+            8,
+            50,
+            14
+          ]
+        },
+        {
+          "id": 10505,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Advanced",
+          "dialog_units": [
+            293,
+            8,
+            50,
+            14
+          ]
+        },
+        {
+          "id": 10485,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "&Copies:",
+          "dialog_units": [
+            13,
+            27,
+            33,
+            9
+          ]
+        },
+        {
+          "id": 10486,
+          "class": {
+            "ordinal": 129
+          },
+          "text": "",
+          "dialog_units": [
+            49,
+            25,
+            43,
+            14
+          ]
+        },
+        {
+          "id": 10589,
+          "class": "msctls_updown32",
+          "text": "",
+          "dialog_units": [
+            74,
+            25,
+            10,
+            14
+          ]
+        },
+        {
+          "id": 10487,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "C&ollate",
+          "dialog_units": [
+            106,
+            27,
+            91,
+            10
+          ]
+        },
+        {
+          "id": 10488,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Pr&int as grayscale",
+          "dialog_units": [
+            201,
+            26,
+            96,
+            10
+          ]
+        },
+        {
+          "id": 10489,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Prin&t as image",
+          "dialog_units": [
+            329,
+            26,
+            96,
+            10
+          ]
+        },
+        {
+          "id": 10490,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Bleed Marks",
+          "dialog_units": [
+            449,
+            26,
+            88,
+            10
+          ]
+        },
+        {
+          "id": 10513,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Files for printing",
+          "dialog_units": [
+            7,
+            47,
+            408,
+            157
+          ]
+        },
+        {
+          "id": 10514,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "&Add Files...",
+          "dialog_units": [
+            10,
+            56,
+            50,
+            14
+          ]
+        },
+        {
+          "id": 10515,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Move &up",
+          "dialog_units": [
+            242,
+            56,
+            50,
+            14
+          ]
+        },
+        {
+          "id": 10516,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Mo&ve down",
+          "dialog_units": [
+            302,
+            56,
+            50,
+            14
+          ]
+        },
+        {
+          "id": 10517,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Remov&e",
+          "dialog_units": [
+            361,
+            56,
+            50,
+            14
+          ]
+        },
+        {
+          "id": 10518,
+          "class": "SysListView32",
+          "text": "",
+          "dialog_units": [
+            11,
+            72,
+            400,
+            107
+          ]
+        },
+        {
+          "id": 10502,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Set current pa&ge as print range for all opened files",
+          "dialog_units": [
+            12,
+            192,
+            170,
+            8
+          ]
+        },
+        {
+          "id": 10519,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Page Configuration Options...",
+          "dialog_units": [
+            311,
+            192,
+            100,
+            11
+          ]
+        },
+        {
+          "id": 10512,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Print Handling",
+          "dialog_units": [
+            7,
+            207,
+            408,
+            116
+          ]
+        },
+        {
+          "id": 10506,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "&Scale",
+          "dialog_units": [
+            9,
+            217,
+            50,
+            21
+          ]
+        },
+        {
+          "id": 10507,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Tile &Large\nPages",
+          "dialog_units": [
+            60,
+            217,
+            50,
+            21
+          ]
+        },
+        {
+          "id": 10508,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "&Multiple Pages\nPer Sheet",
+          "dialog_units": [
+            111,
+            217,
+            50,
+            21
+          ]
+        },
+        {
+          "id": 10509,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Boo&klet",
+          "dialog_units": [
+            162,
+            217,
+            50,
+            21
+          ]
+        },
+        {
+          "id": 10510,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "",
+          "dialog_units": [
+            11,
+            241,
+            205,
+            76
+          ]
+        },
+        {
+          "id": 10491,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "",
+          "dialog_units": [
+            421,
+            47,
+            136,
+            94
+          ]
+        },
+        {
+          "id": 10492,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Print on both sides of paper",
+          "dialog_units": [
+            427,
+            58,
+            128,
+            10
+          ]
+        },
+        {
+          "id": 10493,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Flip on long edge",
+          "dialog_units": [
+            437,
+            72,
+            90,
+            10
+          ]
+        },
+        {
+          "id": 10494,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Flip on short edge",
+          "dialog_units": [
+            437,
+            86,
+            90,
+            10
+          ]
+        },
+        {
+          "id": 10495,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Auto-&Rotate ",
+          "dialog_units": [
+            427,
+            99,
+            128,
+            10
+          ]
+        },
+        {
+          "id": 10496,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Auto-Center",
+          "dialog_units": [
+            427,
+            113,
+            128,
+            10
+          ]
+        },
+        {
+          "id": 10497,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Orientation",
+          "dialog_units": [
+            421,
+            144,
+            136,
+            60
+          ]
+        },
+        {
+          "id": 10498,
+          "class": {
+            "ordinal": 133
+          },
+          "text": "",
+          "dialog_units": [
+            428,
+            160,
+            110,
+            49
+          ]
+        },
+        {
+          "id": 10500,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Print &What",
+          "dialog_units": [
+            421,
+            207,
+            136,
+            57
+          ]
+        },
+        {
+          "id": 10501,
+          "class": {
+            "ordinal": 133
+          },
+          "text": "",
+          "dialog_units": [
+            428,
+            224,
+            110,
+            49
+          ]
+        },
+        {
+          "id": 10503,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Output",
+          "dialog_units": [
+            421,
+            268,
+            136,
+            55
+          ]
+        },
+        {
+          "id": 10504,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Simulate Overprinting",
+          "dialog_units": [
+            427,
+            283,
+            128,
+            10
+          ]
+        },
+        {
+          "id": 10585,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Page Setting",
+          "dialog_units": [
+            7,
+            328,
+            50,
+            14
+          ]
+        },
+        {
+          "id": 1,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "OK",
+          "dialog_units": [
+            421,
+            327,
+            49,
+            15
+          ]
+        },
+        {
+          "id": 2,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Cancel",
+          "dialog_units": [
+            477,
+            327,
+            49,
+            15
+          ]
+        },
+        {
+          "id": 10599,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "Static",
+          "dialog_units": [
+            312,
+            182,
+            86,
+            8
+          ]
+        },
+        {
+          "id": 10520,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Loop printing in list order",
+          "dialog_units": [
+            195,
+            192,
+            111,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "resource_id": 7795,
+      "language_id": 1033,
+      "rva": "0x7a9d438",
+      "title": "Page Configuration Options",
+      "dialog_units": [
+        0,
+        0,
+        354,
+        253
+      ],
+      "controls": [
+        {
+          "id": 10520,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Preview",
+          "dialog_units": [
+            7,
+            2,
+            168,
+            226
+          ]
+        },
+        {
+          "id": 10521,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "Zoom:",
+          "dialog_units": [
+            11,
+            14,
+            47,
+            8
+          ]
+        },
+        {
+          "id": 10522,
+          "class": {
+            "ordinal": 129
+          },
+          "text": "",
+          "dialog_units": [
+            59,
+            14,
+            101,
+            12
+          ]
+        },
+        {
+          "id": 10523,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "Document:",
+          "dialog_units": [
+            11,
+            25,
+            47,
+            8
+          ]
+        },
+        {
+          "id": 10524,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "0.0 x 0.0 in",
+          "dialog_units": [
+            60,
+            25,
+            101,
+            8
+          ]
+        },
+        {
+          "id": 10525,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "Paper:",
+          "dialog_units": [
+            11,
+            35,
+            47,
+            8
+          ]
+        },
+        {
+          "id": 10526,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "0.0 x 0.0 in",
+          "dialog_units": [
+            60,
+            35,
+            101,
+            8
+          ]
+        },
+        {
+          "id": 10528,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "",
+          "dialog_units": [
+            9,
+            177,
+            163,
+            1
+          ]
+        },
+        {
+          "id": 10529,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "<",
+          "dialog_units": [
+            16,
+            197,
+            19,
+            13
+          ]
+        },
+        {
+          "id": 10530,
+          "class": "msctls_trackbar32",
+          "text": "",
+          "dialog_units": [
+            47,
+            198,
+            83,
+            12
+          ]
+        },
+        {
+          "id": 10531,
+          "class": {
+            "ordinal": 128
+          },
+          "text": ">",
+          "dialog_units": [
+            143,
+            197,
+            19,
+            13
+          ]
+        },
+        {
+          "id": 10532,
+          "class": {
+            "ordinal": 129
+          },
+          "text": "",
+          "dialog_units": [
+            18,
+            211,
+            138,
+            12
+          ]
+        },
+        {
+          "id": 10533,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Print Range",
+          "dialog_units": [
+            181,
+            2,
+            168,
+            112
+          ]
+        },
+        {
+          "id": 10534,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Current &view",
+          "dialog_units": [
+            186,
+            14,
+            137,
+            10
+          ]
+        },
+        {
+          "id": 10535,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "C&urrent page",
+          "dialog_units": [
+            186,
+            27,
+            137,
+            10
+          ]
+        },
+        {
+          "id": 10536,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "&All pages",
+          "dialog_units": [
+            186,
+            40,
+            137,
+            10
+          ]
+        },
+        {
+          "id": 10537,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Pa&ges:",
+          "dialog_units": [
+            186,
+            53,
+            36,
+            10
+          ]
+        },
+        {
+          "id": 10538,
+          "class": {
+            "ordinal": 129
+          },
+          "text": "",
+          "dialog_units": [
+            224,
+            52,
+            85,
+            14
+          ]
+        },
+        {
+          "id": 10544,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "/ 20",
+          "dialog_units": [
+            311,
+            55,
+            34,
+            8
+          ]
+        },
+        {
+          "id": 10545,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "Sample: 1,5-9,12",
+          "dialog_units": [
+            224,
+            70,
+            54,
+            8
+          ]
+        },
+        {
+          "id": 10539,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "",
+          "dialog_units": [
+            281,
+            70,
+            7,
+            7
+          ]
+        },
+        {
+          "id": 10540,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "Su&bset:",
+          "dialog_units": [
+            187,
+            85,
+            35,
+            8
+          ]
+        },
+        {
+          "id": 10541,
+          "class": {
+            "ordinal": 133
+          },
+          "text": "",
+          "dialog_units": [
+            224,
+            83,
+            85,
+            46
+          ]
+        },
+        {
+          "id": 10542,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "R&everse pages",
+          "dialog_units": [
+            187,
+            193,
+            137,
+            10
+          ]
+        },
+        {
+          "id": 10543,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "&Included all supported attachments",
+          "dialog_units": [
+            187,
+            207,
+            137,
+            10
+          ]
+        },
+        {
+          "id": 1,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "OK",
+          "dialog_units": [
+            248,
+            233,
+            49,
+            15
+          ]
+        },
+        {
+          "id": 2,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Cancel",
+          "dialog_units": [
+            300,
+            233,
+            49,
+            15
+          ]
+        },
+        {
+          "id": 10527,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "Show Page",
+          "dialog_units": [
+            12,
+            47,
+            158,
+            120
+          ]
+        },
+        {
+          "id": 4294967295,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Print Specifications",
+          "dialog_units": [
+            181,
+            120,
+            161,
+            108
+          ]
+        },
+        {
+          "id": 10546,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "Copies:",
+          "dialog_units": [
+            187,
+            135,
+            35,
+            8
+          ]
+        },
+        {
+          "id": 10486,
+          "class": {
+            "ordinal": 129
+          },
+          "text": "",
+          "dialog_units": [
+            222,
+            132,
+            43,
+            14
+          ]
+        },
+        {
+          "id": 10589,
+          "class": "msctls_updown32",
+          "text": "",
+          "dialog_units": [
+            267,
+            132,
+            10,
+            14
+          ]
+        },
+        {
+          "id": 10548,
+          "class": {
+            "ordinal": 130
+          },
+          "text": "Method:",
+          "dialog_units": [
+            187,
+            153,
+            35,
+            8
+          ]
+        },
+        {
+          "id": 10492,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Print on both sides of paper",
+          "dialog_units": [
+            222,
+            152,
+            116,
+            10
+          ]
+        },
+        {
+          "id": 10493,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Flip on long edge",
+          "dialog_units": [
+            232,
+            165,
+            90,
+            10
+          ]
+        },
+        {
+          "id": 10494,
+          "class": {
+            "ordinal": 128
+          },
+          "text": "Flip on short edge",
+          "dialog_units": [
+            232,
+            178,
+            90,
+            10
+          ]
+        }
+      ]
+    }
+  ],
+  "dialog_count": 405,
+  "dialog_parse_errors": [],
+  "limitations": [
+    "Static observations only; no Windows execution or signature validation.",
+    "ASCII/ASCII-range UTF-16 feature strings only; not all languages or compressed resources.",
+    "Names and resources do not establish runtime behavior."
+  ]
+}

@@ -1,0 +1,818 @@
+
+7-Zip 25.01 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+ 64-bit locale=C.UTF-8 Threads:5 OPEN_MAX:16384, ASM
+
+Scanning the drive for archives:
+1 file, 22901424 bytes (22 MiB)
+
+Listing archive: /workspace/attachments/6d780aec-c3c8-45a6-9f16-0c3d47c367df/updf-9010200000-win-installer.exe
+
+--
+Path = /workspace/attachments/6d780aec-c3c8-45a6-9f16-0c3d47c367df/updf-9010200000-win-installer.exe
+Type = PE
+Physical Size = 22901424
+CPU = x86
+Characteristics = Executable 32-bit NoRelocs NoLineNums NoLocalSyms
+Created = 2026-04-19 20:38:47
+Headers Size = 1024
+Checksum = 22906457
+Name = UPDFSetup.exe
+Image Size = 368640
+Section Alignment = 4096
+File Alignment = 512
+Code Size = 26112
+Initialized Data Size = 139776
+Uninitialized Data Size = 2048
+Linker Version = 6.0
+OS Version = 4.0
+Image Version = 6.0
+Subsystem Version = 4.0
+Subsystem = Windows GUI
+DLL Characteristics = Relocated NX-Compatible NoSEH TerminalServerAware
+Stack Reserve = 1048576
+Stack Commit = 4096
+Heap Reserve = 1048576
+Heap Commit = 4096
+Virtual Address = 0x400000
+Comment = 
+{
+FileVersion: 2.0.4.0
+ProductVersion: 2.0.4.0
+CompanyName: Superace Software Technology Co., Ltd.
+FileDescription: UPDF_Win
+LegalCopyright: Copyright (C) 2026 Superace. All rights reserved.
+OriginalFilename: UPDFSetup.exe
+ProductName: UPDF_Win 2.0.4.0
+Data Directories: 16
+{
+index=1 name=IMPORT VA=0x84FC Size=160
+index=2 name=RESOURCE VA=0x3B000 Size=124344
+index=4 name=SECURITY VA=0x15D4280 Size=12336
+index=12 name=IAT VA=0x8000 Size=680
+}
+}
+----
+Path = [0]
+Size = 22730880
+Packed Size = 22730880
+Virtual Size = 22730880
+Offset = 158208
+--
+Path = [0]
+Type = Nsis
+Physical Size = 22730878
+Tail Size = 2
+Method = LZMA:23
+Solid = -
+Headers Size = 15580
+Embedded Stub Size = 0
+SubType = NSIS-3 Unicode BadCmd=13
+
+----------
+Path = $PLUGINSDIR/downloader/7z.dll
+Size = 
+Packed Size = 685514
+Modified = 2026-08-26 04:28:16.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 0
+
+Path = $PLUGINSDIR/downloader/7z.exe
+Size = 
+Packed Size = 219427
+Modified = 2026-08-26 04:28:12.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 685518
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-console-l1-1-0.dll
+Size = 
+Packed Size = 5980
+Modified = 2026-08-26 04:10:30.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 904949
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-console-l1-2-0.dll
+Size = 
+Packed Size = 6012
+Modified = 2026-08-26 04:10:30.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 910933
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-datetime-l1-1-0.dll
+Size = 
+Packed Size = 5837
+Modified = 2026-08-26 04:10:30.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 916949
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-debug-l1-1-0.dll
+Size = 
+Packed Size = 5856
+Modified = 2026-08-26 04:10:30.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 922790
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-errorhandling-l1-1-0.dll
+Size = 
+Packed Size = 5901
+Modified = 2026-08-26 04:10:30.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 928650
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-file-l1-1-0.dll
+Size = 
+Packed Size = 6739
+Modified = 2026-08-26 04:10:30.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 934555
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-file-l1-2-0.dll
+Size = 
+Packed Size = 6029
+Modified = 2026-08-26 04:10:30.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 941298
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-file-l2-1-0.dll
+Size = 
+Packed Size = 5976
+Modified = 2026-08-26 04:10:30.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 947331
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-handle-l1-1-0.dll
+Size = 
+Packed Size = 5878
+Modified = 2026-08-26 04:10:30.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 953311
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-heap-l1-1-0.dll
+Size = 
+Packed Size = 6012
+Modified = 2026-08-26 04:10:30.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 959193
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-interlocked-l1-1-0.dll
+Size = 
+Packed Size = 5966
+Modified = 2026-08-26 04:10:30.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 965209
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-libraryloader-l1-1-0.dll
+Size = 
+Packed Size = 6142
+Modified = 2026-08-26 04:10:30.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 971179
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-localization-l1-2-0.dll
+Size = 
+Packed Size = 6589
+Modified = 2026-08-26 04:10:30.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 977325
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-memory-l1-1-0.dll
+Size = 
+Packed Size = 6009
+Modified = 2026-08-26 04:10:32.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 983918
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-namedpipe-l1-1-0.dll
+Size = 
+Packed Size = 5953
+Modified = 2026-08-26 04:10:32.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 989931
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-processenvironment-l1-1-0.dll
+Size = 
+Packed Size = 6078
+Modified = 2026-08-26 04:10:32.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 995888
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-processthreads-l1-1-0.dll
+Size = 
+Packed Size = 6494
+Modified = 2026-08-26 04:10:32.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1001970
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-processthreads-l1-1-1.dll
+Size = 
+Packed Size = 6031
+Modified = 2026-08-26 04:10:32.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1008468
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-profile-l1-1-0.dll
+Size = 
+Packed Size = 5837
+Modified = 2026-08-26 04:10:32.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1014503
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-rtlsupport-l1-1-0.dll
+Size = 
+Packed Size = 5847
+Modified = 2026-08-26 04:10:32.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1020344
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-string-l1-1-0.dll
+Size = 
+Packed Size = 5911
+Modified = 2026-08-26 04:10:32.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1026195
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-synch-l1-1-0.dll
+Size = 
+Packed Size = 6348
+Modified = 2026-08-26 04:10:32.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1032110
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-synch-l1-2-0.dll
+Size = 
+Packed Size = 6067
+Modified = 2026-08-26 04:10:32.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1038462
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-sysinfo-l1-1-0.dll
+Size = 
+Packed Size = 6116
+Modified = 2026-08-26 04:10:32.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1044533
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-timezone-l1-1-0.dll
+Size = 
+Packed Size = 6012
+Modified = 2026-08-26 04:10:32.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1050653
+
+Path = $PLUGINSDIR/downloader/api-ms-win-core-util-l1-1-0.dll
+Size = 
+Packed Size = 5857
+Modified = 2026-08-26 04:10:34.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1056669
+
+Path = $PLUGINSDIR/downloader/API-MS-Win-core-xstate-l2-1-0.dll
+Size = 
+Packed Size = 5899
+Modified = 2026-08-26 04:10:30.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1062530
+
+Path = $PLUGINSDIR/downloader/api-ms-win-crt-conio-l1-1-0.dll
+Size = 
+Packed Size = 6133
+Modified = 2026-08-26 04:10:34.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1068433
+
+Path = $PLUGINSDIR/downloader/api-ms-win-crt-convert-l1-1-0.dll
+Size = 
+Packed Size = 6790
+Modified = 2026-08-26 04:10:34.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1074570
+
+Path = $PLUGINSDIR/downloader/api-ms-win-crt-environment-l1-1-0.dll
+Size = 
+Packed Size = 5999
+Modified = 2026-08-26 04:10:34.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1081364
+
+Path = $PLUGINSDIR/downloader/api-ms-win-crt-filesystem-l1-1-0.dll
+Size = 
+Packed Size = 6470
+Modified = 2026-08-26 04:10:34.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1087367
+
+Path = $PLUGINSDIR/downloader/api-ms-win-crt-heap-l1-1-0.dll
+Size = 
+Packed Size = 6115
+Modified = 2026-08-26 04:10:34.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1093841
+
+Path = $PLUGINSDIR/downloader/api-ms-win-crt-locale-l1-1-0.dll
+Size = 
+Packed Size = 6093
+Modified = 2026-08-26 04:10:34.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1099960
+
+Path = $PLUGINSDIR/downloader/api-ms-win-crt-math-l1-1-0.dll
+Size = 
+Packed Size = 8290
+Modified = 2026-08-26 04:10:34.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1106057
+
+Path = $PLUGINSDIR/downloader/api-ms-win-crt-multibyte-l1-1-0.dll
+Size = 
+Packed Size = 7613
+Modified = 2026-08-26 04:10:34.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1114351
+
+Path = $PLUGINSDIR/downloader/api-ms-win-crt-private-l1-1-0.dll
+Size = 
+Packed Size = 16516
+Modified = 2026-08-26 04:10:34.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1121968
+
+Path = $PLUGINSDIR/downloader/api-ms-win-crt-process-l1-1-0.dll
+Size = 
+Packed Size = 6135
+Modified = 2026-08-26 04:10:34.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1138488
+
+Path = $PLUGINSDIR/downloader/api-ms-win-crt-runtime-l1-1-0.dll
+Size = 
+Packed Size = 7147
+Modified = 2026-08-26 04:10:34.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1144627
+
+Path = $PLUGINSDIR/downloader/api-ms-win-crt-stdio-l1-1-0.dll
+Size = 
+Packed Size = 7412
+Modified = 2026-08-26 04:10:36.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1151778
+
+Path = $PLUGINSDIR/downloader/api-ms-win-crt-string-l1-1-0.dll
+Size = 
+Packed Size = 7399
+Modified = 2026-08-26 04:10:36.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1159194
+
+Path = $PLUGINSDIR/downloader/api-ms-win-crt-time-l1-1-0.dll
+Size = 
+Packed Size = 6523
+Modified = 2026-08-26 04:10:36.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1166597
+
+Path = $PLUGINSDIR/downloader/api-ms-win-crt-utility-l1-1-0.dll
+Size = 
+Packed Size = 6107
+Modified = 2026-08-26 04:10:36.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1173124
+
+Path = $PLUGINSDIR/downloader/concrt140.dll
+Size = 
+Packed Size = 103840
+Modified = 2026-08-26 04:10:36.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1179235
+
+Path = $PLUGINSDIR/downloader/D3Dcompiler_47.dll
+Size = 
+Packed Size = 1381077
+Modified = 2014-03-11 10:54:32.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 1283079
+
+Path = $PLUGINSDIR/downloader/generic/qtuiotouchplugin.dll
+Size = 
+Packed Size = 38792
+Modified = 2023-09-22 06:36:54.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 2664160
+
+Path = $PLUGINSDIR/downloader/iconengines/qsvgicon.dll
+Size = 
+Packed Size = 26323
+Modified = 2023-09-24 07:20:24.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 2702956
+
+Path = $PLUGINSDIR/downloader/imageformats/qico.dll
+Size = 
+Packed Size = 22460
+Modified = 2023-09-22 06:37:02.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 2729283
+
+Path = $PLUGINSDIR/downloader/imageformats/qsvg.dll
+Size = 
+Packed Size = 19030
+Modified = 2023-09-24 07:20:30.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 2751747
+
+Path = $PLUGINSDIR/downloader/libcrypto-3-x64.dll
+Size = 
+Packed Size = 1823612
+Modified = 2026-08-26 03:08:36.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 2770781
+
+Path = $PLUGINSDIR/downloader/libcurl.dll
+Size = 
+Packed Size = 175701
+Modified = 2026-08-26 03:08:34.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 4594397
+
+Path = $PLUGINSDIR/downloader/libeay32.dll
+Size = 
+Packed Size = 790302
+Modified = 2026-08-26 03:08:36.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 4770102
+
+Path = $PLUGINSDIR/downloader/libssl-3-x64.dll
+Size = 
+Packed Size = 459655
+Modified = 2026-08-26 03:08:36.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 5560408
+
+Path = $PLUGINSDIR/downloader/MSVCP140.dll
+Size = 
+Packed Size = 136115
+Modified = 2026-08-26 04:10:30.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 6020067
+
+Path = $PLUGINSDIR/downloader/msvcp140_1.dll
+Size = 
+Packed Size = 13442
+Modified = 2026-08-26 04:10:36.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 6156186
+
+Path = $PLUGINSDIR/downloader/msvcp140_2.dll
+Size = 
+Packed Size = 73438
+Modified = 2026-08-26 04:10:36.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 6169632
+
+Path = $PLUGINSDIR/downloader/msvcp140_atomic_wait.dll
+Size = 
+Packed Size = 23733
+Modified = 2026-08-26 04:10:36.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 6243074
+
+Path = $PLUGINSDIR/downloader/msvcp140_codecvt_ids.dll
+Size = 
+Packed Size = 12345
+Modified = 2026-08-26 04:10:36.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 6266811
+
+Path = $PLUGINSDIR/downloader/networkinformation/qnetworklistmanager.dll
+Size = 
+Packed Size = 29876
+Modified = 2023-09-22 06:37:10.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 6279160
+
+Path = $PLUGINSDIR/downloader/opengl32sw.dll
+Size = 
+Packed Size = 5475867
+Modified = 2022-11-28 13:04:26.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 6309040
+
+Path = $PLUGINSDIR/downloader/platforms/qwindows.dll
+Size = 
+Packed Size = 297782
+Modified = 2023-09-22 06:37:30.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 11784911
+
+Path = $PLUGINSDIR/downloader/Qt6Core.dll
+Size = 
+Packed Size = 1966839
+Modified = 2023-09-22 06:35:20.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 12082697
+
+Path = $PLUGINSDIR/downloader/Qt6Gui.dll
+Size = 
+Packed Size = 2684013
+Modified = 2023-09-22 06:35:30.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 14049540
+
+Path = $PLUGINSDIR/downloader/Qt6Network.dll
+Size = 
+Packed Size = 471343
+Modified = 2023-09-22 06:35:34.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 16733557
+
+Path = $PLUGINSDIR/downloader/Qt6Qml.dll
+Size = 
+Packed Size = 1365361
+Modified = 2023-09-24 07:56:26.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 17204904
+
+Path = $PLUGINSDIR/downloader/Qt6Svg.dll
+Size = 
+Packed Size = 124123
+Modified = 2023-09-24 07:20:14.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 18570269
+
+Path = $PLUGINSDIR/downloader/Qt6Widgets.dll
+Size = 
+Packed Size = 2135001
+Modified = 2023-09-22 06:36:00.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 18694396
+
+Path = $PLUGINSDIR/downloader/ssleay32.dll
+Size = 
+Packed Size = 138167
+Modified = 2026-08-26 03:08:36.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 20829401
+
+Path = $PLUGINSDIR/downloader/styles/qwindowsvistastyle.dll
+Size = 
+Packed Size = 60891
+Modified = 2023-09-22 06:37:46.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 20967572
+
+Path = $PLUGINSDIR/downloader/tls/qcertonlybackend.dll
+Size = 
+Packed Size = 39514
+Modified = 2023-09-22 06:37:50.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 21028467
+
+Path = $PLUGINSDIR/downloader/tls/qopensslbackend.dll
+Size = 
+Packed Size = 98074
+Modified = 2023-09-22 06:37:56.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 21067985
+
+Path = $PLUGINSDIR/downloader/tls/qschannelbackend.dll
+Size = 
+Packed Size = 78579
+Modified = 2023-09-22 06:38:00.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 21166063
+
+Path = $PLUGINSDIR/downloader/ucrtbase.dll
+Size = 
+Packed Size = 429461
+Modified = 2026-08-26 04:10:36.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 21244646
+
+Path = $PLUGINSDIR/downloader/UPDFSetup.exe
+Size = 
+Packed Size = 346018
+Modified = 2026-08-26 04:28:04.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 21674111
+
+Path = $PLUGINSDIR/downloader/updfvpcleanup.exe
+Size = 
+Packed Size = 375417
+Modified = 2026-08-26 04:28:08.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 22020133
+
+Path = $PLUGINSDIR/downloader/utils.dll
+Size = 
+Packed Size = 168733
+Modified = 2026-08-26 04:28:20.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 22395554
+
+Path = $PLUGINSDIR/downloader/vccorlib140.dll
+Size = 
+Packed Size = 78459
+Modified = 2026-08-26 04:10:36.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 22564291
+
+Path = $PLUGINSDIR/downloader/vcruntime140.dll
+Size = 
+Packed Size = 41249
+Modified = 2026-08-26 04:10:36.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 22642754
+
+Path = $PLUGINSDIR/downloader/vcruntime140_1.dll
+Size = 
+Packed Size = 20304
+Modified = 2026-08-26 04:10:38.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 22684007
+
+Path = $PLUGINSDIR/downloader/vcruntime140_threads.dll
+Size = 
+Packed Size = 19011
+Modified = 2026-08-26 04:10:38.0000000
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 22704315
+
+Path = $PLUGINSDIR/nsExec.dll
+Size = 
+Packed Size = 3491
+Modified = 
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 22723330
+
+Path = $PLUGINSDIR/UserInfo.dll
+Size = 
+Packed Size = 1315
+Modified = 
+Attributes = 
+Method = LZMA:23
+Solid = -
+Offset = 22726825
+

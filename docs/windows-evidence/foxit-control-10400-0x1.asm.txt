@@ -1,0 +1,89 @@
+
+/workspace/pdf-reference-analysis/foxit/Foxit PDF Reader/FoxitPDFReader.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+016dfb10 <.text+0x12deb10>:
+ 16dfb10:	56                   	push   %esi
+ 16dfb11:	6a 00                	push   $0x0
+ 16dfb13:	8b f1                	mov    %ecx,%esi
+ 16dfb15:	6a 00                	push   $0x0
+ 16dfb17:	68 47 01 00 00       	push   $0x147
+ 16dfb1c:	ff b6 20 02 00 00    	push   0x220(%esi)
+ 16dfb22:	ff 15 5c d2 31 05    	call   *0x531d25c
+ 16dfb28:	85 c0                	test   %eax,%eax
+ 16dfb2a:	75 12                	jne    0x16dfb3e
+ 16dfb2c:	8b 86 98 03 00 00    	mov    0x398(%esi),%eax
+ 16dfb32:	c7 80 cc 00 00 00 00 	movl   $0x0,0xcc(%eax)
+ 16dfb39:	00 00 00 
+ 16dfb3c:	eb 2c                	jmp    0x16dfb6a
+ 16dfb3e:	83 f8 01             	cmp    $0x1,%eax
+ 16dfb41:	75 12                	jne    0x16dfb55
+ 16dfb43:	8b 86 98 03 00 00    	mov    0x398(%esi),%eax
+ 16dfb49:	c7 80 cc 00 00 00 01 	movl   $0x1,0xcc(%eax)
+ 16dfb50:	00 00 00 
+ 16dfb53:	eb 15                	jmp    0x16dfb6a
+ 16dfb55:	83 f8 02             	cmp    $0x2,%eax
+ 16dfb58:	75 10                	jne    0x16dfb6a
+ 16dfb5a:	8b 86 98 03 00 00    	mov    0x398(%esi),%eax
+ 16dfb60:	c7 80 cc 00 00 00 02 	movl   $0x2,0xcc(%eax)
+ 16dfb67:	00 00 00 
+ 16dfb6a:	6a 00                	push   $0x0
+ 16dfb6c:	68 d8 0b cc 06       	push   $0x6cc0bd8
+ 16dfb71:	68 84 eb d0 06       	push   $0x6d0eb84
+ 16dfb76:	6a 00                	push   $0x0
+ 16dfb78:	ff b6 94 03 00 00    	push   0x394(%esi)
+ 16dfb7e:	e8 bd 77 48 03       	call   0x4b67340
+ 16dfb83:	83 c4 14             	add    $0x14,%esp
+ 16dfb86:	85 c0                	test   %eax,%eax
+ 16dfb88:	74 08                	je     0x16dfb92
+ 16dfb8a:	8b c8                	mov    %eax,%ecx
+ 16dfb8c:	5e                   	pop    %esi
+ 16dfb8d:	e9 4e 77 f9 ff       	jmp    0x16772e0
+ 16dfb92:	6a 00                	push   $0x0
+ 16dfb94:	68 64 0c cc 06       	push   $0x6cc0c64
+ 16dfb99:	68 84 eb d0 06       	push   $0x6d0eb84
+ 16dfb9e:	6a 00                	push   $0x0
+ 16dfba0:	ff b6 94 03 00 00    	push   0x394(%esi)
+ 16dfba6:	e8 95 77 48 03       	call   0x4b67340
+ 16dfbab:	83 c4 14             	add    $0x14,%esp
+ 16dfbae:	85 c0                	test   %eax,%eax
+ 16dfbb0:	74 09                	je     0x16dfbbb
+ 16dfbb2:	6a 00                	push   $0x0
+ 16dfbb4:	8b c8                	mov    %eax,%ecx
+ 16dfbb6:	e8 15 00 fb ff       	call   0x168fbd0
+ 16dfbbb:	5e                   	pop    %esi
+ 16dfbbc:	c3                   	ret
+ 16dfbbd:	cc                   	int3
+ 16dfbbe:	cc                   	int3
+ 16dfbbf:	cc                   	int3
+ 16dfbc0:	55                   	push   %ebp
+ 16dfbc1:	8b ec                	mov    %esp,%ebp
+ 16dfbc3:	8b 45 08             	mov    0x8(%ebp),%eax
+ 16dfbc6:	56                   	push   %esi
+ 16dfbc7:	8b f1                	mov    %ecx,%esi
+ 16dfbc9:	81 78 04 00 01 00 00 	cmpl   $0x100,0x4(%eax)
+ 16dfbd0:	75 79                	jne    0x16dfc4b
+ 16dfbd2:	8b 48 08             	mov    0x8(%eax),%ecx
+ 16dfbd5:	83 f9 1b             	cmp    $0x1b,%ecx
+ 16dfbd8:	75 62                	jne    0x16dfc3c
+ 16dfbda:	6a 00                	push   $0x0
+ 16dfbdc:	68 d8 0b cc 06       	push   $0x6cc0bd8
+ 16dfbe1:	68 84 eb d0 06       	push   $0x6d0eb84
+ 16dfbe6:	6a 00                	push   $0x0
+ 16dfbe8:	ff b6 94 03 00 00    	push   0x394(%esi)
+ 16dfbee:	e8 4d 77 48 03       	call   0x4b67340
+ 16dfbf3:	83 c4 14             	add    $0x14,%esp
+ 16dfbf6:	85 c0                	test   %eax,%eax
+ 16dfbf8:	74 11                	je     0x16dfc0b
+ 16dfbfa:	8b c8                	mov    %eax,%ecx
+ 16dfbfc:	e8 8f 76 f9 ff       	call   0x1677290
+ 16dfc01:	b8 01 00 00 00       	mov    $0x1,%eax
+ 16dfc06:	5e                   	pop    %esi
+ 16dfc07:	5d                   	pop    %ebp
+ 16dfc08:	c2 04 00             	ret    $0x4
+ 16dfc0b:	6a 00                	push   $0x0
+ 16dfc0d:	68                   	.byte 0x68
+ 16dfc0e:	64                   	fs
+ 16dfc0f:	0c                   	.byte 0xc

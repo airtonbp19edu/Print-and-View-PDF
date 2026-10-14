@@ -1,0 +1,16 @@
+{
+  "installer_sha256": "b6286a07065b0a95c7f7f1543951b444f1d1256bb888af825b49351e75197a00",
+  "installer_size": 22901424,
+  "downloader_sha256": "dc274d1a2af72664f83642cbb831c61194f76136358d3d1ab035dc20a534b494",
+  "downloader_size": 1258032,
+  "extracted_file_count": 83,
+  "full_package_url_strings": [
+    "https://download.updf.cn/updf/basic/win/updf-8000000000-win-full.exe",
+    "https://download.superace.com/updf/basic/win/updf-8000000000-win-full.exe",
+    "https://download.updf.com/updf/basic/win/updf-9000000000-win-full.exe",
+    "https://download.superace.com/updf/basic/win/updf-9000000000-win-full.exe"
+  ],
+  "static_only": true,
+  "signature_verified": false,
+  "reader_payload_present": false
+}

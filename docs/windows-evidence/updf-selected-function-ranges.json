@@ -1,0 +1,32 @@
+[
+  {
+    "name": "PDFTextSearcher_FindNext",
+    "start_va": "0x180220b60",
+    "stop_va": "0x180220be0",
+    "boundary": "next exported address or 4096-byte cap; not a proved function boundary"
+  },
+  {
+    "name": "PDFTextSearcher_FindPrev",
+    "start_va": "0x180220be0",
+    "stop_va": "0x180220c60",
+    "boundary": "next exported address or 4096-byte cap; not a proved function boundary"
+  },
+  {
+    "name": "PDFTextSearcher_GetBounds",
+    "start_va": "0x180220c60",
+    "stop_va": "0x180220ef0",
+    "boundary": "next exported address or 4096-byte cap; not a proved function boundary"
+  },
+  {
+    "name": "PDFTextSearcher_GetCurrentTextPageRotationAndBoundingBox",
+    "start_va": "0x180221300",
+    "stop_va": "0x1802213a0",
+    "boundary": "next exported address or 4096-byte cap; not a proved function boundary"
+  },
+  {
+    "name": "PDFText_SelectAllQuads",
+    "start_va": "0x180238da0",
+    "stop_va": "0x180238ee0",
+    "boundary": "next exported address or 4096-byte cap; not a proved function boundary"
+  }
+]
