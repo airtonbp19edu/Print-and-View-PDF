@@ -1,0 +1,15 @@
+# Configuração do Codex para este projeto (vale quando o projeto está marcado como confiável).
+#
+# REA — Reverse Engineer Anything (https://github.com/morluto/rea), servidor MCP
+# para engenharia reversa de binários, aplicativos e comportamento em execução.
+# Versão fixada para combinar com a skill em .agents/skills/reverse-engineer-anything.
+# Detalhes, atualização e variante para Linux: docs/REA.md
+[mcp_servers.rea]
+# Windows: o npx precisa ser iniciado pelo cmd.exe.
+command = "cmd.exe"
+args = ["/d", "/c", "npx", "-y", "rea-agents@6.7.0", "mcp"]
+# Linux/macOS: troque as duas linhas acima por
+# command = "npx"
+# args = ["-y", "rea-agents@6.7.0", "mcp"]
+startup_timeout_sec = 30
+tool_timeout_sec = 450
