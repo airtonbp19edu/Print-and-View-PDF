@@ -1,0 +1,104 @@
+{
+  "version": "3.4.1",
+  "created_utc": "2026-10-30T16:47:39.532485+00:00",
+  "base_git_commit": "e01c947e63a34887094a1ef7a3f877309a580bdb",
+  "artifacts": {
+    "print-view-pdf_3.4.1_all.deb": {
+      "size_bytes": 399144,
+      "sha256": "314ff46abc57bd960f5641b648e1ccdd1ddb33f208fa15cf16514196cbec0bc8"
+    },
+    "PrintViewPDF-3.4.1-x86_64.flatpak": {
+      "size_bytes": 35282912,
+      "sha256": "7da8257e04643028d49aabea4fc4a17feec4d786984b5fff51b4e4b8e3833a96"
+    }
+  },
+  "checksums_verified": 8,
+  "tests": {
+    "source": {
+      "tests_run": 41,
+      "passed": 40,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 1,
+      "skip_reason": "Windows-specific ownership guard",
+      "seconds": 33.325,
+      "report": "docs/validation/3.4.1/linux-source-3.4.1.json"
+    },
+    "deb_installed": {
+      "tests_run": 41,
+      "passed": 40,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 1,
+      "skip_reason": "Windows-specific ownership guard",
+      "seconds": 52.126,
+      "report": "docs/validation/3.4.1/linux-deb-tests-3.4.1.json"
+    },
+    "flatpak_sandbox": {
+      "tests_run": 41,
+      "passed": 40,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 1,
+      "skip_reason": "Windows-specific ownership guard",
+      "seconds": 66.364,
+      "report": "docs/validation/3.4.1/linux-flatpak-sandbox-tests-3.4.1.json"
+    }
+  },
+  "application_files_verified": 83,
+  "flatpak_payload_files_verified": 2973,
+  "sandbox_context_report": "docs/validation/3.4.1/linux-flatpak-sandbox-context-3.4.1.json",
+  "environment": {
+    "os": "Debian GNU/Linux 13.7 x86_64",
+    "python": "3.13.5",
+    "gtk": "3.24.49",
+    "flatpak": "1.16.6",
+    "runtime": "org.freedesktop.Platform/x86_64/25.08",
+    "display": "Xvfb X11",
+    "memory_mib": 3072,
+    "cpus": 2,
+    "hypervisor_backend": "VirtualBox NEM; Snail execution mode recorded"
+  },
+  "packaging_fixes": [
+    "Isolate Debian ELF libraries in /app/lib/print-view-runtime",
+    "Remove global LD_LIBRARY_PATH",
+    "Preserve Python wrapper as sys.executable through loader --argv0",
+    "Bundle matching OpenSSL providers and set OPENSSL_MODULES"
+  ],
+  "initial_candidates": [
+    {
+      "sha256": "d7adcce52fc1acd6135ecb981b400fb212e1d57c20ca8040f2f2ddcc0b6e1a2a",
+      "status": "replaced",
+      "failure": "/bin/sh: undefined symbol: rl_full_quoting_desired",
+      "log": "docs/validation/3.4.1/linux-flatpak-sandbox-initial-failure-3.4.1.log"
+    },
+    {
+      "sha256": "8441f9ea10da0745c67e4b2a63f899320b766c0cc14e53f1198f0b0c8e3a7587",
+      "status": "replaced",
+      "tests_run": 40,
+      "failures": 14,
+      "errors": 2,
+      "skipped": 1,
+      "failure": "Matching OpenSSL legacy provider absent",
+      "report": "docs/validation/3.4.1/linux-flatpak-sandbox-before-crypto-fix-3.4.1.json"
+    }
+  ],
+  "build_scripts_sha256": {
+    "build_deb.py": "8ad5853f7942a2d87ebcadd3fb8d1e85ace7839adb6c3524398b75079971f455",
+    "build_flatpak.py": "ecd41ef4c4789e4b352e984aec7089c923e60624c74adabbe12357b7c425a33e",
+    "preview_preferences.py": "149de1b268c2e614f570aaacc9b3fe30d54ba33aeb99fab850b5a7c57468e684"
+  },
+  "not_validated": [
+    "Physical printing",
+    "Native Wayland/desktop integration",
+    "Other Linux distributions",
+    "Large real-world PDFs",
+    "Windows 3.4.1 installer and Windows full-suite performance",
+    "Other Linuxit preference batches and full Foxit parity"
+  ],
+  "vm_state_at_delivery": "poweroff",
+  "launcher_smoke_report": "docs/validation/3.4.1/linux-launcher-smoke-3.4.1.json",
+  "remote_publication_at_validation": false,
+  "snapshot_phase": "Validation before GitHub publication",
+  "release_url": "https://github.com/airtonbp19edu/Print-and-View-PDF/releases/tag/v3.4.1"
+}

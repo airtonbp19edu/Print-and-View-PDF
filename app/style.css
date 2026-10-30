@@ -243,3 +243,16 @@ textview { background: #fbfbfc; color: #35393e; }
 .ribbon-collapse:hover { background: #f2eff6; }
 .side-panel-close { background: transparent; border: none; box-shadow: none; padding: 1px 3px; }
 .side-panel-close:hover { background: #ececef; }
+
+
+/* Preferences: shared spacing and type; colors inherit from the selected theme. */
+.preferences-window { background-color: #faf9fc; }
+.preferences-title { font-size: 23px; font-weight: 700; color: #352447; }
+.preferences-section-title { font-size: 19px; font-weight: 600; color: #352447; }
+.preferences-description { color: #686473; font-size: 10pt; }
+.preferences-sidebar { background-color: #f0edf5; padding: 12px 4px; }
+.preferences-sidebar row { padding: 12px 14px; border-radius: 6px; margin: 2px 6px; }
+.preferences-sidebar row:selected { background-color: #e3d9ef; color: #4c2876; }
+.preferences-window checkbutton, .preferences-window radiobutton { padding: 5px 0; }
+.preferences-window .dialog-action-area { padding: 12px 20px; }
+.preferences-window button { min-height: 28px; }

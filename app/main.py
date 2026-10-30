@@ -26,6 +26,8 @@ from search_engine import TextSearchIndex
 from page_cache import PageCache
 from themes import load_theme, read_theme, save_theme
 from platform_runtime import worker_python, subprocess_options
+from preferences import PreferencesStore
+from preferences_window import PreferencesWindow
 
 APP_DIR = Path(__file__).resolve().parent
 WORKER = APP_DIR / 'worker_cli.py'
@@ -46,7 +48,14 @@ def load_css():
 class PDFWindow(Gtk.Window):
     def __init__(self, initial_file=None):
         super().__init__(title='Print&View PDF')
-        self.set_default_size(1180, 780)
+        self.preferences_store = PreferencesStore()
+        self.preferences = self.preferences_store.load()
+        self.preferences_dialog = None
+        self._preferences_sync = False
+        self._theme_sync = False
+        ui = self.preferences['interface']
+        self.set_default_size(ui['window_width'] if ui['remember_layout'] else 1180,
+                              ui['window_height'] if ui['remember_layout'] else 780)
         self.set_size_request(760, 500)
         self.set_resizable(True)
         self.set_position(Gtk.WindowPosition.CENTER)
@@ -129,8 +138,70 @@ class PDFWindow(Gtk.Window):
         self._set_actions_enabled(False)
         self.show_all()
         self.find_revealer.set_reveal_child(False)
+        self._apply_preferences(self.preferences, restart_search=False)
         if initial_file:
             GLib.idle_add(lambda: (self.open_document(initial_file), False)[1])
+
+    # ---------- application preferences ----------
+    def _open_preferences(self, *_args):
+        if self.preferences_dialog is None:
+            self.preferences_dialog = PreferencesWindow(self)
+            self.preferences_dialog.show_all()
+        self.preferences_dialog.present()
+
+    def _preview_theme(self, mode):
+        self.theme_mode = 'auto' if mode == 'system' else mode
+        self._theme_sync = True
+        try:
+            self.theme_combo.set_active_id(self.theme_mode)
+            load_theme(self.theme_mode)
+        finally:
+            self._theme_sync = False
+
+    def _apply_preferences(self, values, restart_search=True):
+        self.preferences = values
+        if restart_search and values['interface']['remember_layout']:
+            self.resize(values['interface']['window_width'], values['interface']['window_height'])
+        self._preview_theme(values['appearance'])
+        self._set_sidebar_visible(values['interface']['sidebar_visible'])
+        self.ribbon_collapse_btn.set_active(values['interface']['ribbon_collapsed'])
+        self._toggle_ribbon_stack(self.ribbon_collapse_btn)
+        self._preferences_sync = True
+        try:
+            for key, button in self.find_options.items():
+                button.set_active(values['search'][key])
+            self.find_results_toggle.set_active(values['search']['show_results'])
+            self.find_results_revealer.set_reveal_child(values['search']['show_results'])
+        finally:
+            self._preferences_sync = False
+        if restart_search and self.filepath and self.find_entry.get_text().strip():
+            self._find_changed()
+
+    def _save_search_preferences(self):
+        if self._preferences_sync:
+            return
+        options = {key: button.get_active() for key, button in self.find_options.items()}
+        options['show_results'] = self.find_results_toggle.get_active()
+        try:
+            self.preferences = self.preferences_store.save({'search': options})
+        except OSError as exc:
+            self.status_file.set_text(f'Busca atualizada; não foi possível salvar as opções: {exc}')
+
+    def _find_results_toggled(self, button):
+        if hasattr(self, 'find_results_revealer'):
+            self.find_results_revealer.set_reveal_child(button.get_active())
+        if hasattr(self, 'find_results_toggle'):
+            self._save_search_preferences()
+
+    def _remember_document_preferences(self):
+        if self.filepath and self.page_count:
+            try:
+                self.preferences_store.remember_document(self.filepath, {
+                    'page': self.page, 'rotation': self.rotation,
+                    'zoom_mode': self.zoom_mode, 'zoom_percent': self.zoom_percent,
+                })
+            except OSError as exc:
+                self.status_file.set_text(f'Não foi possível lembrar a leitura: {exc}')
 
     # ---------- Compact document shell ----------
     def _command_button(self, icon, label, callback, tooltip=None, compact=True):
@@ -236,6 +307,11 @@ class PDFWindow(Gtk.Window):
             self.theme_combo.append(key, label)
         self.theme_combo.set_active_id(self.theme_mode)
         self.theme_combo.connect('changed', self._theme_changed)
+        self.preferences_button = Gtk.Button.new_from_icon_name('preferences-system-symbolic', Gtk.IconSize.BUTTON)
+        self.preferences_button.set_tooltip_text('Preferências (Ctrl+,)')
+        self.preferences_button.set_relief(Gtk.ReliefStyle.NONE)
+        self.preferences_button.connect('clicked', self._open_preferences)
+        quick.pack_end(self.preferences_button, False, False, 4)
         quick.pack_end(self.theme_combo, False, False, 4)
         shell.pack_start(quick, False, False, 0)
 
@@ -250,6 +326,7 @@ class PDFWindow(Gtk.Window):
                 for text, callback in (
                     ('Abrir PDF…', self._choose_open), ('Salvar cópia…', self._save_copy),
                     ('Imprimir…', self._print), ('Propriedades do documento', self._properties),
+                    ('Preferências…', self._open_preferences),
                     ('Fechar PDF', self._close_document)):
                     item = Gtk.MenuItem(label=text)
                     # Defer so the popup menu releases its grab before any modal
@@ -454,7 +531,7 @@ class PDFWindow(Gtk.Window):
             self.find_options[key] = button
         container.pack_start(options, False, False, 0)
         self.find_results_toggle = Gtk.ToggleButton(label='Resultados')
-        self.find_results_toggle.connect('toggled', lambda b: self.find_results_revealer.set_reveal_child(b.get_active()))
+        self.find_results_toggle.connect('toggled', self._find_results_toggled)
         options.pack_start(self.find_results_toggle, False, False, 0)
         self.find_results_revealer = Gtk.Revealer()
         self.find_results_scroll = Gtk.ScrolledWindow()
@@ -487,7 +564,8 @@ class PDFWindow(Gtk.Window):
         btn.set_image(Gtk.Image.new_from_icon_name(icon, Gtk.IconSize.BUTTON))
         btn.set_tooltip_text(tooltip)
         btn.get_style_context().add_class('sidebar-rail-button')
-        btn.connect('clicked', lambda *_: self._show_side_panel(page_index))
+        btn.connect('clicked', lambda *_: None if getattr(self, '_sidebar_sync', False)
+                    else self._show_side_panel(page_index))
         self.sidebar_rail_buttons.append(btn)
         return btn
 
@@ -519,11 +597,20 @@ class PDFWindow(Gtk.Window):
                 self.body_paned.set_position(0)
             self.sidebar_container.set_no_show_all(True)
             self.sidebar_container.hide()
-            for btn in getattr(self, 'sidebar_rail_buttons', []):
-                btn.set_active(False)
+            self._sync_sidebar_buttons(None)
         # Fit modes depend on available viewport width.
         if self.filepath and self.zoom_mode != 'percent':
             GLib.idle_add(lambda: (self.request_render(), False)[1])
+
+    def _sync_sidebar_buttons(self, index):
+        # GTK ToggleButton.set_active can emit clicked. Programmatic selection
+        # must not recursively toggle the entire sidebar again.
+        self._sidebar_sync = True
+        try:
+            for position, button in enumerate(getattr(self, 'sidebar_rail_buttons', [])):
+                button.set_active(position == index)
+        finally:
+            self._sidebar_sync = False
 
     def _show_side_panel(self, index):
         if not hasattr(self, 'sidebar_notebook'):
@@ -534,8 +621,7 @@ class PDFWindow(Gtk.Window):
             return
         self.sidebar_notebook.set_current_page(index)
         self._set_sidebar_visible(True)
-        for i, btn in enumerate(getattr(self, 'sidebar_rail_buttons', [])):
-            btn.set_active(i == index)
+        self._sync_sidebar_buttons(index)
 
     def _build_body(self):
         self.body_paned = Gtk.Paned(orientation=Gtk.Orientation.HORIZONTAL)
@@ -692,7 +778,13 @@ class PDFWindow(Gtk.Window):
         def ok(info):
             if self.filepath != path: return
             self.page_count = int(info['pages']); self.page_sizes = [tuple(x) for x in info['sizes']]; self.metadata = info.get('metadata', {})
-            self.page = 0; self.rotation = 0; self.zoom_mode = 'fit-width'; self.zoom_percent = 100
+            reading = self.preferences_store.load()['reading']
+            remembered = self.preferences_store.document_state(path)
+            self.page = 0
+            self.rotation = remembered['rotation'] if remembered else 0
+            self.zoom_mode = remembered['zoom_mode'] if remembered else reading['zoom_mode']
+            self.zoom_percent = remembered['zoom_percent'] if remembered else reading['zoom_percent']
+            initial_page = min(remembered['page'], max(0, self.page_count - 1)) if remembered else 0
             self.status_file.set_text(Path(path).name)
             self.set_title(f'{Path(path).name} — Print&View PDF')
             self.document_tab_label.set_text(Path(path).name)
@@ -702,7 +794,7 @@ class PDFWindow(Gtk.Window):
             self._set_actions_enabled(True)
             self._start_thumb_build()
             self._load_side_panels()
-            self.goto_page(0, force=True)
+            self.goto_page(initial_page, force=True)
         self.runner.submit('document-info', task, ok, lambda e: self._load_failed(path, e))
 
     def _load_failed(self, path, exc):
@@ -710,6 +802,7 @@ class PDFWindow(Gtk.Window):
             self._clear_document_state(); self._error(str(exc))
 
     def _clear_document_state(self):
+        self._remember_document_preferences()
         self._render_request_key = None
         self._render_pending = False
         self.render_runner.invalidate('main-render')
@@ -848,6 +941,8 @@ class PDFWindow(Gtk.Window):
                 self.prefetch_tasks.pop(key).cancel()
 
     def _theme_changed(self, combo):
+        if self._theme_sync:
+            return
         self.theme_mode = combo.get_active_id() or 'auto'
         load_theme(self.theme_mode)
         try: save_theme(self.theme_mode)
@@ -1385,6 +1480,10 @@ class PDFWindow(Gtk.Window):
         self.find_revealer.set_reveal_child(True); self.find_entry.grab_focus(); self.find_entry.select_region(0, -1)
 
     def _find_changed(self, *_args):
+        if self._preferences_sync:
+            return
+        if _args and isinstance(_args[0], Gtk.CheckButton):
+            self._save_search_preferences()
         self.search_cancel.set()
         self.search_running = False
         self.runner.invalidate('search')
@@ -1550,6 +1649,7 @@ class PDFWindow(Gtk.Window):
     # ---------- keyboard ----------
     def _on_key(self, _w, event):
         key = Gdk.keyval_name(event.keyval) or ''; ctrl = bool(event.state & Gdk.ModifierType.CONTROL_MASK)
+        if ctrl and key == 'comma': self._open_preferences(); return True
         if ctrl and key.lower() == 'o': self._choose_open(); return True
         if ctrl and key.lower() == 'p': self._print(); return True
         if ctrl and key.lower() == 'f': self._show_find(); return True
@@ -1575,6 +1675,25 @@ class PDFWindow(Gtk.Window):
         dlg.format_secondary_text(str(text)); dlg.run(); dlg.destroy()
 
     def _on_destroy(self, *_args):
+        if self.preferences_dialog is not None:
+            self.preferences_dialog.destroy()
+        self._remember_document_preferences()
+        if self.preferences_store.load()['interface']['remember_layout']:
+            width, height = self.get_size()
+            try:
+                self.preferences_store.save({'interface': {
+                    'window_width': max(760, min(3840, width)),
+                    'window_height': max(500, min(2160, height)),
+                    'sidebar_visible': self.sidebar_visible,
+                    'ribbon_collapsed': self.ribbon_collapsed,
+                }})
+            except OSError:
+                pass
+        for name in ('search_timer', 'resize_timer', 'zoom_slider_timer'):
+            timer = getattr(self, name, None)
+            if timer:
+                GLib.source_remove(timer)
+                setattr(self, name, None)
         self.search_cancel.set()
         self.render_runner.shutdown(); self.prefetch_runner.shutdown()
         self.runner.shutdown()
@@ -1586,6 +1705,10 @@ class PDFWindow(Gtk.Window):
 def _cleanup_stale_render_caches():
     """Remove only old, privately owned Winux temporary render directories."""
     import time
+    # Ownership cannot be established by POSIX uid on native Windows.
+    # Keep old caches untouched there; the active session still cleans its own.
+    if not hasattr(os, 'getuid'):
+        return
     tmp = Path(tempfile.gettempdir())
     try:
         for candidate in tmp.glob('print-view-pdf-cache-*'):

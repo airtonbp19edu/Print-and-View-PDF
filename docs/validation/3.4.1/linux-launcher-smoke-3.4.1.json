@@ -1,0 +1,23 @@
+{
+  "deb": {
+    "command": [
+      "/usr/bin/print-view-pdf"
+    ],
+    "alive_after_5_seconds": true,
+    "startup_errors": [],
+    "controlled_shutdown": true,
+    "passed": true
+  },
+  "flatpak": {
+    "command": [
+      "flatpak",
+      "run",
+      "--user",
+      "io.github.airtonbp19edu.PrintViewPDF"
+    ],
+    "alive_after_5_seconds": true,
+    "startup_errors": [],
+    "controlled_shutdown": true,
+    "passed": true
+  }
+}

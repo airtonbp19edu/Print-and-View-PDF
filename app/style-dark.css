@@ -55,3 +55,10 @@ textview, textview text { background: #292d36; color: #eef0f4; }
 .presentation-toolbar button, .presentation-toolbar combobox button {
     background: #373737; color: #ffffff; border-color: #606060;
 }
+
+.preferences-window { background-color: #252329; }
+.preferences-window .preferences-title,
+.preferences-window .preferences-section-title { color: #f0e9f7; }
+.preferences-window .preferences-description { color: #c2bacb; }
+.preferences-window .preferences-sidebar { background-color: #201e24; }
+.preferences-window .preferences-sidebar row:selected { background-color: #4b365e; color: #f3eafa; }

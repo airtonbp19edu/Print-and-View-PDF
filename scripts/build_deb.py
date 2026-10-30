@@ -32,7 +32,8 @@ def build():
                     ROOT / 'docs/ANALISE.md', ROOT / 'docs/PROVENIENCIA.md',
                     ROOT / 'docs/TESTAR-3.3.7.md', ROOT / 'docs/TESTAR-TEST2.md',
                     ROOT / 'docs/ENGENHARIA-REVERSA-FOXIT-UPDF.md',
-                    ROOT / 'docs/ENTREGA-3.4.0.md'):
+                    ROOT / 'docs/ENTREGA-3.4.0.md', ROOT / 'docs/ENTREGA-3.4.1-LINUX.md',
+                    ROOT / 'docs/PREFERENCIAS-PRIMEIRA-IMPLEMENTACAO.md'):
             shutil.copy2(src, doc)
         control = stage / 'DEBIAN'; control.mkdir()
         (control / 'control').write_text(

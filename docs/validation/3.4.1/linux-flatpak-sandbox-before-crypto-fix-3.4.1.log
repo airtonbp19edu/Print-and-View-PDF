@@ -1,0 +1,251 @@
+dbus-daemon[10117]: [session uid=1000 pid=10117 pidfd=5] Activating service name='org.freedesktop.Flatpak' requested by ':1.0' (uid=1000 pid=10118 comm="flatpak run --user --command=print-view-python io.")
+dbus-daemon[10117]: [session uid=1000 pid=10117 pidfd=5] Successfully activated service 'org.freedesktop.Flatpak'
+
+(preview_preferences.py:2): dbind-WARNING **: 16:34:52.061: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: org.freedesktop.DBus.Error.ServiceUnknown
+test_consolidation (unittest.loader._FailedTest.test_consolidation) ... ERROR
+test_booklet_preview_sides_binding_and_submit (test_gui.GUIRegressionTests.test_booklet_preview_sides_binding_and_submit) ... FAIL
+test_search_navigation_selection_and_rotation (test_gui.GUIRegressionTests.test_search_navigation_selection_and_rotation) ... FAIL
+test_search_results_arrive_before_end_and_options_cancel_old_query (test_gui.GUIRegressionTests.test_search_results_arrive_before_end_and_options_cancel_old_query) ... FAIL
+test_search_sidebar_scroll_and_all_booklet_faces (test_gui.GUIRegressionTests.test_search_sidebar_scroll_and_all_booklet_faces) ... FAIL
+test_apply_merges_document_state_saved_after_draft_was_opened (test_preferences.PreferencesTests.test_apply_merges_document_state_saved_after_draft_was_opened) ... ok
+test_atomic_write_failure_preserves_last_saved_file (test_preferences.PreferencesTests.test_atomic_write_failure_preserves_last_saved_file) ... ok
+test_document_memory_is_opt_in_and_bounded (test_preferences.PreferencesTests.test_document_memory_is_opt_in_and_bounded) ... ok
+test_document_state_is_separate_and_invalidated_after_file_changes (test_preferences.PreferencesTests.test_document_state_is_separate_and_invalidated_after_file_changes) ... ok
+test_draft_cancel_reset_and_apply_baseline (test_preferences.PreferencesTests.test_draft_cancel_reset_and_apply_baseline) ... ok
+test_malformed_json_uses_defaults_without_overwriting_on_read (test_preferences.PreferencesTests.test_malformed_json_uses_defaults_without_overwriting_on_read) ... ok
+test_migrates_theme_and_preserves_future_keys (test_preferences.PreferencesTests.test_migrates_theme_and_preserves_future_keys) ... ok
+test_rejects_invalid_types_and_unsafe_ranges (test_preferences.PreferencesTests.test_rejects_invalid_types_and_unsafe_ranges) ... ok
+test_apply_then_cancel_keeps_last_applied_theme_and_search (test_preferences_gui.PreferencesGUITests.test_apply_then_cancel_keeps_last_applied_theme_and_search) ... ok
+test_document_reading_memory_does_not_leak_to_another_file (test_preferences_gui.PreferencesGUITests.test_document_reading_memory_does_not_leak_to_another_file) ... FAIL
+test_preview_cancel_does_not_persist_theme (test_preferences_gui.PreferencesGUITests.test_preview_cancel_does_not_persist_theme) ... ok
+test_section_reset_and_save_error_keep_dialog_open (test_preferences_gui.PreferencesGUITests.test_section_reset_and_save_error_keep_dialog_open) ... ok
+test_toolbar_search_changes_persist_without_requiring_preferences_dialog (test_preferences_gui.PreferencesGUITests.test_toolbar_search_changes_persist_without_requiring_preferences_dialog) ... ok
+test_windows_does_not_cleanup_unverified_temp_cache_owners (test_preferences_gui.PreferencesGUITests.test_windows_does_not_cleanup_unverified_temp_cache_owners) ... skipped 'Windows-specific ownership guard'
+test_booklet_generated_sides_and_binding (test_regressions.CoreRegressionTests.test_booklet_generated_sides_and_binding) ... ok
+test_cache_distinguishes_documents (test_regressions.CoreRegressionTests.test_cache_distinguishes_documents) ... ok
+test_intrinsic_rotation_and_cropbox_match_text_geometry (test_regressions.CoreRegressionTests.test_intrinsic_rotation_and_cropbox_match_text_geometry) ... ok
+test_manual_booklet_sides_are_not_duplex (test_regressions.CoreRegressionTests.test_manual_booklet_sides_are_not_duplex) ... ok
+test_nup_worker_rejects_fractional_count (test_regressions.CoreRegressionTests.test_nup_worker_rejects_fractional_count) ... ok
+test_search_has_individual_occurrence_coordinates (test_regressions.CoreRegressionTests.test_search_has_individual_occurrence_coordinates) ... ok
+test_search_phrases_and_casefold_expansion (test_regressions.CoreRegressionTests.test_search_phrases_and_casefold_expansion) ... ok
+test_worker_prepares_nup_and_poster (test_regressions.CoreRegressionTests.test_worker_prepares_nup_and_poster) ... ERROR
+test_cache_eviction_and_changed_file (test_search.SearchTests.test_cache_eviction_and_changed_file) ... ok
+test_cache_reuse_and_cancellation_progress (test_search.SearchTests.test_cache_reuse_and_cancellation_progress) ... ok
+test_hyphenation_does_not_join_columns (test_search.SearchTests.test_hyphenation_does_not_join_columns) ... ok
+test_options_and_real_pdf (test_search.SearchTests.test_options_and_real_pdf) ... ok
+test_cached_presentation_page_invalidates_old_render (test_viewer.ViewerTests.test_cached_presentation_page_invalidates_old_render) ... FAIL
+test_historical_reading_mode_keeps_top_at_250_percent (test_viewer.ViewerTests.test_historical_reading_mode_keeps_top_at_250_percent) ... FAIL
+test_latest_renderer_skips_obsolete_queue_entries (test_viewer.ViewerTests.test_latest_renderer_skips_obsolete_queue_entries) ... FAIL
+test_prefetched_reader_page_is_immediate (test_viewer.ViewerTests.test_prefetched_reader_page_is_immediate) ... FAIL
+test_presentation_fit_fill_center_and_error (test_viewer.ViewerTests.test_presentation_fit_fill_center_and_error) ... FAIL
+test_presentation_handles_portrait_and_landscape (test_viewer.ViewerTests.test_presentation_handles_portrait_and_landscape) ... FAIL
+test_render_is_not_blocked_by_auxiliary_workers (test_viewer.ViewerTests.test_render_is_not_blocked_by_auxiliary_workers) ... FAIL
+test_repeated_requests_do_not_cancel_same_running_render (test_viewer.ViewerTests.test_repeated_requests_do_not_cancel_same_running_render) ... FAIL
+test_theme_persistence_and_contrast (test_viewer.ViewerTests.test_theme_persistence_and_contrast) ... FAIL
+
+======================================================================
+ERROR: test_consolidation (unittest.loader._FailedTest.test_consolidation)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_consolidation
+Traceback (most recent call last):
+  File "/app/python/lib/python3.13/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/app/python/lib/python3.13/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_consolidation.py", line 9, in <module>
+    from test_regressions import APP
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_regressions.py", line 14, in <module>
+    import imposition
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/app/imposition.py", line 12, in <module>
+    from pypdf import PdfReader, PdfWriter, Transformation  # type: ignore  # noqa: E402
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/share/print-view-pdf/vendor/pypdf/__init__.py", line 11, in <module>
+    from ._crypt_providers import crypt_provider
+  File "/app/share/print-view-pdf/vendor/pypdf/_crypt_providers/__init__.py", line 31, in <module>
+    from pypdf._crypt_providers._cryptography import (
+    ...<9 lines>...
+    )
+  File "/app/share/print-view-pdf/vendor/pypdf/_crypt_providers/_cryptography.py", line 31, in <module>
+    from cryptography.exceptions import UnsupportedAlgorithm
+  File "/app/python/lib/python3.13/site-packages/cryptography/exceptions.py", line 9, in <module>
+    from cryptography.hazmat.bindings._rust import exceptions as rust_exceptions
+RuntimeError: OpenSSL 3.0's legacy provider failed to load. This is a fatal error by default, but cryptography supports running without legacy algorithms by setting the environment variable CRYPTOGRAPHY_OPENSSL_NO_LEGACY. If you did not expect this error, you have likely made a mistake with your OpenSSL configuration.
+
+
+======================================================================
+ERROR: test_worker_prepares_nup_and_poster (test_regressions.CoreRegressionTests.test_worker_prepares_nup_and_poster)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_regressions.py", line 90, in test_worker_prepares_nup_and_poster
+    subprocess.run([sys.executable, str(APP / 'worker_cli.py'), 'prepare', str(self.pdf), str(out)],
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                   input=json.dumps(job), text=True, capture_output=True, check=True)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/python/lib/python3.13/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/app/bin/print-view-python', '${BUILD_ROOT}/.runtime/flatpak-suite/app/worker_cli.py', 'prepare', '/tmp/tmpmvroajup/input.pdf', '/tmp/tmpmvroajup/multiple.pdf']' returned non-zero exit status 1.
+
+======================================================================
+FAIL: test_booklet_preview_sides_binding_and_submit (test_gui.GUIRegressionTests.test_booklet_preview_sides_binding_and_submit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py", line 45, in setUp
+    wait_for(lambda: self.window.page_count == 8 and self.window.current_pixbuf is not None)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py", line 27, in wait_for
+    raise AssertionError('GTK readiness timeout')
+AssertionError: GTK readiness timeout
+
+======================================================================
+FAIL: test_search_navigation_selection_and_rotation (test_gui.GUIRegressionTests.test_search_navigation_selection_and_rotation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py", line 45, in setUp
+    wait_for(lambda: self.window.page_count == 8 and self.window.current_pixbuf is not None)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py", line 27, in wait_for
+    raise AssertionError('GTK readiness timeout')
+AssertionError: GTK readiness timeout
+
+======================================================================
+FAIL: test_search_results_arrive_before_end_and_options_cancel_old_query (test_gui.GUIRegressionTests.test_search_results_arrive_before_end_and_options_cancel_old_query)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py", line 45, in setUp
+    wait_for(lambda: self.window.page_count == 8 and self.window.current_pixbuf is not None)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py", line 27, in wait_for
+    raise AssertionError('GTK readiness timeout')
+AssertionError: GTK readiness timeout
+
+======================================================================
+FAIL: test_search_sidebar_scroll_and_all_booklet_faces (test_gui.GUIRegressionTests.test_search_sidebar_scroll_and_all_booklet_faces)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py", line 45, in setUp
+    wait_for(lambda: self.window.page_count == 8 and self.window.current_pixbuf is not None)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py", line 27, in wait_for
+    raise AssertionError('GTK readiness timeout')
+AssertionError: GTK readiness timeout
+
+======================================================================
+FAIL: test_document_reading_memory_does_not_leak_to_another_file (test_preferences_gui.PreferencesGUITests.test_document_reading_memory_does_not_leak_to_another_file)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_preferences_gui.py", line 118, in test_document_reading_memory_does_not_leak_to_another_file
+    self.assertEqual(self.errors, [])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['Traceback (most recent call last):\n  Fi[1315 chars]on.'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'Traceback (most recent call last):\n  File "/app/share/print-view-pdf/worker_cli.py", line 13, in <module>\n    from imposition import prepare_output\n  File "/app/share/print-view-pdf/imposition.py", line 12, in <module>\n    from pypdf import PdfReader, PdfWriter, Transformation  # type: ignore  # noqa: E402\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/app/share/print-view-pdf/vendor/pypdf/__init__.py", line 11, in <module>\n    from ._crypt_providers import crypt_provider\n  File "/app/share/print-view-pdf/vendor/pypdf/_crypt_providers/__init__.py", line 31, in <module>\n    from pypdf._crypt_providers._cryptography import (\n    ...<9 lines>...\n    )\n  File "/app/share/print-view-pdf/vendor/pypdf/_crypt_providers/_cryptography.py", line 31, in <module>\n    from cryptography.exceptions import UnsupportedAlgorithm\n  File "/app/python/lib/python3.13/site-packages/cryptography/exceptions.py", line 9, in <module>\n    from cryptography.hazmat.bindings._rust import exceptions as rust_exceptions\nRuntimeError: OpenSSL 3.0\'s legacy provider failed to load. This is a fatal error by default, but cryptography supports running without legacy algorithms by setting the environment variable CRYPTOGRAPHY_OPENSSL_NO_LEGACY. If you did not expect this error, you have likely made a mistake with your OpenSSL configuration.'
+
+Diff is 1543 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_cached_presentation_page_invalidates_old_render (test_viewer.ViewerTests.test_cached_presentation_page_invalidates_old_render)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_viewer.py", line 31, in setUp
+    wait_for(lambda: self.w.displayed_page == 0)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py", line 27, in wait_for
+    raise AssertionError('GTK readiness timeout')
+AssertionError: GTK readiness timeout
+
+======================================================================
+FAIL: test_historical_reading_mode_keeps_top_at_250_percent (test_viewer.ViewerTests.test_historical_reading_mode_keeps_top_at_250_percent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_viewer.py", line 31, in setUp
+    wait_for(lambda: self.w.displayed_page == 0)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py", line 27, in wait_for
+    raise AssertionError('GTK readiness timeout')
+AssertionError: GTK readiness timeout
+
+======================================================================
+FAIL: test_latest_renderer_skips_obsolete_queue_entries (test_viewer.ViewerTests.test_latest_renderer_skips_obsolete_queue_entries)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_viewer.py", line 31, in setUp
+    wait_for(lambda: self.w.displayed_page == 0)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py", line 27, in wait_for
+    raise AssertionError('GTK readiness timeout')
+AssertionError: GTK readiness timeout
+
+======================================================================
+FAIL: test_prefetched_reader_page_is_immediate (test_viewer.ViewerTests.test_prefetched_reader_page_is_immediate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_viewer.py", line 31, in setUp
+    wait_for(lambda: self.w.displayed_page == 0)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py", line 27, in wait_for
+    raise AssertionError('GTK readiness timeout')
+AssertionError: GTK readiness timeout
+
+======================================================================
+FAIL: test_presentation_fit_fill_center_and_error (test_viewer.ViewerTests.test_presentation_fit_fill_center_and_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_viewer.py", line 31, in setUp
+    wait_for(lambda: self.w.displayed_page == 0)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py", line 27, in wait_for
+    raise AssertionError('GTK readiness timeout')
+AssertionError: GTK readiness timeout
+
+======================================================================
+FAIL: test_presentation_handles_portrait_and_landscape (test_viewer.ViewerTests.test_presentation_handles_portrait_and_landscape)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_viewer.py", line 31, in setUp
+    wait_for(lambda: self.w.displayed_page == 0)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py", line 27, in wait_for
+    raise AssertionError('GTK readiness timeout')
+AssertionError: GTK readiness timeout
+
+======================================================================
+FAIL: test_render_is_not_blocked_by_auxiliary_workers (test_viewer.ViewerTests.test_render_is_not_blocked_by_auxiliary_workers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_viewer.py", line 31, in setUp
+    wait_for(lambda: self.w.displayed_page == 0)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py", line 27, in wait_for
+    raise AssertionError('GTK readiness timeout')
+AssertionError: GTK readiness timeout
+
+======================================================================
+FAIL: test_repeated_requests_do_not_cancel_same_running_render (test_viewer.ViewerTests.test_repeated_requests_do_not_cancel_same_running_render)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_viewer.py", line 31, in setUp
+    wait_for(lambda: self.w.displayed_page == 0)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py", line 27, in wait_for
+    raise AssertionError('GTK readiness timeout')
+AssertionError: GTK readiness timeout
+
+======================================================================
+FAIL: test_theme_persistence_and_contrast (test_viewer.ViewerTests.test_theme_persistence_and_contrast)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_viewer.py", line 31, in setUp
+    wait_for(lambda: self.w.displayed_page == 0)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py", line 27, in wait_for
+    raise AssertionError('GTK readiness timeout')
+AssertionError: GTK readiness timeout
+
+----------------------------------------------------------------------
+Ran 40 tests in 166.848s
+
+FAILED (failures=14, errors=2, skipped=1)

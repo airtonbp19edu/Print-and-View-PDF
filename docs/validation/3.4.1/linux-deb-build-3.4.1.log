@@ -1,0 +1,2 @@
+dpkg-deb: building package 'print-view-pdf' in '${BUILD_ROOT}/dist/print-view-pdf_3.4.1_all.deb'.
+${BUILD_ROOT}/dist/print-view-pdf_3.4.1_all.deb

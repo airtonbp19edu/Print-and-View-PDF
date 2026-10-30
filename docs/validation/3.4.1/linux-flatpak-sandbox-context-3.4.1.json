@@ -1,0 +1,45 @@
+{
+  "inside_flatpak": true,
+  "version": "3.4.1",
+  "python_executable": "/app/bin/print-view-python",
+  "openssl_modules": "/app/lib/print-view-runtime/ossl-modules",
+  "ld_library_path": null,
+  "flatpak_info": {
+    "Application": {
+      "name": "io.github.airtonbp19edu.PrintViewPDF",
+      "runtime": "runtime/org.freedesktop.Platform/x86_64/25.08"
+    },
+    "Instance": {
+      "instance-id": "3069283300",
+      "instance-path": "${BUILD_USER_HOME}/.var/app/io.github.airtonbp19edu.PrintViewPDF",
+      "app-path": "${BUILD_USER_HOME}/.local/share/flatpak/app/io.github.airtonbp19edu.PrintViewPDF/x86_64/stable/6b05649f011640d572e5ac3581af6e919e771dccbc82b13e88b6e8824a116cbe/files",
+      "app-commit": "6b05649f011640d572e5ac3581af6e919e771dccbc82b13e88b6e8824a116cbe",
+      "runtime-path": "${BUILD_USER_HOME}/.local/share/flatpak/runtime/org.freedesktop.Platform/x86_64/25.08/08713ee4ce58fee0b8ff2f5bb58e511ff2009c4d72209270d2ddd01fb0336a04/files",
+      "runtime-commit": "08713ee4ce58fee0b8ff2f5bb58e511ff2009c4d72209270d2ddd01fb0336a04",
+      "branch": "stable",
+      "arch": "x86_64",
+      "flatpak-version": "1.16.6",
+      "session-bus-proxy": "true",
+      "system-bus-proxy": "true",
+      "extra-args": "--usb-list=;--usb-list=;"
+    },
+    "Context": {
+      "shared": "network;ipc;",
+      "sockets": "wayland;fallback-x11;cups;",
+      "devices": "dri;",
+      "filesystems": "home;"
+    },
+    "Session Bus Policy": {
+      "org.freedesktop.portal.*": "talk"
+    },
+    "Environment": {
+      "alsa_config_path": "/usr/share/alsa/alsa-flatpak.conf",
+      "gi_typelib_path": "/app/lib/girepository-1.0",
+      "gst_plugin_system_path": "/app/lib/gstreamer-1.0:/usr/lib/extensions/gstreamer-1.0:/usr/lib/x86_64-linux-gnu/codecs-extra/lib/gstreamer-1.0:/usr/lib/x86_64-linux-gnu/gstreamer-1.0",
+      "xdg_data_dirs": "/app/share:/usr/share:/usr/share/runtime/share:/run/host/user-share:/run/host/share",
+      "alsa_config_dir": "/usr/share/alsa",
+      "__egl_external_platform_config_dirs": "/etc/egl/egl_external_platform.d:/usr/lib/x86_64-linux-gnu/GL/egl/egl_external_platform.d:/usr/share/egl/egl_external_platform.d",
+      "pythonuserbase": "/var/data/python"
+    }
+  }
+}

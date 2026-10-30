@@ -72,29 +72,48 @@ def build(flatpak, stage, repo, extra):
                    ('libgtk-3.so.0', 'libgdk-3.so.0', 'libatk-1.0.so.0',
                     'libpangocairo-1.0.so.0', 'libgdk_pixbuf-2.0.so.0')]
     probes.extend(dynamic_gui)
+    # OpenSSL providers are loaded with dlopen and therefore do not appear
+    # among libcrypto's ldd dependencies. Preserve the matching legacy provider
+    # used by cryptography/pypdf instead of using the platform's provider.
+    openssl_modules = Path('/usr/lib/x86_64-linux-gnu/ossl-modules')
+    if not (openssl_modules / 'legacy.so').is_file():
+        raise RuntimeError('The matching OpenSSL legacy provider is required.')
+    probes.extend(openssl_modules.glob('*.so'))
     libraries = set(dynamic_gui)
     for probe in probes:
         result = subprocess.run(['ldd', str(probe)], capture_output=True, text=True)
         for path in re.findall(r'(?:=>\s+)?(/[^\s()]+)', result.stdout):
             if Path(path).is_file():
                 libraries.add(Path(path))
+    # Keep the Debian ELF libraries out of Flatpak's global /app/lib search.
+    # The Freedesktop shell must keep using its own libc/readline libraries.
+    private_lib = files / 'lib/print-view-runtime'
+    private_lib.mkdir()
+    shutil.copytree(openssl_modules, private_lib / 'ossl-modules')
     for library in sorted(libraries):
-        shutil.copy2(library, files / 'lib' / library.name)
+        shutil.copy2(library, private_lib / library.name)
     loader = Path('/lib64/ld-linux-x86-64.so.2').resolve()
-    shutil.copy2(loader, files / 'lib/ld-linux-x86-64.so.2')
+    shutil.copy2(loader, private_lib / 'ld-linux-x86-64.so.2')
     for name in binaries:
         wrapper = files / 'bin' / name
         wrapper.write_text('''#!/bin/sh
 base="$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)"
-exec "$base/lib/ld-linux-x86-64.so.2" --library-path "$base/lib" "$base/libexec/''' + name + '''" "$@"
+exec "$base/lib/print-view-runtime/ld-linux-x86-64.so.2" --library-path "$base/lib/print-view-runtime" "$base/libexec/''' + name + '''" "$@"
 ''')
+        if name == 'python3':
+            # CPython exposes argv[0] as sys.executable. Generic subprocesses
+            # must re-enter our wrapper and its matching ELF loader as well.
+            wrapper.write_text(wrapper.read_text().replace(
+                ' "$base/libexec/python3"',
+                ' --argv0 "$base/bin/print-view-python" "$base/libexec/python3"'))
         wrapper.chmod(0o755)
     python = files / 'bin/print-view-python'
     python.write_text('''#!/bin/sh
 base="$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)"
 export PYTHONHOME="$base/python"
 export PYTHONPATH="$base/python/lib/python3.13/site-packages"
-export LD_LIBRARY_PATH="$base/lib"
+unset LD_LIBRARY_PATH
+export OPENSSL_MODULES="$base/lib/print-view-runtime/ossl-modules"
 export GI_TYPELIB_PATH="$base/lib/girepository-1.0"
 export GSETTINGS_SCHEMA_DIR="$base/share/glib-2.0/schemas"
 cache_dir="${XDG_CACHE_HOME:-${TMPDIR:-/tmp}}/print-view-pdf"

@@ -1,0 +1,54 @@
+dbus-daemon[11463]: [session uid=1000 pid=11463 pidfd=5] Activating service name='org.freedesktop.Flatpak' requested by ':1.0' (uid=1000 pid=11464 comm="flatpak run --user --command=print-view-python io.")
+dbus-daemon[11463]: [session uid=1000 pid=11463 pidfd=5] Successfully activated service 'org.freedesktop.Flatpak'
+
+(preview_preferences.py:2): dbind-WARNING **: 16:42:13.701: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: org.freedesktop.DBus.Error.ServiceUnknown
+test_active_process_cancellation (test_consolidation.ConsolidationTests.test_active_process_cancellation) ... ok
+test_fresh_system_theme_initializes_and_migrates_legacy (test_consolidation.ConsolidationTests.test_fresh_system_theme_initializes_and_migrates_legacy) ... 
+(-c:28): dbind-WARNING **: 16:42:17.127: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: org.freedesktop.DBus.Error.ServiceUnknown
+
+(-c:38): dbind-WARNING **: 16:42:18.855: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: org.freedesktop.DBus.Error.ServiceUnknown
+ok
+test_booklet_preview_sides_binding_and_submit (test_gui.GUIRegressionTests.test_booklet_preview_sides_binding_and_submit) ... ok
+test_search_navigation_selection_and_rotation (test_gui.GUIRegressionTests.test_search_navigation_selection_and_rotation) ... ok
+test_search_results_arrive_before_end_and_options_cancel_old_query (test_gui.GUIRegressionTests.test_search_results_arrive_before_end_and_options_cancel_old_query) ... ok
+test_search_sidebar_scroll_and_all_booklet_faces (test_gui.GUIRegressionTests.test_search_sidebar_scroll_and_all_booklet_faces) ... ok
+test_apply_merges_document_state_saved_after_draft_was_opened (test_preferences.PreferencesTests.test_apply_merges_document_state_saved_after_draft_was_opened) ... ok
+test_atomic_write_failure_preserves_last_saved_file (test_preferences.PreferencesTests.test_atomic_write_failure_preserves_last_saved_file) ... ok
+test_document_memory_is_opt_in_and_bounded (test_preferences.PreferencesTests.test_document_memory_is_opt_in_and_bounded) ... ok
+test_document_state_is_separate_and_invalidated_after_file_changes (test_preferences.PreferencesTests.test_document_state_is_separate_and_invalidated_after_file_changes) ... ok
+test_draft_cancel_reset_and_apply_baseline (test_preferences.PreferencesTests.test_draft_cancel_reset_and_apply_baseline) ... ok
+test_malformed_json_uses_defaults_without_overwriting_on_read (test_preferences.PreferencesTests.test_malformed_json_uses_defaults_without_overwriting_on_read) ... ok
+test_migrates_theme_and_preserves_future_keys (test_preferences.PreferencesTests.test_migrates_theme_and_preserves_future_keys) ... ok
+test_rejects_invalid_types_and_unsafe_ranges (test_preferences.PreferencesTests.test_rejects_invalid_types_and_unsafe_ranges) ... ok
+test_apply_then_cancel_keeps_last_applied_theme_and_search (test_preferences_gui.PreferencesGUITests.test_apply_then_cancel_keeps_last_applied_theme_and_search) ... ok
+test_document_reading_memory_does_not_leak_to_another_file (test_preferences_gui.PreferencesGUITests.test_document_reading_memory_does_not_leak_to_another_file) ... ok
+test_preview_cancel_does_not_persist_theme (test_preferences_gui.PreferencesGUITests.test_preview_cancel_does_not_persist_theme) ... ok
+test_section_reset_and_save_error_keep_dialog_open (test_preferences_gui.PreferencesGUITests.test_section_reset_and_save_error_keep_dialog_open) ... ok
+test_toolbar_search_changes_persist_without_requiring_preferences_dialog (test_preferences_gui.PreferencesGUITests.test_toolbar_search_changes_persist_without_requiring_preferences_dialog) ... ok
+test_windows_does_not_cleanup_unverified_temp_cache_owners (test_preferences_gui.PreferencesGUITests.test_windows_does_not_cleanup_unverified_temp_cache_owners) ... skipped 'Windows-specific ownership guard'
+test_booklet_generated_sides_and_binding (test_regressions.CoreRegressionTests.test_booklet_generated_sides_and_binding) ... ok
+test_cache_distinguishes_documents (test_regressions.CoreRegressionTests.test_cache_distinguishes_documents) ... ok
+test_intrinsic_rotation_and_cropbox_match_text_geometry (test_regressions.CoreRegressionTests.test_intrinsic_rotation_and_cropbox_match_text_geometry) ... ok
+test_manual_booklet_sides_are_not_duplex (test_regressions.CoreRegressionTests.test_manual_booklet_sides_are_not_duplex) ... ok
+test_nup_worker_rejects_fractional_count (test_regressions.CoreRegressionTests.test_nup_worker_rejects_fractional_count) ... ok
+test_search_has_individual_occurrence_coordinates (test_regressions.CoreRegressionTests.test_search_has_individual_occurrence_coordinates) ... ok
+test_search_phrases_and_casefold_expansion (test_regressions.CoreRegressionTests.test_search_phrases_and_casefold_expansion) ... ok
+test_worker_prepares_nup_and_poster (test_regressions.CoreRegressionTests.test_worker_prepares_nup_and_poster) ... ok
+test_cache_eviction_and_changed_file (test_search.SearchTests.test_cache_eviction_and_changed_file) ... ok
+test_cache_reuse_and_cancellation_progress (test_search.SearchTests.test_cache_reuse_and_cancellation_progress) ... ok
+test_hyphenation_does_not_join_columns (test_search.SearchTests.test_hyphenation_does_not_join_columns) ... ok
+test_options_and_real_pdf (test_search.SearchTests.test_options_and_real_pdf) ... ok
+test_cached_presentation_page_invalidates_old_render (test_viewer.ViewerTests.test_cached_presentation_page_invalidates_old_render) ... ok
+test_historical_reading_mode_keeps_top_at_250_percent (test_viewer.ViewerTests.test_historical_reading_mode_keeps_top_at_250_percent) ... ok
+test_latest_renderer_skips_obsolete_queue_entries (test_viewer.ViewerTests.test_latest_renderer_skips_obsolete_queue_entries) ... ok
+test_prefetched_reader_page_is_immediate (test_viewer.ViewerTests.test_prefetched_reader_page_is_immediate) ... ok
+test_presentation_fit_fill_center_and_error (test_viewer.ViewerTests.test_presentation_fit_fill_center_and_error) ... ok
+test_presentation_handles_portrait_and_landscape (test_viewer.ViewerTests.test_presentation_handles_portrait_and_landscape) ... ok
+test_render_is_not_blocked_by_auxiliary_workers (test_viewer.ViewerTests.test_render_is_not_blocked_by_auxiliary_workers) ... ok
+test_repeated_requests_do_not_cancel_same_running_render (test_viewer.ViewerTests.test_repeated_requests_do_not_cancel_same_running_render) ... ok
+test_theme_persistence_and_contrast (test_viewer.ViewerTests.test_theme_persistence_and_contrast) ... ok
+
+----------------------------------------------------------------------
+Ran 41 tests in 66.364s
+
+OK (skipped=1)

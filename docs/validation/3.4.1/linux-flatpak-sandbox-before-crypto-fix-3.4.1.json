@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-30",
+  "environment": "linux",
+  "python": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]",
+  "runtime": null,
+  "tests_run": 40,
+  "failures": 14,
+  "errors": 2,
+  "skipped": 1,
+  "passed": false,
+  "failure_details": [
+    {
+      "test": "test_gui.GUIRegressionTests.test_booklet_preview_sides_binding_and_submit",
+      "traceback": "Traceback (most recent call last):\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py\", line 45, in setUp\n    wait_for(lambda: self.window.page_count == 8 and self.window.current_pixbuf is not None)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py\", line 27, in wait_for\n    raise AssertionError('GTK readiness timeout')\nAssertionError: GTK readiness timeout\n"
+    },
+    {
+      "test": "test_gui.GUIRegressionTests.test_search_navigation_selection_and_rotation",
+      "traceback": "Traceback (most recent call last):\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py\", line 45, in setUp\n    wait_for(lambda: self.window.page_count == 8 and self.window.current_pixbuf is not None)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py\", line 27, in wait_for\n    raise AssertionError('GTK readiness timeout')\nAssertionError: GTK readiness timeout\n"
+    },
+    {
+      "test": "test_gui.GUIRegressionTests.test_search_results_arrive_before_end_and_options_cancel_old_query",
+      "traceback": "Traceback (most recent call last):\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py\", line 45, in setUp\n    wait_for(lambda: self.window.page_count == 8 and self.window.current_pixbuf is not None)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py\", line 27, in wait_for\n    raise AssertionError('GTK readiness timeout')\nAssertionError: GTK readiness timeout\n"
+    },
+    {
+      "test": "test_gui.GUIRegressionTests.test_search_sidebar_scroll_and_all_booklet_faces",
+      "traceback": "Traceback (most recent call last):\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py\", line 45, in setUp\n    wait_for(lambda: self.window.page_count == 8 and self.window.current_pixbuf is not None)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py\", line 27, in wait_for\n    raise AssertionError('GTK readiness timeout')\nAssertionError: GTK readiness timeout\n"
+    },
+    {
+      "test": "test_preferences_gui.PreferencesGUITests.test_document_reading_memory_does_not_leak_to_another_file",
+      "traceback": "Traceback (most recent call last):\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_preferences_gui.py\", line 118, in test_document_reading_memory_does_not_leak_to_another_file\n    self.assertEqual(self.errors, [])\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: ['Traceback (most recent call last):\\n  Fi[1315 chars]on.'] != []\n\nFirst list contains 1 additional elements.\nFirst extra element 0:\n'Traceback (most recent call last):\\n  File \"/app/share/print-view-pdf/worker_cli.py\", line 13, in <module>\\n    from imposition import prepare_output\\n  File \"/app/share/print-view-pdf/imposition.py\", line 12, in <module>\\n    from pypdf import PdfReader, PdfWriter, Transformation  # type: ignore  # noqa: E402\\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"/app/share/print-view-pdf/vendor/pypdf/__init__.py\", line 11, in <module>\\n    from ._crypt_providers import crypt_provider\\n  File \"/app/share/print-view-pdf/vendor/pypdf/_crypt_providers/__init__.py\", line 31, in <module>\\n    from pypdf._crypt_providers._cryptography import (\\n    ...<9 lines>...\\n    )\\n  File \"/app/share/print-view-pdf/vendor/pypdf/_crypt_providers/_cryptography.py\", line 31, in <module>\\n    from cryptography.exceptions import UnsupportedAlgorithm\\n  File \"/app/python/lib/python3.13/site-packages/cryptography/exceptions.py\", line 9, in <module>\\n    from cryptography.hazmat.bindings._rust import exceptions as rust_exceptions\\nRuntimeError: OpenSSL 3.0\\'s legacy provider failed to load. This is a fatal error by default, but cryptography supports running without legacy algorithms by setting the environment variable CRYPTOGRAPHY_OPENSSL_NO_LEGACY. If you did not expect this error, you have likely made a mistake with your OpenSSL configuration.'\n\nDiff is 1543 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "test": "test_viewer.ViewerTests.test_cached_presentation_page_invalidates_old_render",
+      "traceback": "Traceback (most recent call last):\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_viewer.py\", line 31, in setUp\n    wait_for(lambda: self.w.displayed_page == 0)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py\", line 27, in wait_for\n    raise AssertionError('GTK readiness timeout')\nAssertionError: GTK readiness timeout\n"
+    },
+    {
+      "test": "test_viewer.ViewerTests.test_historical_reading_mode_keeps_top_at_250_percent",
+      "traceback": "Traceback (most recent call last):\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_viewer.py\", line 31, in setUp\n    wait_for(lambda: self.w.displayed_page == 0)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py\", line 27, in wait_for\n    raise AssertionError('GTK readiness timeout')\nAssertionError: GTK readiness timeout\n"
+    },
+    {
+      "test": "test_viewer.ViewerTests.test_latest_renderer_skips_obsolete_queue_entries",
+      "traceback": "Traceback (most recent call last):\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_viewer.py\", line 31, in setUp\n    wait_for(lambda: self.w.displayed_page == 0)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py\", line 27, in wait_for\n    raise AssertionError('GTK readiness timeout')\nAssertionError: GTK readiness timeout\n"
+    },
+    {
+      "test": "test_viewer.ViewerTests.test_prefetched_reader_page_is_immediate",
+      "traceback": "Traceback (most recent call last):\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_viewer.py\", line 31, in setUp\n    wait_for(lambda: self.w.displayed_page == 0)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py\", line 27, in wait_for\n    raise AssertionError('GTK readiness timeout')\nAssertionError: GTK readiness timeout\n"
+    },
+    {
+      "test": "test_viewer.ViewerTests.test_presentation_fit_fill_center_and_error",
+      "traceback": "Traceback (most recent call last):\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_viewer.py\", line 31, in setUp\n    wait_for(lambda: self.w.displayed_page == 0)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py\", line 27, in wait_for\n    raise AssertionError('GTK readiness timeout')\nAssertionError: GTK readiness timeout\n"
+    },
+    {
+      "test": "test_viewer.ViewerTests.test_presentation_handles_portrait_and_landscape",
+      "traceback": "Traceback (most recent call last):\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_viewer.py\", line 31, in setUp\n    wait_for(lambda: self.w.displayed_page == 0)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py\", line 27, in wait_for\n    raise AssertionError('GTK readiness timeout')\nAssertionError: GTK readiness timeout\n"
+    },
+    {
+      "test": "test_viewer.ViewerTests.test_render_is_not_blocked_by_auxiliary_workers",
+      "traceback": "Traceback (most recent call last):\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_viewer.py\", line 31, in setUp\n    wait_for(lambda: self.w.displayed_page == 0)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py\", line 27, in wait_for\n    raise AssertionError('GTK readiness timeout')\nAssertionError: GTK readiness timeout\n"
+    },
+    {
+      "test": "test_viewer.ViewerTests.test_repeated_requests_do_not_cancel_same_running_render",
+      "traceback": "Traceback (most recent call last):\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_viewer.py\", line 31, in setUp\n    wait_for(lambda: self.w.displayed_page == 0)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py\", line 27, in wait_for\n    raise AssertionError('GTK readiness timeout')\nAssertionError: GTK readiness timeout\n"
+    },
+    {
+      "test": "test_viewer.ViewerTests.test_theme_persistence_and_contrast",
+      "traceback": "Traceback (most recent call last):\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_viewer.py\", line 31, in setUp\n    wait_for(lambda: self.w.displayed_page == 0)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_gui.py\", line 27, in wait_for\n    raise AssertionError('GTK readiness timeout')\nAssertionError: GTK readiness timeout\n"
+    },
+    {
+      "test": "unittest.loader._FailedTest.test_consolidation",
+      "traceback": "ImportError: Failed to import test module: test_consolidation\nTraceback (most recent call last):\n  File \"/app/python/lib/python3.13/unittest/loader.py\", line 396, in _find_test_path\n    module = self._get_module_from_name(name)\n  File \"/app/python/lib/python3.13/unittest/loader.py\", line 339, in _get_module_from_name\n    __import__(name)\n    ~~~~~~~~~~^^^^^^\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_consolidation.py\", line 9, in <module>\n    from test_regressions import APP\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_regressions.py\", line 14, in <module>\n    import imposition\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/app/imposition.py\", line 12, in <module>\n    from pypdf import PdfReader, PdfWriter, Transformation  # type: ignore  # noqa: E402\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/app/share/print-view-pdf/vendor/pypdf/__init__.py\", line 11, in <module>\n    from ._crypt_providers import crypt_provider\n  File \"/app/share/print-view-pdf/vendor/pypdf/_crypt_providers/__init__.py\", line 31, in <module>\n    from pypdf._crypt_providers._cryptography import (\n    ...<9 lines>...\n    )\n  File \"/app/share/print-view-pdf/vendor/pypdf/_crypt_providers/_cryptography.py\", line 31, in <module>\n    from cryptography.exceptions import UnsupportedAlgorithm\n  File \"/app/python/lib/python3.13/site-packages/cryptography/exceptions.py\", line 9, in <module>\n    from cryptography.hazmat.bindings._rust import exceptions as rust_exceptions\nRuntimeError: OpenSSL 3.0's legacy provider failed to load. This is a fatal error by default, but cryptography supports running without legacy algorithms by setting the environment variable CRYPTOGRAPHY_OPENSSL_NO_LEGACY. If you did not expect this error, you have likely made a mistake with your OpenSSL configuration.\n\n"
+    },
+    {
+      "test": "test_regressions.CoreRegressionTests.test_worker_prepares_nup_and_poster",
+      "traceback": "Traceback (most recent call last):\n  File \"${BUILD_ROOT}/.runtime/flatpak-suite/tests/test_regressions.py\", line 90, in test_worker_prepares_nup_and_poster\n    subprocess.run([sys.executable, str(APP / 'worker_cli.py'), 'prepare', str(self.pdf), str(out)],\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                   input=json.dumps(job), text=True, capture_output=True, check=True)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/app/python/lib/python3.13/subprocess.py\", line 577, in run\n    raise CalledProcessError(retcode, process.args,\n                             output=stdout, stderr=stderr)\nsubprocess.CalledProcessError: Command '['/app/bin/print-view-python', '${BUILD_ROOT}/.runtime/flatpak-suite/app/worker_cli.py', 'prepare', '/tmp/tmpmvroajup/input.pdf', '/tmp/tmpmvroajup/multiple.pdf']' returned non-zero exit status 1.\n"
+    }
+  ],
+  "source_sha256": {
+    "appearance.py": "cdf928e59d4020bbdfae84afaaf28f1112efa0101793982eb5f94ca2726d37a8",
+    "async_core.py": "898fc96e24760a8e9fab23834bd4416e4e3e5dcd36cff71642a37f18d68ffefe",
+    "cancel_state.py": "f18724cee137035853f9c8367a0ed1bde2f72fc3b99ca671514eab2de982bb30",
+    "cups_backend.py": "051cd76a1c6c990f5036fc699639c0afb87ecfcfd94129986fff57c932fcd7ae",
+    "imposition.py": "f92951cd6822e9df2beec9db63988d10422ac8c38cbdd081cd21be5ae128913d",
+    "main.py": "dd99519c7168b1c4f331b9fdc9133bb1ba9fb1187aab4ebe2f24234706905d22",
+    "page_cache.py": "2a64157ff63dda54132d0bbdfd13d0743baeeeee345134a5103e4131022808ab",
+    "pdf_dependency.py": "dfa4ddc57d1dc286cdb61568128a84ae8ee22847a4efefd3744ba57952aef8f5",
+    "pdf_panels.py": "f1071ebaeb9667da120becd11f3b2e7d4b1fbf04b8333756b177ff1e3e797114",
+    "platform_runtime.py": "3b8b7d52cddbd6948ab0f49887b9fb5d490c1313c982ad6af22ecaa63399090c",
+    "preferences.py": "3d2bd1d7cc442d8244bc26d2f4e1ac70dace08eb3a5f043454dca31ad2f63e4a",
+    "preferences_window.py": "65e340ecb175eb04e82a5d64821e6ebbf6ad58a65453099f766745c75be0f568",
+    "presentation.py": "223444cd91cca30e0711c62a834033925c4c5eba51e7a0d75f6e0592aab82966",
+    "print_window.py": "0aaa68041bc0ed02e9b847ad579ed16c8dafdde0e845be7fcb769a4f4c36e06a",
+    "rendering.py": "8c1cb2d03c99d9ac894cb40fe3653053ac25f59d7f837e313f2d7b647b769215",
+    "search_engine.py": "62a812f5a8f199059d995beabc458aefbf045095431ecec9e6702c6761908b2e",
+    "themes.py": "b7ad3f6607d65fb1f5248e832fa61b80c342be1788e54bc8407f325a148eee20",
+    "version.py": "6070e91f88c2e14492e7def40f5db876e95cd1d09ce6efddc5fbb6ac2a8ad52e",
+    "windows_bootstrap.py": "397d3124d4d6262833c201b83f62603dce854091119145050790a986fbe4e50f",
+    "windows_print.py": "38f84d3c968fdf2193d0dc720391680552e868a040652ecbb598d56aac6232bd",
+    "worker_cli.py": "25ba4c2c45c6f6514701db2ee35e5c789928ac8519cc0149b6a14292116fdac6"
+  }
+}

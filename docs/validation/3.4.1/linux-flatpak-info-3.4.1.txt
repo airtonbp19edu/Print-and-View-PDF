@@ -1,0 +1,14 @@
+          ID: io.github.airtonbp19edu.PrintViewPDF
+         Ref: app/io.github.airtonbp19edu.PrintViewPDF/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+      Origin: printviewpdf-origin
+  Collection: 
+Installation: user
+   Installed: 145.0 MB
+     Runtime: org.freedesktop.Platform/x86_64/25.08
+         Sdk: org.freedesktop.Sdk/x86_64/25.08
+
+      Commit: 6b05649f011640d572e5ac3581af6e919e771dccbc82b13e88b6e8824a116cbe
+     Subject: Export io.github.airtonbp19edu.PrintViewPDF
+        Date: 2026-10-30 16:39:38 +0000

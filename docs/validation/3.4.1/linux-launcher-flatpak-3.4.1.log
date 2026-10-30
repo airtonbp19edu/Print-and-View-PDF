@@ -1,0 +1,6 @@
+
+(main.py:2): dbind-WARNING **: 16:49:26.948: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: org.freedesktop.DBus.Error.ServiceUnknown
+/app/share/print-view-pdf/main.py:64: DeprecationWarning: Gtk.Window.set_wmclass is deprecated
+  self.set_wmclass('print-view-pdf', 'print-view-pdf')
+/app/share/print-view-pdf/main.py:700: DeprecationWarning: Gtk.ScrolledWindow.add_with_viewport is deprecated
+  self.viewer_scroll.add_with_viewport(self.viewer_box); self.body_paned.pack2(self.viewer_scroll, resize=True, shrink=True)

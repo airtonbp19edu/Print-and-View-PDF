@@ -3,3 +3,19 @@ __pycache__/
 dist/
 .runtime/
 
+
+# Configuração pessoal e resultados locais; preservar fora da publicação.
+/.agents/
+/.codex/
+/AGENTS.md
+/CLAUDE.md
+/docs/REA.md
+/docs/LOCAL-DESENVOLVIMENTO.md
+/relatorios/*
+!/relatorios/README.md
+
+# Novos instaladores são distribuídos em GitHub Releases.
+/packages/*.deb
+/packages/*.flatpak
+/packages/*-Setup-*.exe
+/packages/*_source.tar.gz

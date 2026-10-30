@@ -1,7 +1,5 @@
 """Persistent light/dark/system appearance selection for Print&View PDF (GTK 3)."""
-import json
 import os
-import tempfile
 from pathlib import Path
 
 import gi
@@ -11,55 +9,17 @@ gi.require_version('Gio', '2.0')
 from gi.repository import Gtk, Gdk, Gio
 
 APPEARANCE_OPTIONS = ('system', 'light', 'dark')
-def config_file():
-    root = Path(os.environ.get('XDG_CONFIG_HOME') or Path.home() / '.config')
-    return root / 'print-view-pdf' / 'preferences.json'
+from preferences import PreferencesStore, config_file
 
 
 def read_mode(path=None):
-    path = Path(path) if path is not None else config_file()
-    try:
-        data = json.loads(path.read_text(encoding='utf-8'))
-        mode = data.get('appearance', data.get('theme', 'system'))
-        if mode == 'auto': mode = 'system'
-        return mode if mode in APPEARANCE_OPTIONS else 'system'
-    except (OSError, ValueError, TypeError, AttributeError):
-        legacy = path.parent.parent / 'winux-pdf' / 'settings.json'
-        if legacy != path and legacy.is_file():
-            try:
-                mode = json.loads(legacy.read_text()).get('appearance', 'system')
-                if mode in APPEARANCE_OPTIONS:
-                    save_mode(mode, path)
-                    return mode
-            except (OSError, ValueError, AttributeError):
-                pass
-        return 'system'
+    return PreferencesStore(path).load()['appearance']
 
 
 def save_mode(mode, path=None):
-    """Preserve settings from future versions instead of overwriting the file."""
     if mode not in APPEARANCE_OPTIONS:
         raise ValueError('Invalid appearance mode')
-    path = Path(path) if path is not None else config_file()
-    try:
-        old = json.loads(path.read_text(encoding='utf-8'))
-        if not isinstance(old, dict):
-            old = {}
-    except (OSError, ValueError, TypeError):
-        old = {}
-    old['appearance'] = mode
-    old['theme'] = 'auto' if mode == 'system' else mode
-    path.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
-    os.chmod(path.parent, 0o700)
-    fd, temp = tempfile.mkstemp(prefix='.settings-', suffix='.tmp', dir=path.parent)
-    try:
-        with os.fdopen(fd, 'w', encoding='utf-8') as out:
-            json.dump(old, out, ensure_ascii=False, indent=2)
-            out.write('\n')
-        os.replace(temp, path)
-    finally:
-        try: os.unlink(temp)
-        except FileNotFoundError: pass
+    PreferencesStore(path).save({'appearance': mode})
 
 
 class AppearanceController:

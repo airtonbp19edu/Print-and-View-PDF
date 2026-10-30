@@ -1,94 +1,125 @@
 # Print&View PDF
 
-Print&View PDF é a continuação do Winux PDF: um leitor com busca progressiva,
-apresentação e preparação de impressão em livreto, pôster e várias páginas
-por folha. A versão **3.4.0** consolida os recursos da Winux **3.3.11** com as
-melhorias do Print&View, sem sufixo de teste.
+Leitor de PDFs com busca progressiva, apresentação e preparação de impressão em
+livreto, pôster e várias páginas por folha. É a continuação do Winux PDF.
+
+**Linux atual: 3.4.1** · **Windows disponível: 3.4.0**
+
+[Downloads](https://github.com/airtonbp19edu/Print-and-View-PDF/releases/tag/v3.4.1) · [Instalação](#instalação) · [Documentação](docs/README.md) · [Histórico](CHANGELOG.md) · [Testes e evidências](docs/validation/3.4.1/README.md)
 
 ## Downloads
 
-| Sistema | Pacote |
-|---|---|
-| Debian/Ubuntu | [print-view-pdf_3.4.0_all.deb](packages/print-view-pdf_3.4.0_all.deb) |
-| Linux com Flatpak, x86_64 | [PrintViewPDF-3.4.0-x86_64.flatpak](packages/PrintViewPDF-3.4.0-x86_64.flatpak) |
-| Windows 10/11, x64 | [PrintViewPDF-3.4.0-Setup-x64.exe](packages/PrintViewPDF-3.4.0-Setup-x64.exe) |
+| Sistema | Versão | Download |
+|---|---|---|
+| Debian/Ubuntu | 3.4.1 | [Pacote .deb](https://github.com/airtonbp19edu/Print-and-View-PDF/releases/download/v3.4.1/print-view-pdf_3.4.1_all.deb) |
+| Linux x86_64 com Flatpak | 3.4.1 | [Bundle .flatpak](https://github.com/airtonbp19edu/Print-and-View-PDF/releases/download/v3.4.1/PrintViewPDF-3.4.1-x86_64.flatpak) |
+| Windows 10/11 x64 | 3.4.0 | [Instalador .exe](packages/PrintViewPDF-3.4.0-Setup-x64.exe) |
 
-Confira a integridade em [SHA256SUMS](packages/SHA256SUMS). Os pacotes antigos
-com `~test` permanecem como histórico; use os arquivos **3.4.0** acima.
+Os novos pacotes Linux ficam em **Releases**. O instalador Windows 3.4.0 é anterior
+à central de preferências. Os artefatos antigos foram preservados em
+[packages/](packages/README.md).
 
-## Recursos
-
-- Busca com painel de resultados, trechos de contexto, navegação e rolagem até
-  a ocorrência; opções de caso, palavra inteira, acentos e hifenização.
-- Temas claro, escuro e automático, com preferência persistida e migração da
-  escolha antiga do Winux. O ciclo de notificações do tema automático foi corrigido.
-- Apresentação com página inteira, preenchimento centralizado acima dos controles
-  e opção de leitura a 250% começando no topo; zoom, pan e laser.
-- Renderização JPEG para a tela, cache de vizinhos e cancelamento ativo de pedidos
-  obsoletos. Pedidos idênticos em andamento não são reiniciados por notificações
-  repetidas de tamanho. A apresentação mantém a imagem anterior e mostra falhas.
-- Seleção e cópia por palavras, miniaturas, marcadores, comentários e consulta
-  de camadas; exportação de PNG e salvamento de PDF preparado.
-- Impressão em tamanho, N-up, livreto e pôster. A prévia do livreto permite
-  navegar por todas as faces, respeitando frente/verso e encadernação.
-
-No Linux, a impressão usa CUPS. No Windows, o documento preparado é enviado
-pelo diálogo nativo de impressão; propriedades avançadas dependem do driver.
-O tema escuro afeta a interface, sem inverter as cores das páginas.
-
-## Instalar
-
-Debian/Ubuntu:
+Confira os arquivos Linux com o [SHA256SUMS da release](https://github.com/airtonbp19edu/Print-and-View-PDF/releases/download/v3.4.1/SHA256SUMS):
 
 ```bash
-sudo apt install ./packages/print-view-pdf_3.4.0_all.deb
+sha256sum -c SHA256SUMS
 ```
 
-O pacote substitui `winux-pdf` e instala as dependências do leitor. A associação
-padrão de arquivos PDF não é alterada automaticamente.
+## Novidades da versão Linux 3.4.1
 
-Flatpak:
+- Central de **Aparência, Interface, Leitura e Busca**, pela engrenagem,
+  **Arquivo → Preferências** ou **Ctrl+,**.
+- Prévia de tema com Cancelar, Aplicar, Salvar e fechar e restauração por seção.
+- Padrões de zoom, memória opcional por PDF e persistência das opções de busca.
+- Correções do runtime Flatpak: bibliotecas isoladas, subprocessos Python com o
+  carregador correspondente e provedor OpenSSL incluído.
+
+![Preferências executadas no GTK/Linux](docs/screenshots/linux-preferences-appearance-3.4.1.png)
+
+Veja as [outras seções e o comportamento completo](docs/PREFERENCIAS-PRIMEIRA-IMPLEMENTACAO.md).
+
+## Recursos do leitor
+
+- Navegação, zoom, rotação, miniaturas, marcadores, comentários e consulta de camadas.
+- Busca progressiva com resultados, contexto, navegação e opções de caixa,
+  palavra inteira, acentos e hifenização.
+- Temas claro, escuro e do sistema; a aparência do PDF permanece original.
+- Apresentação com ajuste de página/largura, modo de leitura, pan e laser.
+- Seleção e cópia por palavras; exportação de PNG e salvamento de PDF preparado.
+- Impressão em tamanho, N-up, livreto e pôster, com navegação das faces do livreto.
+
+No Linux, a impressão usa CUPS. No Windows, o documento preparado é enviado ao
+diálogo nativo de impressão; propriedades avançadas dependem do driver.
+
+## Instalação
+
+### Debian/Ubuntu
+
+Depois de baixar o pacote na release:
+
+```bash
+sudo apt install ./print-view-pdf_3.4.1_all.deb
+print-view-pdf
+```
+
+As dependências são instaladas pelo apt. A associação padrão de PDFs não é
+alterada automaticamente.
+
+### Flatpak
 
 ```bash
 flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install --user flathub org.freedesktop.Platform//25.08
-flatpak install --user ./packages/PrintViewPDF-3.4.0-x86_64.flatpak
+flatpak install --user ./PrintViewPDF-3.4.1-x86_64.flatpak
 flatpak run io.github.airtonbp19edu.PrintViewPDF
 ```
 
-O bundle inclui Python, GTK e ferramentas PDF; o runtime base do Freedesktop
-é instalado pelo Flatpak. Ele acessa a pasta pessoal para abrir/salvar PDFs,
-o display e o CUPS/rede para impressão. Isso não é publicação no Flathub.
+O bundle inclui Python, GTK e ferramentas PDF. O runtime Freedesktop é instalado
+pelo Flatpak. O aplicativo acessa a pasta pessoal, o display e CUPS/rede para
+impressão. Esta distribuição é por GitHub Releases; não é publicação no Flathub.
 
-No Windows, execute o instalador `.exe`. Python, GTK e Poppler estão incluídos;
-a instalação é por usuário, sem exigir privilégios de administrador. O
-instalador não possui assinatura Authenticode.
+### Windows
 
-## Desenvolvimento
+Execute o instalador 3.4.0. Python, GTK e Poppler estão incluídos; a instalação
+é por usuário. O instalador não possui assinatura Authenticode. Para avaliar as
+preferências novas a partir da fonte, consulte o [guia de desenvolvimento](docs/DESENVOLVIMENTO.md).
 
-No Debian/Ubuntu, instale Python do sistema, GTK 3, GI/Cairo, Pillow,
-cryptography, Poppler e CUPS client, então execute:
+## Validação e limites
 
-```bash
-bash scripts/run.sh /caminho/documento.pdf
-/usr/bin/python3 -m unittest discover -s tests -v
-/usr/bin/python3 scripts/build_deb.py
-```
+No Debian 13.7 x86_64 foram executados **41 casos por contexto**: fonte,
+Debian instalado e Flatpak instalado **dentro do sandbox real**. Em cada execução:
+**40 aprovados, zero falhas/erros e um caso exclusivo do Windows ignorado**.
+Os lançadores padrão também passaram pelo teste de inicialização.
 
-Os testes gráficos exigem `DISPLAY`. O pypdf **6.20.1** está fixado em
-`app/vendor` com sua licença preservada. Outros formatos são gerados por
-[scripts/build_flatpak.py](scripts/build_flatpak.py) e
-[scripts/build_windows.py](scripts/build_windows.py); consulte
-[empacotamento e validação](docs/ENTREGA-3.4.0.md).
+Os 83 arquivos da aplicação e os 2.973 arquivos do payload Flatpak instalado
+foram conferidos. Consulte o [relatório de entrega](docs/ENTREGA-3.4.1-LINUX.md)
+e as [evidências completas](docs/validation/3.4.1/README.md).
 
-As verificações automatizadas não substituem impressão física nem validação
-com documentos grandes. O conteúdo do Flatpak foi exercitado fora do sandbox;
-a instalação no sandbox requer validação na distribuição de destino. O
-runtime Windows foi exercitado no Wine, sem certificar comportamento em todo
-Windows/driver. Veja os resultados e limites em [ENTREGA-3.4.0](docs/ENTREGA-3.4.0.md).
+Impressão física, Wayland/desktop real, outras distribuições e PDFs grandes
+continuam sem validação nesta entrega. OCR, edição de PDF e seleção precisa por
+caracteres não estão implementados. Não há alegação de equivalência integral
+com Foxit ou UPDF. A regressão Windows completa continua pendente.
 
-A referência é o desenvolvimento próprio do Winux. A
-[análise estática do Foxit e UPDF](docs/ENGENHARIA-REVERSA-FOXIT-UPDF.md) é parcial;
-não há alegação de equivalência completa nem código ou recursos desses leitores
-incorporados à aplicação. A [revisão histórica](docs/REVISAO-HISTORICO-WINUX.md)
-registra a evolução dos 18 pacotes e a origem dos recursos.
+## Código e desenvolvimento
+
+| Pasta | Conteúdo |
+|---|---|
+| [app/](app/) | Aplicação Python/GTK e pypdf vendorizado |
+| [assets/](assets/) | Ícones e integração com o desktop |
+| [scripts/](scripts/) | Execução, prévia e empacotamento |
+| [tests/](tests/) | Persistência, busca, renderização, impressão e interface |
+| [packaging/](packaging/) | Metadados e configuração dos instaladores |
+| [docs/](docs/README.md) | Guias, entregas, evidências e histórico |
+
+Comece pelo [guia de desenvolvimento](docs/DESENVOLVIMENTO.md).
+Contribuições: [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Licenças e histórico
+
+O aplicativo usa a licença [MIT](LICENSE). O pypdf **6.20.1** está fixado em
+app/vendor, com [licença BSD-3-Clause](docs/pypdf-LICENSE.txt).
+As notas das bibliotecas incluídas são preservadas pelos empacotadores.
+
+A [revisão do Winux](docs/REVISAO-HISTORICO-WINUX.md) registra a origem dos
+recursos. A [análise estática de Foxit e UPDF](docs/ENGENHARIA-REVERSA-FOXIT-UPDF.md)
+é parcial; o aplicativo não incorpora código ou recursos desses leitores.
