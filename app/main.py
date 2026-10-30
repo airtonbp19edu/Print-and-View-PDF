@@ -41,13 +41,27 @@ except Exception:
 Gtk.Window.set_default_icon_name('print-view-pdf')
 
 
+_icons_registered = False
+
+
+def register_app_icons():
+    """Make the few icons that Adwaita lacks (fit width, PDF tab) available in any theme."""
+    global _icons_registered
+    if _icons_registered:
+        return
+    _icons_registered = True
+    Gtk.IconTheme.get_default().prepend_search_path(str(APP_DIR / 'icons'))
+
+
 def load_css():
+    register_app_icons()
     load_theme(read_theme())
 
 
 class PDFWindow(Gtk.Window):
     def __init__(self, initial_file=None):
         super().__init__(title='Print&View PDF')
+        register_app_icons()
         self.preferences_store = PreferencesStore()
         self.preferences = self.preferences_store.load()
         self.preferences_dialog = None

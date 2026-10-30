@@ -1,11 +1,12 @@
 # Histórico de versões
 
-## Próxima versão — correções visuais do Flatpak (ainda não lançada)
+## Próxima versão — correções visuais do Linux (ainda não lançada)
 
 - Flatpak: a configuração de fontes passou a incluir a do runtime. Antes, em desktops com muitas fontes, "Sans" caía numa fonte qualquer (por exemplo serifada) e toda a interface mudava de aparência; agora há também DejaVu como reserva.
 - Painel lateral: a largura deixou de ficar fixa em 158 px. Ela nunca é menor que o conteúdo, então a coluna de ícones e o título "Páginas" não saem cortados com fontes mais largas.
-- Testes novos para as duas correções (fontes do Flatpak e layout do painel lateral).
-- Só chega ao usuário depois de gerar e validar um novo pacote Flatpak; o 3.4.1 publicado continua com os dois defeitos.
+- Ícones: o botão "Largura" e o ícone da aba do documento pediam ícones que o tema Adwaita não tem e apareciam como imagem quebrada. Os dois agora vêm no próprio app (`app/icons`), valendo para Flatpak, Debian e Windows.
+- Testes novos para as três correções (fontes do Flatpak, layout do painel lateral e disponibilidade dos ícones).
+- Só chega ao usuário depois de gerar e validar um novo pacote Flatpak; o 3.4.1 publicado continua com os três defeitos.
 
 ## 3.4.1 — Linux — 30/10/2026
 
