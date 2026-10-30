@@ -14,6 +14,32 @@ from version import VERSION
 APP_ID = 'io.github.airtonbp19edu.PrintViewPDF'
 
 
+def fontconfig_xml(bundled='/app/share/fonts', system='/etc/fonts/fonts.conf'):
+    """Fontconfig for the sandbox.
+
+    The runtime's own configuration is included first: it carries the generic
+    family aliases (Sans, sans-serif, serif, monospace), the host font
+    directories and the rendering rules. Without those aliases the GTK default
+    font "Sans" resolves to whatever font sorts first, so on a real desktop the
+    whole interface came out in an arbitrary (often serif) face. The explicit
+    DejaVu aliases below are only a lower-priority fallback for when the runtime
+    configuration is missing or has no match.
+    """
+    fallback = ''.join(
+        f'<alias><family>{generic}</family><accept><family>{face}</family></accept></alias>'
+        for generic, face in (('Sans', 'DejaVu Sans'), ('sans-serif', 'DejaVu Sans'),
+                              ('serif', 'DejaVu Serif'), ('monospace', 'DejaVu Sans Mono')))
+    return ('''<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+<include ignore_missing="yes">''' + system + f'''</include>
+<dir>{bundled}</dir><dir>/usr/share/fonts</dir><dir>/run/host/fonts</dir>
+<cachedir prefix="xdg">fontconfig</cachedir>
+{fallback}
+</fontconfig>
+''')
+
+
 def build(flatpak, stage, repo, extra):
     if stage.exists():
         raise RuntimeError('Use an empty staging location; existing files are preserved.')
@@ -60,11 +86,7 @@ def build(flatpak, stage, repo, extra):
     for icon in (files / 'share/icons/hicolor').rglob('print-view-pdf.png'):
         shutil.copy2(icon, icon.with_name(APP_ID + '.png'))
     (files / 'etc/fonts').mkdir()
-    (files / 'etc/fonts/fonts.conf').write_text('''<?xml version="1.0"?>
-<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
-<fontconfig><dir>/app/share/fonts</dir><dir>/usr/share/fonts</dir><dir>/run/host/fonts</dir>
-<cachedir prefix="xdg">fontconfig</cachedir></fontconfig>
-''')
+    (files / 'etc/fonts/fonts.conf').write_text(fontconfig_xml())
     # All ELF dependencies, including libc, are paired with their own loader.
     # This avoids mixing a newer host-built extension with a different runtime libc.
     probes = list((files / 'libexec').iterdir()) + list(files.rglob('*.so'))
