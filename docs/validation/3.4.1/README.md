@@ -54,3 +54,5 @@ publicação do resumo registra a fase de validação, anterior à publicação.
 Impressão física, desktop/Wayland, outras distribuições, PDFs grandes e
 regressão integral Windows continuam fora da validação declarada. Consulte a
 [entrega](../../ENTREGA-3.4.1-LINUX.md) para o escopo completo.
+
+Os hashes da aplicação correspondem aos arquivos usados no build. Checkouts Git podem normalizar terminações de linha CRLF/LF; essa normalização altera o hash dos arquivos sem alterar seu código. A formatação de saída das ferramentas foi preservada nos logs.

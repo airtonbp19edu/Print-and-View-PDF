@@ -1,0 +1,3 @@
+# Raw diagnostics retain the formatting produced by the test tools.
+docs/validation/**/*.log whitespace=-blank-at-eol
+docs/validation/**/*.txt whitespace=-blank-at-eol
